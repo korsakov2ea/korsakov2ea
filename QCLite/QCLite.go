@@ -5,22 +5,26 @@ import (
 	"log"
 )
 
-var QCDB x_func.TDatabase
+var QCDB x_func.TDatabase //Основная база программы
 
 func main() {
 
+	//общие настройки
 	defer mainDefer()
 	configFile := "config.ini"
 
+	//включение логгирования
 	logFile := x_func.GetExecFilePath() + x_func.GetIniValue(configFile, "Common", "LogFile")
 	x_func.StartLogging(logFile)
 
+	//соединение с основной базой
 	x_func.DBGetIniCfg(configFile, "QCDB", &QCDB)
-	QCDB.DB = x_func.DBOpen(QCDB.Driver, QCDB.DSN)
+	QCDB.DBOpen()
+	QCDB.DBExec("INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY')")
 
 }
 
 func mainDefer() {
-	QCDB.DB.Close()
-	log.Println(x_func.FuncName(), "<<<<<< Завершение работы <<<<<<")
+	QCDB.DBClose()
+	log.Println(x_func.FuncName(), "Завершение работы")
 }

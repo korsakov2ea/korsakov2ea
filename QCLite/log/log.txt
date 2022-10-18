@@ -1,34 +1,107 @@
-2022/10/17 17:19:35 korsakov2ea/x_func.StartLogging >>>>> Начало работы >>>>>
-2022/10/17 17:19:35 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
-2022/10/17 17:19:35 main.mainDefer <<<<<< Завершение работы <<<<<<
-2022/10/17 17:20:32 korsakov2ea/x_func.StartLogging >>>>> Начало работы >>>>>
-2022/10/17 17:20:32 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
-2022/10/17 17:20:32 main.mainDefer <<<<<< Завершение работы <<<<<<
-2022/10/17 17:20:56 korsakov2ea/x_func.StartLogging >>>>> Начало работы >>>>>
-2022/10/17 17:20:56 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
-2022/10/17 17:20:56 main.mainDefer <<<<<< Завершение работы <<<<<<
-2022/10/17 17:21:28 korsakov2ea/x_func.StartLogging >>>>> Начало работы >>>>>
-2022/10/17 17:21:28 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
-2022/10/17 17:21:28 main.mainDefer <<<<<< Завершение работы <<<<<<
-2022/10/17 17:24:25 korsakov2ea/x_func.StartLogging >>>>> Начало работы >>>>>
-2022/10/17 17:24:25 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
-2022/10/17 17:24:25 main.mainDefer <<<<<< Завершение работы <<<<<<
-2022/10/17 17:24:40 korsakov2ea/x_func.StartLogging >>>>> Начало работы >>>>>
-2022/10/17 17:24:40 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
-2022/10/17 17:24:40 main.mainDefer <<<<<< Завершение работы <<<<<<
-2022/10/17 17:24:57 korsakov2ea/x_func.StartLogging >>>>> Начало работы >>>>>
-2022/10/17 17:24:57 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
-2022/10/17 17:25:36 korsakov2ea/x_func.StartLogging >>>>> Начало работы >>>>>
-2022/10/17 17:25:36 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
-2022/10/17 17:28:16 main.mainDefer <<<<<< Завершение работы <<<<<<
-2022/10/17 17:28:28 korsakov2ea/x_func.StartLogging >>>>> Начало работы >>>>>
-2022/10/17 17:28:28 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
-2022/10/17 17:35:40 main.mainDefer <<<<<< Завершение работы <<<<<<
-2022/10/17 17:36:06 korsakov2ea/x_func.StartLogging >>>>> Начало работы >>>>>
-2022/10/17 17:36:06 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
-2022/10/17 17:37:12 main.mainDefer <<<<<< Завершение работы <<<<<<
-2022/10/17 17:37:59 korsakov2ea/x_func.StartLogging >>>>> Начало работы >>>>>
-2022/10/17 17:37:59 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
-2022/10/17 17:38:23 korsakov2ea/x_func.StartLogging >>>>> Начало работы >>>>>
-2022/10/17 17:38:23 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
-2022/10/17 17:38:23 main.mainDefer <<<<<< Завершение работы <<<<<<
+2022/10/18 11:04:24 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:04:24 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:04:24 main.mainDefer Завершение работы
+2022/10/18 11:06:16 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:06:16 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:06:16 korsakov2ea/x_func.DBOpen Уставлено соединение с базой WORK
+2022/10/18 11:06:16 main.mainDefer Завершение работы
+2022/10/18 11:07:18 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:07:18 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:07:18 korsakov2ea/x_func.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:07:18 main.mainDefer Завершение работы
+2022/10/18 11:11:00 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:11:00 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:11:00 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:12:17 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:12:17 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:12:17 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:15:39 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:15:39 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:15:39 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:16:08 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:16:08 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:16:13 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:17:32 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:17:32 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:17:32 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:19:32 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:19:32 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:19:33 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:20:59 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:20:59 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:20:59 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:30:31 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:30:31 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:30:31 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:39:44 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:39:44 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:39:44 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:41:12 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:41:12 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:41:12 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:42:20 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:42:20 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:42:20 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:42:48 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:42:48 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:42:48 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:43:14 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:43:14 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:43:14 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:48:06 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:48:06 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:48:06 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:52:05 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:52:05 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:52:05 korsakov2ea/x_func.TDatabase.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:54:50 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:54:50 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:54:50 korsakov2ea/x_func.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:55:28 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:55:28 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:55:28 korsakov2ea/x_func.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:57:59 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:57:59 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:57:59 korsakov2ea/x_func.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:58:14 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:58:14 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:58:17 korsakov2ea/x_func.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 11:58:53 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 11:58:53 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 11:59:00 korsakov2ea/x_func.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 12:00:09 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 12:00:09 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 12:00:09 korsakov2ea/x_func.DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 12:01:32 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 12:01:32 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 12:01:32 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 12:03:04 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 12:03:04 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 12:03:05 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 12:03:16 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды <nil> {0xc0001be000 0xc000186a90}
+2022/10/18 12:03:16 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто
+2022/10/18 12:03:16 main.mainDefer Завершение работы
+2022/10/18 12:03:53 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 12:03:53 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 12:03:53 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 12:03:56 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY')
+2022/10/18 12:03:56 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто
+2022/10/18 12:03:56 main.mainDefer Завершение работы
+2022/10/18 12:05:31 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 12:05:31 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 12:05:31 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 12:05:31 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') {0xc000118000 0xc0000af560}
+2022/10/18 12:05:31 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто
+2022/10/18 12:05:31 main.mainDefer Завершение работы
+2022/10/18 12:09:05 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 12:09:05 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 12:09:05 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 12:09:05 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') (Изменено строк 1 Последний ID 0 41
+2022/10/18 12:09:05 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто
+2022/10/18 12:09:05 main.mainDefer Завершение работы
+2022/10/18 12:10:29 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 12:10:29 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 12:10:29 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 12:10:29 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 12:10:29 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто
+2022/10/18 12:10:29 main.mainDefer Завершение работы
