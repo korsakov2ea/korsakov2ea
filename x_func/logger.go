@@ -24,6 +24,7 @@ func StartLogging(fileName string) {
 	}
 
 	log.SetOutput(file)
+	log.Println(FuncName(), "-------------------------")
 	log.Println(FuncName(), ">>>>> Начало работы >>>>>")
 	log.Println(FuncName(), "Включено логгирование в файл", fileName)
 
