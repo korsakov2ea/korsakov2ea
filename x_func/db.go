@@ -5,6 +5,7 @@ import (
 	"log"
 
 	_ "github.com/ibmdb/go_ibm_db"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 type TDatabase struct {
@@ -55,10 +56,10 @@ func (database *TDatabase) DBOpen() {
 func (database *TDatabase) DBExec(sqlCode string) {
 	result, err := database.DB.Exec(sqlCode)
 	if err != nil {
-		log.Println(FuncName(), "Ошибка выполнения команды", err)
+		log.Println(FuncName(), "Ошибка выполнения команды", sqlCode, err)
 	} else {
 		rowsAffected, _ := result.RowsAffected()
-		log.Println(FuncName(), "Выполнения команды", sqlCode, ". Изменено строк -", rowsAffected)
+		log.Printf("%v Выполнена команда. (Строк изменено - %d) %v", FuncName(), rowsAffected, sqlCode)
 	}
 }
 
@@ -69,7 +70,7 @@ func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (Slice
 	if err != nil {
 		log.Println(FuncName(), "Ошибка выполнения запроса", err)
 	} else {
-		log.Println(FuncName(), "Выполнения запроса", sqlCode)
+		log.Println(FuncName(), "Выполнение запроса", sqlCode)
 	}
 	return rowsToMap(rows, decode1251toUTF8)
 }

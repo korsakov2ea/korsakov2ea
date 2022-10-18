@@ -346,3 +346,730 @@
 2022/10/18 16:06:24 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
 2022/10/18 16:06:24 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
 2022/10/18 16:06:24 main.mainDefer Завершение работы
+2022/10/18 21:59:08 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 21:59:08 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 21:59:08 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 21:59:08 korsakov2ea/x_func.(*TDatabase).DBOpen Ошибка открытия соединения с базой  на  sql: unknown driver "" (forgotten import?)
+2022/10/18 22:00:02 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:00:02 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:00:02 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:00:02 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:00:02 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды no such table: QC.QUERY
+2022/10/18 22:00:02 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.QUERY
+2022/10/18 22:00:02 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:00:02 main.mainDefer Завершение работы
+2022/10/18 22:04:08 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:04:08 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:04:08 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:04:08 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:04:08 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды no such table: QC.QUERY
+2022/10/18 22:04:08 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.QUERY
+2022/10/18 22:04:08 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:04:08 main.mainDefer Завершение работы
+2022/10/18 22:06:43 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:06:43 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:06:43 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:06:43 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:06:43 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды NOT NULL constraint failed: QUERY.ID
+2022/10/18 22:06:43 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.CONNECTION
+2022/10/18 22:06:43 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:06:43 main.mainDefer Завершение работы
+2022/10/18 22:08:26 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:08:26 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:08:26 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:08:26 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:11:26 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:11:26 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:11:26 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:11:26 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:11:26 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 22:11:26 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.CONNECTION
+2022/10/18 22:11:26 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:11:26 main.mainDefer Завершение работы
+2022/10/18 22:22:11 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:22:11 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:22:11 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:22:11 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:22:11 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды 
+	CREATE TABLE CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		DRIVER VARCHAR(255) NOT NULL
+		DSN  VARCHAR(255) NOT NULL) near "DSN": syntax error
+2022/10/18 22:22:11 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.CONNECTION
+2022/10/18 22:22:11 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:22:11 main.mainDefer Завершение работы
+2022/10/18 22:22:58 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:22:58 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:22:58 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:22:58 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:22:58 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL) . Изменено строк - 0
+2022/10/18 22:22:58 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.CONNECTION
+2022/10/18 22:22:58 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:22:58 main.mainDefer Завершение работы
+2022/10/18 22:28:40 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:28:40 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:28:40 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:28:40 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:28:40 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL);
+	
+	INSERT INTO CONNECTION (DRIVER, DRIVER) VALUES ('sqlite3', SQLite\base\base.ext);
+		 unrecognized token: "\"
+2022/10/18 22:28:40 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.CONNECTION
+2022/10/18 22:28:40 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:28:40 main.mainDefer Завершение работы
+2022/10/18 22:29:01 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:29:01 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:29:01 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:29:01 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:29:01 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL);
+	
+	INSERT INTO CONNECTION (DRIVER, DSN) VALUES ('sqlite3', SQLite\base\base.ext);
+		 unrecognized token: "\"
+2022/10/18 22:29:01 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.CONNECTION
+2022/10/18 22:29:01 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:29:01 main.mainDefer Завершение работы
+2022/10/18 22:29:48 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:29:48 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:29:48 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:29:48 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:29:48 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL);
+	
+	INSERT INTO CONNECTION (DRIVER, DSN) VALUES ('sqlite3', 'SQLite\base\base.ext');
+		 . Изменено строк - 1
+2022/10/18 22:29:48 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.CONNECTION
+2022/10/18 22:29:48 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:29:48 main.mainDefer Завершение работы
+2022/10/18 22:34:45 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:34:45 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:34:45 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:34:45 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:34:45 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды DROP TABLE CONNECTION; . Изменено строк - 0
+2022/10/18 22:34:45 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 22:34:45 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO CONNECTION (DRIVER, DSN) VALUES ('sqlite3', 'SQLiteasease.ext'); . Изменено строк - 1
+2022/10/18 22:34:45 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.CONNECTION
+2022/10/18 22:34:45 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:34:45 main.mainDefer Завершение работы
+2022/10/18 22:38:09 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:38:09 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:38:09 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:38:09 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:38:09 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	DROP TABLE CONNECTION; . Изменено строк - 0
+2022/10/18 22:38:09 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 22:38:09 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO CONNECTION (DRIVER, DSN) VALUES ('sqlite3', 'SQLite\\base\\base.ext'); . Изменено строк - 1
+2022/10/18 22:38:09 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.CONNECTION
+2022/10/18 22:38:09 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:38:09 main.mainDefer Завершение работы
+2022/10/18 22:46:12 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:46:12 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:46:12 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:46:12 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:46:12 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды  
+	DROP TABLE CONNECTION; . Изменено строк - 0
+2022/10/18 22:46:12 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 22:46:12 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.ext'); . Изменено строк - 1
+2022/10/18 22:46:12 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	DROP TABLE QUERY; . Изменено строк - 1
+2022/10/18 22:46:12 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL,
+		QUERY TEXT); . Изменено строк - 1
+2022/10/18 22:46:13 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY) VALUES (1, 'TEST', 'SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1'); . Изменено строк - 1
+2022/10/18 22:46:13 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.CONNECTION
+2022/10/18 22:46:13 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:46:13 main.mainDefer Завершение работы
+2022/10/18 22:50:49 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:50:49 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:50:49 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:50:49 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:50:49 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды  
+	DROP TABLE CONNECTION; no such table: CONNECTION
+2022/10/18 22:50:49 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 22:50:49 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.ext'); . Изменено строк - 1
+2022/10/18 22:50:49 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	DROP TABLE QUERY; . Изменено строк - 1
+2022/10/18 22:50:49 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL,
+		QUERY TEXT); . Изменено строк - 1
+2022/10/18 22:50:49 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY) VALUES (1, 'TEST', 'SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1'); . Изменено строк - 1
+2022/10/18 22:50:49 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QC.CONNECTION
+2022/10/18 22:50:49 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:50:49 main.mainDefer Завершение работы
+2022/10/18 22:54:55 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:54:55 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:54:55 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:54:55 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:54:55 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды  
+	DROP TABLE CONNECTION; . Изменено строк - 0
+2022/10/18 22:54:56 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 22:54:56 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.ext'); . Изменено строк - 1
+2022/10/18 22:54:56 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	DROP TABLE QUERY; . Изменено строк - 1
+2022/10/18 22:54:56 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL,
+		QUERY TEXT); . Изменено строк - 1
+2022/10/18 22:54:56 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY) VALUES (1, 'TEST', 'SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1'); . Изменено строк - 1
+2022/10/18 22:54:56 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 22:54:56 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:54:56 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QUERY
+2022/10/18 22:54:56 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:54:56 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:54:56 main.mainDefer Завершение работы
+2022/10/18 22:57:00 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:57:00 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:57:00 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:57:00 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:57:00 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды  
+	DROP TABLE CONNECTION; . Изменено строк - 0
+2022/10/18 22:57:00 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 22:57:00 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.ext'); . Изменено строк - 1
+2022/10/18 22:57:00 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	DROP TABLE QUERY; . Изменено строк - 1
+2022/10/18 22:57:01 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL,
+		QUERY TEXT); . Изменено строк - 1
+2022/10/18 22:57:01 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY) VALUES (1, 'TEST', 'SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1'); . Изменено строк - 1
+2022/10/18 22:57:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 22:58:02 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:58:02 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QUERY
+2022/10/18 22:58:02 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:58:02 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:58:02 main.mainDefer Завершение работы
+2022/10/18 22:58:19 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 22:58:19 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 22:58:19 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 22:58:19 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:58:19 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды  
+	DROP TABLE CONNECTION; . Изменено строк - 0
+2022/10/18 22:58:19 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 22:58:19 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.ext'); . Изменено строк - 1
+2022/10/18 22:58:19 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	DROP TABLE QUERY; . Изменено строк - 1
+2022/10/18 22:58:19 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL,
+		QUERY TEXT); . Изменено строк - 1
+2022/10/18 22:58:19 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY) VALUES (1, 'TEST', 'SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1'); . Изменено строк - 1
+2022/10/18 22:58:19 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 22:58:19 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 22:58:19 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 22:58:19 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:58:19 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 22:58:19 main.mainDefer Завершение работы
+2022/10/18 23:00:18 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:00:18 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:00:18 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:00:18 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:00:18 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды  
+	DROP TABLE CONNECTION; . Изменено строк - 0
+2022/10/18 23:00:18 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 23:00:18 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.ext'); . Изменено строк - 1
+2022/10/18 23:00:18 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	DROP TABLE QUERY; . Изменено строк - 1
+2022/10/18 23:00:18 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL,
+		QUERY TEXT,
+		REM TEXT); . Изменено строк - 1
+2022/10/18 23:00:18 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос'); . Изменено строк - 1
+2022/10/18 23:00:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:00:18 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:00:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY
+2022/10/18 23:00:18 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:00:18 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:00:18 main.mainDefer Завершение работы
+2022/10/18 23:00:58 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:00:58 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:00:58 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:00:58 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:00:58 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды  
+	DROP TABLE CONNECTION; . Изменено строк - 0
+2022/10/18 23:00:58 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 23:00:58 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.ext'); . Изменено строк - 1
+2022/10/18 23:00:58 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	DROP TABLE QUERY; . Изменено строк - 1
+2022/10/18 23:00:58 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL,
+		QUERY TEXT,
+		REM TEXT); . Изменено строк - 1
+2022/10/18 23:00:58 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос'); . Изменено строк - 1
+2022/10/18 23:00:58 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:00:58 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:00:58 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY
+2022/10/18 23:00:58 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:00:58 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:00:58 main.mainDefer Завершение работы
+2022/10/18 23:03:38 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:03:38 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:03:38 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:03:38 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:03:38 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды  
+	DROP TABLE CONNECTION; . Изменено строк - 0
+2022/10/18 23:03:38 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 23:03:38 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.ext'); . Изменено строк - 1
+2022/10/18 23:03:38 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	DROP TABLE QUERY; . Изменено строк - 1
+2022/10/18 23:03:38 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL UNIQUE,
+		QUERY TEXT,
+		REM TEXT); . Изменено строк - 1
+2022/10/18 23:03:38 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос'); . Изменено строк - 1
+2022/10/18 23:03:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:03:38 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:03:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY
+2022/10/18 23:03:38 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:03:38 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:03:38 main.mainDefer Завершение работы
+2022/10/18 23:12:13 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:12:13 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:12:13 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:12:13 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:12:13 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды  
+	DROP TABLE CONNECTION; no such table: CONNECTION
+2022/10/18 23:12:13 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 23:12:13 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.ext'); . Изменено строк - 1
+2022/10/18 23:12:13 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды 
+	DROP TABLE QUERY; no such table: QUERY
+2022/10/18 23:12:13 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL UNIQUE,
+		QUERY TEXT,
+		REM TEXT); . Изменено строк - 1
+2022/10/18 23:12:13 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос'); . Изменено строк - 1
+2022/10/18 23:12:13 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:12:13 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:12:13 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY
+2022/10/18 23:12:13 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:12:13 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:12:13 main.mainDefer Завершение работы
+2022/10/18 23:15:47 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:15:47 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:15:47 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:15:47 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:15:47 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды  
+	DROP TABLE IF EXISTS CONNECTION; . Изменено строк - 0
+2022/10/18 23:15:47 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 23:15:47 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.ext'); . Изменено строк - 1
+2022/10/18 23:15:47 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды 
+	DROP TABLE F EXISTS QUERY; near "EXISTS": syntax error
+2022/10/18 23:15:47 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL UNIQUE,
+		QUERY TEXT,
+		REM TEXT); . Изменено строк - 1
+2022/10/18 23:15:47 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос'); UNIQUE constraint failed: QUERY.NAME
+2022/10/18 23:15:47 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:15:47 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:15:47 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения запроса no such table: QUERY
+2022/10/18 23:15:47 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:15:47 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:15:47 main.mainDefer Завершение работы
+2022/10/18 23:16:59 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:17:00 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:17:00 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:17:00 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:17:00 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды  
+	DROP TABLE IF EXISTS CONNECTION; . Изменено строк - 0
+2022/10/18 23:17:00 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL); . Изменено строк - 0
+2022/10/18 23:17:00 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.db'); . Изменено строк - 1
+2022/10/18 23:17:00 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды 
+	DROP TABLE F EXISTS QUERY; near "EXISTS": syntax error
+2022/10/18 23:17:00 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL UNIQUE,
+		QUERY TEXT,
+		REM TEXT); . Изменено строк - 1
+2022/10/18 23:17:00 korsakov2ea/x_func.(*TDatabase).DBExec Ошибка выполнения команды 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос'); UNIQUE constraint failed: QUERY.NAME
+2022/10/18 23:17:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:17:00 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:17:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY
+2022/10/18 23:17:00 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:17:00 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:17:00 main.mainDefer Завершение работы
+2022/10/18 23:24:04 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:24:04 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:24:04 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:24:04 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:24:04 korsakov2ea/x_func.(*TDatabase).DBExec%!(EXTRA string=Выполнения команды %v.
+Изменено строк - %d, string= 
+	DROP TABLE IF EXISTS CONNECTION;, int64=0)
+2022/10/18 23:24:04 korsakov2ea/x_func.(*TDatabase).DBExec%!(EXTRA string=Выполнения команды %v.
+Изменено строк - %d, string=
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL);, int64=0)
+2022/10/18 23:24:04 korsakov2ea/x_func.(*TDatabase).DBExec%!(EXTRA string=Выполнения команды %v.
+Изменено строк - %d, string=
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.db');, int64=1)
+2022/10/18 23:24:04 korsakov2ea/x_func.(*TDatabase).DBExec%!(EXTRA string=Выполнения команды %v.
+Изменено строк - %d, string=
+	DROP TABLE IF EXISTS QUERY;, int64=1)
+2022/10/18 23:24:04 korsakov2ea/x_func.(*TDatabase).DBExec%!(EXTRA string=Выполнения команды %v.
+Изменено строк - %d, string=
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL UNIQUE,
+		QUERY TEXT,
+		REM TEXT);, int64=1)
+2022/10/18 23:24:04 korsakov2ea/x_func.(*TDatabase).DBExec%!(EXTRA string=Выполнения команды %v.
+Изменено строк - %d, string=
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос');, int64=1)
+2022/10/18 23:24:04 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:24:04 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:24:04 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY
+2022/10/18 23:24:04 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:24:04 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:24:04 main.mainDefer Завершение работы
+2022/10/18 23:25:53 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:25:53 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:25:53 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:25:53 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:25:53 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды  
+	DROP TABLE IF EXISTS CONNECTION;.
+Изменено строк - 0
+2022/10/18 23:25:53 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL);.
+Изменено строк - 0
+2022/10/18 23:25:53 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.db');.
+Изменено строк - 1
+2022/10/18 23:25:53 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды 
+	DROP TABLE IF EXISTS QUERY;.
+Изменено строк - 1
+2022/10/18 23:25:53 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL UNIQUE,
+		QUERY TEXT,
+		REM TEXT);.
+Изменено строк - 1
+2022/10/18 23:25:53 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос');.
+Изменено строк - 1
+2022/10/18 23:25:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:25:53 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:25:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY
+2022/10/18 23:25:53 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:25:53 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:25:53 main.mainDefer Завершение работы
+2022/10/18 23:27:31 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:27:31 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:27:31 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:27:31 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:27:31 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды. (Изменено строк - %!d(string= 
+	DROP TABLE IF EXISTS CONNECTION;))0
+2022/10/18 23:27:31 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды. (Изменено строк - %!d(string=
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL);))0
+2022/10/18 23:27:31 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды. (Изменено строк - %!d(string=
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.db');))1
+2022/10/18 23:27:31 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды. (Изменено строк - %!d(string=
+	DROP TABLE IF EXISTS QUERY;))1
+2022/10/18 23:27:31 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды. (Изменено строк - %!d(string=
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL UNIQUE,
+		QUERY TEXT,
+		REM TEXT);))1
+2022/10/18 23:27:31 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды. (Изменено строк - %!d(string=
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос');))1
+2022/10/18 23:27:31 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:27:31 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:27:31 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY
+2022/10/18 23:27:31 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:27:31 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:27:31 main.mainDefer Завершение работы
+2022/10/18 23:28:39 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:28:39 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:28:39 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:28:39 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:28:39 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды. (Изменено строк - 0)
+ 
+	DROP TABLE IF EXISTS CONNECTION;
+2022/10/18 23:28:39 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды. (Изменено строк - 0)
+
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL);
+2022/10/18 23:28:39 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды. (Изменено строк - 1)
+
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.db');
+2022/10/18 23:28:39 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды. (Изменено строк - 1)
+
+	DROP TABLE IF EXISTS QUERY;
+2022/10/18 23:28:39 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды. (Изменено строк - 1)
+
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL UNIQUE,
+		QUERY TEXT,
+		REM TEXT);
+2022/10/18 23:28:39 korsakov2ea/x_func.(*TDatabase).DBExec
+Выполнения команды. (Изменено строк - 1)
+
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос');
+2022/10/18 23:28:39 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:28:39 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:28:39 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY
+2022/10/18 23:28:39 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:28:39 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:28:39 main.mainDefer Завершение работы
+2022/10/18 23:29:31 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:29:31 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:29:31 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:29:31 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:29:31 korsakov2ea/x_func.(*TDatabase).DBExecВыполнения команды. (Изменено строк - 0)
+ 
+	DROP TABLE IF EXISTS CONNECTION;
+2022/10/18 23:29:31 korsakov2ea/x_func.(*TDatabase).DBExecВыполнения команды. (Изменено строк - 0)
+
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL);
+2022/10/18 23:29:31 korsakov2ea/x_func.(*TDatabase).DBExecВыполнения команды. (Изменено строк - 1)
+
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.db');
+2022/10/18 23:29:31 korsakov2ea/x_func.(*TDatabase).DBExecВыполнения команды. (Изменено строк - 1)
+
+	DROP TABLE IF EXISTS QUERY;
+2022/10/18 23:29:31 korsakov2ea/x_func.(*TDatabase).DBExecВыполнения команды. (Изменено строк - 1)
+
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL UNIQUE,
+		QUERY TEXT,
+		REM TEXT);
+2022/10/18 23:29:31 korsakov2ea/x_func.(*TDatabase).DBExecВыполнения команды. (Изменено строк - 1)
+
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос');
+2022/10/18 23:29:31 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:29:31 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:29:31 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY
+2022/10/18 23:29:32 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:29:32 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:29:32 main.mainDefer Завершение работы
+2022/10/18 23:31:16 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:31:16 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:31:16 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:31:16 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:31:16 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды. (Строк изменено - 0)  
+	DROP TABLE IF EXISTS CONNECTION;
+2022/10/18 23:31:16 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды. (Строк изменено - 0) 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL);
+2022/10/18 23:31:16 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды. (Строк изменено - 1) 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.db');
+2022/10/18 23:31:16 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды. (Строк изменено - 1) 
+	DROP TABLE IF EXISTS QUERY;
+2022/10/18 23:31:16 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды. (Строк изменено - 1) 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL UNIQUE,
+		QUERY TEXT,
+		REM TEXT);
+2022/10/18 23:31:16 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды. (Строк изменено - 1) 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос');
+2022/10/18 23:31:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:31:16 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:31:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QUERY
+2022/10/18 23:31:16 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:31:16 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:31:16 main.mainDefer Завершение работы
+2022/10/18 23:32:29 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 23:32:29 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 23:32:29 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 23:32:29 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:32:29 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена команды. (Строк изменено - 0)  
+	DROP TABLE IF EXISTS CONNECTION;
+2022/10/18 23:32:29 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена команды. (Строк изменено - 0) 
+	CREATE TABLE IF NOT EXISTS CONNECTION (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		NAME VARCHAR(255) NOT NULL,
+		DRIVER VARCHAR(255) NOT NULL,
+		DSN  VARCHAR(255) NOT NULL);
+2022/10/18 23:32:29 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена команды. (Строк изменено - 1) 
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', 'SQLite\base\base.db');
+2022/10/18 23:32:29 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена команды. (Строк изменено - 1) 
+	DROP TABLE IF EXISTS QUERY;
+2022/10/18 23:32:29 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена команды. (Строк изменено - 1) 
+	CREATE TABLE IF NOT EXISTS QUERY (
+		ID INTEGER PRIMARY KEY AUTOINCREMENT,
+		ID_CONNECTION INTEGER,
+		NAME VARCHAR(255) NOT NULL UNIQUE,
+		QUERY TEXT,
+		REM TEXT);
+2022/10/18 23:32:29 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена команды. (Строк изменено - 1) 
+	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос');
+2022/10/18 23:32:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/10/18 23:32:29 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 23:32:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение запроса SELECT * FROM QUERY
+2022/10/18 23:32:29 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:32:29 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 23:32:29 main.mainDefer Завершение работы
