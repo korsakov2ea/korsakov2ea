@@ -105,3 +105,244 @@
 2022/10/18 12:10:29 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
 2022/10/18 12:10:29 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто
 2022/10/18 12:10:29 main.mainDefer Завершение работы
+2022/10/18 12:19:16 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 12:19:16 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 12:19:16 Считана конфигурация из секции QCDB файла config.ini
+2022/10/18 12:19:16 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 12:19:16 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 12:19:16 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 12:19:16 main.mainDefer Завершение работы
+2022/10/18 12:20:54 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 12:20:54 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 12:20:54 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла config.ini
+2022/10/18 12:20:54 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 12:20:54 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 12:20:54 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 12:20:54 main.mainDefer Завершение работы
+2022/10/18 12:27:53 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 12:27:53 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 12:27:53 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 12:27:53 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 12:27:53 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 12:27:53 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 12:27:53 main.mainDefer Завершение работы
+2022/10/18 13:19:05 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 13:19:05 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 13:19:05 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 13:19:05 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 13:19:05 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 13:19:05 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды SELECT * FROM QC.QUERY . Изменено строк - 4294967295
+2022/10/18 13:19:05 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 13:19:05 main.mainDefer Завершение работы
+2022/10/18 13:19:27 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 13:19:27 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 13:19:27 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 13:19:27 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 13:19:27 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 13:19:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY
+2022/10/18 13:19:27 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 13:19:27 main.mainDefer Завершение работы
+2022/10/18 13:40:13 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 13:40:13 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 13:40:13 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 13:40:13 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 13:40:13 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 13:40:13 korsakov2ea/x_func.(*TDatabase).DBQueryRow Выполнения запроса SELECT * FROM QC.QUERY
+2022/10/18 13:40:13 korsakov2ea/x_func.(*TDatabase).DBQueryRow Выполнения запроса SELECT * FROM QC.QUERY
+2022/10/18 13:40:13 korsakov2ea/x_func.rowsToMap Ошибка преобразования sql.Row в Map sql: Rows are closed
+2022/10/18 13:40:13 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 13:40:13 main.mainDefer Завершение работы
+2022/10/18 13:40:21 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 13:40:21 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 13:40:21 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 13:40:21 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 13:40:21 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 13:40:21 korsakov2ea/x_func.(*TDatabase).DBQueryRow Выполнения запроса SELECT * FROM QC.QUERY
+2022/10/18 13:40:21 korsakov2ea/x_func.(*TDatabase).DBQueryRow Выполнения запроса SELECT * FROM QC.QUERY
+2022/10/18 13:40:21 korsakov2ea/x_func.rowsToMap Ошибка преобразования sql.Row в Map sql: Rows are closed
+2022/10/18 13:40:21 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 13:40:21 main.mainDefer Завершение работы
+2022/10/18 13:40:29 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 13:40:29 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 13:40:29 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 13:40:29 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 13:40:29 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 13:40:29 korsakov2ea/x_func.(*TDatabase).DBQueryRow Выполнения запроса SELECT * FROM QC.QUERY
+2022/10/18 13:40:29 korsakov2ea/x_func.(*TDatabase).DBQueryRow Выполнения запроса SELECT * FROM QC.QUERY
+2022/10/18 13:40:29 korsakov2ea/x_func.rowsToMap Ошибка преобразования sql.Row в Map sql: Rows are closed
+2022/10/18 13:40:29 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 13:40:29 main.mainDefer Завершение работы
+2022/10/18 13:41:04 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 13:41:04 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 13:41:04 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 13:41:04 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 13:41:04 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 13:41:04 korsakov2ea/x_func.(*TDatabase).DBQueryRow Выполнения запроса SELECT * FROM QC.QUERY
+2022/10/18 13:41:04 korsakov2ea/x_func.(*TDatabase).DBQueryRow Выполнения запроса SELECT ID FROM QC.QUERY
+2022/10/18 13:41:04 korsakov2ea/x_func.rowsToMap Ошибка преобразования sql.Row в Map sql: Rows are closed
+2022/10/18 13:41:04 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 13:41:04 main.mainDefer Завершение работы
+2022/10/18 13:45:35 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 13:45:35 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 13:45:35 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 13:45:35 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 13:45:35 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 13:45:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT ID FROM QC.QUERY
+2022/10/18 13:45:35 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 13:45:35 main.mainDefer Завершение работы
+2022/10/18 13:46:02 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 13:46:02 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 13:46:02 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 13:46:02 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 13:46:02 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 13:46:02 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY
+2022/10/18 13:46:02 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 13:46:02 main.mainDefer Завершение работы
+2022/10/18 14:57:16 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 14:57:16 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 14:57:16 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 14:57:16 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 14:57:16 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 14:57:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY
+2022/10/18 14:57:16 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 14:57:16 main.mainDefer Завершение работы
+2022/10/18 14:57:43 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 14:57:43 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 14:57:43 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 14:57:43 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 14:57:43 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 14:57:43 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY
+2022/10/18 14:57:43 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 14:57:43 main.mainDefer Завершение работы
+2022/10/18 14:57:50 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 14:57:50 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 14:57:50 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 14:57:51 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 14:57:51 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM) VALUES ('SELECT * FROM KL.PW','TEST QUERY') . Изменено строк - 1
+2022/10/18 14:57:51 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY
+2022/10/18 14:57:51 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 14:57:51 main.mainDefer Завершение работы
+2022/10/18 15:16:13 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 15:16:13 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 15:16:13 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 15:16:13 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 15:16:13 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 15:16:13 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 15:16:13 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 15:16:13 main.mainDefer Завершение работы
+2022/10/18 15:19:28 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 15:19:29 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 15:19:29 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 15:19:29 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 15:19:29 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 15:19:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 15:19:29 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 15:19:29 main.mainDefer Завершение работы
+2022/10/18 15:20:00 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 15:20:00 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 15:20:00 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 15:20:00 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 15:20:00 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 15:20:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 15:20:00 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 15:20:00 main.mainDefer Завершение работы
+2022/10/18 15:22:21 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 15:22:21 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 15:22:21 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 15:22:21 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 15:22:21 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 15:22:21 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 15:22:21 korsakov2ea/x_func.(*TDatabase).DBOpen Ошибка открытия соединения с базой  на  sql: unknown driver "" (forgotten import?)
+2022/10/18 15:22:21 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 15:22:21 main.mainDefer Завершение работы
+2022/10/18 15:22:50 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 15:22:50 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 15:22:50 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 15:22:50 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 15:22:50 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 15:22:50 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 15:25:29 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 15:25:29 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 15:25:29 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 15:25:29 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 15:25:29 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 15:25:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 15:25:42 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 15:25:46 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM KL.PW
+2022/10/18 15:25:52 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 15:25:52 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 15:25:52 main.mainDefer Завершение работы
+2022/10/18 15:26:16 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 15:26:16 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 15:26:16 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 15:26:16 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 15:26:16 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 15:26:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 15:26:18 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 15:26:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM KL.PW
+2022/10/18 15:26:18 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 15:26:18 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 15:26:18 main.mainDefer Завершение работы
+2022/10/18 15:26:25 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 15:26:25 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 15:26:25 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 15:26:25 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 15:26:25 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 15:26:25 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 15:26:25 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 15:26:25 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM KL.PW
+2022/10/18 15:26:25 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 15:26:25 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 15:26:25 main.mainDefer Завершение работы
+2022/10/18 16:03:08 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 16:03:08 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 16:03:08 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 16:03:08 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 16:03:08 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 16:03:09 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 16:03:09 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 16:03:09 korsakov2ea/x_func.(*TDatabase).DBOpen Ошибка открытия соединения с базой  на  sql: unknown driver "" (forgotten import?)
+2022/10/18 16:03:09 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 16:03:09 main.mainDefer Завершение работы
+2022/10/18 16:03:45 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 16:03:45 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 16:03:45 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 16:03:45 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 16:03:45 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 16:03:45 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 16:03:45 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 16:03:45 main.mainDefer Завершение работы
+2022/10/18 16:04:16 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 16:04:16 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 16:04:16 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 16:04:16 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 16:04:16 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 16:04:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 16:04:21 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 16:04:29 korsakov2ea/x_func.(*TDatabase).DBOpen Ошибка открытия соединения с базой  на  sql: unknown driver "" (forgotten import?)
+2022/10/18 16:05:17 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 16:05:17 main.mainDefer Завершение работы
+2022/10/18 16:05:30 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 16:05:30 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 16:05:30 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 16:05:30 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 16:05:30 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 16:05:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 16:05:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 16:05:30 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 16:05:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM KL.PW
+2022/10/18 16:05:30 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 16:05:30 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 16:05:30 main.mainDefer Завершение работы
+2022/10/18 16:06:24 korsakov2ea/x_func.StartLogging -------------------------
+2022/10/18 16:06:24 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/10/18 16:06:24 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/10/18 16:06:24 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой WORK на 10.39.0.187
+2022/10/18 16:06:24 korsakov2ea/x_func.(*TDatabase).DBExec Выполнения команды INSERT INTO QC.QUERY (QUERY, REM, ID_CONNECTION) VALUES ('SELECT * FROM KL.PW','TEST QUERY', 1) . Изменено строк - 1
+2022/10/18 16:06:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 16:06:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM QC.QUERY AS Q INNER JOIN QC.CONNECTION AS C ON C.ID=Q.ID_CONNECTION WHERE Q.ID=1
+2022/10/18 16:06:24 korsakov2ea/x_func.(*TDatabase).DBOpen Уставлено соединение с базой  на 
+2022/10/18 16:06:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнения запроса SELECT * FROM KL.PW
+2022/10/18 16:06:24 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой  на  закрыто успешно
+2022/10/18 16:06:24 korsakov2ea/x_func.(*TDatabase).DBClose Cоединение с базой WORK на 10.39.0.187 закрыто успешно
+2022/10/18 16:06:24 main.mainDefer Завершение работы

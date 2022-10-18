@@ -19,7 +19,7 @@ type TDatabase struct {
 	DB         *sql.DB
 }
 
-// Считывает из конфигурационного INI файла настройки БД и устанавливает структуре db
+// DBGetIniCfg - считывает из конфигурационного INI файла настройки БД и устанавливает структуре db
 func DBGetIniCfg(configFile string, iniSection string, db *TDatabase) {
 	db.IniSection = iniSection
 	db.Driver = GetIniValue(configFile, db.IniSection, "Driver")
@@ -32,8 +32,10 @@ func DBGetIniCfg(configFile string, iniSection string, db *TDatabase) {
 	if db.DSN == "" {
 		db.DSN = "HOSTNAME=" + db.HOSTNAME + "; DATABASE=" + db.DATABASE + "; PORT=" + db.PORT + "; UID=" + db.UID + "; PWD=" + db.PWD
 	}
+	log.Println(FuncName(), "Считана конфигурация из секции", iniSection, "файла", configFile)
 }
 
+// DBOpen - метод TDatabase для открытия и проверки соединения с БД
 func (database *TDatabase) DBOpen() {
 	var err error
 	database.DB, err = sql.Open(database.Driver, database.DSN)
@@ -49,6 +51,7 @@ func (database *TDatabase) DBOpen() {
 	}
 }
 
+// DBExec - метод TDatabase для выполения SQL инстукций, которые не возвращают результат (например INSERT)
 func (database *TDatabase) DBExec(sqlCode string) {
 	result, err := database.DB.Exec(sqlCode)
 	if err != nil {
@@ -59,12 +62,61 @@ func (database *TDatabase) DBExec(sqlCode string) {
 	}
 }
 
+// DBQuery - метод TDatabase для выполения SQL инструкций, которые возвращают результат (например SELECT). Возвращает карту значение и кол-во строк
+func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (SliceMap []map[string]string, RowCount int) {
+	rows, err := database.DB.Query(sqlCode)
+	defer rows.Close()
+	if err != nil {
+		log.Println(FuncName(), "Ошибка выполнения запроса", err)
+	} else {
+		log.Println(FuncName(), "Выполнения запроса", sqlCode)
+	}
+	return rowsToMap(rows, decode1251toUTF8)
+}
+
+// DBClose - метод TDatabase для закрытия соединения с БД
 func (database *TDatabase) DBClose() {
 	err := database.DB.Close()
 	if err != nil {
 		log.Println(FuncName(), "Ошибка закрытия соединения с базой", database.DATABASE, "на", database.HOSTNAME, err)
 	} else {
-		log.Println(FuncName(), "Cоединение с базой", database.DATABASE, "на", database.HOSTNAME, "закрыто")
+		log.Println(FuncName(), "Cоединение с базой", database.DATABASE, "на", database.HOSTNAME, "закрыто успешно")
 	}
 
+}
+
+// rowsToMap - преобразует sql.Rows в массив карт. В случае decode1251toUTF8 = true изменяет кодировку
+func rowsToMap(rows *sql.Rows, decode1251toUTF8 bool) (SliceMap []map[string]string, RowCount int) {
+	cols, err := rows.Columns()
+	if err != nil {
+		log.Println(FuncName(), "Ошибка преобразования sql.Row в Map", err)
+	}
+
+	columns := make([]string, len(cols))
+	columnPointers := make([]interface{}, len(cols))
+	for i := range columns {
+		columnPointers[i] = &columns[i]
+	}
+
+	RowCount = 0
+	for rows.Next() {
+		err = rows.Scan(columnPointers...)
+		if err != nil {
+			log.Println(err)
+		}
+
+		currentMap := make(map[string]string)
+		for i, columnName := range cols {
+			val := columnPointers[i].(*string)
+			if decode1251toUTF8 {
+				currentMap[columnName] = Decode1251toUTF8(*val)
+			} else {
+				currentMap[columnName] = *val
+			}
+		}
+
+		SliceMap = append(SliceMap, currentMap)
+		RowCount++
+	}
+	return SliceMap, RowCount
 }
