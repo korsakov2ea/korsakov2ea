@@ -9,31 +9,18 @@ import (
 )
 
 type TDatabase struct {
-	IniSection string
-	Driver     string
-	HOSTNAME   string
-	DATABASE   string
-	PORT       string
-	UID        string
-	PWD        string
-	DSN        string
-	DB         *sql.DB
+	Driver string
+	Name   string
+	DSN    string
+	DB     *sql.DB
 }
 
 // DBGetIniCfg - считывает из конфигурационного INI файла настройки БД и устанавливает структуре db
 func DBGetIniCfg(configFile string, iniSection string, db *TDatabase) {
-	db.IniSection = iniSection
-	db.Driver = GetIniValue(configFile, db.IniSection, "Driver")
-	db.HOSTNAME = GetIniValue(configFile, db.IniSection, "HOSTNAME")
-	db.DATABASE = GetIniValue(configFile, db.IniSection, "DATABASE")
-	db.PORT = GetIniValue(configFile, db.IniSection, "PORT")
-	db.UID = GetIniValue(configFile, db.IniSection, "UID")
-	db.PWD = GetIniValue(configFile, db.IniSection, "PWD")
-	db.DSN = GetIniValue(configFile, db.IniSection, "DSN")
-	if db.DSN == "" {
-		db.DSN = "HOSTNAME=" + db.HOSTNAME + "; DATABASE=" + db.DATABASE + "; PORT=" + db.PORT + "; UID=" + db.UID + "; PWD=" + db.PWD
-	}
-	log.Println(FuncName(), "Считана конфигурация из секции", iniSection, "файла", configFile)
+	db.Driver = GetIniValue(configFile, iniSection, "Driver")
+	db.Name = GetIniValue(configFile, iniSection, "Name")
+	db.DSN = GetIniValue(configFile, iniSection, "DSN")
+	log.Printf("%v Считана конфигурация из секции %v файла %v", FuncName(), iniSection, configFile)
 }
 
 // DBOpen - метод TDatabase для открытия и проверки соединения с БД
@@ -41,25 +28,25 @@ func (database *TDatabase) DBOpen() {
 	var err error
 	database.DB, err = sql.Open(database.Driver, database.DSN)
 	if err != nil {
-		log.Println(FuncName(), "Ошибка открытия соединения с базой", database.DATABASE, "на", database.HOSTNAME, err)
+		log.Printf("%v Ошибка открытия соединения с базой %v %v", FuncName(), database.Name, err)
 	}
 
 	err = database.DB.Ping()
 	if err != nil {
-		log.Println(FuncName(), "Отсутствует пинг с базой", database.DATABASE, "на", database.HOSTNAME, err)
+		log.Printf("%v Отсутствует пинг с базой %v %v", FuncName(), database.Name, err)
 	} else {
-		log.Println(FuncName(), "Уставлено соединение с базой", database.DATABASE, "на", database.HOSTNAME)
+		log.Printf("%v Подтверждено соединение (ping) с базой %v", FuncName(), database.Name)
 	}
 }
 
-// DBExec - метод TDatabase для выполения SQL инстукций, которые не возвращают результат (например INSERT)
+// DBExec - метод TDatabase для выполения SQL инструкций, которые не возвращают результат (например INSERT)
 func (database *TDatabase) DBExec(sqlCode string) {
 	result, err := database.DB.Exec(sqlCode)
 	if err != nil {
-		log.Println(FuncName(), "Ошибка выполнения команды", sqlCode, err)
+		log.Printf("%v Ошибка выполнения SQL команды %v %v", FuncName(), sqlCode, err)
 	} else {
 		rowsAffected, _ := result.RowsAffected()
-		log.Printf("%v Выполнена команда. (Строк изменено - %d) %v", FuncName(), rowsAffected, sqlCode)
+		log.Printf("%v Выполнена SQL команда. (Строк изменено - %d) %v", FuncName(), rowsAffected, sqlCode)
 	}
 }
 
@@ -68,9 +55,9 @@ func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (Slice
 	rows, err := database.DB.Query(sqlCode)
 	defer rows.Close()
 	if err != nil {
-		log.Println(FuncName(), "Ошибка выполнения запроса", err)
+		log.Printf("%v Ошибка выполнения SQL запроса %v %v", FuncName(), sqlCode, err)
 	} else {
-		log.Println(FuncName(), "Выполнение запроса", sqlCode)
+		log.Printf("%v Выполнение SQL запроса %v", FuncName(), sqlCode)
 	}
 	return rowsToMap(rows, decode1251toUTF8)
 }
@@ -79,9 +66,9 @@ func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (Slice
 func (database *TDatabase) DBClose() {
 	err := database.DB.Close()
 	if err != nil {
-		log.Println(FuncName(), "Ошибка закрытия соединения с базой", database.DATABASE, "на", database.HOSTNAME, err)
+		log.Printf("%v Ошибка закрытия соединения с базой %v %v", FuncName(), database.Name, err)
 	} else {
-		log.Println(FuncName(), "Cоединение с базой", database.DATABASE, "на", database.HOSTNAME, "закрыто успешно")
+		log.Printf("%v Соединение с базой %v успешно закрыто", FuncName(), database.Name)
 	}
 
 }
