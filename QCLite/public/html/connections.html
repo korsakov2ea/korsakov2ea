@@ -20,19 +20,80 @@
       </div>
     </div>
 
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addModal">
+      Добавить
+    </button>
+
+    <!-- Modal add-->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addModalLabel">Добавить соединение</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form method="POST" enctype="application/x-www-form-urlencoded">
+            <div class="modal-body">
+              <input type="hidden" name="formType" value="add">
+              <input type="text" class="form-control mb-3" name="Name" placeholder="Наименование">
+              <input type="text" class="form-control mb-3" name="Driver" placeholder="Драйвер">
+              <input type="text" class="form-control mb-3" name="DSN" placeholder="DSN">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+              <button type="submit" class="btn btn-primary ">Создать</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal del-->
+    <div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="delModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="delModalLabel">Удалить соединение</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form method="POST" enctype="application/x-www-form-urlencoded">
+            <div class="modal-body">
+              <input type="hidden" name="formType" value="add">
+              <input type="text" class="form-control mb-3" name="Name" placeholder="Наименование">
+              <input type="text" class="form-control mb-3" name="Driver" placeholder="Драйвер">
+              <input type="text" class="form-control mb-3" name="DSN" placeholder="DSN">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+              <button type="submit" class="btn btn-primary ">Удалить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--
     <div class="row">
       <div class="col-sm">
         <form class="form-inline" method="POST" enctype="application/x-www-form-urlencoded">
           <div class="form-group mb-2">
-            <input type="hidden" name="formType" value="find">
+            <input type="hidden" name="formType" value="add">
             <input type="text" class="form-control mr-3" name="Name" placeholder="Наименование">
             <input type="text" class="form-control mr-3" name="Driver" placeholder="Драйвер">
             <input type="text" class="form-control mr-3" name="DSN" placeholder="DSN">
           </div>
-          <button type="submit" class="btn btn-primary mb-2">Создать</button>
+          
         </form>
       </div>
     </div>  
+-->
 
     {{if .}}
     <div class="row">
@@ -44,16 +105,22 @@
               <th scope="col">Наименовение</th>
               <th scope="col">Драйвер</th>
               <th scope="col">DSN</th>
+              <th scope="col">+</th>
+              <th scope="col">DEL</th>
+              <th scope="col">DEL</th>
             </tr>
           </thead>
 
           <tbody>
             {{range . }}
             <tr>
-              <td><a href="/viewReestrMIC?ID={{.ID}}" target="_self">{{ .ID}}</a></td>
+              <td>{{ .ID}}</a></td>
               <td>{{ .NAME}}</td>
               <td>{{ .DRIVER}}</td>
               <td>{{ .DSN}}</td>
+              <td><a href="/connection?ID={{.ID}}" target="_self">+</a></td>
+              <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#delModal">DEL</button>
+              <td><a href="/connections?mode=del&ID={{.ID}}" target="_self">DEL</a></td>
             </tr>
             {{end}}
           </tbody>
