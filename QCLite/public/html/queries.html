@@ -16,11 +16,11 @@
     <!--ЗАГОЛОВОК-->
     <div class="row mt-3">
       <div class="col">
-        <p class="text-center font-weight-bold">СОЕДИНЕНИЯ</p>
+        <p class="text-center font-weight-bold">ЗАПРОСЫ</p>
       </div>
     </div>
     
-    <a href="/connection?mode=add" target="_self">НОВЫЙ</a></td>
+    <a href="/query?mode=add" target="_self">НОВЫЙ</a></td>
 
     {{if .}}
     <div class="row">
@@ -29,9 +29,9 @@
           <thead class="thead-light ">
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Наименовение</th>
-              <th scope="col">Драйвер</th>
-              <th scope="col">DSN</th>
+              <th scope="col">Описание</th>
+              <th scope="col">Запрос</th>
+              <th scope="col">Соединение</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -40,10 +40,10 @@
             {{range . }}
             <tr>
               <td>{{ .ID}}</a></td>
+              <td>{{ .REM}}</td>
+              <td>{{ .QUERY}}</td>
               <td>{{ .NAME}}</td>
-              <td>{{ .DRIVER}}</td>
-              <td>{{ .DSN}}</td>
-              <td><a href="/connection?mode=view&ID={{.ID}}" target="_self">Изменить</a></td>
+              <td><a href="/query?mode=view&ID={{.ID}}" target="_self">Изменить</a></td>
             </tr>
             {{end}}
           </tbody>

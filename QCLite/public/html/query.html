@@ -16,33 +16,66 @@
     <!--ЗАГОЛОВОК-->
     <div class="row mt-3">
       <div class="col">
-        <p class="text-center font-weight-bold">ЗАПРОСЫ</p>
+        <p class="text-center font-weight-bold">СОЗДАНИЕ, ИЗМЕНЕНИЕ, УДАЛЕНИЯ ЗАПРОСА</p>
       </div>
     </div>
 
+    <!-- Modal delete confinm-->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="addModalLabel">Удаление запроса</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+             Запрос будет навсегда удален из базы данных. Подтвердите удаление?
+          </div>
+
+          <div class="modal-footer">
+            <form method="POST" enctype="application/x-www-form-urlencoded">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+              <button type="submit" class="btn btn-primary" name="submitBtn" value="Delete">Удалить</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
     {{if .}}
+    <!-- Передан массив с данными, значит работаем с имеющимся (изменить/удалить)-->
+    {{range .}}
     <div class="row">
       <div class="col-sm">
-        <table class="table table-sm">
-          <thead class="thead-light ">
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Описание</th>
-              <th scope="col">Запрос</th>
-              <th scope="col">Соединение</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{range . }}
-            <tr>
-              <td><a href="/viewReestrMIC?ID={{.ID}}" target="_self">{{ .ID}}</a></td>
-              <td>{{ .REM}}</td>
-              <td>{{ .QUERY}}</td>
-              <td>{{ .NAME}}</td>
-            </tr>
-            {{end}}
-          </tbody>
-        </table>
+        <form method="POST" enctype="application/x-www-form-urlencoded">
+          <input type="text" class="form-control mb-3" name="Rem" placeholder="Наименование" value="{{ .REM}}">
+          <input type="text" class="form-control mb-3" name="Query" placeholder="Драйвер" value="{{ .QUERY}}">
+          <input type="text" class="form-control mb-3" name="Id_connections" placeholder="DSN" value="{{ .Id_connections}}">
+          <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
+          <button type="submit" class="btn btn-primary" name="submitBtn" value="Update">Изменить</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Удалить</button>
+        </form>
+      </div>
+    </div>
+    {{end}}
+    {{else}}
+    <!-- Не передан массив с данными, значит создаем новый-->
+    <div class="row">
+      <div class="col-sm">
+        <form method="POST" enctype="application/x-www-form-urlencoded">
+          <input type="text" class="form-control mb-3" name="Name" placeholder="Наименование" >
+          <input type="text" class="form-control mb-3" name="Driver" placeholder="Драйвер">
+          <input type="text" class="form-control mb-3" name="DSN" placeholder="DSN">
+          <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
+          <button type="submit" class="btn btn-primary" name="submitBtn" value="Create">Создать</button>
+        </form>
       </div>
     </div>
     {{end}}

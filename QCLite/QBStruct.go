@@ -10,15 +10,13 @@ import (
 type QBEntityMode int
 
 const (
-	create QBEntityMode = iota + 1 // EnumIndex = 1
-	read                           // EnumIndex = 2
-	update                         // EnumIndex = 3
-	delete                         // EnumIndex = 4
+	open QBEntityMode = iota + 1 // EnumIndex = 1
+	add                          // EnumIndex = 2
 )
 
 // QBEntityMode.String - возвращает текстовое значения режима QBEntityMode
 func (m QBEntityMode) String() string {
-	return [...]string{"create", "read", "update", "delete"}[m-1]
+	return [...]string{"open", "add"}[m-1]
 }
 
 // QBEntityMode.String - возвращает числовое значения режима QBEntityMode
@@ -83,5 +81,11 @@ func (qbe *QBEntity) Delete(id int) {
 func (qbe *QBEntity) ReadAll() {
 	log.Printf("%v Чтение всех %v", x_func.FuncName(), qbe.name)
 	sqlCode := "SELECT * FROM " + qbe.name
+	qbe.data, _ = QCDB.DBQuery(sqlCode, false)
+}
+
+// ReadSQL - считывает из БД записи по SQL
+func (qbe *QBEntity) ReadSQL(sqlCode string) {
+	log.Printf("%v Чтение SQL для %v", x_func.FuncName(), qbe.name)
 	qbe.data, _ = QCDB.DBQuery(sqlCode, false)
 }

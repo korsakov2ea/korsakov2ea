@@ -124,7 +124,7 @@ func startServer() {
 	fmt.Println("Старт сервера")
 	FileServer := http.FileServer(http.Dir("public"))
 	http.Handle("/public/", http.StripPrefix("/public/", FileServer))
-	http.HandleFunc("/", queries)
+	http.HandleFunc("/queries", queries)
 	http.HandleFunc("/connections", connections)
 	http.HandleFunc("/connection", connection)
 	http.ListenAndServe(":4444", nil)
@@ -150,91 +150,4 @@ func renderPage(w http.ResponseWriter, templatePage string, commonPage string, d
 	} else {
 		log.Println(x_func.FuncName(), "Построение шаблона страницы", templatePath)
 	}
-}
-
-// queries - обработчик HTTP
-func queries(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v Обработка НTTP запроса", x_func.FuncName())
-	QBQuery.ReadAll()
-	renderPage(w, "rangeData.html", "common.html", QBQuery.data)
-}
-
-// connections - обработчик HTTP
-func connections(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v Обработка НTTP запроса", x_func.FuncName())
-
-	switch {
-	case r.Method == "POST" && r.FormValue("formType") == "add":
-		name := r.FormValue("Name")
-		driver := r.FormValue("Driver")
-		dsn := r.FormValue("DSN")
-		newConnection := make(map[string]string)
-		newConnection["NAME"] = name
-		newConnection["DRIVER"] = driver
-		newConnection["DSN"] = dsn
-		QBConnection.Create(newConnection)
-	case r.Method == "GET" && r.FormValue("mode") == "del":
-		id, err := strconv.Atoi(r.FormValue("ID"))
-		if err != nil {
-			log.Printf("%v Ошибка преобразования ID = %v из GET запроса в число", x_func.FuncName(), r.FormValue("ID"))
-		} else {
-			QBConnection.Delete(id)
-		}
-	default:
-
-	}
-	QBConnection.ReadAll()
-	renderPage(w, "connections.html", "common.html", QBConnection.data)
-}
-
-// connection - обработчик HTTP
-func connection(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v Обработка НTTP запроса", x_func.FuncName())
-
-	id, err := strconv.Atoi(r.FormValue("ID"))
-	if err != nil {
-		log.Printf("%v Ошибка преобразования ID = %v из GET запроса в число", x_func.FuncName(), r.FormValue("ID"))
-	} else {
-
-		switch {
-
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Cancel":
-			QBConnection.ReadAll()
-			renderPage(w, "connections.html", "common.html", QBConnection.data)
-
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Create":
-			name := r.FormValue("Name")
-			driver := r.FormValue("Driver")
-			dsn := r.FormValue("DSN")
-			newConnection := make(map[string]string)
-			newConnection["NAME"] = name
-			newConnection["DRIVER"] = driver
-			newConnection["DSN"] = dsn
-			QBConnection.Create(newConnection)
-			QBConnection.ReadAll()
-			renderPage(w, "connections.html", "common.html", QBConnection.data)
-
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Update":
-			name := r.FormValue("Name")
-			driver := r.FormValue("Driver")
-			dsn := r.FormValue("DSN")
-			newConnection := make(map[string]string)
-			newConnection["NAME"] = name
-			newConnection["DRIVER"] = driver
-			newConnection["DSN"] = dsn
-			QBConnection.Update(id, newConnection)
-			QBConnection.ReadAll()
-			renderPage(w, "connections.html", "common.html", QBConnection.data)
-
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Delete":
-			QBConnection.Delete(id)
-			QBConnection.ReadAll()
-			renderPage(w, "connections.html", "common.html", QBConnection.data)
-
-		default:
-			QBConnection.Read(id)
-			renderPage(w, "connection.html", "common.html", QBConnection.data)
-		}
-	}
-
 }
