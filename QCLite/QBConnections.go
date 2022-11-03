@@ -12,7 +12,7 @@ func connections(w http.ResponseWriter, r *http.Request) {
 	log.Printf("%v Обработка НTTP запроса", x_func.FuncName())
 
 	QBConnection.ReadAll()
-	renderPage(w, "connections.html", "common.html", QBConnection.data)
+	renderPage(w, "connections.html", "common.html", QBConnection.Data)
 }
 
 // connection - обработчик HTTP (одиночное соединение)
@@ -28,7 +28,7 @@ func connection(w http.ResponseWriter, r *http.Request) {
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Cancel":
 			QBConnection.ReadAll()
-			renderPage(w, "connections.html", "common.html", QBConnection.data)
+			renderPage(w, "connections.html", "common.html", QBConnection.Data)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Create":
 			name := r.FormValue("Name")
@@ -40,7 +40,7 @@ func connection(w http.ResponseWriter, r *http.Request) {
 			newConnection["DSN"] = dsn
 			QBConnection.Create(newConnection)
 			QBConnection.ReadAll()
-			renderPage(w, "connections.html", "common.html", QBConnection.data)
+			renderPage(w, "connections.html", "common.html", QBConnection.Data)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Update":
 			name := r.FormValue("Name")
@@ -52,20 +52,20 @@ func connection(w http.ResponseWriter, r *http.Request) {
 			newConnection["DSN"] = dsn
 			QBConnection.Update(id, newConnection)
 			QBConnection.ReadAll()
-			renderPage(w, "connections.html", "common.html", QBConnection.data)
+			renderPage(w, "connections.html", "common.html", QBConnection.Data)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Delete":
 			QBConnection.Delete(id)
 			QBConnection.ReadAll()
-			renderPage(w, "connections.html", "common.html", QBConnection.data)
+			renderPage(w, "connections.html", "common.html", QBConnection.Data)
 
 		case r.Method == "GET" && r.FormValue("mode") == "add":
-			QBConnection.data = nil
-			renderPage(w, "connection.html", "common.html", QBConnection.data)
+			QBConnection.Data = nil
+			renderPage(w, "connection.html", "common.html", QBConnection.Data)
 
 		case r.Method == "GET" && r.FormValue("mode") == "view":
 			QBConnection.Read(id)
-			renderPage(w, "connection.html", "common.html", QBConnection.data)
+			renderPage(w, "connection.html", "common.html", QBConnection.Data)
 
 		default:
 

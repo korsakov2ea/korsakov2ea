@@ -125,6 +125,7 @@ func startServer() {
 	FileServer := http.FileServer(http.Dir("public"))
 	http.Handle("/public/", http.StripPrefix("/public/", FileServer))
 	http.HandleFunc("/queries", queries)
+	http.HandleFunc("/query", query)
 	http.HandleFunc("/connections", connections)
 	http.HandleFunc("/connection", connection)
 	http.ListenAndServe(":4444", nil)

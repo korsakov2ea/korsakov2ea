@@ -48,16 +48,17 @@
       </div>
     </div>
 
+    {{$CONN:=(index .Extra 0 0).NAME}}
 
-    {{if .}}
+    {{if .Data}}
     <!-- Передан массив с данными, значит работаем с имеющимся (изменить/удалить)-->
-    {{range .}}
+    {{range .Data}}
     <div class="row">
       <div class="col-sm">
         <form method="POST" enctype="application/x-www-form-urlencoded">
-          <input type="text" class="form-control mb-3" name="Rem" placeholder="Наименование" value="{{ .REM}}">
-          <input type="text" class="form-control mb-3" name="Query" placeholder="Драйвер" value="{{ .QUERY}}">
-          <input type="text" class="form-control mb-3" name="Id_connections" placeholder="DSN" value="{{ .Id_connections}}">
+          <input type="text" class="form-control mb-3" name="Rem" placeholder="Описание" value="{{ .REM}}">
+          <input type="text" class="form-control mb-3" name="Query" placeholder="Запрос" value="{{ .QUERY}}">
+          <input type="text" class="form-control mb-3" name="Id_connections" placeholder="Соединение" value="{{ $CONN}}">
           <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
           <button type="submit" class="btn btn-primary" name="submitBtn" value="Update">Изменить</button>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Удалить</button>
@@ -70,9 +71,9 @@
     <div class="row">
       <div class="col-sm">
         <form method="POST" enctype="application/x-www-form-urlencoded">
-          <input type="text" class="form-control mb-3" name="Name" placeholder="Наименование" >
-          <input type="text" class="form-control mb-3" name="Driver" placeholder="Драйвер">
-          <input type="text" class="form-control mb-3" name="DSN" placeholder="DSN">
+          <input type="text" class="form-control mb-3" name="Name" placeholder="Описание" >
+          <input type="text" class="form-control mb-3" name="Driver" placeholder="Запрос">
+          <input type="text" class="form-control mb-3" name="DSN" placeholder="Соединение">
           <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
           <button type="submit" class="btn btn-primary" name="submitBtn" value="Create">Создать</button>
         </form>
