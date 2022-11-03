@@ -2963,3 +2963,86 @@ created by net/http.(*Server).Serve
 2022/11/02 11:35:15 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 0) UPDATE CONNECTION SET DRIVER = 'sqlite3', DSN = 'SQLite\base\testbase.db', NAME = 'QB' WHERE ID = 4
 2022/11/02 11:35:15 main.(*QBEntity).Delete Удаление CONNECTION для id = 5
 2022/11/02 11:35:15 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 0) DELETE FROM CONNECTION WHERE ID = 5
+2022/11/02 11:35:20 main.query Обработка НTTP запроса
+2022/11/02 11:35:20 main.(*QBEntity).Read Чтение QUERY для id = 1
+2022/11/02 11:35:20 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=1
+2022/11/02 11:35:20 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/02 11:35:20 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/02 11:35:20 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/02 11:35:20 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/02 11:35:26 main.query Обработка НTTP запроса
+2022/11/02 11:35:26 main.(*QBEntity).Read Чтение QUERY для id = 1
+2022/11/02 11:35:26 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=1
+2022/11/02 11:35:26 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/02 11:35:26 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/02 11:35:26 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/02 11:35:26 main.renderPage Ошибка выполнения шаблона страницы template: query.html:51:2: executing "query.html" at <index .Extra 1>: error calling index: reflect: slice index out of range
+2022/11/02 11:35:26 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:150)
+2022/11/02 11:35:33 main.query Обработка НTTP запроса
+2022/11/02 11:35:33 main.(*QBEntity).Read Чтение QUERY для id = 1
+2022/11/02 11:35:33 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=1
+2022/11/02 11:35:33 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/02 11:35:33 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/02 11:35:33 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/02 11:35:33 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/02 11:36:08 main.connection Обработка НTTP запроса
+2022/11/02 11:36:08 main.renderPage Парсинг шаблона страницы public\html\connection.html
+2022/11/02 11:36:08 main.renderPage Построение шаблона страницы public\html\connection.html
+2022/11/02 11:37:36 main.query Обработка НTTP запроса
+2022/11/02 11:37:36 main.(*QBEntity).Read Чтение QUERY для id = 1
+2022/11/02 11:37:36 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=1
+2022/11/02 11:37:36 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/02 11:37:36 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/02 11:37:36 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/02 11:37:36 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/02 11:38:08 main.query Обработка НTTP запроса
+2022/11/02 11:38:08 main.(*QBEntity).Read Чтение QUERY для id = 1
+2022/11/02 11:38:08 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=1
+2022/11/02 11:38:08 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/02 11:38:08 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/02 11:38:08 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/02 11:38:08 main.renderPage Ошибка выполнения шаблона страницы template: query.html:51:19: executing "query.html" at <.ID>: can't evaluate field ID in type main.QBEntity
+2022/11/02 11:38:08 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:150)
+2022/11/02 11:38:19 main.query Обработка НTTP запроса
+2022/11/02 11:38:19 main.(*QBEntity).Read Чтение QUERY для id = 1
+2022/11/02 11:38:19 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=1
+2022/11/02 11:38:19 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/02 11:38:19 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/02 11:38:19 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/02 11:38:19 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/02 11:38:38 main.query Обработка НTTP запроса
+2022/11/02 11:38:38 main.(*QBEntity).Read Чтение QUERY для id = 1
+2022/11/02 11:38:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=1
+2022/11/02 11:38:38 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/02 11:38:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/02 11:38:38 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/02 11:38:38 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/02 11:38:52 main.query Обработка НTTP запроса
+2022/11/02 11:38:52 main.(*QBEntity).Read Чтение QUERY для id = 1
+2022/11/02 11:38:52 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=1
+2022/11/02 11:38:52 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/02 11:38:52 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/02 11:38:52 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/02 11:38:52 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/02 11:39:14 main.query Обработка НTTP запроса
+2022/11/02 11:39:14 main.(*QBEntity).Read Чтение QUERY для id = 1
+2022/11/02 11:39:14 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=1
+2022/11/02 11:39:14 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/02 11:39:14 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/02 11:39:14 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/02 11:39:14 main.renderPage Ошибка выполнения шаблона страницы template: query.html:59:122: executing "query.html" at <index .Extra 0 0>: error calling index: index of untyped nil
+2022/11/02 11:39:14 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:150)
+2022/11/02 11:44:29 main.query Обработка НTTP запроса
+2022/11/02 11:44:29 main.(*QBEntity).Read Чтение QUERY для id = 1
+2022/11/02 11:44:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=1
+2022/11/02 11:44:29 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/02 11:44:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/02 11:44:29 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/02 11:44:29 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/02 11:44:56 main.query Обработка НTTP запроса
+2022/11/02 11:44:56 main.(*QBEntity).Read Чтение QUERY для id = 1
+2022/11/02 11:44:56 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=1
+2022/11/02 11:44:56 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/02 11:44:56 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/02 11:44:56 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/02 11:44:56 main.renderPage Построение шаблона страницы public\html\query.html
