@@ -25,26 +25,29 @@
 {{define "navbar"}}
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-secondary">
   
-  <a class="navbar-brand" href="/start">ДФ ОСВ</a>
+  <a class="navbar-brand" href="/start">QB - Query base (база запросов)</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+     
       
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ЛРП/ОРП</a>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Соединения</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="/findReestrOpeka">Поиск сведений (опека)</a>
-          <a class="dropdown-item" href="/findReestrMIC">Поиск сведений (МИЦ)</a>
+          <a class="dropdown-item" href="/connections">Список всех</a>
+          <a class="dropdown-item" href="/connection?mode=add">Добавить</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ЕГР ЗАГС</a>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Запросы</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="/proc_egrzags">Обработка файла</a>
+          <a class="dropdown-item" href="/queries">Список всех</a>
+          <a class="dropdown-item" href="/query?mode=add">Добавить</a>
         </div>
       </li>
 
+      <!--
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ЕВ16</a>
         <div class="dropdown-menu">
@@ -65,15 +68,16 @@
           <a class="dropdown-item" href="/importReestrOpeka">Импорт реестров (опека)</a>
           <a class="dropdown-item" href="/importReestrMIC">Импорт реестров (МИЦ)</a>
         </div>
-      </li>
+      </li> 
 
-<!--       <li class="nav-item">
-        <a class="nav-link" href="/lrp_find" data-toggle="tooltip" data-placement="bottom" title="Поиск информации о лишении/ограничении родительских прав по сведениям, предоставленных органами опеки">ЛРП/ОРП</a>
+      <li class="nav-item">
+        <a class="nav-link" href="/connections" data-toggle="tooltip" data-placement="bottom" title="Список всех соединений">Соединения</a>
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="/proc_egrzags" data-toggle="tooltip" data-placement="bottom" title="Загрузка файла CSV-файла ЕГР ЗАГС и дополнение его информацией о детях из ПТК НВП, ЛРП/ОРП и т.д.">ЕГР ЗАГС</a>
-      </li> -->
+        <a class="nav-link" href="/queries" data-toggle="tooltip" data-placement="bottom" title="Список всех запросов">Запросы</a>
+      </li>
+      -->
 
     </ul>
 

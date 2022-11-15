@@ -11,7 +11,7 @@ import (
 func queries(w http.ResponseWriter, r *http.Request) {
 	log.Printf("%v Обработка НTTP запроса", x_func.FuncName())
 	QBQuery.ReadSQL("SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID")
-	renderPage(w, "queries.html", "common.html", QBQuery.Data)
+	renderPage(w, "queries.html", "common.html", QBQuery)
 }
 
 // query - обработчик HTTP (одиночный запрос)
@@ -27,46 +27,45 @@ func query(w http.ResponseWriter, r *http.Request) {
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Cancel":
 			QBQuery.ReadAll()
-			renderPage(w, "queries.html", "common.html", QBQuery.Data)
+			renderPage(w, "queries.html", "common.html", QBQuery)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Create":
-			name := r.FormValue("Name")
-			driver := r.FormValue("Driver")
-			dsn := r.FormValue("DSN")
-			newConnection := make(map[string]string)
-			newConnection["NAME"] = name
-			newConnection["DRIVER"] = driver
-			newConnection["DSN"] = dsn
-			QBQuery.Create(newConnection)
+			newQuery := make(map[string]string)
+			newQuery["NAME"] = r.FormValue("Name")
+			newQuery["QUERY"] = r.FormValue("Query")
+			newQuery["REM"] = r.FormValue("Rem")
+			newQuery["ID_CONNECTION"] = r.FormValue("Id_connection")
+			QBQuery.Create(newQuery)
 			QBQuery.ReadAll()
-			renderPage(w, "queries.html", "common.html", QBQuery.Data)
+			renderPage(w, "queries.html", "common.html", QBQuery)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Update":
-			name := r.FormValue("Name")
-			driver := r.FormValue("Driver")
-			dsn := r.FormValue("DSN")
-			newConnection := make(map[string]string)
-			newConnection["NAME"] = name
-			newConnection["DRIVER"] = driver
-			newConnection["DSN"] = dsn
-			QBQuery.Update(id, newConnection)
+			newQuery := make(map[string]string)
+			newQuery["NAME"] = r.FormValue("Name")
+			newQuery["QUERY"] = r.FormValue("Query")
+			newQuery["REM"] = r.FormValue("Rem")
+			newQuery["ID_CONNECTION"] = r.FormValue("Id_connection")
+			QBQuery.Update(id, newQuery)
 			QBQuery.ReadAll()
-			renderPage(w, "queries.html", "common.html", QBQuery.Data)
+			renderPage(w, "queries.html", "common.html", QBQuery)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Delete":
 			QBQuery.Delete(id)
 			QBQuery.ReadAll()
-			renderPage(w, "queries.html", "common.html", QBQuery.Data)
+			renderPage(w, "queries.html", "common.html", QBQuery)
 
 		case r.Method == "GET" && r.FormValue("mode") == "add":
 			QBQuery.Data = nil
-			renderPage(w, "query.html", "common.html", QBQuery.Data)
+			QBConnection.ReadAll()
+			QBQuery.Directory = nil
+			QBQuery.Directory = append(QBQuery.Directory, QBConnection.Data)
+			renderPage(w, "query.html", "common.html", QBQuery)
 
 		case r.Method == "GET" && r.FormValue("mode") == "view":
 			QBQuery.Read(id)
 			QBConnection.ReadAll()
-			QBQuery.Extra = nil
-			QBQuery.Extra = append(QBQuery.Extra, QBConnection.Data)
+			QBQuery.Directory = nil
+			QBQuery.Directory = append(QBQuery.Directory, QBConnection.Data)
 			renderPage(w, "query.html", "common.html", QBQuery)
 
 		default:

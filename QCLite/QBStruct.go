@@ -30,11 +30,11 @@ func (m QBEntityMode) EnumIndex() int {
 // id - идентификатор сущности в БД,
 // Data - набор (карта) данных полученный из БД
 type QBEntity struct {
-	name  string
-	mode  QBEntityMode
-	id    int
-	Data  []map[string]string
-	Extra [][]map[string]string
+	name      string
+	mode      QBEntityMode
+	id        int
+	Data      []map[string]string
+	Directory [][]map[string]string
 }
 
 // Create - добавляет в БД новую запись из карты entityMap

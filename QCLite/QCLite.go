@@ -33,24 +33,24 @@ func main() {
 	QBConnection.name = "CONNECTION"
 	QBQuery.name = "QUERY"
 
-	connectionNew := make(map[string]string)
-	connectionNew["DRIVER"] = "sqlite3"
-	connectionNew["DSN"] = "SQLite\\base\\testbase.db"
-	connectionNew["NAME"] = "QB"
-	QBConnection.Create(connectionNew)
-	QBConnection.Read(4)
-	QBConnection.Update(4, connectionNew)
-	QBConnection.Delete(5)
+	/*
+		connectionNew := make(map[string]string)
+		connectionNew["DRIVER"] = "sqlite3"
+		connectionNew["DSN"] = "SQLite\\base\\testbase.db"
+		connectionNew["NAME"] = "QB"
+		QBConnection.Create(connectionNew)
+		QBConnection.Read(4)
+		QBConnection.Update(4, connectionNew)
+		QBConnection.Delete(5)
+	*/
 
 	/*
 		//создание пустой базы
 		createEmptyQC()
 	*/
 
-	/*
-		//выполнение тестового запроса
-		fmt.Println(execQuery(2))
-	*/
+	//выполнение тестового запроса
+	fmt.Println(execQuery(2))
 
 	startServer()
 

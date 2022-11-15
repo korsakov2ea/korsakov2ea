@@ -49,22 +49,20 @@
     </div>
 
 
-    {{if .}}
+    {{if .Data }}
     <!-- Передан массив с данными, значит работаем с имеющимся (изменить/удалить)-->
-    {{range .}}
     <div class="row">
       <div class="col-sm">
         <form method="POST" enctype="application/x-www-form-urlencoded">
-          <input type="text" class="form-control mb-3" name="Name" placeholder="Наименование" value="{{ .NAME}}">
-          <input type="text" class="form-control mb-3" name="Driver" placeholder="Драйвер" value="{{ .DRIVER}}">
-          <input type="text" class="form-control mb-3" name="DSN" placeholder="DSN" value="{{ .DSN}}">
+          <input type="text" class="form-control mb-3" name="Name" placeholder="Наименование" value="{{ (index .Data 0).NAME}}">
+          <input type="text" class="form-control mb-3" name="Driver" placeholder="Драйвер" value="{{ (index .Data 0).DRIVER}}">
+          <input type="text" class="form-control mb-3" name="DSN" placeholder="DSN" value="{{ (index .Data 0).DSN}}">
           <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
           <button type="submit" class="btn btn-primary" name="submitBtn" value="Update">Изменить</button>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Удалить</button>
         </form>
       </div>
     </div>
-    {{end}}
     {{else}}
     <!-- Не передан массив с данными, значит создаем новый-->
     <div class="row">
