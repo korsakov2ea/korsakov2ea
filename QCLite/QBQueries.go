@@ -1,10 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"korsakov2ea/x_func"
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 // queries - обработчик HTTP (список запросов)
@@ -32,8 +34,8 @@ func query(w http.ResponseWriter, r *http.Request) {
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Create":
 			newQuery := make(map[string]string)
 			newQuery["NAME"] = r.FormValue("Name")
-			newQuery["QUERY"] = r.FormValue("Query")
-			newQuery["REM"] = r.FormValue("Rem")
+			newQuery["QUERY"] = strings.Replace(r.FormValue("Query"), "'", "''", -1)
+			newQuery["REM"] = strings.Replace(r.FormValue("Rem"), "'", "''", -1)
 			newQuery["ID_CONNECTION"] = r.FormValue("Id_connection")
 			QBQuery.Create(newQuery)
 			QBQuery.ReadAll()
@@ -42,8 +44,8 @@ func query(w http.ResponseWriter, r *http.Request) {
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Update":
 			newQuery := make(map[string]string)
 			newQuery["NAME"] = r.FormValue("Name")
-			newQuery["QUERY"] = r.FormValue("Query")
-			newQuery["REM"] = r.FormValue("Rem")
+			newQuery["QUERY"] = strings.Replace(r.FormValue("Query"), "'", "''", -1)
+			newQuery["REM"] = strings.Replace(r.FormValue("Rem"), "'", "''", -1)
 			newQuery["ID_CONNECTION"] = r.FormValue("Id_connection")
 			QBQuery.Update(id, newQuery)
 			QBQuery.ReadAll()
@@ -67,6 +69,11 @@ func query(w http.ResponseWriter, r *http.Request) {
 			QBQuery.Directory = nil
 			QBQuery.Directory = append(QBQuery.Directory, QBConnection.Data)
 			renderPage(w, "query.html", "common.html", QBQuery)
+
+		case r.Method == "GET" && r.FormValue("mode") == "execute":
+			fmt.Println(execQuery(id))
+			QBQuery.ReadAll()
+			renderPage(w, "queries.html", "common.html", QBQuery)
 
 		default:
 

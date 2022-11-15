@@ -34,6 +34,10 @@ func main() {
 	QBQuery.name = "QUERY"
 
 	/*
+		//создание пустой базы
+		createEmptyQC()
+
+		//создание тестового запроса
 		connectionNew := make(map[string]string)
 		connectionNew["DRIVER"] = "sqlite3"
 		connectionNew["DSN"] = "SQLite\\base\\testbase.db"
@@ -42,15 +46,10 @@ func main() {
 		QBConnection.Read(4)
 		QBConnection.Update(4, connectionNew)
 		QBConnection.Delete(5)
-	*/
 
-	/*
-		//создание пустой базы
-		createEmptyQC()
+		//выполнение тестового запроса
+		fmt.Println(execQuery(2))
 	*/
-
-	//выполнение тестового запроса
-	fmt.Println(execQuery(2))
 
 	startServer()
 
@@ -104,14 +103,18 @@ func createEmptyQC() {
 func execQuery(id int) (SliceMap []map[string]string, RowCount int) {
 	log.Printf("%v Выполнение запроса", x_func.FuncName())
 	var tmpConn x_func.TDatabase //соединение для выполнения запроса из базы
-	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID="+strconv.Itoa(id), true)
+	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID="+strconv.Itoa(id), false)
 	if qcRowCount != 0 {
 		tmpConn.Driver = qcStringMap[0]["DRIVER"]
 		tmpConn.DSN = qcStringMap[0]["DSN"]
 		tmpConn.Name = qcStringMap[0]["NAME"]
+		decodeParam := false
+		if tmpConn.Driver == "go_ibm_db" {
+			decodeParam = true
+		}
 		tmpConn.DBOpen()
 		defer tmpConn.DBClose()
-		queryResult, queryResultRowCount := tmpConn.DBQuery(qcStringMap[0]["QUERY"], true)
+		queryResult, queryResultRowCount := tmpConn.DBQuery(qcStringMap[0]["QUERY"], decodeParam)
 		return queryResult, queryResultRowCount
 	} else {
 		log.Println(x_func.FuncName(), "Нет строки запроса с ID -", id)

@@ -54,12 +54,12 @@
       <div class="col-sm">
         <form method="POST" enctype="application/x-www-form-urlencoded">
           <input type="text" class="form-control mb-3" name="Name" placeholder="Название" value="{{ (index .Data 0).NAME}}">
-          <input type="text" class="form-control mb-3" name="Query" placeholder="Запрос" value="{{ (index .Data 0).QUERY}}">
-          <input type="text" class="form-control mb-3" name="Rem" placeholder="Описание" value="{{ (index .Data 0).REM}}">
+          <textarea class="form-control mb-3" name="Query" placeholder="Запрос" rows="20">{{ (index .Data 0).QUERY}}</textarea>
+          <textarea class="form-control mb-3" name="Rem" placeholder="Описание" rows="10">{{ (index .Data 0).REM}}</textarea>
           {{$ID_CONN:=(index .Data 0).ID_CONNECTION}}
-          <select class="form-control mb-3" name="Id_connections">
+          <select class="form-control mb-3" name="Id_connection">
             {{range $index, $value := (index .Directory 0) }}
-            <option value={{$value.ID}} {{if eq $ID_CONN $value.ID}}selected{{end}}>{{$value.NAME}}</option>
+            <option value={{$value.ID}} {{if eq $ID_CONN $value.ID}}selected{{end}}>{{$value.NAME}} ({{$value.ID}})</option>
             {{end}}
           </select>
           <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
@@ -74,12 +74,12 @@
       <div class="col-sm">
         <form method="POST" enctype="application/x-www-form-urlencoded">
           <input type="text" class="form-control mb-3" name="Name" placeholder="Название">
-          <input type="text" class="form-control mb-3" name="Query" placeholder="Запрос">
-          <input type="text" class="form-control mb-3" name="Rem" placeholder="Описание">
-          <select class="form-control mb-3" name="Id_connections">
+          <textarea class="form-control mb-3" name="Query" placeholder="Запрос" rows="20"></textarea>
+          <textarea class="form-control mb-3" name="Rem" placeholder="Описание" rows="10"></textarea>
+          <select class="form-control mb-3" name="Id_connection">
             <option disabled selected>Соединение</option>
             {{range $index, $value := (index .Directory 0) }}
-            <option value={{$value.ID}}>{{$value.NAME}}</option>
+            <option value={{$value.ID}}>{{$value.NAME}} ({{$value.ID}})</option>
             {{end}}
           </select>
           <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
