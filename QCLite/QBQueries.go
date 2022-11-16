@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"korsakov2ea/x_func"
 	"log"
 	"net/http"
@@ -71,12 +70,10 @@ func query(w http.ResponseWriter, r *http.Request) {
 			renderPage(w, "query.html", "common.html", QBQuery)
 
 		case r.Method == "GET" && r.FormValue("mode") == "execute":
-			fmt.Println(execQuery(id))
-			QBQuery.ReadAll()
-			renderPage(w, "queries.html", "common.html", QBQuery)
+			QBQuery.Data, _ = execQuery(id)
+			renderPage(w, "result.html", "common.html", QBQuery)
 
 		default:
-
 		}
 	}
 }

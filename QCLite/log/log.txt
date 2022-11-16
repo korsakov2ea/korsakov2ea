@@ -32484,3 +32484,2181 @@ WHERE M.DSM IS NULL AND M.PW=0
 2022/11/15 17:10:12 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
 2022/11/15 17:10:12 main.renderPage Парсинг шаблона страницы public\html\queries.html
 2022/11/15 17:10:12 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:10:46 main.query Обработка НTTP запроса
+2022/11/15 17:11:49 main.execQuery Выполнение запроса
+2022/11/15 17:11:51 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=11
+2022/11/15 17:12:21 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS
+2022/11/15 17:12:26 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT 
+    M.RE||'/'||M.RA AS "РР", 
+    M.NPERS AS "СНИЛС", 
+    M.REP_UP_FIO AS "ФИО", 
+    M.RDAT AS "ДР", 
+    TRIM(NVL('Трудовая '||VID_TR.NAME, '')) AS "Вид пенсии", 
+    PEN.NP AS "Опер", 
+    PEN.SROKS AS "Срок С", 
+    CASE WHEN PEN.PGP=1 THEN 'ДА' ELSE 'НЕТ' END AS "Готовность",
+    CASE WHEN M.VOEPEN=1 THEN 'ДР. ВЕДОМСТВО' ELSE '' END AS "Признак",
+    PW.NAME AS "Причина"    
+
+FROM PF.MAN AS M 
+INNER JOIN TEST.VW_MAXPEN AS PEN ON PEN.ID=M.ID AND PEN.V_TR=1 AND PEN.NP='ПРЕ' AND PEN.SROKS>='2021-01-01'
+INNER JOIN KL.VPE AS VID_TR ON VID_TR.KOD=PEN.V_TR 
+INNER JOIN KL.PW AS PW ON PW.KOD=PEN.PW
+WHERE M.DSM IS NULL AND M.PW=0
+
+UNION 
+
+SELECT 
+    M.RE||'/'||M.RA AS "РР", 
+    M.NPERS AS "СНИЛС", 
+    M.REP_UP_FIO AS "ФИО", 
+    M.RDAT AS "ДР", 
+    TRIM(NVL('Трудовая '||VID_TR.NAME, '')) AS "Вид пенсии", 
+    PEN.NP AS "Опер", 
+    PEN.SROKS AS "Срок С", 
+    CASE WHEN PEN.PGP=1 THEN 'ДА' ELSE 'НЕТ' END AS "Готовность",
+    CASE WHEN M.VOEPEN=1 THEN 'ДР. ВЕДОМСТВО' ELSE '' END AS "Признак",
+    PW.NAME AS "Причина"    
+
+FROM NAO.MAN AS M 
+INNER JOIN NAO.VW_MAXPEN AS PEN ON PEN.ID=M.ID AND PEN.V_TR=1 AND PEN.NP='ПРЕ' AND PEN.SROKS>='2021-01-01'
+INNER JOIN KL.VPE AS VID_TR ON VID_TR.KOD=PEN.V_TR 
+INNER JOIN KL.PW AS PW ON PW.KOD=PEN.PW
+WHERE M.DSM IS NULL AND M.PW=0
+2022/11/15 17:12:30 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS успешно закрыто
+2022/11/15 17:12:30 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/15 17:12:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/15 17:12:30 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:12:30 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:12:48 main.query Обработка НTTP запроса
+2022/11/15 17:12:48 main.(*QBEntity).Read Чтение QUERY для id = 3
+2022/11/15 17:12:48 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=3
+2022/11/15 17:12:48 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:12:48 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:12:48 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/15 17:12:48 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/15 17:13:25 main.query Обработка НTTP запроса
+2022/11/15 17:13:25 main.(*QBEntity).Update Изменение QUERY для id = 3
+2022/11/15 17:13:25 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1) UPDATE QUERY SET REM = 'Выводит что-то там из предзаписи', ID_CONNECTION = '131', NAME = 'Проверочный запрос от Сергея', QUERY = 'WITH dummy(id,dw) as (
+select TIMESTAMP(CURRENT_DATE) id,DAYOFWEEK(CURRENT_DATE)-1 dw from SYSIBM.SYSDUMMY1
+union all
+select id + 1 DAY,DAYOFWEEK(id+1 day)-1 from dummy where id <= CURRENT_DATE + 5 DAY
+--пишем дни исключения
+),
+dummy3(id,dw) as (
+select TIMESTAMP(CURRENT_DATE) id,DAYOFWEEK(CURRENT_DATE)-1 dw from SYSIBM.SYSDUMMY1
+union all
+select id + 1 DAY,DAYOFWEEK(id+1 day)-1 from dummy where id <= CURRENT_DATE + 3 DAY
+--пишем дни исключения
+)
+Select row_number() over(ORDER BY T5."Район"),''39'', T5."Район",T5."Есть за 5 дней",T5."Нет за 5 дней",T6."Есть за 3 дня",T6."Нет за 3 дня" from
+(
+Select Case when "Отсутствие" = 0 then ''+'' END as "Есть за 5 дней",Case when "Отсутствие" <> 0 then ''+'' END as "Нет за 5 дней" --Else "Отсутствие"
+,"Район" from (
+Select Sum("Отсутствие") as "Отсутствие" ,"Район" from (
+SELECT case when "Кол-во" = 0 then 1 else 0 END AS "Отсутствие","Услуга","Район" FROM (
+SELECT Sum("Кол-во") AS "Кол-во","Услуга","Район" FROM
+(
+SELECT
+CASE
+WHEN "Кол-во" IS NULL THEN 0
+ELSE "Кол-во" END AS "Кол-во",
+"День недели","Дата","Услуга","Район" FROM (
+SELECT
+Sum(emp.period/sat1.MAIN_PERIOD) AS "Кол-во",
+CASE
+WHEN DAYOFWEEK(sat1.date_th) = 3 THEN ''Вт''
+WHEN DAYOFWEEK(sat1.date_th) = 4 THEN ''Ср''
+WHEN DAYOFWEEK(sat1.date_th) = 5 THEN ''Чт''
+WHEN DAYOFWEEK(sat1.date_th) = 6 THEN ''Пт''
+WHEN DAYOFWEEK(sat1.date_th) = 7 THEN ''Сб''
+WHEN DAYOFWEEK(sat1.date_th) = 1 THEN ''Вс''
+WHEN DAYOFWEEK(sat1.date_th) = 2 THEN ''Пн''
+END AS "День недели"
+,sat1.date_th AS "Дата",
+sat1.THEME_NAME || '' (нормативное время ''||sat1.MAIN_PERIOD||'' мин.)'' AS "Услуга",sat1.ray_name AS "Район"
+FROM DB2ADMIN.RUSERS_THEME rt
+inner JOIN (SELECT date_of,
+count(counter)*5 period,counter,reception_place FROM DB2ADMIN.new_empty_period
+GROUP BY counter,reception_place,date_of) emp ON emp.reception_place = rt.ID_RUSER
+RIGHT JOIN
+(Select sat0.id,sat0.THEME_NAME,sat0.main_period, sat0.ruid,ra.ray_name,sat0.date_th from (SELECT sat.id id,sat.THEME_NAME,sat.MAIN_PERIOD,ru.id ruid,ru.ray_id rura,VARCHAR_FORMAT(dummy.id,''YYYY-MM-DD'') date_th FROM DB2ADMIN.SPR_ADDRESS_THEME sat,DB2ADMIN.RECEPTIONUSERS ru,dummy WHERE sat.disabled=0) sat0
+INNER JOIN db2admin.spr_rays ra ON sat0.rura = ra.id) sat1
+ON (sat1.ruid= rt.ID_RUSER AND sat1.id = rt.ID_THEME AND emp.date_of = sat1.date_th)
+GROUP BY date_th,theme_name,main_period,ray_name
+ORDER BY ray_name,date_th,theme_name) T) T1 where "День недели" not in (''Сб'',''Вс'') and "Услуга" not in (''_3.10 Социальные выплаты - Назначение ежемесячных выплат на детей в возрасте от 8 до 17 лет (нормативное время 30 мин.)'')and"Район" not in (''ОПФР по Архангельской области'') GROUP BY "Район","Услуга" Order BY "Район","Услуга","Кол-во"
+) T2 ) T3 GROUP BY "Район") T4) T5
+inner join (
+Select Case when "Отсутствие" = 0 then ''+'' END as "Есть за 3 дня",Case when "Отсутствие" <> 0 then ''+'' END as "Нет за 3 дня" ,"Район" from (
+Select Sum("Отсутствие") as "Отсутствие" ,"Район" from (
+SELECT case when "Кол-во" = 0 then 1 else 0 END AS "Отсутствие","Услуга","Район" FROM (
+SELECT Sum("Кол-во") AS "Кол-во","Услуга","Район" FROM
+(
+SELECT
+CASE
+WHEN "Кол-во" IS NULL THEN 0
+ELSE "Кол-во" END AS "Кол-во",
+"День недели","Дата","Услуга","Район" FROM (
+SELECT
+Sum(emp.period/sat1.MAIN_PERIOD) AS "Кол-во",
+CASE
+WHEN DAYOFWEEK(sat1.date_th) = 3 THEN ''Вт''
+WHEN DAYOFWEEK(sat1.date_th) = 4 THEN ''Ср''
+WHEN DAYOFWEEK(sat1.date_th) = 5 THEN ''Чт''
+WHEN DAYOFWEEK(sat1.date_th) = 6 THEN ''Пт''
+WHEN DAYOFWEEK(sat1.date_th) = 7 THEN ''Сб''
+WHEN DAYOFWEEK(sat1.date_th) = 1 THEN ''Вс''
+WHEN DAYOFWEEK(sat1.date_th) = 2 THEN ''Пн''
+END AS "День недели"
+,sat1.date_th AS "Дата",
+sat1.THEME_NAME || '' (нормативное время ''||sat1.MAIN_PERIOD||'' мин.)'' AS "Услуга",sat1.ray_name AS "Район"
+FROM DB2ADMIN.RUSERS_THEME rt
+inner JOIN (SELECT date_of,
+count(counter)*5 period,counter,reception_place FROM DB2ADMIN.new_empty_period
+GROUP BY counter,reception_place,date_of) emp ON emp.reception_place = rt.ID_RUSER
+RIGHT JOIN
+(Select sat0.id,sat0.THEME_NAME,sat0.main_period, sat0.ruid,ra.ray_name,sat0.date_th from (SELECT sat.id id,sat.THEME_NAME,sat.MAIN_PERIOD,ru.id ruid,ru.ray_id rura,VARCHAR_FORMAT(dummy3.id,''YYYY-MM-DD'') date_th FROM DB2ADMIN.SPR_ADDRESS_THEME sat,DB2ADMIN.RECEPTIONUSERS ru,dummy3 WHERE sat.disabled=0) sat0
+INNER JOIN db2admin.spr_rays ra ON sat0.rura = ra.id) sat1
+ON (sat1.ruid= rt.ID_RUSER AND sat1.id = rt.ID_THEME AND emp.date_of = sat1.date_th)
+GROUP BY date_th,theme_name,main_period,ray_name
+ORDER BY ray_name,date_th,theme_name) T) T1 where "День недели" not in (''Сб'',''Вс'') and "Услуга" like ''%Материнский (семейный) капитал%'' and "Услуга" not in (''_3.10 Социальные выплаты - Назначение ежемесячных выплат на детей в возрасте от 8 до 17 лет (нормативное время 30 мин.)'')and"Район" not in (''ОПФР по Архангельской области'') GROUP BY "Район","Услуга" Order BY "Район","Услуга","Кол-во"
+) T2 ) T3 GROUP BY "Район") T4) T6 on T5."Район" = T6."Район" ' WHERE ID = 3
+2022/11/15 17:13:25 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/15 17:13:25 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/15 17:13:25 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:13:25 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:13:29 main.query Обработка НTTP запроса
+2022/11/15 17:13:29 main.execQuery Выполнение запроса
+2022/11/15 17:13:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=3
+2022/11/15 17:13:29 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой предзапись
+2022/11/15 17:13:32 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса WITH dummy(id,dw) as (
+select TIMESTAMP(CURRENT_DATE) id,DAYOFWEEK(CURRENT_DATE)-1 dw from SYSIBM.SYSDUMMY1
+union all
+select id + 1 DAY,DAYOFWEEK(id+1 day)-1 from dummy where id <= CURRENT_DATE + 5 DAY
+--пишем дни исключения
+),
+dummy3(id,dw) as (
+select TIMESTAMP(CURRENT_DATE) id,DAYOFWEEK(CURRENT_DATE)-1 dw from SYSIBM.SYSDUMMY1
+union all
+select id + 1 DAY,DAYOFWEEK(id+1 day)-1 from dummy where id <= CURRENT_DATE + 3 DAY
+--пишем дни исключения
+)
+Select row_number() over(ORDER BY T5."Район"),'39', T5."Район",T5."Есть за 5 дней",T5."Нет за 5 дней",T6."Есть за 3 дня",T6."Нет за 3 дня" from
+(
+Select Case when "Отсутствие" = 0 then '+' END as "Есть за 5 дней",Case when "Отсутствие" <> 0 then '+' END as "Нет за 5 дней" --Else "Отсутствие"
+,"Район" from (
+Select Sum("Отсутствие") as "Отсутствие" ,"Район" from (
+SELECT case when "Кол-во" = 0 then 1 else 0 END AS "Отсутствие","Услуга","Район" FROM (
+SELECT Sum("Кол-во") AS "Кол-во","Услуга","Район" FROM
+(
+SELECT
+CASE
+WHEN "Кол-во" IS NULL THEN 0
+ELSE "Кол-во" END AS "Кол-во",
+"День недели","Дата","Услуга","Район" FROM (
+SELECT
+Sum(emp.period/sat1.MAIN_PERIOD) AS "Кол-во",
+CASE
+WHEN DAYOFWEEK(sat1.date_th) = 3 THEN 'Вт'
+WHEN DAYOFWEEK(sat1.date_th) = 4 THEN 'Ср'
+WHEN DAYOFWEEK(sat1.date_th) = 5 THEN 'Чт'
+WHEN DAYOFWEEK(sat1.date_th) = 6 THEN 'Пт'
+WHEN DAYOFWEEK(sat1.date_th) = 7 THEN 'Сб'
+WHEN DAYOFWEEK(sat1.date_th) = 1 THEN 'Вс'
+WHEN DAYOFWEEK(sat1.date_th) = 2 THEN 'Пн'
+END AS "День недели"
+,sat1.date_th AS "Дата",
+sat1.THEME_NAME || ' (нормативное время '||sat1.MAIN_PERIOD||' мин.)' AS "Услуга",sat1.ray_name AS "Район"
+FROM DB2ADMIN.RUSERS_THEME rt
+inner JOIN (SELECT date_of,
+count(counter)*5 period,counter,reception_place FROM DB2ADMIN.new_empty_period
+GROUP BY counter,reception_place,date_of) emp ON emp.reception_place = rt.ID_RUSER
+RIGHT JOIN
+(Select sat0.id,sat0.THEME_NAME,sat0.main_period, sat0.ruid,ra.ray_name,sat0.date_th from (SELECT sat.id id,sat.THEME_NAME,sat.MAIN_PERIOD,ru.id ruid,ru.ray_id rura,VARCHAR_FORMAT(dummy.id,'YYYY-MM-DD') date_th FROM DB2ADMIN.SPR_ADDRESS_THEME sat,DB2ADMIN.RECEPTIONUSERS ru,dummy WHERE sat.disabled=0) sat0
+INNER JOIN db2admin.spr_rays ra ON sat0.rura = ra.id) sat1
+ON (sat1.ruid= rt.ID_RUSER AND sat1.id = rt.ID_THEME AND emp.date_of = sat1.date_th)
+GROUP BY date_th,theme_name,main_period,ray_name
+ORDER BY ray_name,date_th,theme_name) T) T1 where "День недели" not in ('Сб','Вс') and "Услуга" not in ('_3.10 Социальные выплаты - Назначение ежемесячных выплат на детей в возрасте от 8 до 17 лет (нормативное время 30 мин.)')and"Район" not in ('ОПФР по Архангельской области') GROUP BY "Район","Услуга" Order BY "Район","Услуга","Кол-во"
+) T2 ) T3 GROUP BY "Район") T4) T5
+inner join (
+Select Case when "Отсутствие" = 0 then '+' END as "Есть за 3 дня",Case when "Отсутствие" <> 0 then '+' END as "Нет за 3 дня" ,"Район" from (
+Select Sum("Отсутствие") as "Отсутствие" ,"Район" from (
+SELECT case when "Кол-во" = 0 then 1 else 0 END AS "Отсутствие","Услуга","Район" FROM (
+SELECT Sum("Кол-во") AS "Кол-во","Услуга","Район" FROM
+(
+SELECT
+CASE
+WHEN "Кол-во" IS NULL THEN 0
+ELSE "Кол-во" END AS "Кол-во",
+"День недели","Дата","Услуга","Район" FROM (
+SELECT
+Sum(emp.period/sat1.MAIN_PERIOD) AS "Кол-во",
+CASE
+WHEN DAYOFWEEK(sat1.date_th) = 3 THEN 'Вт'
+WHEN DAYOFWEEK(sat1.date_th) = 4 THEN 'Ср'
+WHEN DAYOFWEEK(sat1.date_th) = 5 THEN 'Чт'
+WHEN DAYOFWEEK(sat1.date_th) = 6 THEN 'Пт'
+WHEN DAYOFWEEK(sat1.date_th) = 7 THEN 'Сб'
+WHEN DAYOFWEEK(sat1.date_th) = 1 THEN 'Вс'
+WHEN DAYOFWEEK(sat1.date_th) = 2 THEN 'Пн'
+END AS "День недели"
+,sat1.date_th AS "Дата",
+sat1.THEME_NAME || ' (нормативное время '||sat1.MAIN_PERIOD||' мин.)' AS "Услуга",sat1.ray_name AS "Район"
+FROM DB2ADMIN.RUSERS_THEME rt
+inner JOIN (SELECT date_of,
+count(counter)*5 period,counter,reception_place FROM DB2ADMIN.new_empty_period
+GROUP BY counter,reception_place,date_of) emp ON emp.reception_place = rt.ID_RUSER
+RIGHT JOIN
+(Select sat0.id,sat0.THEME_NAME,sat0.main_period, sat0.ruid,ra.ray_name,sat0.date_th from (SELECT sat.id id,sat.THEME_NAME,sat.MAIN_PERIOD,ru.id ruid,ru.ray_id rura,VARCHAR_FORMAT(dummy3.id,'YYYY-MM-DD') date_th FROM DB2ADMIN.SPR_ADDRESS_THEME sat,DB2ADMIN.RECEPTIONUSERS ru,dummy3 WHERE sat.disabled=0) sat0
+INNER JOIN db2admin.spr_rays ra ON sat0.rura = ra.id) sat1
+ON (sat1.ruid= rt.ID_RUSER AND sat1.id = rt.ID_THEME AND emp.date_of = sat1.date_th)
+GROUP BY date_th,theme_name,main_period,ray_name
+ORDER BY ray_name,date_th,theme_name) T) T1 where "День недели" not in ('Сб','Вс') and "Услуга" like '%Материнский (семейный) капитал%' and "Услуга" not in ('_3.10 Социальные выплаты - Назначение ежемесячных выплат на детей в возрасте от 8 до 17 лет (нормативное время 30 мин.)')and"Район" not in ('ОПФР по Архангельской области') GROUP BY "Район","Услуга" Order BY "Район","Услуга","Кол-во"
+) T2 ) T3 GROUP BY "Район") T4) T6 on T5."Район" = T6."Район" 
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 3, name "Есть за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 3, name "Есть за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:13:32 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой предзапись успешно закрыто
+2022/11/15 17:13:32 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/15 17:13:32 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/15 17:13:32 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:13:32 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:24:23 main.query Обработка НTTP запроса
+2022/11/15 17:24:23 main.execQuery Выполнение запроса
+2022/11/15 17:24:23 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=3
+2022/11/15 17:24:23 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой предзапись
+2022/11/15 17:24:26 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса WITH dummy(id,dw) as (
+select TIMESTAMP(CURRENT_DATE) id,DAYOFWEEK(CURRENT_DATE)-1 dw from SYSIBM.SYSDUMMY1
+union all
+select id + 1 DAY,DAYOFWEEK(id+1 day)-1 from dummy where id <= CURRENT_DATE + 5 DAY
+--пишем дни исключения
+),
+dummy3(id,dw) as (
+select TIMESTAMP(CURRENT_DATE) id,DAYOFWEEK(CURRENT_DATE)-1 dw from SYSIBM.SYSDUMMY1
+union all
+select id + 1 DAY,DAYOFWEEK(id+1 day)-1 from dummy where id <= CURRENT_DATE + 3 DAY
+--пишем дни исключения
+)
+Select row_number() over(ORDER BY T5."Район"),'39', T5."Район",T5."Есть за 5 дней",T5."Нет за 5 дней",T6."Есть за 3 дня",T6."Нет за 3 дня" from
+(
+Select Case when "Отсутствие" = 0 then '+' END as "Есть за 5 дней",Case when "Отсутствие" <> 0 then '+' END as "Нет за 5 дней" --Else "Отсутствие"
+,"Район" from (
+Select Sum("Отсутствие") as "Отсутствие" ,"Район" from (
+SELECT case when "Кол-во" = 0 then 1 else 0 END AS "Отсутствие","Услуга","Район" FROM (
+SELECT Sum("Кол-во") AS "Кол-во","Услуга","Район" FROM
+(
+SELECT
+CASE
+WHEN "Кол-во" IS NULL THEN 0
+ELSE "Кол-во" END AS "Кол-во",
+"День недели","Дата","Услуга","Район" FROM (
+SELECT
+Sum(emp.period/sat1.MAIN_PERIOD) AS "Кол-во",
+CASE
+WHEN DAYOFWEEK(sat1.date_th) = 3 THEN 'Вт'
+WHEN DAYOFWEEK(sat1.date_th) = 4 THEN 'Ср'
+WHEN DAYOFWEEK(sat1.date_th) = 5 THEN 'Чт'
+WHEN DAYOFWEEK(sat1.date_th) = 6 THEN 'Пт'
+WHEN DAYOFWEEK(sat1.date_th) = 7 THEN 'Сб'
+WHEN DAYOFWEEK(sat1.date_th) = 1 THEN 'Вс'
+WHEN DAYOFWEEK(sat1.date_th) = 2 THEN 'Пн'
+END AS "День недели"
+,sat1.date_th AS "Дата",
+sat1.THEME_NAME || ' (нормативное время '||sat1.MAIN_PERIOD||' мин.)' AS "Услуга",sat1.ray_name AS "Район"
+FROM DB2ADMIN.RUSERS_THEME rt
+inner JOIN (SELECT date_of,
+count(counter)*5 period,counter,reception_place FROM DB2ADMIN.new_empty_period
+GROUP BY counter,reception_place,date_of) emp ON emp.reception_place = rt.ID_RUSER
+RIGHT JOIN
+(Select sat0.id,sat0.THEME_NAME,sat0.main_period, sat0.ruid,ra.ray_name,sat0.date_th from (SELECT sat.id id,sat.THEME_NAME,sat.MAIN_PERIOD,ru.id ruid,ru.ray_id rura,VARCHAR_FORMAT(dummy.id,'YYYY-MM-DD') date_th FROM DB2ADMIN.SPR_ADDRESS_THEME sat,DB2ADMIN.RECEPTIONUSERS ru,dummy WHERE sat.disabled=0) sat0
+INNER JOIN db2admin.spr_rays ra ON sat0.rura = ra.id) sat1
+ON (sat1.ruid= rt.ID_RUSER AND sat1.id = rt.ID_THEME AND emp.date_of = sat1.date_th)
+GROUP BY date_th,theme_name,main_period,ray_name
+ORDER BY ray_name,date_th,theme_name) T) T1 where "День недели" not in ('Сб','Вс') and "Услуга" not in ('_3.10 Социальные выплаты - Назначение ежемесячных выплат на детей в возрасте от 8 до 17 лет (нормативное время 30 мин.)')and"Район" not in ('ОПФР по Архангельской области') GROUP BY "Район","Услуга" Order BY "Район","Услуга","Кол-во"
+) T2 ) T3 GROUP BY "Район") T4) T5
+inner join (
+Select Case when "Отсутствие" = 0 then '+' END as "Есть за 3 дня",Case when "Отсутствие" <> 0 then '+' END as "Нет за 3 дня" ,"Район" from (
+Select Sum("Отсутствие") as "Отсутствие" ,"Район" from (
+SELECT case when "Кол-во" = 0 then 1 else 0 END AS "Отсутствие","Услуга","Район" FROM (
+SELECT Sum("Кол-во") AS "Кол-во","Услуга","Район" FROM
+(
+SELECT
+CASE
+WHEN "Кол-во" IS NULL THEN 0
+ELSE "Кол-во" END AS "Кол-во",
+"День недели","Дата","Услуга","Район" FROM (
+SELECT
+Sum(emp.period/sat1.MAIN_PERIOD) AS "Кол-во",
+CASE
+WHEN DAYOFWEEK(sat1.date_th) = 3 THEN 'Вт'
+WHEN DAYOFWEEK(sat1.date_th) = 4 THEN 'Ср'
+WHEN DAYOFWEEK(sat1.date_th) = 5 THEN 'Чт'
+WHEN DAYOFWEEK(sat1.date_th) = 6 THEN 'Пт'
+WHEN DAYOFWEEK(sat1.date_th) = 7 THEN 'Сб'
+WHEN DAYOFWEEK(sat1.date_th) = 1 THEN 'Вс'
+WHEN DAYOFWEEK(sat1.date_th) = 2 THEN 'Пн'
+END AS "День недели"
+,sat1.date_th AS "Дата",
+sat1.THEME_NAME || ' (нормативное время '||sat1.MAIN_PERIOD||' мин.)' AS "Услуга",sat1.ray_name AS "Район"
+FROM DB2ADMIN.RUSERS_THEME rt
+inner JOIN (SELECT date_of,
+count(counter)*5 period,counter,reception_place FROM DB2ADMIN.new_empty_period
+GROUP BY counter,reception_place,date_of) emp ON emp.reception_place = rt.ID_RUSER
+RIGHT JOIN
+(Select sat0.id,sat0.THEME_NAME,sat0.main_period, sat0.ruid,ra.ray_name,sat0.date_th from (SELECT sat.id id,sat.THEME_NAME,sat.MAIN_PERIOD,ru.id ruid,ru.ray_id rura,VARCHAR_FORMAT(dummy3.id,'YYYY-MM-DD') date_th FROM DB2ADMIN.SPR_ADDRESS_THEME sat,DB2ADMIN.RECEPTIONUSERS ru,dummy3 WHERE sat.disabled=0) sat0
+INNER JOIN db2admin.spr_rays ra ON sat0.rura = ra.id) sat1
+ON (sat1.ruid= rt.ID_RUSER AND sat1.id = rt.ID_THEME AND emp.date_of = sat1.date_th)
+GROUP BY date_th,theme_name,main_period,ray_name
+ORDER BY ray_name,date_th,theme_name) T) T1 where "День недели" not in ('Сб','Вс') and "Услуга" like '%Материнский (семейный) капитал%' and "Услуга" not in ('_3.10 Социальные выплаты - Назначение ежемесячных выплат на детей в возрасте от 8 до 17 лет (нормативное время 30 мин.)')and"Район" not in ('ОПФР по Архангельской области') GROUP BY "Район","Услуга" Order BY "Район","Услуга","Кол-во"
+) T2 ) T3 GROUP BY "Район") T4) T6 on T5."Район" = T6."Район" 
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 3, name "Есть за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 3, name "Есть за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 sql: Scan error on column index 4, name "Нет за 5 дней": converting NULL to string is unsupported
+2022/11/15 17:24:26 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой предзапись успешно закрыто
+2022/11/15 17:24:26 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/15 17:24:26 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/15 17:24:26 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:24:26 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:25:32 main.connections Обработка НTTP запроса
+2022/11/15 17:25:32 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:25:32 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:25:32 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/11/15 17:25:32 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/11/15 17:25:42 main.connection Обработка НTTP запроса
+2022/11/15 17:25:42 main.(*QBEntity).Read Чтение CONNECTION для id = 131
+2022/11/15 17:25:42 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION WHERE ID=131
+2022/11/15 17:25:42 main.renderPage Парсинг шаблона страницы public\html\connection.html
+2022/11/15 17:25:42 main.renderPage Построение шаблона страницы public\html\connection.html
+2022/11/15 17:26:15 main.connection Обработка НTTP запроса
+2022/11/15 17:26:15 main.(*QBEntity).Update Изменение CONNECTION для id = 131
+2022/11/15 17:26:15 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1) UPDATE CONNECTION SET NAME = 'PFRRECDB (Предварительная запись АРХ)', DRIVER = 'go_ibm_db', DSN = 'HOSTNAME=10.39.0.42; DATABASE=PFRRECDB; PORT=50000; UID=db2admin; PWD=lkuirwe7' WHERE ID = 131
+2022/11/15 17:26:15 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:26:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:26:15 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/11/15 17:26:15 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/11/15 17:26:21 main.connection Обработка НTTP запроса
+2022/11/15 17:26:21 main.(*QBEntity).Read Чтение CONNECTION для id = 1
+2022/11/15 17:26:21 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION WHERE ID=1
+2022/11/15 17:26:21 main.renderPage Парсинг шаблона страницы public\html\connection.html
+2022/11/15 17:26:21 main.renderPage Построение шаблона страницы public\html\connection.html
+2022/11/15 17:26:50 main.connection Обработка НTTP запроса
+2022/11/15 17:26:50 main.(*QBEntity).Update Изменение CONNECTION для id = 1
+2022/11/15 17:26:50 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1) UPDATE CONNECTION SET NAME = 'QВ (Непосредственно база запросов)', DRIVER = 'sqlite3', DSN = 'SQLite\base\base.db' WHERE ID = 1
+2022/11/15 17:26:50 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:26:50 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:26:50 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/11/15 17:26:50 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/11/15 17:26:53 main.connection Обработка НTTP запроса
+2022/11/15 17:26:53 main.(*QBEntity).Read Чтение CONNECTION для id = 34
+2022/11/15 17:26:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION WHERE ID=34
+2022/11/15 17:26:53 main.renderPage Парсинг шаблона страницы public\html\connection.html
+2022/11/15 17:26:53 main.renderPage Построение шаблона страницы public\html\connection.html
+2022/11/15 17:27:10 main.connection Обработка НTTP запроса
+2022/11/15 17:27:10 main.(*QBEntity).Update Изменение CONNECTION для id = 34
+2022/11/15 17:27:10 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1) UPDATE CONNECTION SET NAME = 'ROS (Промышленная НВП АРХ)', DRIVER = 'go_ibm_db', DSN = 'HOSTNAME=10.39.0.71; DATABASE=ROS; PORT=50000; UID=db2admin; PWD=lkuirwe7' WHERE ID = 34
+2022/11/15 17:27:10 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:27:10 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:27:10 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/11/15 17:27:10 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/11/15 17:27:12 main.connection Обработка НTTP запроса
+2022/11/15 17:27:12 main.(*QBEntity).Read Чтение CONNECTION для id = 130
+2022/11/15 17:27:12 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION WHERE ID=130
+2022/11/15 17:27:12 main.renderPage Парсинг шаблона страницы public\html\connection.html
+2022/11/15 17:27:12 main.renderPage Построение шаблона страницы public\html\connection.html
+2022/11/15 17:27:24 main.connection Обработка НTTP запроса
+2022/11/15 17:27:24 main.(*QBEntity).Update Изменение CONNECTION для id = 130
+2022/11/15 17:27:24 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1) UPDATE CONNECTION SET NAME = 'ROS NAO (Промышленная НВП НАО)', DRIVER = 'go_ibm_db', DSN = 'HOSTNAME=10.39.0.132; DATABASE=ROS; PORT=50000; UID=db2admin; PWD=lkuirwe7' WHERE ID = 130
+2022/11/15 17:27:24 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:27:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:27:24 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/11/15 17:27:24 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/11/15 17:27:33 main.connection Обработка НTTP запроса
+2022/11/15 17:27:33 main.renderPage Парсинг шаблона страницы public\html\connection.html
+2022/11/15 17:27:33 main.renderPage Построение шаблона страницы public\html\connection.html
+2022/11/15 17:29:03 main.connection Обработка НTTP запроса
+2022/11/15 17:29:03 main.(*QBEntity).Create Создание CONNECTION
+2022/11/15 17:29:03 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1) INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('ROS_T1 (Тестовая № 1 АРХ)', 'go_ibm_db', 'HOSTNAME=10.39.0.51; DATABASE=ROS; PORT=50000; UID=db2admin; PWD=lkuirwe7')
+2022/11/15 17:29:03 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:29:03 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:29:03 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/11/15 17:29:03 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/11/15 17:29:10 main.queries Обработка НTTP запроса
+2022/11/15 17:29:10 main.(*QBEntity).ReadSQL Чтение SQL для QUERY
+2022/11/15 17:29:10 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/11/15 17:29:10 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:29:10 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:29:12 main.query Обработка НTTP запроса
+2022/11/15 17:29:12 main.(*QBEntity).Read Чтение QUERY для id = 2
+2022/11/15 17:29:12 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=2
+2022/11/15 17:29:12 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:29:12 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:29:12 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/15 17:29:12 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/15 17:29:15 main.query Обработка НTTP запроса
+2022/11/15 17:29:15 main.(*QBEntity).Update Изменение QUERY для id = 2
+2022/11/15 17:29:15 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1) UPDATE QUERY SET REM = 'Тестовый запрос к ROS', ID_CONNECTION = '132', NAME = 'TEST ROS', QUERY = 'SELECT KOD, NAME FROM KL.PW' WHERE ID = 2
+2022/11/15 17:29:15 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/15 17:29:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/15 17:29:15 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:29:15 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:29:17 main.query Обработка НTTP запроса
+2022/11/15 17:29:17 main.(*QBEntity).Read Чтение QUERY для id = 2
+2022/11/15 17:29:17 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=2
+2022/11/15 17:29:17 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:29:17 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:29:17 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/15 17:29:17 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/15 17:29:19 main.query Обработка НTTP запроса
+2022/11/15 17:29:19 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/15 17:29:19 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/15 17:29:19 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:29:19 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:29:25 main.query Обработка НTTP запроса
+2022/11/15 17:29:25 main.(*QBEntity).Read Чтение QUERY для id = 11
+2022/11/15 17:29:25 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=11
+2022/11/15 17:29:25 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:29:25 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:29:25 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/15 17:29:25 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/15 17:29:28 main.query Обработка НTTP запроса
+2022/11/15 17:29:28 main.(*QBEntity).Update Изменение QUERY для id = 11
+2022/11/15 17:29:28 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1) UPDATE QUERY SET NAME = '2022-11-14 2022014901 Инвалидность бессрочная в расчетах', QUERY = 'SELECT 
+    M.RE||''/''||M.RA AS "РР", 
+    M.NPERS AS "СНИЛС", 
+    M.REP_UP_FIO AS "ФИО", 
+    M.RDAT AS "ДР", 
+    TRIM(NVL(''Трудовая ''||VID_TR.NAME, '''')) AS "Вид пенсии", 
+    PEN.NP AS "Опер", 
+    PEN.SROKS AS "Срок С", 
+    CASE WHEN PEN.PGP=1 THEN ''ДА'' ELSE ''НЕТ'' END AS "Готовность",
+    CASE WHEN M.VOEPEN=1 THEN ''ДР. ВЕДОМСТВО'' ELSE '''' END AS "Признак",
+    PW.NAME AS "Причина"    
+
+FROM PF.MAN AS M 
+INNER JOIN TEST.VW_MAXPEN AS PEN ON PEN.ID=M.ID AND PEN.V_TR=1 AND PEN.NP=''ПРЕ'' AND PEN.SROKS>=''2021-01-01''
+INNER JOIN KL.VPE AS VID_TR ON VID_TR.KOD=PEN.V_TR 
+INNER JOIN KL.PW AS PW ON PW.KOD=PEN.PW
+WHERE M.DSM IS NULL AND M.PW=0
+
+UNION 
+
+SELECT 
+    M.RE||''/''||M.RA AS "РР", 
+    M.NPERS AS "СНИЛС", 
+    M.REP_UP_FIO AS "ФИО", 
+    M.RDAT AS "ДР", 
+    TRIM(NVL(''Трудовая ''||VID_TR.NAME, '''')) AS "Вид пенсии", 
+    PEN.NP AS "Опер", 
+    PEN.SROKS AS "Срок С", 
+    CASE WHEN PEN.PGP=1 THEN ''ДА'' ELSE ''НЕТ'' END AS "Готовность",
+    CASE WHEN M.VOEPEN=1 THEN ''ДР. ВЕДОМСТВО'' ELSE '''' END AS "Признак",
+    PW.NAME AS "Причина"    
+
+FROM NAO.MAN AS M 
+INNER JOIN NAO.VW_MAXPEN AS PEN ON PEN.ID=M.ID AND PEN.V_TR=1 AND PEN.NP=''ПРЕ'' AND PEN.SROKS>=''2021-01-01''
+INNER JOIN KL.VPE AS VID_TR ON VID_TR.KOD=PEN.V_TR 
+INNER JOIN KL.PW AS PW ON PW.KOD=PEN.PW
+WHERE M.DSM IS NULL AND M.PW=0', REM = 'Выборка дел пенсионеров, страховая пенсия по старости которым прекращена в связи с переходом на пенсионное обеспечение в другое ведомство. Для контроля за возможными переплатами', ID_CONNECTION = '132' WHERE ID = 11
+2022/11/15 17:29:28 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/15 17:29:28 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/15 17:29:28 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:29:28 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:29:35 main.query Обработка НTTP запроса
+2022/11/15 17:29:35 main.(*QBEntity).Read Чтение QUERY для id = 2
+2022/11/15 17:29:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=2
+2022/11/15 17:29:35 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:29:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:29:35 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/15 17:29:35 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/15 17:29:37 main.query Обработка НTTP запроса
+2022/11/15 17:29:37 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/15 17:29:37 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/15 17:29:37 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:29:37 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:29:40 main.query Обработка НTTP запроса
+2022/11/15 17:29:40 main.(*QBEntity).Read Чтение QUERY для id = 2
+2022/11/15 17:29:40 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=2
+2022/11/15 17:29:40 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:29:40 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:29:40 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/15 17:29:40 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/15 17:29:42 main.query Обработка НTTP запроса
+2022/11/15 17:29:42 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/15 17:29:42 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/15 17:29:42 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:29:42 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:29:46 main.query Обработка НTTP запроса
+2022/11/15 17:29:46 main.execQuery Выполнение запроса
+2022/11/15 17:29:46 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=2
+2022/11/15 17:29:46 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/15 17:29:46 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT KOD, NAME FROM KL.PW
+2022/11/15 17:29:46 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/15 17:29:46 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/15 17:29:46 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/15 17:29:46 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:29:46 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:29:58 main.query Обработка НTTP запроса
+2022/11/15 17:29:58 main.execQuery Выполнение запроса
+2022/11/15 17:29:58 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=11
+2022/11/15 17:29:58 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/15 17:30:02 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT 
+    M.RE||'/'||M.RA AS "РР", 
+    M.NPERS AS "СНИЛС", 
+    M.REP_UP_FIO AS "ФИО", 
+    M.RDAT AS "ДР", 
+    TRIM(NVL('Трудовая '||VID_TR.NAME, '')) AS "Вид пенсии", 
+    PEN.NP AS "Опер", 
+    PEN.SROKS AS "Срок С", 
+    CASE WHEN PEN.PGP=1 THEN 'ДА' ELSE 'НЕТ' END AS "Готовность",
+    CASE WHEN M.VOEPEN=1 THEN 'ДР. ВЕДОМСТВО' ELSE '' END AS "Признак",
+    PW.NAME AS "Причина"    
+
+FROM PF.MAN AS M 
+INNER JOIN TEST.VW_MAXPEN AS PEN ON PEN.ID=M.ID AND PEN.V_TR=1 AND PEN.NP='ПРЕ' AND PEN.SROKS>='2021-01-01'
+INNER JOIN KL.VPE AS VID_TR ON VID_TR.KOD=PEN.V_TR 
+INNER JOIN KL.PW AS PW ON PW.KOD=PEN.PW
+WHERE M.DSM IS NULL AND M.PW=0
+
+UNION 
+
+SELECT 
+    M.RE||'/'||M.RA AS "РР", 
+    M.NPERS AS "СНИЛС", 
+    M.REP_UP_FIO AS "ФИО", 
+    M.RDAT AS "ДР", 
+    TRIM(NVL('Трудовая '||VID_TR.NAME, '')) AS "Вид пенсии", 
+    PEN.NP AS "Опер", 
+    PEN.SROKS AS "Срок С", 
+    CASE WHEN PEN.PGP=1 THEN 'ДА' ELSE 'НЕТ' END AS "Готовность",
+    CASE WHEN M.VOEPEN=1 THEN 'ДР. ВЕДОМСТВО' ELSE '' END AS "Признак",
+    PW.NAME AS "Причина"    
+
+FROM NAO.MAN AS M 
+INNER JOIN NAO.VW_MAXPEN AS PEN ON PEN.ID=M.ID AND PEN.V_TR=1 AND PEN.NP='ПРЕ' AND PEN.SROKS>='2021-01-01'
+INNER JOIN KL.VPE AS VID_TR ON VID_TR.KOD=PEN.V_TR 
+INNER JOIN KL.PW AS PW ON PW.KOD=PEN.PW
+WHERE M.DSM IS NULL AND M.PW=0
+2022/11/15 17:30:02 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/15 17:30:02 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/15 17:30:02 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/15 17:30:02 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:30:02 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:39:35 main.query Обработка НTTP запроса
+2022/11/15 17:39:35 main.(*QBEntity).Read Чтение QUERY для id = 3
+2022/11/15 17:39:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=3
+2022/11/15 17:39:35 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:39:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:39:35 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/15 17:39:35 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/15 17:40:39 main.query Обработка НTTP запроса
+2022/11/15 17:40:39 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/15 17:40:39 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/15 17:40:39 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/15 17:40:39 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/15 17:40:41 main.query Обработка НTTP запроса
+2022/11/15 17:40:41 main.(*QBEntity).Read Чтение QUERY для id = 11
+2022/11/15 17:40:41 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=11
+2022/11/15 17:40:41 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/15 17:40:41 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/15 17:40:41 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/15 17:40:41 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/16 09:01:17 main.query Обработка НTTP запроса
+2022/11/16 09:01:17 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/16 09:01:17 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/16 09:01:17 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/16 09:01:17 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/16 09:02:41 main.query Обработка НTTP запроса
+2022/11/16 09:02:41 main.(*QBEntity).Create Создание QUERY
+2022/11/16 09:02:42 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1) INSERT INTO QUERY (NAME, QUERY, REM, ID_CONNECTION) VALUES ('Проверка scan-а на null значения', 'SELECT * FROM KL.EV_REJECTION_TYPE', 'Выборка и таблицы, которая содержит null для проверки работы scan', '132')
+2022/11/16 09:02:42 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/16 09:02:42 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/16 09:02:42 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/16 09:02:42 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/16 09:02:44 main.query Обработка НTTP запроса
+2022/11/16 09:02:44 main.execQuery Выполнение запроса
+2022/11/16 09:02:44 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:02:44 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 09:02:44 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 09:02:44 sql: Scan error on column index 2, name "NAME_PFR": converting NULL to string is unsupported
+2022/11/16 09:02:44 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 09:02:44 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/16 09:02:44 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/16 09:02:44 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/16 09:02:44 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/16 09:43:18 main.query Обработка НTTP запроса
+2022/11/16 09:43:18 main.execQuery Выполнение запроса
+2022/11/16 09:43:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:44:02 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 09:44:02 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 09:45:34 korsakov2ea/x_func.StartLogging -------------------------
+2022/11/16 09:45:34 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/11/16 09:45:34 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/11/16 09:45:34 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/11/16 09:45:42 main.query Обработка НTTP запроса
+2022/11/16 09:45:42 main.execQuery Выполнение запроса
+2022/11/16 09:45:42 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:45:42 http: panic serving [::1]:51677: interface conversion: interface {} is *sql.NullString, not *string
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1401acc60, 0xc000184270})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+korsakov2ea/x_func.rowsToMap(0xc000196080, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:98 +0x876
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x140434760, {0xc0001c8060, 0x57}, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:62 +0x473
+main.execQuery(0xc)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:106 +0x1b1
+main.query({0x140259868, 0xc0001cc000}, 0xc000098000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1a71
+net/http.HandlerFunc.ServeHTTP(0x1402324b8, {0x140259868, 0xc0001cc000}, 0xc000098000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x1404347e0, {0x140259868, 0xc0001cc000}, 0xc000098000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015c000}, {0x140259868, 0xc0001cc000}, 0xc000098000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000015e0, {0x140259cb8, 0xc00008e000})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 09:45:42 main.query Обработка НTTP запроса
+2022/11/16 09:45:42 main.execQuery Выполнение запроса
+2022/11/16 09:45:42 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:45:42 http: panic serving [::1]:51678: interface conversion: interface {} is *sql.NullString, not *string
+goroutine 18 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1401acc60, 0xc000184420})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+korsakov2ea/x_func.rowsToMap(0xc000196180, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:98 +0x876
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x140434760, {0xc0001c8120, 0x57}, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:62 +0x473
+main.execQuery(0xc)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:106 +0x1b1
+main.query({0x140259868, 0xc0001cc1c0}, 0xc0001ac000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1a71
+net/http.HandlerFunc.ServeHTTP(0x1402324b8, {0x140259868, 0xc0001cc1c0}, 0xc0001ac000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x1404347e0, {0x140259868, 0xc0001cc1c0}, 0xc0001ac000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015c000}, {0x140259868, 0xc0001cc1c0}, 0xc0001ac000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000188000, {0x140259cb8, 0xc0001a4000})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 09:45:42 main.query Обработка НTTP запроса
+2022/11/16 09:45:42 main.execQuery Выполнение запроса
+2022/11/16 09:45:42 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:45:42 http: panic serving [::1]:51680: interface conversion: interface {} is *sql.NullString, not *string
+goroutine 34 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1401acc60, 0xc00008c2a0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+korsakov2ea/x_func.rowsToMap(0xc0000c0000, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:98 +0x876
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x140434760, {0xc0000860c0, 0x57}, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:62 +0x473
+main.execQuery(0xc)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:106 +0x1b1
+main.query({0x140259868, 0xc0000b8000}, 0xc000098100)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1a71
+net/http.HandlerFunc.ServeHTTP(0x1402324b8, {0x140259868, 0xc0000b8000}, 0xc000098100)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x1404347e0, {0x140259868, 0xc0000b8000}, 0xc000098100)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015c000}, {0x140259868, 0xc0000b8000}, 0xc000098100)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a2000, {0x140259cb8, 0xc00008e0c0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 09:45:43 main.query Обработка НTTP запроса
+2022/11/16 09:45:43 main.execQuery Выполнение запроса
+2022/11/16 09:45:43 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:45:43 http: panic serving [::1]:51681: interface conversion: interface {} is *sql.NullString, not *string
+goroutine 36 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1401acc60, 0xc00008c4e0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+korsakov2ea/x_func.rowsToMap(0xc0000c0080, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:98 +0x876
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x140434760, {0xc000086180, 0x57}, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:62 +0x473
+main.execQuery(0xc)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:106 +0x1b1
+main.query({0x140259868, 0xc0000b81c0}, 0xc000098300)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1a71
+net/http.HandlerFunc.ServeHTTP(0x1402324b8, {0x140259868, 0xc0000b81c0}, 0xc000098300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x1404347e0, {0x140259868, 0xc0000b81c0}, 0xc000098300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015c000}, {0x140259868, 0xc0000b81c0}, 0xc000098300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a20a0, {0x140259cb8, 0xc00008e1c0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 09:45:43 main.query Обработка НTTP запроса
+2022/11/16 09:45:43 main.execQuery Выполнение запроса
+2022/11/16 09:45:43 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:45:43 http: panic serving [::1]:51682: interface conversion: interface {} is *sql.NullString, not *string
+goroutine 21 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1401acc60, 0xc00008c690})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+korsakov2ea/x_func.rowsToMap(0xc0000c0180, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:98 +0x876
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x140434760, {0xc000086240, 0x57}, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:62 +0x473
+main.execQuery(0xc)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:106 +0x1b1
+main.query({0x140259868, 0xc0000b8380}, 0xc0001ac300)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1a71
+net/http.HandlerFunc.ServeHTTP(0x1402324b8, {0x140259868, 0xc0000b8380}, 0xc0001ac300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x1404347e0, {0x140259868, 0xc0000b8380}, 0xc0001ac300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015c000}, {0x140259868, 0xc0000b8380}, 0xc0001ac300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001880a0, {0x140259cb8, 0xc0001a4200})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 09:45:48 main.query Обработка НTTP запроса
+2022/11/16 09:45:48 main.execQuery Выполнение запроса
+2022/11/16 09:45:48 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:45:48 http: panic serving [::1]:51685: interface conversion: interface {} is *sql.NullString, not *string
+goroutine 8 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1401acc60, 0xc000162150})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+korsakov2ea/x_func.rowsToMap(0xc000104180, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:98 +0x876
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x140434760, {0xc000146f60, 0x57}, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:62 +0x473
+main.execQuery(0xc)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:106 +0x1b1
+main.query({0x140259868, 0xc000164000}, 0xc000138500)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1a71
+net/http.HandlerFunc.ServeHTTP(0x1402324b8, {0x140259868, 0xc000164000}, 0xc000138500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x1404347e0, {0x140259868, 0xc000164000}, 0xc000138500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015c000}, {0x140259868, 0xc000164000}, 0xc000138500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000001680, {0x140259cb8, 0xc00004c640})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 09:45:48 main.query Обработка НTTP запроса
+2022/11/16 09:45:48 main.execQuery Выполнение запроса
+2022/11/16 09:45:48 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:45:48 http: panic serving [::1]:51686: interface conversion: interface {} is *sql.NullString, not *string
+goroutine 39 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1401acc60, 0xc0001846c0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+korsakov2ea/x_func.rowsToMap(0xc000196300, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:98 +0x876
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x140434760, {0xc0001c81e0, 0x57}, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:62 +0x473
+main.execQuery(0xc)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:106 +0x1b1
+main.query({0x140259868, 0xc0001cc380}, 0xc000098600)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1a71
+net/http.HandlerFunc.ServeHTTP(0x1402324b8, {0x140259868, 0xc0001cc380}, 0xc000098600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x1404347e0, {0x140259868, 0xc0001cc380}, 0xc000098600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015c000}, {0x140259868, 0xc0001cc380}, 0xc000098600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a2140, {0x140259cb8, 0xc00008e340})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 09:45:48 main.query Обработка НTTP запроса
+2022/11/16 09:45:48 main.execQuery Выполнение запроса
+2022/11/16 09:45:48 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:45:48 http: panic serving [::1]:51687: interface conversion: interface {} is *sql.NullString, not *string
+goroutine 10 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1401acc60, 0xc0001848a0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+korsakov2ea/x_func.rowsToMap(0xc000196380, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:98 +0x876
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x140434760, {0xc0001c82a0, 0x57}, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:62 +0x473
+main.execQuery(0xc)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:106 +0x1b1
+main.query({0x140259868, 0xc0001cc540}, 0xc0001ac500)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1a71
+net/http.HandlerFunc.ServeHTTP(0x1402324b8, {0x140259868, 0xc0001cc540}, 0xc0001ac500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x1404347e0, {0x140259868, 0xc0001cc540}, 0xc0001ac500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015c000}, {0x140259868, 0xc0001cc540}, 0xc0001ac500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000001720, {0x140259cb8, 0xc0001a4300})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 09:46:18 main.query Обработка НTTP запроса
+2022/11/16 09:46:18 main.execQuery Выполнение запроса
+2022/11/16 09:46:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:46:18 http: panic serving [::1]:51693: interface conversion: interface {} is *sql.NullString, not *string
+goroutine 24 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1401acc60, 0xc0001623f0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+korsakov2ea/x_func.rowsToMap(0xc000104200, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:98 +0x876
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x140434760, {0xc000147020, 0x57}, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:62 +0x473
+main.execQuery(0xc)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:106 +0x1b1
+main.query({0x140259868, 0xc0001641c0}, 0xc0001ac700)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1a71
+net/http.HandlerFunc.ServeHTTP(0x1402324b8, {0x140259868, 0xc0001641c0}, 0xc0001ac700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x1404347e0, {0x140259868, 0xc0001641c0}, 0xc0001ac700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015c000}, {0x140259868, 0xc0001641c0}, 0xc0001ac700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000188140, {0x140259cb8, 0xc0001a4400})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 09:46:18 main.query Обработка НTTP запроса
+2022/11/16 09:46:18 main.execQuery Выполнение запроса
+2022/11/16 09:46:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:46:18 http: panic serving [::1]:51694: interface conversion: interface {} is *sql.NullString, not *string
+goroutine 11 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1401acc60, 0xc00008c8d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+korsakov2ea/x_func.rowsToMap(0xc0000c0200, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:98 +0x876
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x140434760, {0xc000086300, 0x57}, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:62 +0x473
+main.execQuery(0xc)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:106 +0x1b1
+main.query({0x140259868, 0xc0000b8540}, 0xc000138700)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1a71
+net/http.HandlerFunc.ServeHTTP(0x1402324b8, {0x140259868, 0xc0000b8540}, 0xc000138700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x1404347e0, {0x140259868, 0xc0000b8540}, 0xc000138700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015c000}, {0x140259868, 0xc0000b8540}, 0xc000138700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000017c0, {0x140259cb8, 0xc00004c740})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 09:46:18 main.query Обработка НTTP запроса
+2022/11/16 09:46:18 main.execQuery Выполнение запроса
+2022/11/16 09:46:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:46:18 http: panic serving [::1]:51695: interface conversion: interface {} is *sql.NullString, not *string
+goroutine 25 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1401acc60, 0xc00008cab0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+korsakov2ea/x_func.rowsToMap(0xc0000c0280, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:98 +0x876
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x140434760, {0xc0000863c0, 0x57}, 0x0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/x_func/db.go:62 +0x473
+main.execQuery(0xc)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:106 +0x1b1
+main.query({0x140259868, 0xc0000b8700}, 0xc000098800)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1a71
+net/http.HandlerFunc.ServeHTTP(0x1402324b8, {0x140259868, 0xc0000b8700}, 0xc000098800)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x1404347e0, {0x140259868, 0xc0000b8700}, 0xc000098800)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015c000}, {0x140259868, 0xc0000b8700}, 0xc000098800)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001881e0, {0x140259cb8, 0xc00008e440})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 09:48:48 korsakov2ea/x_func.StartLogging -------------------------
+2022/11/16 09:48:48 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/11/16 09:48:48 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/11/16 09:48:48 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/11/16 09:48:53 main.query Обработка НTTP запроса
+2022/11/16 09:48:53 main.(*QBEntity).Read Чтение QUERY для id = 2
+2022/11/16 09:48:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=2
+2022/11/16 09:54:48 korsakov2ea/x_func.StartLogging -------------------------
+2022/11/16 09:54:48 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/11/16 09:54:48 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/11/16 09:54:48 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/11/16 09:54:49 main.query Обработка НTTP запроса
+2022/11/16 09:54:49 main.(*QBEntity).Read Чтение QUERY для id = 2
+2022/11/16 09:54:49 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=2
+2022/11/16 09:54:49 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/16 09:54:49 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/16 09:54:49 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/16 09:54:49 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/16 09:54:52 main.query Обработка НTTP запроса
+2022/11/16 09:54:52 main.(*QBEntity).Read Чтение QUERY для id = 2
+2022/11/16 09:54:52 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=2
+2022/11/16 09:54:52 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/16 09:54:52 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/16 09:54:52 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/16 09:54:52 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/16 09:55:01 main.queries Обработка НTTP запроса
+2022/11/16 09:55:01 main.(*QBEntity).ReadSQL Чтение SQL для QUERY
+2022/11/16 09:55:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/11/16 09:55:01 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/16 09:55:01 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/16 09:55:15 main.query Обработка НTTP запроса
+2022/11/16 09:55:15 main.execQuery Выполнение запроса
+2022/11/16 09:55:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 09:55:15 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 09:55:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 09:55:15 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 09:55:15 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/11/16 09:55:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/16 09:55:15 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/16 09:55:15 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/16 10:21:12 korsakov2ea/x_func.StartLogging -------------------------
+2022/11/16 10:21:12 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/11/16 10:21:12 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/11/16 10:21:12 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/11/16 10:21:18 main.queries Обработка НTTP запроса
+2022/11/16 10:21:18 main.(*QBEntity).ReadSQL Чтение SQL для QUERY
+2022/11/16 10:21:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/11/16 10:21:18 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/16 10:21:18 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/16 10:21:20 main.query Обработка НTTP запроса
+2022/11/16 10:21:20 main.execQuery Выполнение запроса
+2022/11/16 10:21:20 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:21:20 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:21:20 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:21:20 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:21:20 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:21:20 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:21:34 main.queries Обработка НTTP запроса
+2022/11/16 10:21:34 main.(*QBEntity).ReadSQL Чтение SQL для QUERY
+2022/11/16 10:21:34 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/11/16 10:21:34 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/16 10:21:34 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/16 10:23:35 korsakov2ea/x_func.StartLogging -------------------------
+2022/11/16 10:23:35 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/11/16 10:23:35 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/11/16 10:23:35 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/11/16 10:23:37 main.queries Обработка НTTP запроса
+2022/11/16 10:23:37 main.(*QBEntity).ReadSQL Чтение SQL для QUERY
+2022/11/16 10:23:37 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/11/16 10:23:37 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/16 10:23:37 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/16 10:23:39 main.query Обработка НTTP запроса
+2022/11/16 10:23:39 main.execQuery Выполнение запроса
+2022/11/16 10:23:39 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:23:39 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:23:39 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:23:39 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:23:39 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:23:39 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:27:18 main.query Обработка НTTP запроса
+2022/11/16 10:27:18 main.execQuery Выполнение запроса
+2022/11/16 10:27:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:27:18 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:27:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:27:18 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:27:18 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:27:18 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:28:40 main.query Обработка НTTP запроса
+2022/11/16 10:28:40 main.execQuery Выполнение запроса
+2022/11/16 10:28:40 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:28:40 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:28:40 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:28:40 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:28:40 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:28:40 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:29:02 main.query Обработка НTTP запроса
+2022/11/16 10:29:02 main.execQuery Выполнение запроса
+2022/11/16 10:29:02 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:29:02 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:29:02 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:29:02 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:29:02 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:29:02 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:29:09 main.query Обработка НTTP запроса
+2022/11/16 10:29:09 main.execQuery Выполнение запроса
+2022/11/16 10:29:09 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:29:09 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:29:09 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:29:09 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:29:09 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:29:09 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:32:59 main.query Обработка НTTP запроса
+2022/11/16 10:32:59 main.execQuery Выполнение запроса
+2022/11/16 10:32:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:32:59 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:32:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:32:59 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:32:59 main.renderPage Ошибка парсинга шаблона страницы template: result.html:28: undefined variable "$col"
+2022/11/16 10:32:59 http: panic serving [::1]:52620: runtime error: invalid memory address or nil pointer dereference
+goroutine 20 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000148d38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00025e1c0}, {0x13f70a6a0, 0xc000250690})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00025e1c0}, {0x13f70a6a0, 0xc000250690})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00025e1c0}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc000250690})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00025e1c0}, 0xc000226400)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00025e1c0}, 0xc000226400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00025e1c0}, 0xc000226400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00025e1c0}, 0xc000226400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000095540, {0x13f789cf8, 0xc000188000})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:32:59 main.query Обработка НTTP запроса
+2022/11/16 10:32:59 main.execQuery Выполнение запроса
+2022/11/16 10:32:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:32:59 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:32:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:32:59 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:32:59 main.renderPage Ошибка парсинга шаблона страницы template: result.html:28: undefined variable "$col"
+2022/11/16 10:32:59 http: panic serving [::1]:52822: runtime error: invalid memory address or nil pointer dereference
+goroutine 10 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00027ad38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00025e380}, {0x13f70a6a0, 0xc0000d3310})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00025e380}, {0x13f70a6a0, 0xc0000d3310})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00025e380}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc0000d3310})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00025e380}, 0xc000062300)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00025e380}, 0xc000062300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00025e380}, 0xc000062300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00025e380}, 0xc000062300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000280, {0x13f789cf8, 0xc00004c580})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:32:59 main.query Обработка НTTP запроса
+2022/11/16 10:32:59 main.execQuery Выполнение запроса
+2022/11/16 10:32:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:00 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:00 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:00 main.renderPage Ошибка парсинга шаблона страницы template: result.html:28: undefined variable "$col"
+2022/11/16 10:33:00 http: panic serving [::1]:52827: runtime error: invalid memory address or nil pointer dereference
+goroutine 11 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00027ad38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc000142000}, {0x13f70a6a0, 0xc000050140})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc000142000}, {0x13f70a6a0, 0xc000050140})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc000142000}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc000050140})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc000142000}, 0xc000062400)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc000142000}, 0xc000062400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc000142000}, 0xc000062400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc000142000}, 0xc000062400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000320, {0x13f789cf8, 0xc00004c640})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:01 main.query Обработка НTTP запроса
+2022/11/16 10:33:01 main.execQuery Выполнение запроса
+2022/11/16 10:33:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:01 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:01 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:01 main.renderPage Ошибка парсинга шаблона страницы template: result.html:28: undefined variable "$col"
+2022/11/16 10:33:01 http: panic serving [::1]:52830: runtime error: invalid memory address or nil pointer dereference
+goroutine 59 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000396d38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00025e540}, {0x13f70a6a0, 0xc000250910})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00025e540}, {0x13f70a6a0, 0xc000250910})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00025e540}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc000250910})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00025e540}, 0xc000062600)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00025e540}, 0xc000062600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00025e540}, 0xc000062600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00025e540}, 0xc000062600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000252280, {0x13f789cf8, 0xc00004cac0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:01 main.query Обработка НTTP запроса
+2022/11/16 10:33:01 main.execQuery Выполнение запроса
+2022/11/16 10:33:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:01 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:01 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:01 main.renderPage Ошибка парсинга шаблона страницы template: result.html:28: undefined variable "$col"
+2022/11/16 10:33:01 http: panic serving [::1]:52831: runtime error: invalid memory address or nil pointer dereference
+goroutine 15 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00033ed38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc0001421c0}, {0x13f70a6a0, 0xc0000502d0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc0001421c0}, {0x13f70a6a0, 0xc0000502d0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc0001421c0}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc0000502d0})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc0001421c0}, 0xc000062700)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc0001421c0}, 0xc000062700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc0001421c0}, 0xc000062700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc0001421c0}, 0xc000062700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000460, {0x13f789cf8, 0xc00004cb40})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:01 main.query Обработка НTTP запроса
+2022/11/16 10:33:01 main.execQuery Выполнение запроса
+2022/11/16 10:33:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:01 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:01 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:01 main.renderPage Ошибка парсинга шаблона страницы template: result.html:28: undefined variable "$col"
+2022/11/16 10:33:01 http: panic serving [::1]:52834: runtime error: invalid memory address or nil pointer dereference
+goroutine 63 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00033ed38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00015c380}, {0x13f70a6a0, 0xc0000d3450})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00015c380}, {0x13f70a6a0, 0xc0000d3450})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00015c380}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc0000d3450})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00015c380}, 0xc000114f00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00015c380}, 0xc000114f00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00015c380}, 0xc000114f00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00015c380}, 0xc000114f00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0002523c0, {0x13f789cf8, 0xc0000f1ac0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:06 main.query Обработка НTTP запроса
+2022/11/16 10:33:06 main.execQuery Выполнение запроса
+2022/11/16 10:33:06 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:06 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:06 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:06 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:06 main.renderPage Ошибка парсинга шаблона страницы template: result.html:28: undefined variable "$col"
+2022/11/16 10:33:06 http: panic serving [::1]:52836: runtime error: invalid memory address or nil pointer dereference
+goroutine 64 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0003c4d38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00025e700}, {0x13f70a6a0, 0xc000250af0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00025e700}, {0x13f70a6a0, 0xc000250af0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00025e700}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc000250af0})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00025e700}, 0xc000226700)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00025e700}, 0xc000226700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00025e700}, 0xc000226700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00025e700}, 0xc000226700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000252460, {0x13f789cf8, 0xc0002174c0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:06 main.query Обработка НTTP запроса
+2022/11/16 10:33:06 main.execQuery Выполнение запроса
+2022/11/16 10:33:06 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:06 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:06 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:06 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:06 main.renderPage Ошибка парсинга шаблона страницы template: result.html:28: undefined variable "$col"
+2022/11/16 10:33:06 http: panic serving [::1]:52837: runtime error: invalid memory address or nil pointer dereference
+goroutine 33 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0003e2d38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00025e8c0}, {0x13f70a6a0, 0xc000250c80})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00025e8c0}, {0x13f70a6a0, 0xc000250c80})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00025e8c0}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc000250c80})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00025e8c0}, 0xc000115000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00025e8c0}, 0xc000115000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00025e8c0}, 0xc000115000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00025e8c0}, 0xc000115000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000959a0, {0x13f789cf8, 0xc0000f1e00})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:06 main.query Обработка НTTP запроса
+2022/11/16 10:33:06 main.execQuery Выполнение запроса
+2022/11/16 10:33:06 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:06 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:06 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:06 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:06 main.renderPage Ошибка парсинга шаблона страницы template: result.html:28: undefined variable "$col"
+2022/11/16 10:33:06 http: panic serving [::1]:52840: runtime error: invalid memory address or nil pointer dereference
+goroutine 98 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00033ed38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00015c540}, {0x13f70a6a0, 0xc0000d35e0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00015c540}, {0x13f70a6a0, 0xc0000d35e0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00015c540}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc0000d35e0})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00015c540}, 0xc000115200)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00015c540}, 0xc000115200)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00015c540}, 0xc000115200)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00015c540}, 0xc000115200)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000095a40, {0x13f789cf8, 0xc0000f1f40})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:22 main.query Обработка НTTP запроса
+2022/11/16 10:33:22 main.execQuery Выполнение запроса
+2022/11/16 10:33:22 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:22 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:22 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:22 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:22 main.renderPage Ошибка парсинга шаблона страницы template: result.html:63: unexpected EOF
+2022/11/16 10:33:22 http: panic serving [::1]:52845: runtime error: invalid memory address or nil pointer dereference
+goroutine 102 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0003e2d38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00015c700}, {0x13f70a6a0, 0xc0000d3770})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00015c700}, {0x13f70a6a0, 0xc0000d3770})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00015c700}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc0000d3770})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00015c700}, 0xc000062900)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00015c700}, 0xc000062900)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00015c700}, 0xc000062900)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00015c700}, 0xc000062900)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000095b80, {0x13f789cf8, 0xc00004cfc0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:22 main.query Обработка НTTP запроса
+2022/11/16 10:33:22 main.execQuery Выполнение запроса
+2022/11/16 10:33:22 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:22 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:22 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:22 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:22 main.renderPage Ошибка парсинга шаблона страницы template: result.html:63: unexpected EOF
+2022/11/16 10:33:22 http: panic serving [::1]:52846: runtime error: invalid memory address or nil pointer dereference
+goroutine 87 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00034cd38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc000142380}, {0x13f70a6a0, 0xc000050460})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc000142380}, {0x13f70a6a0, 0xc000050460})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc000142380}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc000050460})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc000142380}, 0xc000226900)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc000142380}, 0xc000226900)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc000142380}, 0xc000226900)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc000142380}, 0xc000226900)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000252640, {0x13f789cf8, 0xc000217c80})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:22 main.query Обработка НTTP запроса
+2022/11/16 10:33:22 main.execQuery Выполнение запроса
+2022/11/16 10:33:22 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:22 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:22 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:22 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:22 main.renderPage Ошибка парсинга шаблона страницы template: result.html:63: unexpected EOF
+2022/11/16 10:33:22 http: panic serving [::1]:52849: runtime error: invalid memory address or nil pointer dereference
+goroutine 88 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00034cd38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00025ea80}, {0x13f70a6a0, 0xc000250e10})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00025ea80}, {0x13f70a6a0, 0xc000250e10})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00025ea80}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc000250e10})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00025ea80}, 0xc000226a00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00025ea80}, 0xc000226a00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00025ea80}, 0xc000226a00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00025ea80}, 0xc000226a00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0002526e0, {0x13f789cf8, 0xc000217e80})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:23 main.query Обработка НTTP запроса
+2022/11/16 10:33:23 main.execQuery Выполнение запроса
+2022/11/16 10:33:23 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:23 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:23 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:23 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:23 main.renderPage Ошибка парсинга шаблона страницы template: result.html:63: unexpected EOF
+2022/11/16 10:33:23 http: panic serving [::1]:52853: runtime error: invalid memory address or nil pointer dereference
+goroutine 92 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00034cd38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00015c8c0}, {0x13f70a6a0, 0xc0000d38b0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00015c8c0}, {0x13f70a6a0, 0xc0000d38b0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00015c8c0}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc0000d38b0})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00015c8c0}, 0xc000115600)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00015c8c0}, 0xc000115600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00015c8c0}, 0xc000115600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00015c8c0}, 0xc000115600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000252820, {0x13f789cf8, 0xc00017cac0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:23 main.query Обработка НTTP запроса
+2022/11/16 10:33:23 main.execQuery Выполнение запроса
+2022/11/16 10:33:23 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:23 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:23 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:23 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:23 main.renderPage Ошибка парсинга шаблона страницы template: result.html:63: unexpected EOF
+2022/11/16 10:33:23 http: panic serving [::1]:52854: runtime error: invalid memory address or nil pointer dereference
+goroutine 71 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0002a0d38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc0001b0460}, {0x13f70a6a0, 0xc0001ce460})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc0001b0460}, {0x13f70a6a0, 0xc0001ce460})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc0001b0460}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc0001ce460})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc0001b0460}, 0xc000226c00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc0001b0460}, 0xc000226c00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc0001b0460}, 0xc000226c00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc0001b0460}, 0xc000226c00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000640, {0x13f789cf8, 0xc0003fa2c0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:23 main.query Обработка НTTP запроса
+2022/11/16 10:33:23 main.execQuery Выполнение запроса
+2022/11/16 10:33:23 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:23 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:23 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:23 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:23 main.renderPage Ошибка парсинга шаблона страницы template: result.html:63: unexpected EOF
+2022/11/16 10:33:23 http: panic serving [::1]:52857: runtime error: invalid memory address or nil pointer dereference
+goroutine 93 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0002aed38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc0001b0620}, {0x13f70a6a0, 0xc0001ce5a0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc0001b0620}, {0x13f70a6a0, 0xc0001ce5a0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc0001b0620}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc0001ce5a0})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc0001b0620}, 0xc000192b00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc0001b0620}, 0xc000192b00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc0001b0620}, 0xc000192b00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc0001b0620}, 0xc000192b00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0002528c0, {0x13f789cf8, 0xc000189380})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:24 main.query Обработка НTTP запроса
+2022/11/16 10:33:24 main.execQuery Выполнение запроса
+2022/11/16 10:33:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:24 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:24 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:24 main.renderPage Ошибка парсинга шаблона страницы template: result.html:63: unexpected EOF
+2022/11/16 10:33:24 http: panic serving [::1]:52859: runtime error: invalid memory address or nil pointer dereference
+goroutine 94 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0002aed38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00015ca80}, {0x13f70a6a0, 0xc0000d39f0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00015ca80}, {0x13f70a6a0, 0xc0000d39f0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00015ca80}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc0000d39f0})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00015ca80}, 0xc000192d00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00015ca80}, 0xc000192d00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00015ca80}, 0xc000192d00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00015ca80}, 0xc000192d00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000252960, {0x13f789cf8, 0xc000189880})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:24 main.query Обработка НTTP запроса
+2022/11/16 10:33:24 main.execQuery Выполнение запроса
+2022/11/16 10:33:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:24 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:24 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:24 main.renderPage Ошибка парсинга шаблона страницы template: result.html:63: unexpected EOF
+2022/11/16 10:33:24 http: panic serving [::1]:52860: runtime error: invalid memory address or nil pointer dereference
+goroutine 49 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0002ced38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc0001b07e0}, {0x13f70a6a0, 0xc0001ce730})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc0001b07e0}, {0x13f70a6a0, 0xc0001ce730})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc0001b07e0}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc0001ce730})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc0001b07e0}, 0xc000192e00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc0001b07e0}, 0xc000192e00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc0001b07e0}, 0xc000192e00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc0001b07e0}, 0xc000192e00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001f4280, {0x13f789cf8, 0xc000189900})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:24 main.query Обработка НTTP запроса
+2022/11/16 10:33:24 main.execQuery Выполнение запроса
+2022/11/16 10:33:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:24 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:24 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:24 main.renderPage Ошибка парсинга шаблона страницы template: result.html:63: unexpected EOF
+2022/11/16 10:33:24 http: panic serving [::1]:52863: runtime error: invalid memory address or nil pointer dereference
+goroutine 117 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0002aed38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00015cc40}, {0x13f70a6a0, 0xc0001ce820})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00015cc40}, {0x13f70a6a0, 0xc0001ce820})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00015cc40}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc0001ce820})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00015cc40}, 0xc000115800)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00015cc40}, 0xc000115800)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00015cc40}, 0xc000115800)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00015cc40}, 0xc000115800)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001f43c0, {0x13f789cf8, 0xc00017d2c0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:29 main.query Обработка НTTP запроса
+2022/11/16 10:33:29 main.execQuery Выполнение запроса
+2022/11/16 10:33:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:29 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:29 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:29 main.renderPage Ошибка парсинга шаблона страницы template: result.html:63: unexpected EOF
+2022/11/16 10:33:29 http: panic serving [::1]:52866: runtime error: invalid memory address or nil pointer dereference
+goroutine 120 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000364d38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00015c000}, {0x13f70a6a0, 0xc0000500f0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00015c000}, {0x13f70a6a0, 0xc0000500f0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00015c000}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc0000500f0})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00015c000}, 0xc000114000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00015c000}, 0xc000114000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00015c000}, 0xc000114000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00015c000}, 0xc000114000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001f4000, {0x13f789cf8, 0xc00004c000})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:29 main.query Обработка НTTP запроса
+2022/11/16 10:33:29 main.execQuery Выполнение запроса
+2022/11/16 10:33:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:29 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:29 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:29 main.renderPage Ошибка парсинга шаблона страницы template: result.html:63: unexpected EOF
+2022/11/16 10:33:29 http: panic serving [::1]:52867: runtime error: invalid memory address or nil pointer dereference
+goroutine 131 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000092d38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc00015c1c0}, {0x13f70a6a0, 0xc000050280})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc00015c1c0}, {0x13f70a6a0, 0xc000050280})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc00015c1c0}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc000050280})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc00015c1c0}, 0xc000000000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc00015c1c0}, 0xc000000000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc00015c1c0}, 0xc000000000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc00015c1c0}, 0xc000000000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000094000, {0x13f789cf8, 0xc000188000})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:29 main.query Обработка НTTP запроса
+2022/11/16 10:33:29 main.execQuery Выполнение запроса
+2022/11/16 10:33:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:29 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:29 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:29 main.renderPage Ошибка парсинга шаблона страницы template: result.html:63: unexpected EOF
+2022/11/16 10:33:29 http: panic serving [::1]:52870: runtime error: invalid memory address or nil pointer dereference
+goroutine 121 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00006ed38)
+	C:/Program Files (x86)/Go/src/text/template/exec.go:164 +0x26c
+panic({0x13f6d9480, 0x13f672f30})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13f7875c0, 0xc000062000}, {0x13f70a6a0, 0xc00007c0a0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13f7875c0, 0xc000062000}, {0x13f70a6a0, 0xc00007c0a0})
+	C:/Program Files (x86)/Go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13f7898a8, 0xc000062000}, {0x13f72e1ee, 0xb}, {0x13f72e0a4, 0xb}, {0x13f70a6a0, 0xc00007c0a0})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QCLite.go:150 +0x6d0
+main.query({0x13f7898a8, 0xc000062000}, 0xc000000300)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea-1/QCLite/QBQueries.go:74 +0x1b0b
+net/http.HandlerFunc.ServeHTTP(0x13f762518, {0x13f7898a8, 0xc000062000}, 0xc000000300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13f9647e0, {0x13f7898a8, 0xc000062000}, 0xc000000300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000138000}, {0x13f7898a8, 0xc000062000}, 0xc000000300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001f40a0, {0x13f789cf8, 0xc000188200})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/11/16 10:33:57 main.query Обработка НTTP запроса
+2022/11/16 10:33:57 main.execQuery Выполнение запроса
+2022/11/16 10:33:57 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:33:57 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:33:57 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:33:57 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:33:57 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:33:57 main.renderPage Ошибка выполнения шаблона страницы template: result.html:43:21: executing "result.html" at <.col>: can't evaluate field col in type string
+2022/11/16 10:33:57 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:153)
+2022/11/16 10:34:10 main.query Обработка НTTP запроса
+2022/11/16 10:34:10 main.execQuery Выполнение запроса
+2022/11/16 10:34:10 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:34:10 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:34:10 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:34:10 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:34:10 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:34:10 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:34:48 main.query Обработка НTTP запроса
+2022/11/16 10:34:48 main.execQuery Выполнение запроса
+2022/11/16 10:34:48 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:34:48 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:34:48 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:34:48 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:34:48 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:34:48 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:35:53 main.query Обработка НTTP запроса
+2022/11/16 10:35:53 main.execQuery Выполнение запроса
+2022/11/16 10:35:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:35:53 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:35:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:35:53 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:35:53 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:35:53 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:35:59 main.query Обработка НTTP запроса
+2022/11/16 10:35:59 main.execQuery Выполнение запроса
+2022/11/16 10:35:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:35:59 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:35:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:35:59 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:35:59 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:35:59 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:38:11 main.query Обработка НTTP запроса
+2022/11/16 10:38:11 main.execQuery Выполнение запроса
+2022/11/16 10:38:11 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:38:11 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:38:11 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:38:11 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:38:11 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:38:11 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:38:24 main.query Обработка НTTP запроса
+2022/11/16 10:38:24 main.execQuery Выполнение запроса
+2022/11/16 10:38:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:38:24 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:38:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:38:24 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:38:24 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:38:24 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:38:32 main.query Обработка НTTP запроса
+2022/11/16 10:38:32 main.execQuery Выполнение запроса
+2022/11/16 10:38:32 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=11
+2022/11/16 10:38:32 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:38:36 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT 
+    M.RE||'/'||M.RA AS "РР", 
+    M.NPERS AS "СНИЛС", 
+    M.REP_UP_FIO AS "ФИО", 
+    M.RDAT AS "ДР", 
+    TRIM(NVL('Трудовая '||VID_TR.NAME, '')) AS "Вид пенсии", 
+    PEN.NP AS "Опер", 
+    PEN.SROKS AS "Срок С", 
+    CASE WHEN PEN.PGP=1 THEN 'ДА' ELSE 'НЕТ' END AS "Готовность",
+    CASE WHEN M.VOEPEN=1 THEN 'ДР. ВЕДОМСТВО' ELSE '' END AS "Признак",
+    PW.NAME AS "Причина"    
+
+FROM PF.MAN AS M 
+INNER JOIN TEST.VW_MAXPEN AS PEN ON PEN.ID=M.ID AND PEN.V_TR=1 AND PEN.NP='ПРЕ' AND PEN.SROKS>='2021-01-01'
+INNER JOIN KL.VPE AS VID_TR ON VID_TR.KOD=PEN.V_TR 
+INNER JOIN KL.PW AS PW ON PW.KOD=PEN.PW
+WHERE M.DSM IS NULL AND M.PW=0
+
+UNION 
+
+SELECT 
+    M.RE||'/'||M.RA AS "РР", 
+    M.NPERS AS "СНИЛС", 
+    M.REP_UP_FIO AS "ФИО", 
+    M.RDAT AS "ДР", 
+    TRIM(NVL('Трудовая '||VID_TR.NAME, '')) AS "Вид пенсии", 
+    PEN.NP AS "Опер", 
+    PEN.SROKS AS "Срок С", 
+    CASE WHEN PEN.PGP=1 THEN 'ДА' ELSE 'НЕТ' END AS "Готовность",
+    CASE WHEN M.VOEPEN=1 THEN 'ДР. ВЕДОМСТВО' ELSE '' END AS "Признак",
+    PW.NAME AS "Причина"    
+
+FROM NAO.MAN AS M 
+INNER JOIN NAO.VW_MAXPEN AS PEN ON PEN.ID=M.ID AND PEN.V_TR=1 AND PEN.NP='ПРЕ' AND PEN.SROKS>='2021-01-01'
+INNER JOIN KL.VPE AS VID_TR ON VID_TR.KOD=PEN.V_TR 
+INNER JOIN KL.PW AS PW ON PW.KOD=PEN.PW
+WHERE M.DSM IS NULL AND M.PW=0
+2022/11/16 10:38:36 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:38:36 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:38:36 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:38:50 main.query Обработка НTTP запроса
+2022/11/16 10:38:50 main.execQuery Выполнение запроса
+2022/11/16 10:38:50 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=3
+2022/11/16 10:38:50 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой PFRRECDB (Предварительная запись АРХ)
+2022/11/16 10:38:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса WITH dummy(id,dw) as (
+select TIMESTAMP(CURRENT_DATE) id,DAYOFWEEK(CURRENT_DATE)-1 dw from SYSIBM.SYSDUMMY1
+union all
+select id + 1 DAY,DAYOFWEEK(id+1 day)-1 from dummy where id <= CURRENT_DATE + 5 DAY
+--пишем дни исключения
+),
+dummy3(id,dw) as (
+select TIMESTAMP(CURRENT_DATE) id,DAYOFWEEK(CURRENT_DATE)-1 dw from SYSIBM.SYSDUMMY1
+union all
+select id + 1 DAY,DAYOFWEEK(id+1 day)-1 from dummy where id <= CURRENT_DATE + 3 DAY
+--пишем дни исключения
+)
+Select row_number() over(ORDER BY T5."Район"),'39', T5."Район",T5."Есть за 5 дней",T5."Нет за 5 дней",T6."Есть за 3 дня",T6."Нет за 3 дня" from
+(
+Select Case when "Отсутствие" = 0 then '+' END as "Есть за 5 дней",Case when "Отсутствие" <> 0 then '+' END as "Нет за 5 дней" --Else "Отсутствие"
+,"Район" from (
+Select Sum("Отсутствие") as "Отсутствие" ,"Район" from (
+SELECT case when "Кол-во" = 0 then 1 else 0 END AS "Отсутствие","Услуга","Район" FROM (
+SELECT Sum("Кол-во") AS "Кол-во","Услуга","Район" FROM
+(
+SELECT
+CASE
+WHEN "Кол-во" IS NULL THEN 0
+ELSE "Кол-во" END AS "Кол-во",
+"День недели","Дата","Услуга","Район" FROM (
+SELECT
+Sum(emp.period/sat1.MAIN_PERIOD) AS "Кол-во",
+CASE
+WHEN DAYOFWEEK(sat1.date_th) = 3 THEN 'Вт'
+WHEN DAYOFWEEK(sat1.date_th) = 4 THEN 'Ср'
+WHEN DAYOFWEEK(sat1.date_th) = 5 THEN 'Чт'
+WHEN DAYOFWEEK(sat1.date_th) = 6 THEN 'Пт'
+WHEN DAYOFWEEK(sat1.date_th) = 7 THEN 'Сб'
+WHEN DAYOFWEEK(sat1.date_th) = 1 THEN 'Вс'
+WHEN DAYOFWEEK(sat1.date_th) = 2 THEN 'Пн'
+END AS "День недели"
+,sat1.date_th AS "Дата",
+sat1.THEME_NAME || ' (нормативное время '||sat1.MAIN_PERIOD||' мин.)' AS "Услуга",sat1.ray_name AS "Район"
+FROM DB2ADMIN.RUSERS_THEME rt
+inner JOIN (SELECT date_of,
+count(counter)*5 period,counter,reception_place FROM DB2ADMIN.new_empty_period
+GROUP BY counter,reception_place,date_of) emp ON emp.reception_place = rt.ID_RUSER
+RIGHT JOIN
+(Select sat0.id,sat0.THEME_NAME,sat0.main_period, sat0.ruid,ra.ray_name,sat0.date_th from (SELECT sat.id id,sat.THEME_NAME,sat.MAIN_PERIOD,ru.id ruid,ru.ray_id rura,VARCHAR_FORMAT(dummy.id,'YYYY-MM-DD') date_th FROM DB2ADMIN.SPR_ADDRESS_THEME sat,DB2ADMIN.RECEPTIONUSERS ru,dummy WHERE sat.disabled=0) sat0
+INNER JOIN db2admin.spr_rays ra ON sat0.rura = ra.id) sat1
+ON (sat1.ruid= rt.ID_RUSER AND sat1.id = rt.ID_THEME AND emp.date_of = sat1.date_th)
+GROUP BY date_th,theme_name,main_period,ray_name
+ORDER BY ray_name,date_th,theme_name) T) T1 where "День недели" not in ('Сб','Вс') and "Услуга" not in ('_3.10 Социальные выплаты - Назначение ежемесячных выплат на детей в возрасте от 8 до 17 лет (нормативное время 30 мин.)')and"Район" not in ('ОПФР по Архангельской области') GROUP BY "Район","Услуга" Order BY "Район","Услуга","Кол-во"
+) T2 ) T3 GROUP BY "Район") T4) T5
+inner join (
+Select Case when "Отсутствие" = 0 then '+' END as "Есть за 3 дня",Case when "Отсутствие" <> 0 then '+' END as "Нет за 3 дня" ,"Район" from (
+Select Sum("Отсутствие") as "Отсутствие" ,"Район" from (
+SELECT case when "Кол-во" = 0 then 1 else 0 END AS "Отсутствие","Услуга","Район" FROM (
+SELECT Sum("Кол-во") AS "Кол-во","Услуга","Район" FROM
+(
+SELECT
+CASE
+WHEN "Кол-во" IS NULL THEN 0
+ELSE "Кол-во" END AS "Кол-во",
+"День недели","Дата","Услуга","Район" FROM (
+SELECT
+Sum(emp.period/sat1.MAIN_PERIOD) AS "Кол-во",
+CASE
+WHEN DAYOFWEEK(sat1.date_th) = 3 THEN 'Вт'
+WHEN DAYOFWEEK(sat1.date_th) = 4 THEN 'Ср'
+WHEN DAYOFWEEK(sat1.date_th) = 5 THEN 'Чт'
+WHEN DAYOFWEEK(sat1.date_th) = 6 THEN 'Пт'
+WHEN DAYOFWEEK(sat1.date_th) = 7 THEN 'Сб'
+WHEN DAYOFWEEK(sat1.date_th) = 1 THEN 'Вс'
+WHEN DAYOFWEEK(sat1.date_th) = 2 THEN 'Пн'
+END AS "День недели"
+,sat1.date_th AS "Дата",
+sat1.THEME_NAME || ' (нормативное время '||sat1.MAIN_PERIOD||' мин.)' AS "Услуга",sat1.ray_name AS "Район"
+FROM DB2ADMIN.RUSERS_THEME rt
+inner JOIN (SELECT date_of,
+count(counter)*5 period,counter,reception_place FROM DB2ADMIN.new_empty_period
+GROUP BY counter,reception_place,date_of) emp ON emp.reception_place = rt.ID_RUSER
+RIGHT JOIN
+(Select sat0.id,sat0.THEME_NAME,sat0.main_period, sat0.ruid,ra.ray_name,sat0.date_th from (SELECT sat.id id,sat.THEME_NAME,sat.MAIN_PERIOD,ru.id ruid,ru.ray_id rura,VARCHAR_FORMAT(dummy3.id,'YYYY-MM-DD') date_th FROM DB2ADMIN.SPR_ADDRESS_THEME sat,DB2ADMIN.RECEPTIONUSERS ru,dummy3 WHERE sat.disabled=0) sat0
+INNER JOIN db2admin.spr_rays ra ON sat0.rura = ra.id) sat1
+ON (sat1.ruid= rt.ID_RUSER AND sat1.id = rt.ID_THEME AND emp.date_of = sat1.date_th)
+GROUP BY date_th,theme_name,main_period,ray_name
+ORDER BY ray_name,date_th,theme_name) T) T1 where "День недели" not in ('Сб','Вс') and "Услуга" like '%Материнский (семейный) капитал%' and "Услуга" not in ('_3.10 Социальные выплаты - Назначение ежемесячных выплат на детей в возрасте от 8 до 17 лет (нормативное время 30 мин.)')and"Район" not in ('ОПФР по Архангельской области') GROUP BY "Район","Услуга" Order BY "Район","Услуга","Кол-во"
+) T2 ) T3 GROUP BY "Район") T4) T6 on T5."Район" = T6."Район" 
+2022/11/16 10:38:53 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой PFRRECDB (Предварительная запись АРХ) успешно закрыто
+2022/11/16 10:38:53 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:38:53 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:39:07 main.query Обработка НTTP запроса
+2022/11/16 10:39:07 main.(*QBEntity).Read Чтение QUERY для id = 2
+2022/11/16 10:39:07 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=2
+2022/11/16 10:39:07 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/16 10:39:07 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/16 10:39:07 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/16 10:39:07 main.renderPage Построение шаблона страницы public\html\query.html
+2022/11/16 10:39:11 main.query Обработка НTTP запроса
+2022/11/16 10:39:11 main.execQuery Выполнение запроса
+2022/11/16 10:39:11 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=2
+2022/11/16 10:39:11 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:39:11 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT KOD, NAME FROM KL.PW
+2022/11/16 10:39:11 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:39:11 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:39:11 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:39:18 main.query Обработка НTTP запроса
+2022/11/16 10:39:18 main.execQuery Выполнение запроса
+2022/11/16 10:39:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/11/16 10:39:18 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/11/16 10:39:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/11/16 10:39:18 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/11/16 10:39:18 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:39:18 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:39:22 main.queries Обработка НTTP запроса
+2022/11/16 10:39:22 main.(*QBEntity).ReadSQL Чтение SQL для QUERY
+2022/11/16 10:39:22 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/11/16 10:39:22 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/16 10:39:22 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/16 10:47:17 main.query Обработка НTTP запроса
+2022/11/16 10:47:17 main.execQuery Выполнение запроса
+2022/11/16 10:47:17 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:47:17 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:47:17 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:47:17 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:47:17 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:47:17 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:47:19 main.query Обработка НTTP запроса
+2022/11/16 10:47:19 main.execQuery Выполнение запроса
+2022/11/16 10:47:19 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=11
+2022/11/16 10:47:20 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:47:23 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT 
+    M.RE||'/'||M.RA AS "РР", 
+    M.NPERS AS "СНИЛС", 
+    M.REP_UP_FIO AS "ФИО", 
+    M.RDAT AS "ДР", 
+    TRIM(NVL('Трудовая '||VID_TR.NAME, '')) AS "Вид пенсии", 
+    PEN.NP AS "Опер", 
+    PEN.SROKS AS "Срок С", 
+    CASE WHEN PEN.PGP=1 THEN 'ДА' ELSE 'НЕТ' END AS "Готовность",
+    CASE WHEN M.VOEPEN=1 THEN 'ДР. ВЕДОМСТВО' ELSE '' END AS "Признак",
+    PW.NAME AS "Причина"    
+
+FROM PF.MAN AS M 
+INNER JOIN TEST.VW_MAXPEN AS PEN ON PEN.ID=M.ID AND PEN.V_TR=1 AND PEN.NP='ПРЕ' AND PEN.SROKS>='2021-01-01'
+INNER JOIN KL.VPE AS VID_TR ON VID_TR.KOD=PEN.V_TR 
+INNER JOIN KL.PW AS PW ON PW.KOD=PEN.PW
+WHERE M.DSM IS NULL AND M.PW=0
+
+UNION 
+
+SELECT 
+    M.RE||'/'||M.RA AS "РР", 
+    M.NPERS AS "СНИЛС", 
+    M.REP_UP_FIO AS "ФИО", 
+    M.RDAT AS "ДР", 
+    TRIM(NVL('Трудовая '||VID_TR.NAME, '')) AS "Вид пенсии", 
+    PEN.NP AS "Опер", 
+    PEN.SROKS AS "Срок С", 
+    CASE WHEN PEN.PGP=1 THEN 'ДА' ELSE 'НЕТ' END AS "Готовность",
+    CASE WHEN M.VOEPEN=1 THEN 'ДР. ВЕДОМСТВО' ELSE '' END AS "Признак",
+    PW.NAME AS "Причина"    
+
+FROM NAO.MAN AS M 
+INNER JOIN NAO.VW_MAXPEN AS PEN ON PEN.ID=M.ID AND PEN.V_TR=1 AND PEN.NP='ПРЕ' AND PEN.SROKS>='2021-01-01'
+INNER JOIN KL.VPE AS VID_TR ON VID_TR.KOD=PEN.V_TR 
+INNER JOIN KL.PW AS PW ON PW.KOD=PEN.PW
+WHERE M.DSM IS NULL AND M.PW=0
+2022/11/16 10:47:23 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:47:23 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:47:23 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:47:26 main.query Обработка НTTP запроса
+2022/11/16 10:47:26 main.execQuery Выполнение запроса
+2022/11/16 10:47:26 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=3
+2022/11/16 10:47:26 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой PFRRECDB (Предварительная запись АРХ)
+2022/11/16 10:47:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса WITH dummy(id,dw) as (
+select TIMESTAMP(CURRENT_DATE) id,DAYOFWEEK(CURRENT_DATE)-1 dw from SYSIBM.SYSDUMMY1
+union all
+select id + 1 DAY,DAYOFWEEK(id+1 day)-1 from dummy where id <= CURRENT_DATE + 5 DAY
+--пишем дни исключения
+),
+dummy3(id,dw) as (
+select TIMESTAMP(CURRENT_DATE) id,DAYOFWEEK(CURRENT_DATE)-1 dw from SYSIBM.SYSDUMMY1
+union all
+select id + 1 DAY,DAYOFWEEK(id+1 day)-1 from dummy where id <= CURRENT_DATE + 3 DAY
+--пишем дни исключения
+)
+Select row_number() over(ORDER BY T5."Район"),'39', T5."Район",T5."Есть за 5 дней",T5."Нет за 5 дней",T6."Есть за 3 дня",T6."Нет за 3 дня" from
+(
+Select Case when "Отсутствие" = 0 then '+' END as "Есть за 5 дней",Case when "Отсутствие" <> 0 then '+' END as "Нет за 5 дней" --Else "Отсутствие"
+,"Район" from (
+Select Sum("Отсутствие") as "Отсутствие" ,"Район" from (
+SELECT case when "Кол-во" = 0 then 1 else 0 END AS "Отсутствие","Услуга","Район" FROM (
+SELECT Sum("Кол-во") AS "Кол-во","Услуга","Район" FROM
+(
+SELECT
+CASE
+WHEN "Кол-во" IS NULL THEN 0
+ELSE "Кол-во" END AS "Кол-во",
+"День недели","Дата","Услуга","Район" FROM (
+SELECT
+Sum(emp.period/sat1.MAIN_PERIOD) AS "Кол-во",
+CASE
+WHEN DAYOFWEEK(sat1.date_th) = 3 THEN 'Вт'
+WHEN DAYOFWEEK(sat1.date_th) = 4 THEN 'Ср'
+WHEN DAYOFWEEK(sat1.date_th) = 5 THEN 'Чт'
+WHEN DAYOFWEEK(sat1.date_th) = 6 THEN 'Пт'
+WHEN DAYOFWEEK(sat1.date_th) = 7 THEN 'Сб'
+WHEN DAYOFWEEK(sat1.date_th) = 1 THEN 'Вс'
+WHEN DAYOFWEEK(sat1.date_th) = 2 THEN 'Пн'
+END AS "День недели"
+,sat1.date_th AS "Дата",
+sat1.THEME_NAME || ' (нормативное время '||sat1.MAIN_PERIOD||' мин.)' AS "Услуга",sat1.ray_name AS "Район"
+FROM DB2ADMIN.RUSERS_THEME rt
+inner JOIN (SELECT date_of,
+count(counter)*5 period,counter,reception_place FROM DB2ADMIN.new_empty_period
+GROUP BY counter,reception_place,date_of) emp ON emp.reception_place = rt.ID_RUSER
+RIGHT JOIN
+(Select sat0.id,sat0.THEME_NAME,sat0.main_period, sat0.ruid,ra.ray_name,sat0.date_th from (SELECT sat.id id,sat.THEME_NAME,sat.MAIN_PERIOD,ru.id ruid,ru.ray_id rura,VARCHAR_FORMAT(dummy.id,'YYYY-MM-DD') date_th FROM DB2ADMIN.SPR_ADDRESS_THEME sat,DB2ADMIN.RECEPTIONUSERS ru,dummy WHERE sat.disabled=0) sat0
+INNER JOIN db2admin.spr_rays ra ON sat0.rura = ra.id) sat1
+ON (sat1.ruid= rt.ID_RUSER AND sat1.id = rt.ID_THEME AND emp.date_of = sat1.date_th)
+GROUP BY date_th,theme_name,main_period,ray_name
+ORDER BY ray_name,date_th,theme_name) T) T1 where "День недели" not in ('Сб','Вс') and "Услуга" not in ('_3.10 Социальные выплаты - Назначение ежемесячных выплат на детей в возрасте от 8 до 17 лет (нормативное время 30 мин.)')and"Район" not in ('ОПФР по Архангельской области') GROUP BY "Район","Услуга" Order BY "Район","Услуга","Кол-во"
+) T2 ) T3 GROUP BY "Район") T4) T5
+inner join (
+Select Case when "Отсутствие" = 0 then '+' END as "Есть за 3 дня",Case when "Отсутствие" <> 0 then '+' END as "Нет за 3 дня" ,"Район" from (
+Select Sum("Отсутствие") as "Отсутствие" ,"Район" from (
+SELECT case when "Кол-во" = 0 then 1 else 0 END AS "Отсутствие","Услуга","Район" FROM (
+SELECT Sum("Кол-во") AS "Кол-во","Услуга","Район" FROM
+(
+SELECT
+CASE
+WHEN "Кол-во" IS NULL THEN 0
+ELSE "Кол-во" END AS "Кол-во",
+"День недели","Дата","Услуга","Район" FROM (
+SELECT
+Sum(emp.period/sat1.MAIN_PERIOD) AS "Кол-во",
+CASE
+WHEN DAYOFWEEK(sat1.date_th) = 3 THEN 'Вт'
+WHEN DAYOFWEEK(sat1.date_th) = 4 THEN 'Ср'
+WHEN DAYOFWEEK(sat1.date_th) = 5 THEN 'Чт'
+WHEN DAYOFWEEK(sat1.date_th) = 6 THEN 'Пт'
+WHEN DAYOFWEEK(sat1.date_th) = 7 THEN 'Сб'
+WHEN DAYOFWEEK(sat1.date_th) = 1 THEN 'Вс'
+WHEN DAYOFWEEK(sat1.date_th) = 2 THEN 'Пн'
+END AS "День недели"
+,sat1.date_th AS "Дата",
+sat1.THEME_NAME || ' (нормативное время '||sat1.MAIN_PERIOD||' мин.)' AS "Услуга",sat1.ray_name AS "Район"
+FROM DB2ADMIN.RUSERS_THEME rt
+inner JOIN (SELECT date_of,
+count(counter)*5 period,counter,reception_place FROM DB2ADMIN.new_empty_period
+GROUP BY counter,reception_place,date_of) emp ON emp.reception_place = rt.ID_RUSER
+RIGHT JOIN
+(Select sat0.id,sat0.THEME_NAME,sat0.main_period, sat0.ruid,ra.ray_name,sat0.date_th from (SELECT sat.id id,sat.THEME_NAME,sat.MAIN_PERIOD,ru.id ruid,ru.ray_id rura,VARCHAR_FORMAT(dummy3.id,'YYYY-MM-DD') date_th FROM DB2ADMIN.SPR_ADDRESS_THEME sat,DB2ADMIN.RECEPTIONUSERS ru,dummy3 WHERE sat.disabled=0) sat0
+INNER JOIN db2admin.spr_rays ra ON sat0.rura = ra.id) sat1
+ON (sat1.ruid= rt.ID_RUSER AND sat1.id = rt.ID_THEME AND emp.date_of = sat1.date_th)
+GROUP BY date_th,theme_name,main_period,ray_name
+ORDER BY ray_name,date_th,theme_name) T) T1 where "День недели" not in ('Сб','Вс') and "Услуга" like '%Материнский (семейный) капитал%' and "Услуга" not in ('_3.10 Социальные выплаты - Назначение ежемесячных выплат на детей в возрасте от 8 до 17 лет (нормативное время 30 мин.)')and"Район" not in ('ОПФР по Архангельской области') GROUP BY "Район","Услуга" Order BY "Район","Услуга","Кол-во"
+) T2 ) T3 GROUP BY "Район") T4) T6 on T5."Район" = T6."Район" 
+2022/11/16 10:47:29 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой PFRRECDB (Предварительная запись АРХ) успешно закрыто
+2022/11/16 10:47:29 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:47:29 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:57:40 main.query Обработка НTTP запроса
+2022/11/16 10:57:40 main.execQuery Выполнение запроса
+2022/11/16 10:57:40 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=12
+2022/11/16 10:57:40 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой ROS_T1 (Тестовая № 1 АРХ)
+2022/11/16 10:57:40 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM KL.EV_REJECTION_TYPE
+2022/11/16 10:57:40 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой ROS_T1 (Тестовая № 1 АРХ) успешно закрыто
+2022/11/16 10:57:40 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/11/16 10:57:40 main.renderPage Построение шаблона страницы public\html\result.html
+2022/11/16 10:57:52 main.queries Обработка НTTP запроса
+2022/11/16 10:57:52 main.(*QBEntity).ReadSQL Чтение SQL для QUERY
+2022/11/16 10:57:52 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/11/16 10:57:52 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/11/16 10:57:52 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/11/16 10:57:59 main.query Обработка НTTP запроса
+2022/11/16 10:57:59 main.(*QBEntity).Read Чтение QUERY для id = 12
+2022/11/16 10:57:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=12
+2022/11/16 10:57:59 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/11/16 10:57:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/11/16 10:57:59 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/11/16 10:57:59 main.renderPage Построение шаблона страницы public\html\query.html

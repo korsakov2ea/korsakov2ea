@@ -77,10 +77,10 @@ func (database *TDatabase) DBClose() {
 func rowsToMap(rows *sql.Rows, decode1251toUTF8 bool) (SliceMap []map[string]string, RowCount int) {
 	cols, err := rows.Columns()
 	if err != nil {
-		log.Println(FuncName(), "Ошибка преобразования sql.Row в Map", err)
+		log.Println(FuncName(), "Ошибка получения списка столбцов из *sql.Rows.Columns", err)
 	}
 
-	columns := make([]string, len(cols))
+	columns := make([]sql.NullString, len(cols))
 	columnPointers := make([]interface{}, len(cols))
 	for i := range columns {
 		columnPointers[i] = &columns[i]
@@ -90,16 +90,19 @@ func rowsToMap(rows *sql.Rows, decode1251toUTF8 bool) (SliceMap []map[string]str
 	for rows.Next() {
 		err = rows.Scan(columnPointers...)
 		if err != nil {
-			log.Println(err)
+			log.Println(FuncName(), "Ошибка сканирования значений *sql.Rows", err)
 		}
 
 		currentMap := make(map[string]string)
 		for i, columnName := range cols {
-			val := columnPointers[i].(*string)
+			val := columnPointers[i].(*sql.NullString)
 			if decode1251toUTF8 {
-				currentMap[columnName] = Decode1251toUTF8(*val)
+				currentMap[columnName] = Decode1251toUTF8(*&val.String)
 			} else {
-				currentMap[columnName] = *val
+				currentMap[columnName] = *&val.String
+			}
+			if !val.Valid {
+				currentMap[columnName] = "NULL"
 			}
 		}
 
