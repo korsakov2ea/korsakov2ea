@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"path/filepath"
 	"strconv"
+	"strings"
 	"text/template"
 )
 
@@ -99,7 +100,8 @@ func createEmptyQC() {
 	QCDB.DBExec(sqlCommand)
 }
 
-// execQuery - выполняет запрос из базы QC под номером id и возвращает массив карт с результатами выборки, а также кол-во срок в результате
+// execQuery - выполняет запрос из базы QC под номером id и возвращает массив карт с результатами выборки, а также кол-во срок в результате.
+// Кол-во строк -1 означает, что нет строки запроса с указанным ID. Кол-во строк -2 означает, что запросу нажна загрузка данных из файла
 func execQuery(id int) (SliceMap []map[string]string, RowCount int) {
 	log.Printf("%v Выполнение запроса", x_func.FuncName())
 	var tmpConn x_func.TDatabase //соединение для выполнения запроса из базы
@@ -111,6 +113,10 @@ func execQuery(id int) (SliceMap []map[string]string, RowCount int) {
 		decodeParam := false
 		if tmpConn.Driver == "go_ibm_db" {
 			decodeParam = true
+		}
+		if strings.Contains(qcStringMap[0]["QUERY"], "@TABLE") {
+			log.Printf("%v Необходима загрузка данных из файла", x_func.FuncName())
+			return nil, -2
 		}
 		tmpConn.DBOpen()
 		defer tmpConn.DBClose()

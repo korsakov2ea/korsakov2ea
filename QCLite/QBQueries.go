@@ -70,7 +70,13 @@ func query(w http.ResponseWriter, r *http.Request) {
 			renderPage(w, "query.html", "common.html", QBQuery)
 
 		case r.Method == "GET" && r.FormValue("mode") == "execute":
-			QBQuery.Data, _ = execQuery(id)
+			rowsCount := 0
+			QBQuery.Data, rowsCount = execQuery(id)
+			if rowsCount == -2 {
+				renderPage(w, "uploadfile.html", "common.html", QBQuery)
+				return
+			}
+
 			renderPage(w, "result.html", "common.html", QBQuery)
 
 		default:
