@@ -69,17 +69,49 @@ func query(w http.ResponseWriter, r *http.Request) {
 			QBQuery.Directory = append(QBQuery.Directory, QBConnection.Data)
 			renderPage(w, "query.html", "common.html", QBQuery)
 
-		case r.Method == "GET" && r.FormValue("mode") == "execute":
-			rowsCount := 0
-			QBQuery.Data, rowsCount = execQuery(id)
-			if rowsCount == -2 {
+		case r.Method == "GET" && r.FormValue("mode") == "prepare":
+			if needUpload(id) && QBQuery.NeedUpload == false {
+				QBQuery.NeedUpload = true
 				renderPage(w, "uploadfile.html", "common.html", QBQuery)
-				return
+			} else {
+				QBQuery.Data, _ = execQuery(id)
+				renderPage(w, "result.html", "common.html", QBQuery)
 			}
 
-			renderPage(w, "result.html", "common.html", QBQuery)
+		case r.Method == "POST" && r.FormValue("submitBtn") == "Upload":
+			CSVData := x_func.GetStrMapFromCSVWebFile(x_func.UploadFile(r, "uploadFile"))
+			CSVData = x_func.DecodeStrMap1251toUTF8(CSVData)
+			_, _, colNames := x_func.GetSizeStrMap(CSVData)
+			colNameTypes := strings.Replace(colNames, ",", " VARCHAR(255),", -1) + " VARCHAR(255)"
+			idConn := GetIdConnFromIdQuery(id)
+			tableName := "QB" + x_func.GenerateTimeStamp()
+			sqlCode := "CREATE TABLE QB." + tableName + " (" + colNameTypes + ")"
+			ExecSQL(sqlCode, idConn)
 
+			for _, row := range CSVData {
+				sqlCode = ""
+				for _, cell := range row {
+					sqlCode = sqlCode + ", '" + cell + "'"
+				}
+				sqlCode := sqlCode[2:]
+				sqlCode = "INSERT INTO QB." + tableName + " (" + colNames + ") VALUES (" + x_func.DecodeStrUTF8to1251(sqlCode) + ")"
+				ExecSQL(sqlCode, idConn)
+			}
+
+			/*
+				QBQuery.Data, _ = execQuery(id)
+				renderPage(w, "result.html", "common.html", QBQuery)
+			*/
 		default:
 		}
+	}
+}
+
+func needUpload(id int) bool {
+	_, rowsCount := execQuery(id)
+	if rowsCount == -2 {
+		return true
+	} else {
+		return false
 	}
 }
