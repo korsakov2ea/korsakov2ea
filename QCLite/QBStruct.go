@@ -4,37 +4,16 @@ import (
 	"korsakov2ea/x_func"
 	"log"
 	"strconv"
+	"strings"
 )
 
-// QBEntityMode - тип описания режима работы с QBEntity (CRUD)
-type QBEntityMode int
-
-const (
-	open QBEntityMode = iota + 1 // EnumIndex = 1
-	add                          // EnumIndex = 2
-)
-
-// QBEntityMode.String - возвращает текстовое значения режима QBEntityMode
-func (m QBEntityMode) String() string {
-	return [...]string{"open", "add"}[m-1]
-}
-
-// QBEntityMode.String - возвращает числовое значения режима QBEntityMode
-func (m QBEntityMode) EnumIndex() int {
-	return int(m)
-}
-
-// QBEntity - тип для описания сущностей QB вида "соединение", "запрос", "пользователь" и т.д.. Где
-// name - наименование сущности (таблица в БД)
-// mode - режим CRUD,
-// id - идентификатор сущности в БД,
-// Data - набор (карта) данных полученный из БД
+// Структура для описание сущностей БД (соединение, запрос и т.д.)
 type QBEntity struct {
-	name      string
-	mode      QBEntityMode
-	id        int
-	Data      []map[string]string
-	Directory [][]map[string]string
+	name         string                // название как в БД
+	Data         []map[string]string   // карта строк для хранения результатов выборки
+	DataRows     int                   // кол-во строк результатов выборки
+	Directory    [][]map[string]string // массив карт строк для хранения справочников
+	tmpTableName string                // имя временной таблицы для загрузки внешних данных
 }
 
 // Create - добавляет в БД новую запись из карты entityMap
@@ -87,6 +66,87 @@ func (qbe *QBEntity) ReadAll() {
 
 // ReadSQL - считывает из БД записи по SQL
 func (qbe *QBEntity) ReadSQL(sqlCode string) {
-	log.Printf("%v Чтение SQL для %v", x_func.FuncName(), qbe.name)
+	log.Printf("%v Чтение данные чистым SQL для %v", x_func.FuncName(), qbe.name)
 	qbe.Data, _ = QCDB.DBQuery(sqlCode, false)
+}
+
+// execQuery - выполняет запрос из базы QC под номером id и возвращает массив карт с результатами выборки, а также кол-во срок в результате.
+// Кол-во строк -1 означает, что нет строки запроса с указанным ID.
+func (qbe *QBEntity) ExecQuery(id int) {
+	log.Printf("%v Выполнение запроса", x_func.FuncName())
+	var tmpConn x_func.TDatabase //соединение для выполнения запроса из базы
+	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID="+strconv.Itoa(id), false)
+	if qcRowCount != 0 {
+		tmpConn.Driver = qcStringMap[0]["DRIVER"]
+		tmpConn.DSN = qcStringMap[0]["DSN"]
+		tmpConn.Name = qcStringMap[0]["NAME"]
+		decodeParam := false
+		if tmpConn.Driver == "go_ibm_db" {
+			decodeParam = true
+		}
+		tmpConn.DBOpen()
+		defer tmpConn.DBClose()
+
+		query := qcStringMap[0]["QUERY"]
+		if len(qbe.tmpTableName) > 0 {
+			query = strings.Replace(query, "@TABLE", qbe.tmpTableName, -1)
+		}
+
+		qbe.Data, qbe.DataRows = tmpConn.DBQuery(query, decodeParam)
+
+	} else {
+		log.Println(x_func.FuncName(), "Нет строки запроса с ID -", id)
+	}
+}
+
+// needUploadData - возвращает true, если в запросе с idQuery есть метка @TABLE, т.е. предполагается загрузка внешних данных
+func needUploadData(idQuery int) bool {
+	log.Printf("%v Проверка необходимости загрузки данных перед выполнением запроса", x_func.FuncName())
+	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT * FROM QUERY WHERE ID="+strconv.Itoa(idQuery), false)
+	result := false
+	if qcRowCount != 0 {
+		if strings.Contains(qcStringMap[0]["QUERY"], "@TABLE") {
+			log.Printf("%v Необходима загрузка данных из файла", x_func.FuncName())
+			result = true
+			return result
+		}
+	} else {
+		log.Println(x_func.FuncName(), "Нет строки запроса с ID -", idQuery)
+	}
+	return result
+}
+
+// GetIdConnFromQuery - получение id соединения по id запроса
+func GetIdConnFromQuery(idQuery int) int {
+	log.Printf("%v Получение ID соединения для запроса с ID %v", x_func.FuncName(), idQuery)
+	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT * FROM QUERY WHERE ID="+strconv.Itoa(idQuery), false)
+	idConn := -1
+	if qcRowCount != 0 {
+		id, err := strconv.Atoi(qcStringMap[0]["ID_CONNECTION"])
+		if err != nil {
+			log.Println(x_func.FuncName(), "Ошибка преобразования qcStringMap[0][\"ID_CONNECTION\"] = %v в число", qcStringMap[0]["ID_CONNECTION"])
+		} else {
+			idConn = id
+		}
+	} else {
+		log.Println(x_func.FuncName(), "Нет строки запроса с ID -", idQuery)
+	}
+	return idConn
+}
+
+// ExecSQL - выполняет SQL команду в базе, по соединению c указанным id
+func ExecSQL(sqlCode string, idConn int) {
+	log.Printf("%v \n\tВыполнение SQL команды \n%v", x_func.FuncName(), sqlCode)
+	var tmpConn x_func.TDatabase //соединение для выполнения запроса из базы
+	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT * FROM CONNECTION WHERE ID="+strconv.Itoa(idConn), false)
+	if qcRowCount != 0 {
+		tmpConn.Driver = qcStringMap[0]["DRIVER"]
+		tmpConn.DSN = qcStringMap[0]["DSN"]
+		tmpConn.Name = qcStringMap[0]["NAME"]
+		tmpConn.DBOpen()
+		defer tmpConn.DBClose()
+		tmpConn.DBExec(sqlCode)
+	} else {
+		log.Printf("%v \n\tНет соединения с ID = %v", x_func.FuncName(), idConn)
+	}
 }

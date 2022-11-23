@@ -6,8 +6,6 @@ import (
 	"log"
 	"net/http"
 	"path/filepath"
-	"strconv"
-	"strings"
 	"text/template"
 )
 
@@ -98,35 +96,6 @@ func createEmptyQC() {
 	sqlCommand = `
 	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос');`
 	QCDB.DBExec(sqlCommand)
-}
-
-// execQuery - выполняет запрос из базы QC под номером id и возвращает массив карт с результатами выборки, а также кол-во срок в результате.
-// Кол-во строк -1 означает, что нет строки запроса с указанным ID. Кол-во строк -2 означает, что запросу нажна загрузка данных из файла
-func execQuery(id int) (SliceMap []map[string]string, RowCount int) {
-	log.Printf("%v Выполнение запроса", x_func.FuncName())
-	var tmpConn x_func.TDatabase //соединение для выполнения запроса из базы
-	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID="+strconv.Itoa(id), false)
-	if qcRowCount != 0 {
-		tmpConn.Driver = qcStringMap[0]["DRIVER"]
-		tmpConn.DSN = qcStringMap[0]["DSN"]
-		tmpConn.Name = qcStringMap[0]["NAME"]
-		decodeParam := false
-		if tmpConn.Driver == "go_ibm_db" {
-			decodeParam = true
-		}
-		if strings.Contains(qcStringMap[0]["QUERY"], "@TABLE") {
-			log.Printf("%v Необходима загрузка данных из файла", x_func.FuncName())
-			return nil, -2
-		}
-		tmpConn.DBOpen()
-		defer tmpConn.DBClose()
-		queryResult, queryResultRowCount := tmpConn.DBQuery(qcStringMap[0]["QUERY"], decodeParam)
-		return queryResult, queryResultRowCount
-	} else {
-		log.Println(x_func.FuncName(), "Нет строки запроса с ID -", id)
-		return nil, -1
-	}
-
 }
 
 func startServer() {

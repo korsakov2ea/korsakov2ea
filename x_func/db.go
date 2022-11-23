@@ -97,7 +97,7 @@ func rowsToMap(rows *sql.Rows, decode1251toUTF8 bool) (SliceMap []map[string]str
 		for i, columnName := range cols {
 			val := columnPointers[i].(*sql.NullString)
 			if decode1251toUTF8 {
-				currentMap[columnName] = Decode1251toUTF8(*&val.String)
+				currentMap[columnName] = DecodeStr1251toUTF8(*&val.String)
 			} else {
 				currentMap[columnName] = *&val.String
 			}

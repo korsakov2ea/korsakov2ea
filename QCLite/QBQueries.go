@@ -26,11 +26,11 @@ func query(w http.ResponseWriter, r *http.Request) {
 
 		switch {
 
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Cancel":
+		case r.Method == "POST" && r.FormValue("submitBtn") == "cancel":
 			QBQuery.ReadAll()
 			renderPage(w, "queries.html", "common.html", QBQuery)
 
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Create":
+		case r.Method == "POST" && r.FormValue("submitBtn") == "create":
 			newQuery := make(map[string]string)
 			newQuery["NAME"] = r.FormValue("Name")
 			newQuery["QUERY"] = strings.Replace(r.FormValue("Query"), "'", "''", -1)
@@ -40,7 +40,7 @@ func query(w http.ResponseWriter, r *http.Request) {
 			QBQuery.ReadAll()
 			renderPage(w, "queries.html", "common.html", QBQuery)
 
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Update":
+		case r.Method == "POST" && r.FormValue("submitBtn") == "update":
 			newQuery := make(map[string]string)
 			newQuery["NAME"] = r.FormValue("Name")
 			newQuery["QUERY"] = strings.Replace(r.FormValue("Query"), "'", "''", -1)
@@ -50,7 +50,7 @@ func query(w http.ResponseWriter, r *http.Request) {
 			QBQuery.ReadAll()
 			renderPage(w, "queries.html", "common.html", QBQuery)
 
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Delete":
+		case r.Method == "POST" && r.FormValue("submitBtn") == "delete":
 			QBQuery.Delete(id)
 			QBQuery.ReadAll()
 			renderPage(w, "queries.html", "common.html", QBQuery)
@@ -69,49 +69,115 @@ func query(w http.ResponseWriter, r *http.Request) {
 			QBQuery.Directory = append(QBQuery.Directory, QBConnection.Data)
 			renderPage(w, "query.html", "common.html", QBQuery)
 
-		case r.Method == "GET" && r.FormValue("mode") == "prepare":
-			if needUpload(id) && QBQuery.NeedUpload == false {
-				QBQuery.NeedUpload = true
+		case r.Method == "GET" && r.FormValue("mode") == "execute":
+			if needUploadData(id) {
+				QBQuery.tmpTableName = "QB.QB" + x_func.GenerateTimeStamp()
 				renderPage(w, "uploadfile.html", "common.html", QBQuery)
 			} else {
-				QBQuery.Data, _ = execQuery(id)
+				QBQuery.ExecQuery(id)
 				renderPage(w, "result.html", "common.html", QBQuery)
 			}
 
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Upload":
+		case r.Method == "POST" && r.FormValue("submitBtn") == "uploadExecute":
+			log.Printf("Загрузка файла с web формы \n%v", x_func.FuncName())
 			CSVData := x_func.GetStrMapFromCSVWebFile(x_func.UploadFile(r, "uploadFile"))
 			CSVData = x_func.DecodeStrMap1251toUTF8(CSVData)
-			_, _, colNames := x_func.GetSizeStrMap(CSVData)
-			colNameTypes := strings.Replace(colNames, ",", " VARCHAR(255),", -1) + " VARCHAR(255)"
-			idConn := GetIdConnFromIdQuery(id)
-			tableName := "QB" + x_func.GenerateTimeStamp()
-			sqlCode := "CREATE TABLE QB." + tableName + " (" + colNameTypes + ")"
-			ExecSQL(sqlCode, idConn)
 
-			for _, row := range CSVData {
-				sqlCode = ""
-				for _, cell := range row {
-					sqlCode = sqlCode + ", '" + cell + "'"
+			idConn := GetIdConnFromQuery(id)
+			importTmpTable(CSVData, QBQuery.tmpTableName, idConn)
+			QBQuery.ExecQuery(id)
+			dropTmpTable(QBQuery.tmpTableName, idConn)
+			renderPage(w, "result.html", "common.html", QBQuery)
+
+		case r.Method == "POST" && r.FormValue("submitBtn") == "uploadDownload":
+			log.Printf("Загрузка файла с web формы \n%v", x_func.FuncName())
+			CSVData := x_func.GetStrMapFromCSVWebFile(x_func.UploadFile(r, "uploadFile"))
+			CSVData = x_func.DecodeStrMap1251toUTF8(CSVData)
+
+			idConn := GetIdConnFromQuery(id)
+			importTmpTable(CSVData, QBQuery.tmpTableName, idConn)
+			QBQuery.ExecQuery(id)
+			dropTmpTable(QBQuery.tmpTableName, idConn)
+
+			CSV := ""
+			for _, row := range QBQuery.Data {
+				CSVRow := ""
+				for j, cell := range row {
+					CSVRow = CSVRow + " " + j + " " + cell + "; "
 				}
-				sqlCode := sqlCode[2:]
-				sqlCode = "INSERT INTO QB." + tableName + " (" + colNames + ") VALUES (" + x_func.DecodeStrUTF8to1251(sqlCode) + ")"
-				ExecSQL(sqlCode, idConn)
+				CSV = CSV + CSVRow + "\r\n"
 			}
 
-			/*
-				QBQuery.Data, _ = execQuery(id)
-				renderPage(w, "result.html", "common.html", QBQuery)
-			*/
+			w.Header().Set("Content-Type", "application/octet-stream")
+			w.Header().Set("Content-Disposition", "attachment; filename=resule.csv")
+			w.WriteHeader(http.StatusOK)
+			w.Write([]byte(CSV))
+
 		default:
 		}
 	}
 }
 
-func needUpload(id int) bool {
-	_, rowsCount := execQuery(id)
-	if rowsCount == -2 {
-		return true
-	} else {
-		return false
+// Создание временной таблицы tableName (схема.имя) в соединении idСonn с колонками типа COL1 VARCHAR(255) ... COLn VARCHAR(255) и загрузка в неё данных из strMap
+func importTmpTable(strMap [][]string, tableName string, idConn int) {
+
+	log.Printf("%v \n\tСоздание временной таблицы %v", x_func.FuncName(), tableName)
+	colNames, colNameTypes := x_func.GetCOLStrMap(strMap, "VARCHAR (255)")
+	sqlCode := "CREATE TABLE " + tableName + " (" + colNameTypes + ")"
+	ExecSQL(sqlCode, idConn)
+
+	log.Printf("%v \n\tЗаполнение временной таблицы %v", x_func.FuncName(), tableName)
+	sqlCode = ""
+	for _, row := range strMap {
+		colValues := ""
+		for _, cell := range row {
+			colValues = colValues + ", '" + cell + "'"
+		}
+		colValues = colValues[2:]
+		sqlCode = sqlCode + "INSERT INTO " + QBQuery.tmpTableName + " (" + colNames + ") VALUES (" + colValues + ");\n"
 	}
+	ExecSQL(sqlCode, idConn)
 }
+
+// Удаление временной таблицы tableName (схема.имя) в соединении idСonn
+func dropTmpTable(tableName string, idConn int) {
+	log.Printf("%v \n\tУдаление временной таблицы %v", x_func.FuncName(), tableName)
+	ExecSQL("DROP TABLE "+tableName, idConn)
+	QBQuery.tmpTableName = ""
+}
+
+/*
+func postFile(filename string, targetUrl string) error {
+	bodyBuf := &bytes.Buffer{}
+	bodyWriter := multipart.NewWriter(bodyBuf)
+
+	// this step is very important
+	fileWriter, err := bodyWriter.CreateFormFile("uploadfile", filename)
+	if err != nil {
+		fmt.Println("error writing to buffer")
+		return err
+	}
+
+	//iocopy
+	_, err = io.Copy(fileWriter, fh)
+	if err != nil {
+		return err
+	}
+
+	contentType := bodyWriter.FormDataContentType()
+	bodyWriter.Close()
+
+	resp, err := http.Post(targetUrl, contentType, bodyBuf)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	resp_body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return err
+	}
+	fmt.Println(resp.Status)
+	fmt.Println(string(resp_body))
+	return nil
+}
+*/

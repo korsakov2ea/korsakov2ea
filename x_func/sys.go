@@ -5,8 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	"runtime"
-
-	"golang.org/x/text/encoding/charmap"
+	"time"
 )
 
 // FuncName - получает имя вызвавшей функции (используется для вывода в лог)
@@ -15,7 +14,7 @@ func FuncName() string {
 	return runtime.FuncForPC(pc).Name()
 }
 
-// getExecFilePath - получает путь с исполняемому файлу без последнего слэша
+// GetExecFilePath - получает путь с исполняемому файлу без последнего слэша
 func GetExecFilePath() (execFilePath string) {
 	exFile, err := os.Executable()
 	if err != nil {
@@ -26,12 +25,7 @@ func GetExecFilePath() (execFilePath string) {
 	return
 }
 
-// Decode1251toUTF8 - декодирует строку из 1251 в UTF8
-func Decode1251toUTF8(W1251 string) string {
-	decoder := charmap.Windows1251.NewDecoder()
-	UTF8, err := decoder.String(W1251)
-	if err != nil {
-		log.Println(FuncName(), "Ошибка декодирования строки", err)
-	}
-	return UTF8
+func GenerateTimeStamp() string {
+	dateTime := time.Now()
+	return dateTime.Format("20060102_150405.000000")[:15] + dateTime.Format("20060201T150405.000000")[16:]
 }

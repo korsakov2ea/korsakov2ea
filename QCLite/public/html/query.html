@@ -40,7 +40,7 @@
           <div class="modal-footer">
             <form method="POST" enctype="application/x-www-form-urlencoded">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-              <button type="submit" class="btn btn-primary" name="submitBtn" value="Delete">Удалить</button>
+              <button type="submit" class="btn btn-primary" name="submitBtn" value="delete">Удалить</button>
             </form>
           </div>
 
@@ -62,8 +62,8 @@
             <option value={{$value.ID}} {{if eq $ID_CONN $value.ID}}selected{{end}}>{{$value.NAME}} ({{$value.ID}})</option>
             {{end}}
           </select>
-          <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
-          <button type="submit" class="btn btn-primary" name="submitBtn" value="Update">Изменить</button>
+          <button type="submit" class="btn btn-secondary" name="submitBtn" value="cancel">Отмена</button>
+          <button type="submit" class="btn btn-primary" name="submitBtn" value="update">Изменить</button>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Удалить</button>
         </form>
       </div>
@@ -82,8 +82,8 @@
             <option value={{$value.ID}}>{{$value.NAME}} ({{$value.ID}})</option>
             {{end}}
           </select>
-          <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
-          <button type="submit" class="btn btn-primary" name="submitBtn" value="Create">Создать</button>
+          <button type="submit" class="btn btn-secondary" name="submitBtn" value="cancel">Отмена</button>
+          <button type="submit" class="btn btn-primary" name="submitBtn" value="create">Создать</button>
         </form>
       </div>
     </div>
