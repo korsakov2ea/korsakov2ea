@@ -2,6 +2,7 @@ package x_func
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 
 	_ "github.com/ibmdb/go_ibm_db"
@@ -51,7 +52,7 @@ func (database *TDatabase) DBExec(sqlCode string) {
 }
 
 // DBQuery - метод TDatabase для выполения SQL инструкций, которые возвращают результат (например SELECT). Возвращает карту значение и кол-во строк
-func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (SliceMap []map[string]string, RowCount int) {
+func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (SliceMap [][]string, RowCount int) {
 	rows, err := database.DB.Query(sqlCode)
 	defer rows.Close()
 	if err != nil {
@@ -59,7 +60,7 @@ func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (Slice
 	} else {
 		log.Printf("%v Выполнение SQL запроса %v", FuncName(), sqlCode)
 	}
-	return rowsToMap(rows, decode1251toUTF8)
+	return rowsToSlice(rows, decode1251toUTF8)
 }
 
 // DBClose - метод TDatabase для закрытия соединения с БД
@@ -109,14 +110,17 @@ func rowsToMap(rows *sql.Rows, decode1251toUTF8 bool) (SliceMap []map[string]str
 		SliceMap = append(SliceMap, currentMap)
 		RowCount++
 	}
+
 	return SliceMap, RowCount
 }
 
-// rowsToMap - преобразует sql.Rows в массив карт. В случае decode1251toUTF8 = true изменяет кодировку
-func rowsToMap2(rows *sql.Rows, decode1251toUTF8 bool) (SliceMap []map[string]string, RowCount int) {
+// rowsToSlice - преобразует sql.Rows в двумерныый срез (массив). В случае decode1251toUTF8 = true изменяет кодировку
+func rowsToSlice(rows *sql.Rows, decode1251toUTF8 bool) (Slice [][]string, RowCount int) {
 	cols, err := rows.Columns()
 	if err != nil {
 		log.Println(FuncName(), "Ошибка получения списка столбцов из *sql.Rows.Columns", err)
+	} else {
+		Slice = append(Slice, cols)
 	}
 
 	columns := make([]sql.NullString, len(cols))
@@ -132,21 +136,22 @@ func rowsToMap2(rows *sql.Rows, decode1251toUTF8 bool) (SliceMap []map[string]st
 			log.Println(FuncName(), "Ошибка сканирования значений *sql.Rows", err)
 		}
 
-		currentMap := make(map[string]string)
-		for i, columnName := range cols {
+		currentSlice := make([]string, len(cols))
+		for i := range cols {
 			val := columnPointers[i].(*sql.NullString)
 			if decode1251toUTF8 {
-				currentMap[columnName] = DecodeStr1251toUTF8(*&val.String)
+				currentSlice[i] = DecodeStr1251toUTF8(*&val.String)
 			} else {
-				currentMap[columnName] = *&val.String
+				currentSlice[i] = *&val.String
 			}
 			if !val.Valid {
-				currentMap[columnName] = "NULL"
+				currentSlice[i] = "NULL"
 			}
 		}
 
-		SliceMap = append(SliceMap, currentMap)
+		Slice = append(Slice, currentSlice)
 		RowCount++
 	}
-	return SliceMap, RowCount
+	fmt.Print(Slice)
+	return Slice, RowCount
 }

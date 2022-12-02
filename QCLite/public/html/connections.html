@@ -38,11 +38,11 @@
           <tbody>
             {{range .Data }}
             <tr>
-              <td>{{ .ID}}</a></td>
-              <td>{{ .NAME}}</td>
-              <td>{{ .DRIVER}}</td>
-              <td>{{ .DSN}}</td>
-              <td><a href="/connection?mode=view&ID={{.ID}}" target="_self">Изменить</a></td>
+              <td>{{ [0]}}</a></td>
+              <td>{{ [1]}}</td>
+              <td>{{ [2]}}</td>
+              <td>{{ [3]}}</td>
+              <td><a href="/connection?mode=view&ID={{[0]}}" target="_self">Изменить</a></td>
             </tr>
             {{end}}
           </tbody>

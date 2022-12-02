@@ -9,11 +9,11 @@ import (
 
 // Структура для описание сущностей БД (соединение, запрос и т.д.)
 type QBEntity struct {
-	name         string                // название как в БД
-	Data         []map[string]string   // карта строк для хранения результатов выборки
-	DataRows     int                   // кол-во строк результатов выборки
-	Directory    [][]map[string]string // массив карт строк для хранения справочников
-	tmpTableName string                // имя временной таблицы для загрузки внешних данных
+	name         string       // название как в БД
+	Data         [][]string   // двумерный срез (массив) строк для хранения результатов выборки
+	DataRows     int          // кол-во строк результатов выборки
+	Directory    [][][]string // массив карт строк для хранения справочников
+	tmpTableName string       // имя временной таблицы для загрузки внешних данных
 }
 
 // Create - добавляет в БД новую запись из карты entityMap
@@ -60,6 +60,7 @@ func (qbe *QBEntity) Delete(id int) {
 // ReadAll - считывает из БД все записи
 func (qbe *QBEntity) ReadAll() {
 	log.Printf("%v Чтение всех %v", x_func.FuncName(), qbe.name)
+
 	sqlCode := "SELECT * FROM " + qbe.name
 	qbe.Data, _ = QCDB.DBQuery(sqlCode, false)
 }
@@ -75,11 +76,11 @@ func (qbe *QBEntity) ReadSQL(sqlCode string) {
 func (qbe *QBEntity) ExecQuery(id int) {
 	log.Printf("%v Выполнение запроса", x_func.FuncName())
 	var tmpConn x_func.TDatabase //соединение для выполнения запроса из базы
-	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT * FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID="+strconv.Itoa(id), false)
+	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID="+strconv.Itoa(id), false)
 	if qcRowCount != 0 {
-		tmpConn.Driver = qcStringMap[0]["DRIVER"]
-		tmpConn.DSN = qcStringMap[0]["DSN"]
-		tmpConn.Name = qcStringMap[0]["NAME"]
+		tmpConn.Driver = qcStringMap[0][0]
+		tmpConn.DSN = qcStringMap[0][1]
+		tmpConn.Name = qcStringMap[0][2]
 		decodeParam := false
 		if tmpConn.Driver == "go_ibm_db" {
 			decodeParam = true
@@ -87,7 +88,7 @@ func (qbe *QBEntity) ExecQuery(id int) {
 		tmpConn.DBOpen()
 		defer tmpConn.DBClose()
 
-		query := qcStringMap[0]["QUERY"]
+		query := qcStringMap[0][3]
 		if len(qbe.tmpTableName) > 0 {
 			query = strings.Replace(query, "@TABLE", qbe.tmpTableName, -1)
 		}
@@ -102,10 +103,10 @@ func (qbe *QBEntity) ExecQuery(id int) {
 // needUploadData - возвращает true, если в запросе с idQuery есть метка @TABLE, т.е. предполагается загрузка внешних данных
 func needUploadData(idQuery int) bool {
 	log.Printf("%v Проверка необходимости загрузки данных перед выполнением запроса", x_func.FuncName())
-	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT * FROM QUERY WHERE ID="+strconv.Itoa(idQuery), false)
+	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT QUERY FROM QUERY WHERE ID="+strconv.Itoa(idQuery), false)
 	result := false
 	if qcRowCount != 0 {
-		if strings.Contains(qcStringMap[0]["QUERY"], "@TABLE") {
+		if strings.Contains(qcStringMap[0][0], "@TABLE") {
 			log.Printf("%v Необходима загрузка данных из файла", x_func.FuncName())
 			result = true
 			return result
@@ -119,12 +120,12 @@ func needUploadData(idQuery int) bool {
 // GetIdConnFromQuery - получение id соединения по id запроса
 func GetIdConnFromQuery(idQuery int) int {
 	log.Printf("%v Получение ID соединения для запроса с ID %v", x_func.FuncName(), idQuery)
-	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT * FROM QUERY WHERE ID="+strconv.Itoa(idQuery), false)
+	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT ID_CONNECTION FROM QUERY WHERE ID="+strconv.Itoa(idQuery), false)
 	idConn := -1
 	if qcRowCount != 0 {
-		id, err := strconv.Atoi(qcStringMap[0]["ID_CONNECTION"])
+		id, err := strconv.Atoi(qcStringMap[0][0])
 		if err != nil {
-			log.Println(x_func.FuncName(), "Ошибка преобразования qcStringMap[0][\"ID_CONNECTION\"] = %v в число", qcStringMap[0]["ID_CONNECTION"])
+			log.Println(x_func.FuncName(), "Ошибка преобразования qcStringMap[0][\"ID_CONNECTION\"] = %v в число", qcStringMap[0][0])
 		} else {
 			idConn = id
 		}
@@ -138,11 +139,11 @@ func GetIdConnFromQuery(idQuery int) int {
 func ExecSQL(sqlCode string, idConn int) {
 	log.Printf("%v \n\tВыполнение SQL команды \n%v", x_func.FuncName(), sqlCode)
 	var tmpConn x_func.TDatabase //соединение для выполнения запроса из базы
-	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT * FROM CONNECTION WHERE ID="+strconv.Itoa(idConn), false)
+	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT DRIVER, DSN, NAME FROM CONNECTION WHERE ID="+strconv.Itoa(idConn), false)
 	if qcRowCount != 0 {
-		tmpConn.Driver = qcStringMap[0]["DRIVER"]
-		tmpConn.DSN = qcStringMap[0]["DSN"]
-		tmpConn.Name = qcStringMap[0]["NAME"]
+		tmpConn.Driver = qcStringMap[0][0]
+		tmpConn.DSN = qcStringMap[0][1]
+		tmpConn.Name = qcStringMap[0][2]
 		tmpConn.DBOpen()
 		defer tmpConn.DBClose()
 		tmpConn.DBExec(sqlCode)
