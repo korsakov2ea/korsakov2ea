@@ -111,3 +111,42 @@ func rowsToMap(rows *sql.Rows, decode1251toUTF8 bool) (SliceMap []map[string]str
 	}
 	return SliceMap, RowCount
 }
+
+// rowsToMap - преобразует sql.Rows в массив карт. В случае decode1251toUTF8 = true изменяет кодировку
+func rowsToMap2(rows *sql.Rows, decode1251toUTF8 bool) (SliceMap []map[string]string, RowCount int) {
+	cols, err := rows.Columns()
+	if err != nil {
+		log.Println(FuncName(), "Ошибка получения списка столбцов из *sql.Rows.Columns", err)
+	}
+
+	columns := make([]sql.NullString, len(cols))
+	columnPointers := make([]interface{}, len(cols))
+	for i := range columns {
+		columnPointers[i] = &columns[i]
+	}
+
+	RowCount = 0
+	for rows.Next() {
+		err = rows.Scan(columnPointers...)
+		if err != nil {
+			log.Println(FuncName(), "Ошибка сканирования значений *sql.Rows", err)
+		}
+
+		currentMap := make(map[string]string)
+		for i, columnName := range cols {
+			val := columnPointers[i].(*sql.NullString)
+			if decode1251toUTF8 {
+				currentMap[columnName] = DecodeStr1251toUTF8(*&val.String)
+			} else {
+				currentMap[columnName] = *&val.String
+			}
+			if !val.Valid {
+				currentMap[columnName] = "NULL"
+			}
+		}
+
+		SliceMap = append(SliceMap, currentMap)
+		RowCount++
+	}
+	return SliceMap, RowCount
+}

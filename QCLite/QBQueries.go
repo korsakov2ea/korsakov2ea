@@ -4,6 +4,7 @@ import (
 	"korsakov2ea/x_func"
 	"log"
 	"net/http"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -101,15 +102,23 @@ func query(w http.ResponseWriter, r *http.Request) {
 
 			CSV := ""
 			for _, row := range QBQuery.Data {
+
+				keys := make([]string, 0, len(row))
+				for k := range row {
+					keys = append(keys, k)
+				}
+				sort.Strings(keys)
+
 				CSVRow := ""
-				for j, cell := range row {
-					CSVRow = CSVRow + " " + j + " " + cell + "; "
+				for _, k := range keys {
+					CSVRow = CSVRow + row[k] + ";"
 				}
 				CSV = CSV + CSVRow + "\r\n"
 			}
+			CSV = x_func.DecodeStrUTF8to1251(CSV)
 
 			w.Header().Set("Content-Type", "application/octet-stream")
-			w.Header().Set("Content-Disposition", "attachment; filename=resule.csv")
+			w.Header().Set("Content-Disposition", "attachment; filename=result.csv")
 			w.WriteHeader(http.StatusOK)
 			w.Write([]byte(CSV))
 
