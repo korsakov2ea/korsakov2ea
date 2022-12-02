@@ -9,11 +9,12 @@ import (
 
 // Структура для описание сущностей БД (соединение, запрос и т.д.)
 type QBEntity struct {
-	name         string       // название как в БД
-	Data         [][]string   // двумерный срез (массив) строк для хранения результатов выборки
-	DataRows     int          // кол-во строк результатов выборки
-	Directory    [][][]string // массив карт строк для хранения справочников
-	tmpTableName string       // имя временной таблицы для загрузки внешних данных
+	name         string                  // название как в БД
+	DataMap      [][]string              // двумерный срез (массив) строк для хранения результатов выборки
+	Data         []x_func.TNamedIndStr   // двумерный срез (массив) строк для хранения результатов выбори
+	DataRows     int                     // кол-во строк результатов выборки
+	Directory    [][]x_func.TNamedIndStr // массив карт строк для хранения справочников
+	tmpTableName string                  // имя временной таблицы для загрузки внешних данных
 }
 
 // Create - добавляет в БД новую запись из карты entityMap
@@ -66,6 +67,12 @@ func (qbe *QBEntity) ReadAll() {
 }
 
 // ReadSQL - считывает из БД записи по SQL
+func (qbe *QBEntity) ReadSQLM(sqlCode string) {
+	log.Printf("%v Чтение данные чистым SQL для %v", x_func.FuncName(), qbe.name)
+	qbe.Data, _ = QCDB.DBQuery(sqlCode, false)
+}
+
+// ReadSQL - считывает из БД записи по SQL
 func (qbe *QBEntity) ReadSQL(sqlCode string) {
 	log.Printf("%v Чтение данные чистым SQL для %v", x_func.FuncName(), qbe.name)
 	qbe.Data, _ = QCDB.DBQuery(sqlCode, false)
@@ -78,9 +85,9 @@ func (qbe *QBEntity) ExecQuery(id int) {
 	var tmpConn x_func.TDatabase //соединение для выполнения запроса из базы
 	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID="+strconv.Itoa(id), false)
 	if qcRowCount != 0 {
-		tmpConn.Driver = qcStringMap[0][0]
-		tmpConn.DSN = qcStringMap[0][1]
-		tmpConn.Name = qcStringMap[0][2]
+		tmpConn.Driver = qcStringMap[0].ByName["DRIVER"]
+		tmpConn.DSN = qcStringMap[0].ByName["DSN"]
+		tmpConn.Name = qcStringMap[0].ByName["NAME"]
 		decodeParam := false
 		if tmpConn.Driver == "go_ibm_db" {
 			decodeParam = true
@@ -88,7 +95,7 @@ func (qbe *QBEntity) ExecQuery(id int) {
 		tmpConn.DBOpen()
 		defer tmpConn.DBClose()
 
-		query := qcStringMap[0][3]
+		query := qcStringMap[0].ByName["QUERY"]
 		if len(qbe.tmpTableName) > 0 {
 			query = strings.Replace(query, "@TABLE", qbe.tmpTableName, -1)
 		}
@@ -106,7 +113,7 @@ func needUploadData(idQuery int) bool {
 	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT QUERY FROM QUERY WHERE ID="+strconv.Itoa(idQuery), false)
 	result := false
 	if qcRowCount != 0 {
-		if strings.Contains(qcStringMap[0][0], "@TABLE") {
+		if strings.Contains(qcStringMap[0].ByName["QUERY"], "@TABLE") {
 			log.Printf("%v Необходима загрузка данных из файла", x_func.FuncName())
 			result = true
 			return result
@@ -123,9 +130,9 @@ func GetIdConnFromQuery(idQuery int) int {
 	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT ID_CONNECTION FROM QUERY WHERE ID="+strconv.Itoa(idQuery), false)
 	idConn := -1
 	if qcRowCount != 0 {
-		id, err := strconv.Atoi(qcStringMap[0][0])
+		id, err := strconv.Atoi(qcStringMap[0].ByName["ID_CONNECTION"])
 		if err != nil {
-			log.Println(x_func.FuncName(), "Ошибка преобразования qcStringMap[0][\"ID_CONNECTION\"] = %v в число", qcStringMap[0][0])
+			log.Println(x_func.FuncName(), "Ошибка преобразования qcStringMap[0][\"ID_CONNECTION\"] = %v в число", qcStringMap[0].ByName["ID_CONNECTION"])
 		} else {
 			idConn = id
 		}
@@ -141,9 +148,9 @@ func ExecSQL(sqlCode string, idConn int) {
 	var tmpConn x_func.TDatabase //соединение для выполнения запроса из базы
 	qcStringMap, qcRowCount := QCDB.DBQuery("SELECT DRIVER, DSN, NAME FROM CONNECTION WHERE ID="+strconv.Itoa(idConn), false)
 	if qcRowCount != 0 {
-		tmpConn.Driver = qcStringMap[0][0]
-		tmpConn.DSN = qcStringMap[0][1]
-		tmpConn.Name = qcStringMap[0][2]
+		tmpConn.Driver = qcStringMap[0].ByName["DRIVER"]
+		tmpConn.DSN = qcStringMap[0].ByName["DSN"]
+		tmpConn.Name = qcStringMap[0].ByName["NAME"]
 		tmpConn.DBOpen()
 		defer tmpConn.DBClose()
 		tmpConn.DBExec(sqlCode)

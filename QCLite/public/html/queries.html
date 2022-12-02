@@ -20,7 +20,7 @@
         <p class="text-center font-weight-bold">ЗАПРОСЫ</p>
       </div>
     </div>
-    
+
     {{if .Data}}
     <div class="row">
       <div class="col-sm">
@@ -28,29 +28,26 @@
           <thead class="thead-light ">
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Название</th>
-              <!--<th scope="col">Запрос</th>-->
               <th scope="col">Описание</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
           </thead>
-
           <tbody>
             {{range .Data }}
             <tr>
-              <td>{{ .ID}}</a></td>
-              <td>{{ .NAME}}</td>
-              <!--<td>{{ .QUERY}}</td>-->
-              <td>{{ .REM}}</td>
-              <td><a href="/query?mode=view&ID={{.ID}}" target="_self">Изменить</a></td>
-              <td><a href="/query?mode=execute&ID={{.ID}}" target="_self">Выполнить</a></td>
+              <td>{{index .ByName "ID"}}</a></td>
+              <td>{{index .ByName "REM"}}</td>
+              <td><a href='/query?mode=view&ID={{index .ByName "ID"}}' target="_self">Изменить</a></td>
+              <td><a href='/query?mode=execute&ID={{index .ByName "ID"}}' target="_self">Выполнить</a></td>            
             </tr>
             {{end}}
           </tbody>
         </table>
       </div>
     </div>
+    {{else}}
+    <p>Пустой массив данных</p>
     {{end}}
 
     <!-- Optional JavaScript -->
