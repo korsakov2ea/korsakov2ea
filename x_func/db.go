@@ -9,17 +9,26 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-type TNamedIndStr struct {
-	ByName map[string]string
-	ByInd  []*string
+// Представление базы данных
+type TDatabase struct {
+	Driver string  // тип драйвера (go_ibm_db или go_ibm_db)
+	DSN    string  // источник данных (data source name)
+	Name   string  // имя БД для вывода в лог
+	DB     *sql.DB // ссылка на БД
 }
 
-type TDatabase struct {
-	Driver string
-	Name   string
-	DSN    string
-	DB     *sql.DB
+// Представление одной строки результатов SQL выборки. Реализует доступ к данным (по имени, по индексу) и ключам (по индексу).
+type TResultRow struct {
+	ByName map[string]string // карта вида "КЛЮЧ: ЗНАЧЕНИЕ", хранит данные (в алфавитном порядке ключей)
+	ByInd  []*string         // массив (в порядке как вернула СУБД) со ссылками на ЗНАЧЕНИЯ
+	Ind    []*string         // массив (в порядке как вернула СУБД) со ссылками на КЛЮЧИ
 }
+
+// Представление множества строй с результами SQL выборки. Реализует доступ к данным (по имени, по индексу) и ключам (по индексу).
+// ByName - карта вида "КЛЮЧ: ЗНАЧЕНИЕ", хранит непосредственно данные (не сортируется, в алфавитном порядке ключей).
+// ByInd - массив (в порядке как вернула СУБД) со ссылками на ЗНАЧЕНИЯ.
+// Ind - массив (в порядке как вернула СУБД) со ссылками на КЛЮЧИ (заголовки столбцов).
+type TResultRows []TResultRow
 
 // DBGetIniCfg - считывает из конфигурационного INI файла настройки БД и устанавливает структуре db
 func DBGetIniCfg(configFile string, iniSection string, db *TDatabase) {
@@ -56,6 +65,7 @@ func (database *TDatabase) DBExec(sqlCode string) {
 	}
 }
 
+// УСТАРЕЛО 2022-12-03
 // DBQuery - метод TDatabase для выполения SQL инструкций, которые возвращают результат (например SELECT). Возвращает карту значение и кол-во строк
 func (database *TDatabase) DBQueryMap(sqlCode string, decode1251toUTF8 bool) (SliceMap [][]string, RowCount int) {
 	rows, err := database.DB.Query(sqlCode)
@@ -69,7 +79,7 @@ func (database *TDatabase) DBQueryMap(sqlCode string, decode1251toUTF8 bool) (Sl
 }
 
 // DBQuery - метод TDatabase для выполения SQL инструкций, которые возвращают результат (например SELECT). Возвращает карту значение и кол-во строк
-func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (SliceMap []TNamedIndStr, RowCount int) {
+func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (result TResultRows) {
 	rows, err := database.DB.Query(sqlCode)
 	if err != nil {
 		log.Printf("%v Ошибка выполнения SQL запроса %v %v", FuncName(), sqlCode, err)
@@ -77,7 +87,7 @@ func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (Slice
 		log.Printf("%v Выполнение SQL запроса %v", FuncName(), sqlCode)
 	}
 	defer rows.Close()
-	return rowsToData(rows, decode1251toUTF8)
+	return rowsToResult(rows, decode1251toUTF8)
 }
 
 // DBClose - метод TDatabase для закрытия соединения с БД
@@ -91,6 +101,7 @@ func (database *TDatabase) DBClose() {
 
 }
 
+// УСТАРЕЛО 2022-12-03
 // rowsToMap - преобразует sql.Rows в массив карт. В случае decode1251toUTF8 = true изменяет кодировку
 func rowsToMap(rows *sql.Rows, decode1251toUTF8 bool) (SliceMap []map[string]string, RowCount int) {
 	cols, err := rows.Columns()
@@ -131,6 +142,7 @@ func rowsToMap(rows *sql.Rows, decode1251toUTF8 bool) (SliceMap []map[string]str
 	return SliceMap, RowCount
 }
 
+// УСТАРЕЛО 2022-12-03
 // rowsToSlice - преобразует sql.Rows в двумерныый срез (массив). В случае decode1251toUTF8 = true изменяет кодировку
 func rowsToSlice(rows *sql.Rows, decode1251toUTF8 bool) (Slice [][]string, RowCount int) {
 	cols, err := rows.Columns()
@@ -173,12 +185,14 @@ func rowsToSlice(rows *sql.Rows, decode1251toUTF8 bool) (Slice [][]string, RowCo
 	return Slice, RowCount
 }
 
+// Возвращает ссылку на значение переменной типа string. Необходимо для обхода ограничений GO
 func strAdr(str string) *string {
 	return &str
 }
 
-// rowsToMap - преобразует sql.Rows в массив карт. В случае decode1251toUTF8 = true изменяет кодировку
-func rowsToData(rows *sql.Rows, decode1251toUTF8 bool) (SliceData []TNamedIndStr, RowCount int) {
+// Преобразует *sql.Rows в TResultRows (массив карт со значениями и индексированными ссылками на значения и ключи).
+// В случае decode1251toUTF8 = true изменяет кодировку
+func rowsToResult(rows *sql.Rows, decode1251toUTF8 bool) (resultRows TResultRows) {
 	cols, err := rows.Columns()
 	if err != nil {
 		log.Println(FuncName(), "Ошибка получения списка столбцов из *sql.Rows.Columns", err)
@@ -190,34 +204,37 @@ func rowsToData(rows *sql.Rows, decode1251toUTF8 bool) (SliceData []TNamedIndStr
 		columnPointers[i] = &columns[i]
 	}
 
-	RowCount = 0
-	var currentData TNamedIndStr
+	var resultRow TResultRow
+
 	for rows.Next() {
 		err = rows.Scan(columnPointers...)
 		if err != nil {
 			log.Println(FuncName(), "Ошибка сканирования значений *sql.Rows", err)
 		}
 
-		currentMap := make(map[string]string)
-		currentSlice := make([]*string, len(cols))
+		rowMap := make(map[string]string)
+		rowValuePointers := make([]*string, len(cols))
+		rowKeyPointers := make([]*string, len(cols))
+
 		for i, columnName := range cols {
 			val := columnPointers[i].(*sql.NullString)
 			if decode1251toUTF8 {
-				currentMap[columnName] = DecodeStr1251toUTF8(val.String)
+				rowMap[columnName] = DecodeStr1251toUTF8(val.String)
 			} else {
-				currentMap[columnName] = val.String
+				rowMap[columnName] = val.String
 			}
 			if !val.Valid {
-				currentMap[columnName] = "NULL"
+				rowMap[columnName] = "NULL"
 			}
-			currentSlice[i] = strAdr(currentMap[columnName])
+			rowValuePointers[i] = strAdr(rowMap[columnName])
+			rowKeyPointers[i] = strAdr(columnName)
 		}
 
-		currentData.ByName = currentMap
-		currentData.ByInd = currentSlice
-		SliceData = append(SliceData, currentData)
-		RowCount++
+		resultRow.ByName = rowMap
+		resultRow.ByInd = rowValuePointers
+		resultRow.Ind = rowKeyPointers
+		resultRows = append(resultRows, resultRow)
 	}
 
-	return SliceData, RowCount
+	return resultRows
 }

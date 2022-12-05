@@ -20,22 +20,21 @@
         <p class="text-center font-weight-bold">РЕЗУЛЬТАТ ВЫПОЛНЕНИЯ ЗАПРОСА</p>
       </div>
     </div>
-    
     {{if .Data}}
       <div class="row">
       <div class="col-sm">
         <table class="table table-sm">
           <thead class="thead-light ">
             <tr>
-            {{range $ind, $val := (index .Data 0)}}
-              <th scope="col">{{$ind}}</th>
+            {{range $ind, $val := (index .Data 0).Ind}}
+              <th scope="col">{{$val}}</th>
             {{end}}
             </tr>
           </thead>
           <tbody>
-          {{range $i, $row := .Data}}
+            {{range $i, $row := .Data}}
             <tr>
-            {{range $j, $col := $row}}
+            {{range $j, $col := $row.ByInd}}
               <td>{{ $col}}</td>
             {{end}}
             </tr>

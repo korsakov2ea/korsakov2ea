@@ -14326,3 +14326,1371 @@ created by net/http.(*Server).Serve
 2022/12/03 00:16:11 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
 2022/12/03 00:16:11 main.renderPage Парсинг шаблона страницы public\html\queries.html
 2022/12/03 00:16:11 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/03 00:16:46 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/03 00:16:46 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/03 00:16:46 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/03 00:16:46 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/12/03 00:16:47 main.queries Обработка НTTP запроса
+2022/12/03 00:16:47 main.(*QBEntity).ReadSQL Чтение данные чистым SQL для QUERY
+2022/12/03 00:16:47 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/03 00:16:47 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/03 00:16:47 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/03 00:16:50 main.query Обработка НTTP запроса
+2022/12/03 00:16:50 main.(*QBEntity).Read Чтение QUERY для id = 1
+2022/12/03 00:16:50 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY WHERE ID=1
+2022/12/03 00:16:50 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/12/03 00:16:50 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/12/03 00:16:50 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/03 00:16:50 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/03 00:16:55 main.query Обработка НTTP запроса
+2022/12/03 00:16:55 main.(*QBEntity).ReadAll Чтение всех QUERY
+2022/12/03 00:16:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 00:16:55 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/03 00:16:55 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/03 00:16:57 main.query Обработка НTTP запроса
+2022/12/03 00:16:57 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 00:16:57 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 00:16:57 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 00:16:57 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 00:16:57 http: panic serving [::1]:57137: runtime error: invalid memory address or nil pointer dereference
+goroutine 20 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x1406a0700, 0x140639fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1406a0700, 0x140639fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x14092b7a0, {0xc0000423f0, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x14092ba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x140751b08, 0xc0000640e0}, 0xc00006a400)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x14072a2a0, {0x140751b08, 0xc0000640e0}, 0xc00006a400)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14092b820, {0x140751b08, 0xc0000640e0}, 0xc00006a400)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001a8000}, {0x140751b08, 0xc0000640e0}, 0xc00006a400)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000117680, {0x140751f58, 0xc00016c600})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 00:16:57 main.query Обработка НTTP запроса
+2022/12/03 00:16:57 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 00:16:57 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 00:16:57 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 00:16:57 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 00:16:57 http: panic serving [::1]:57138: runtime error: invalid memory address or nil pointer dereference
+goroutine 21 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x1406a0700, 0x140639fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1406a0700, 0x140639fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x14092b7a0, {0xc0000424d0, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x14092ba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x140751b08, 0xc0000641c0}, 0xc000198600)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x14072a2a0, {0x140751b08, 0xc0000641c0}, 0xc000198600)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14092b820, {0x140751b08, 0xc0000641c0}, 0xc000198600)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001a8000}, {0x140751b08, 0xc0000641c0}, 0xc000198600)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000117720, {0x140751f58, 0xc00016c6c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 00:16:57 main.query Обработка НTTP запроса
+2022/12/03 00:16:57 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 00:16:57 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 00:16:57 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 00:16:57 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 00:16:57 http: panic serving [::1]:57142: runtime error: invalid memory address or nil pointer dereference
+goroutine 10 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x1406a0700, 0x140639fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1406a0700, 0x140639fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x14092b7a0, {0xc0000425b0, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x14092ba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x140751b08, 0xc0000642a0}, 0xc00006a500)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x14072a2a0, {0x140751b08, 0xc0000642a0}, 0xc00006a500)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14092b820, {0x140751b08, 0xc0000642a0}, 0xc00006a500)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001a8000}, {0x140751b08, 0xc0000642a0}, 0xc00006a500)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000140, {0x140751f58, 0xc00004d300})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 00:16:58 main.query Обработка НTTP запроса
+2022/12/03 00:16:58 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 00:16:58 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 00:16:58 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 00:16:58 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 00:16:58 http: panic serving [::1]:57143: runtime error: invalid memory address or nil pointer dereference
+goroutine 12 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x1406a0700, 0x140639fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1406a0700, 0x140639fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x14092b7a0, {0xc000159570, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x14092ba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x140751b08, 0xc0001b80e0}, 0xc00006a600)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x14072a2a0, {0x140751b08, 0xc0001b80e0}, 0xc00006a600)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14092b820, {0x140751b08, 0xc0001b80e0}, 0xc00006a600)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001a8000}, {0x140751b08, 0xc0001b80e0}, 0xc00006a600)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000001e0, {0x140751f58, 0xc00004d400})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:22:26 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/03 22:22:26 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/03 22:22:26 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/03 22:22:26 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/12/03 22:22:27 main.queries Обработка НTTP запроса
+2022/12/03 22:22:27 main.(*QBEntity).ReadSQL Чтение данные чистым SQL для QUERY
+2022/12/03 22:22:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/03 22:22:27 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/03 22:22:27 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/03 22:22:30 main.query Обработка НTTP запроса
+2022/12/03 22:22:30 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:22:30 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 22:22:30 http: panic serving [::1]:49381: runtime error: invalid memory address or nil pointer dereference
+goroutine 10 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x13fabb7a0, {0xc0002b8150, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x13fabba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x13f8e1b08, 0xc0002ba1c0}, 0xc0000bcb00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x13f8ba2a0, {0x13f8e1b08, 0xc0002ba1c0}, 0xc0000bcb00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fabb820, {0x13f8e1b08, 0xc0002ba1c0}, 0xc0000bcb00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000146000}, {0x13f8e1b08, 0xc0002ba1c0}, 0xc0000bcb00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000014a0, {0x13f8e1f58, 0xc00004c8c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:22:30 main.query Обработка НTTP запроса
+2022/12/03 22:22:30 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:22:30 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 22:22:30 http: panic serving [::1]:49383: runtime error: invalid memory address or nil pointer dereference
+goroutine 12 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x13fabb7a0, {0xc0002b8230, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x13fabba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x13f8e1b08, 0xc0002ba2a0}, 0xc0002b0400)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x13f8ba2a0, {0x13f8e1b08, 0xc0002ba2a0}, 0xc0002b0400)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fabb820, {0x13f8e1b08, 0xc0002ba2a0}, 0xc0002b0400)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000146000}, {0x13f8e1b08, 0xc0002ba2a0}, 0xc0002b0400)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000015e0, {0x13f8e1f58, 0xc00004ca40})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:22:30 main.query Обработка НTTP запроса
+2022/12/03 22:22:30 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:22:30 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 22:22:30 http: panic serving [::1]:49382: runtime error: invalid memory address or nil pointer dereference
+goroutine 11 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x13fabb7a0, {0xc0001a6070, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x13fabba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x13f8e1b08, 0xc0001a8000}, 0xc0000bca00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x13f8ba2a0, {0x13f8e1b08, 0xc0001a8000}, 0xc0000bca00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fabb820, {0x13f8e1b08, 0xc0001a8000}, 0xc0000bca00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000146000}, {0x13f8e1b08, 0xc0001a8000}, 0xc0000bca00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000001540, {0x13f8e1f58, 0xc00004c980})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:22:30 main.query Обработка НTTP запроса
+2022/12/03 22:22:30 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:22:30 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 22:22:30 http: panic serving [::1]:49380: runtime error: invalid memory address or nil pointer dereference
+goroutine 18 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x13fabb7a0, {0xc0002b8310, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x13fabba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x13f8e1b08, 0xc0002ba380}, 0xc00018a000)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x13f8ba2a0, {0x13f8e1b08, 0xc0002ba380}, 0xc00018a000)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fabb820, {0x13f8e1b08, 0xc0002ba380}, 0xc00018a000)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000146000}, {0x13f8e1b08, 0xc0002ba380}, 0xc00018a000)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000981e0, {0x13f8e1f58, 0xc00008e0c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:22:30 main.query Обработка НTTP запроса
+2022/12/03 22:22:30 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:22:30 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 22:22:30 http: panic serving [::1]:49379: runtime error: invalid memory address or nil pointer dereference
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x13fabb7a0, {0xc0000afa40, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x13fabba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x13f8e1b08, 0xc0002222a0}, 0xc000139000)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x13f8ba2a0, {0x13f8e1b08, 0xc0002222a0}, 0xc000139000)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fabb820, {0x13f8e1b08, 0xc0002222a0}, 0xc000139000)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000146000}, {0x13f8e1b08, 0xc0002222a0}, 0xc000139000)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000001400, {0x13f8e1f58, 0xc00004c580})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:22:30 main.query Обработка НTTP запроса
+2022/12/03 22:22:30 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:22:30 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 22:22:30 http: panic serving [::1]:49384: runtime error: invalid memory address or nil pointer dereference
+goroutine 13 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x13fabb7a0, {0xc0001a6150, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x13fabba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x13f8e1b08, 0xc0001a80e0}, 0xc0000bc700)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x13f8ba2a0, {0x13f8e1b08, 0xc0001a80e0}, 0xc0000bc700)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fabb820, {0x13f8e1b08, 0xc0001a80e0}, 0xc0000bc700)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000146000}, {0x13f8e1b08, 0xc0001a80e0}, 0xc0000bc700)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000001680, {0x13f8e1f58, 0xc00004cb00})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:22:30 main.query Обработка НTTP запроса
+2022/12/03 22:22:30 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:22:30 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:22:30 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 22:22:30 http: panic serving [::1]:49387: runtime error: invalid memory address or nil pointer dereference
+goroutine 52 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x13fabb7a0, {0xc0001a6230, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x13fabba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x13f8e1b08, 0xc0001a81c0}, 0xc00018a100)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x13f8ba2a0, {0x13f8e1b08, 0xc0001a81c0}, 0xc00018a100)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fabb820, {0x13f8e1b08, 0xc0001a81c0}, 0xc00018a100)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000146000}, {0x13f8e1b08, 0xc0001a81c0}, 0xc00018a100)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001ee000, {0x13f8e1f58, 0xc0001a20c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:22:31 main.query Обработка НTTP запроса
+2022/12/03 22:22:31 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:22:31 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:22:31 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:22:31 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 22:22:31 http: panic serving [::1]:49388: runtime error: invalid memory address or nil pointer dereference
+goroutine 24 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x13fabb7a0, {0xc0000afb20, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x13fabba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x13f8e1b08, 0xc000222380}, 0xc0000bcc00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x13f8ba2a0, {0x13f8e1b08, 0xc000222380}, 0xc0000bcc00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fabb820, {0x13f8e1b08, 0xc000222380}, 0xc0000bcc00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000146000}, {0x13f8e1b08, 0xc000222380}, 0xc0000bcc00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000098280, {0x13f8e1f58, 0xc00008e700})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:22:36 main.query Обработка НTTP запроса
+2022/12/03 22:22:36 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:22:36 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:22:36 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:22:36 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 22:22:36 http: panic serving [::1]:49389: runtime error: invalid memory address or nil pointer dereference
+goroutine 26 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x13fabb7a0, {0xc0002b83f0, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x13fabba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x13f8e1b08, 0xc0002ba460}, 0xc0000bcd00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x13f8ba2a0, {0x13f8e1b08, 0xc0002ba460}, 0xc0000bcd00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fabb820, {0x13f8e1b08, 0xc0002ba460}, 0xc0000bcd00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000146000}, {0x13f8e1b08, 0xc0002ba460}, 0xc0000bcd00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000098320, {0x13f8e1f58, 0xc00008e800})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:22:36 main.query Обработка НTTP запроса
+2022/12/03 22:22:36 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:22:36 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:22:36 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:22:36 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 22:22:36 http: panic serving [::1]:49393: runtime error: invalid memory address or nil pointer dereference
+goroutine 40 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x13fabb7a0, {0xc0001a6310, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x13fabba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x13f8e1b08, 0xc0001a82a0}, 0xc0002b0600)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x13f8ba2a0, {0x13f8e1b08, 0xc0001a82a0}, 0xc0002b0600)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fabb820, {0x13f8e1b08, 0xc0001a82a0}, 0xc0002b0600)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000146000}, {0x13f8e1b08, 0xc0001a82a0}, 0xc0002b0600)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0002fa000, {0x13f8e1f58, 0xc000286480})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:22:36 main.query Обработка НTTP запроса
+2022/12/03 22:22:36 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:22:36 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:22:36 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:22:36 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 22:22:36 http: panic serving [::1]:49394: runtime error: invalid memory address or nil pointer dereference
+goroutine 55 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x13fabb7a0, {0xc0001a63f0, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x13fabba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x13f8e1b08, 0xc0001a8380}, 0xc00018a200)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x13f8ba2a0, {0x13f8e1b08, 0xc0001a8380}, 0xc00018a200)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fabb820, {0x13f8e1b08, 0xc0001a8380}, 0xc00018a200)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000146000}, {0x13f8e1b08, 0xc0001a8380}, 0xc00018a200)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001ee0a0, {0x13f8e1f58, 0xc0001a2240})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:23:06 main.query Обработка НTTP запроса
+2022/12/03 22:23:06 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:23:06 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:23:06 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:23:06 korsakov2ea/x_func.(*TDatabase).DBQuery Ошибка выполнения SQL запроса SELECT DRIVER, DSN, NAME, QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1 ambiguous column name: NAME
+2022/12/03 22:23:06 http: panic serving [::1]:49397: runtime error: invalid memory address or nil pointer dereference
+goroutine 42 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	c:/go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	c:/go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f830700, 0x13f7c9fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	c:/go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/x_func.rowsToData(0x0, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:182 +0x85
+korsakov2ea/x_func.(*TDatabase).DBQuery(0x13fabb7a0, {0xc0001a64d0, 0x6d}, 0x0)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:80 +0x474
+main.(*QBEntity).ExecQuery(0x13fabba20, 0x1)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBStruct.go:86 +0x199
+main.query({0x13f8e1b08, 0xc0001a8460}, 0xc0002b0700)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b6b
+net/http.HandlerFunc.ServeHTTP(0x13f8ba2a0, {0x13f8e1b08, 0xc0001a8460}, 0xc0002b0700)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fabb820, {0x13f8e1b08, 0xc0001a8460}, 0xc0002b0700)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000146000}, {0x13f8e1b08, 0xc0001a8460}, 0xc0002b0700)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0002fa0a0, {0x13f8e1f58, 0xc000286580})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/03 22:23:32 main.queries Обработка НTTP запроса
+2022/12/03 22:23:32 main.(*QBEntity).ReadSQL Чтение данные чистым SQL для QUERY
+2022/12/03 22:23:32 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/03 22:23:32 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/03 22:23:32 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/03 22:23:33 main.query Обработка НTTP запроса
+2022/12/03 22:23:54 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:23:54 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:24:11 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:25:34 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/03 22:25:35 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/03 22:25:35 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/03 22:25:35 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/12/03 22:26:04 main.query Обработка НTTP запроса
+2022/12/03 22:27:14 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/03 22:27:14 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/03 22:27:14 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/03 22:27:14 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/12/03 22:27:22 main.query Обработка НTTP запроса
+2022/12/03 22:27:30 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:27:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:27:34 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:27:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:28:19 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:28:36 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:28:41 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:28:52 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:28:52 main.renderPage Ошибка выполнения шаблона страницы template: result.html:30:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc000041380 0xc000041390 0xc0000413a0 0xc0000413b0 0xc0000413c0 0xc0000413d0]}
+2022/12/03 22:28:52 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:30:12 main.query Обработка НTTP запроса
+2022/12/03 22:30:12 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:30:12 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:30:17 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:30:17 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:30:17 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:30:17 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:30:17 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:30:17 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:30:17 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0000a26e0 0xc0000a26f0 0xc0000a2700 0xc0000a2710 0xc0000a2720 0xc0000a2730]}
+2022/12/03 22:30:17 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:31:52 main.query Обработка НTTP запроса
+2022/12/03 22:31:52 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:31:52 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:31:52 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:31:52 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:31:52 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:31:52 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:31:52 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:31:52 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:31:52 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc000041c00 0xc000041c10 0xc000041c20 0xc000041c30 0xc000041c40 0xc000041c50]}
+2022/12/03 22:31:52 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:31:53 main.query Обработка НTTP запроса
+2022/12/03 22:31:53 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:31:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:31:53 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:31:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:31:53 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:31:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:31:53 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:31:53 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:31:53 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc000182ba0 0xc000182bb0 0xc000182bc0 0xc000182bd0 0xc000182be0 0xc000182bf0]}
+2022/12/03 22:31:53 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:31:54 main.query Обработка НTTP запроса
+2022/12/03 22:31:54 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:31:54 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:31:54 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:31:54 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:31:54 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:31:54 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:31:54 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:31:54 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:31:54 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0000a3610 0xc0000a3620 0xc0000a3630 0xc0000a3640 0xc0000a3650 0xc0000a3660]}
+2022/12/03 22:31:54 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:31:54 main.query Обработка НTTP запроса
+2022/12/03 22:31:54 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:31:54 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:31:54 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:31:54 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:31:54 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:31:54 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:31:54 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:31:54 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:31:54 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00021a0f0 0xc00021a100 0xc00021a110 0xc00021a120 0xc00021a130 0xc00021a140]}
+2022/12/03 22:31:54 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:31:55 main.query Обработка НTTP запроса
+2022/12/03 22:31:55 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:31:55 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:31:55 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:31:55 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00021ab90 0xc00021aba0 0xc00021abb0 0xc00021abc0 0xc00021abd0 0xc00021abe0]}
+2022/12/03 22:31:55 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:31:55 main.query Обработка НTTP запроса
+2022/12/03 22:31:55 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:31:55 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:31:55 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:31:55 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00021b670 0xc00021b680 0xc00021b690 0xc00021b6a0 0xc00021b6b0 0xc00021b6c0]}
+2022/12/03 22:31:55 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:31:55 main.query Обработка НTTP запроса
+2022/12/03 22:31:55 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:31:55 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:31:55 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:31:55 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:31:55 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc000238110 0xc000238120 0xc000238130 0xc000238140 0xc000238150 0xc000238160]}
+2022/12/03 22:31:55 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:31:59 main.query Обработка НTTP запроса
+2022/12/03 22:31:59 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:31:59 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:31:59 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:31:59 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc000238b70 0xc000238b80 0xc000238b90 0xc000238ba0 0xc000238bb0 0xc000238bc0]}
+2022/12/03 22:31:59 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:31:59 main.query Обработка НTTP запроса
+2022/12/03 22:31:59 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:31:59 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:31:59 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:31:59 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00017cce0 0xc00017ccf0 0xc00017cd00 0xc00017cd10 0xc00017cd20 0xc00017cd30]}
+2022/12/03 22:31:59 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:31:59 main.query Обработка НTTP запроса
+2022/12/03 22:31:59 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:31:59 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:31:59 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:31:59 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00017d7f0 0xc00017d800 0xc00017d810 0xc00017d820 0xc00017d830 0xc00017d840]}
+2022/12/03 22:31:59 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:31:59 main.query Обработка НTTP запроса
+2022/12/03 22:31:59 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:31:59 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:31:59 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:31:59 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00029a290 0xc00029a2a0 0xc00029a2b0 0xc00029a2c0 0xc00029a2d0 0xc00029a2e0]}
+2022/12/03 22:31:59 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:31:59 main.query Обработка НTTP запроса
+2022/12/03 22:31:59 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:31:59 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:31:59 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:31:59 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:31:59 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00030e050 0xc00030e060 0xc00030e070 0xc00030e080 0xc00030e090 0xc00030e0a0]}
+2022/12/03 22:31:59 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:00 main.query Обработка НTTP запроса
+2022/12/03 22:32:00 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:00 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:00 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:00 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00030eac0 0xc00030ead0 0xc00030eae0 0xc00030eaf0 0xc00030eb00 0xc00030eb10]}
+2022/12/03 22:32:00 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:00 main.query Обработка НTTP запроса
+2022/12/03 22:32:00 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:00 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:00 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:00 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00030f600 0xc00030f610 0xc00030f620 0xc00030f630 0xc00030f640 0xc00030f650]}
+2022/12/03 22:32:00 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:00 main.query Обработка НTTP запроса
+2022/12/03 22:32:00 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:00 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:00 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:00 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0003220f0 0xc000322100 0xc000322110 0xc000322120 0xc000322130 0xc000322140]}
+2022/12/03 22:32:00 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:00 main.query Обработка НTTP запроса
+2022/12/03 22:32:00 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:00 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:00 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:00 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00029b1a0 0xc00029b1b0 0xc00029b1c0 0xc00029b1d0 0xc00029b1e0 0xc00029b1f0]}
+2022/12/03 22:32:00 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:00 main.query Обработка НTTP запроса
+2022/12/03 22:32:00 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:00 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:00 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:00 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:00 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc000322c50 0xc000322c60 0xc000322c70 0xc000322c80 0xc000322c90 0xc000322ca0]}
+2022/12/03 22:32:00 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:01 main.query Обработка НTTP запроса
+2022/12/03 22:32:01 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:01 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:01 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:01 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:01 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:01 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00029bd80 0xc00029bd90 0xc00029bda0 0xc00029bdb0 0xc00029bdc0 0xc00029bdd0]}
+2022/12/03 22:32:01 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:01 main.query Обработка НTTP запроса
+2022/12/03 22:32:01 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:01 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:01 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:01 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:01 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:01 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc000239d60 0xc000239d70 0xc000239d80 0xc000239d90 0xc000239da0 0xc000239db0]}
+2022/12/03 22:32:01 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:15 main.query Обработка НTTP запроса
+2022/12/03 22:32:15 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:15 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:15 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:15 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:15 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:15 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0002caa70 0xc0002caa80 0xc0002caa90 0xc0002caaa0 0xc0002caab0 0xc0002caac0]}
+2022/12/03 22:32:15 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:16 main.query Обработка НTTP запроса
+2022/12/03 22:32:16 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:16 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:16 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:16 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0002cb5b0 0xc0002cb5c0 0xc0002cb5d0 0xc0002cb5e0 0xc0002cb5f0 0xc0002cb600]}
+2022/12/03 22:32:16 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:16 main.query Обработка НTTP запроса
+2022/12/03 22:32:16 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:16 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:16 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:16 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00026c9d0 0xc00026c9e0 0xc00026c9f0 0xc00026ca00 0xc00026ca10 0xc00026ca20]}
+2022/12/03 22:32:16 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:16 main.query Обработка НTTP запроса
+2022/12/03 22:32:16 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:16 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:16 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:16 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0002fa250 0xc0002fa260 0xc0002fa270 0xc0002fa280 0xc0002fa290 0xc0002fa2a0]}
+2022/12/03 22:32:16 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:16 main.query Обработка НTTP запроса
+2022/12/03 22:32:16 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:16 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:16 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:16 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:16 main.renderPage Ошибка выполнения шаблона страницы template: result.html:32:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00026d530 0xc00026d540 0xc00026d550 0xc00026d560 0xc00026d570 0xc00026d580]}
+2022/12/03 22:32:16 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:28 main.query Обработка НTTP запроса
+2022/12/03 22:32:28 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:28 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:28 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:28 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:28 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:28 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:28 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:28 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:28 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0002fae30 0xc0002fae40 0xc0002fae50 0xc0002fae60 0xc0002fae70 0xc0002fae80]}
+2022/12/03 22:32:28 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:29 main.query Обработка НTTP запроса
+2022/12/03 22:32:29 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:29 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:29 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:29 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:29 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:29 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00039a090 0xc00039a0a0 0xc00039a0b0 0xc00039a0c0 0xc00039a0d0 0xc00039a0e0]}
+2022/12/03 22:32:29 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:29 main.query Обработка НTTP запроса
+2022/12/03 22:32:29 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:29 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:29 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:29 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:29 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:29 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc000323e40 0xc000323e50 0xc000323e60 0xc000323e70 0xc000323e80 0xc000323e90]}
+2022/12/03 22:32:29 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:37 main.query Обработка НTTP запроса
+2022/12/03 22:32:37 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:37 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:37 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:37 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:37 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:37 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:37 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:37 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:37 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0002fbb50 0xc0002fbb60 0xc0002fbb70 0xc0002fbb80 0xc0002fbb90 0xc0002fbba0]}
+2022/12/03 22:32:37 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:38 main.query Обработка НTTP запроса
+2022/12/03 22:32:38 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:38 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:38 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:38 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc000422600 0xc000422610 0xc000422620 0xc000422630 0xc000422640 0xc000422650]}
+2022/12/03 22:32:38 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:38 main.query Обработка НTTP запроса
+2022/12/03 22:32:38 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:38 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:38 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:38 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0004230b0 0xc0004230c0 0xc0004230d0 0xc0004230e0 0xc0004230f0 0xc000423100]}
+2022/12/03 22:32:38 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:38 main.query Обработка НTTP запроса
+2022/12/03 22:32:38 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:38 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:38 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:38 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc000423b60 0xc000423b70 0xc000423b80 0xc000423b90 0xc000423ba0 0xc000423bb0]}
+2022/12/03 22:32:38 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:38 main.query Обработка НTTP запроса
+2022/12/03 22:32:38 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:38 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:38 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:38 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00039b090 0xc00039b0a0 0xc00039b0b0 0xc00039b0c0 0xc00039b0d0 0xc00039b0e0]}
+2022/12/03 22:32:38 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:38 main.query Обработка НTTP запроса
+2022/12/03 22:32:38 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:38 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:38 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:38 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:38 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00039bb90 0xc00039bba0 0xc00039bbb0 0xc00039bbc0 0xc00039bbd0 0xc00039bbe0]}
+2022/12/03 22:32:38 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:53 main.query Обработка НTTP запроса
+2022/12/03 22:32:53 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:53 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:53 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:53 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:53 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:53 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0003c6840 0xc0003c6850 0xc0003c6860 0xc0003c6870 0xc0003c6880 0xc0003c6890]}
+2022/12/03 22:32:53 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:54 main.query Обработка НTTP запроса
+2022/12/03 22:32:54 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:54 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:54 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:54 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:54 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:54 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:54 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:54 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:54 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00034af20 0xc00034af30 0xc00034af40 0xc00034af50 0xc00034af60 0xc00034af70]}
+2022/12/03 22:32:54 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:55 main.query Обработка НTTP запроса
+2022/12/03 22:32:55 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:55 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:55 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:55 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:55 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:55 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00044e920 0xc00044e930 0xc00044e940 0xc00044e950 0xc00044e960 0xc00044e970]}
+2022/12/03 22:32:55 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:32:55 main.query Обработка НTTP запроса
+2022/12/03 22:32:55 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:32:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:32:55 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:32:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:32:55 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:32:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:32:55 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:32:55 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:32:55 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00034bac0 0xc00034bad0 0xc00034bae0 0xc00034baf0 0xc00034bb00 0xc00034bb10]}
+2022/12/03 22:32:55 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:33:22 main.query Обработка НTTP запроса
+2022/12/03 22:33:22 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:33:22 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:33:22 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:33:22 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:33:22 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:33:22 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:33:22 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:33:22 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:33:22 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00034a650 0xc00034a660 0xc00034a670 0xc00034a680 0xc00034a690 0xc00034a6a0]}
+2022/12/03 22:33:22 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:33:23 main.query Обработка НTTP запроса
+2022/12/03 22:33:23 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:33:23 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:33:23 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:33:23 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:33:23 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:33:23 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:33:23 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:33:23 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:33:23 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00044e810 0xc00044e820 0xc00044e830 0xc00044e840 0xc00044e850 0xc00044e860]}
+2022/12/03 22:33:23 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:33:24 main.query Обработка НTTP запроса
+2022/12/03 22:33:24 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:33:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:33:24 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:33:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:33:24 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:33:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:33:24 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:33:24 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:33:24 main.renderPage Ошибка выполнения шаблона страницы template: result.html:34:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00034b260 0xc00034b270 0xc00034b280 0xc00034b290 0xc00034b2a0 0xc00034b2b0]}
+2022/12/03 22:33:24 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:33:36 main.query Обработка НTTP запроса
+2022/12/03 22:33:36 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:33:36 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:33:36 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:33:36 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:33:36 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:33:36 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:33:36 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:33:36 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:33:36 main.renderPage Ошибка выполнения шаблона страницы template: result.html:36:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00044f520 0xc00044f530 0xc00044f540 0xc00044f550 0xc00044f560 0xc00044f570]}
+2022/12/03 22:33:36 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:34:15 main.query Обработка НTTP запроса
+2022/12/03 22:34:15 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:34:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:34:15 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:34:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:34:15 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:34:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:34:15 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:34:15 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:34:15 main.renderPage Ошибка выполнения шаблона страницы template: result.html:29:47: executing "result.html" at <0>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0000a20d0 0xc0000a20e0 0xc0000a20f0 0xc0000a2100 0xc0000a2110 0xc0000a2120]}
+2022/12/03 22:34:15 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:34:56 main.query Обработка НTTP запроса
+2022/12/03 22:34:56 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:34:56 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:34:56 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:34:56 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:34:56 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:34:56 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:34:56 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:34:56 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:34:56 main.renderPage Ошибка выполнения шаблона страницы template: result.html:37:32: executing "result.html" at <$row>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc000040f10 0xc000040f20 0xc000040f30 0xc000040f40 0xc000040f50 0xc000040f60]}
+2022/12/03 22:34:56 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:35:31 main.query Обработка НTTP запроса
+2022/12/03 22:35:31 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:35:31 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:35:31 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:35:31 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:35:31 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:35:31 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:35:31 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:35:31 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:35:31 main.renderPage Ошибка выполнения шаблона страницы template: result.html:37:32: executing "result.html" at <$row>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0000417b0 0xc0000417c0 0xc0000417d0 0xc0000417e0 0xc0000417f0 0xc000041800]}
+2022/12/03 22:35:31 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:35:35 main.query Обработка НTTP запроса
+2022/12/03 22:35:35 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:35:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:35:35 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:35:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:35:35 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:35:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:35:35 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:35:35 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:35:35 main.renderPage Ошибка выполнения шаблона страницы template: result.html:37:32: executing "result.html" at <$row>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00044e1d0 0xc00044e1f0 0xc00044e200 0xc00044e210 0xc00044e220 0xc00044e230]}
+2022/12/03 22:35:35 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:35:58 main.query Обработка НTTP запроса
+2022/12/03 22:35:58 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:35:58 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:35:58 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:35:58 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:35:58 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:35:58 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:35:58 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:35:58 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:35:58 main.renderPage Ошибка выполнения шаблона страницы template: result.html:37:32: executing "result.html" at <$row>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00034aa60 0xc00034aa70 0xc00034aa80 0xc00034aa90 0xc00034aaa0 0xc00034aab0]}
+2022/12/03 22:35:58 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:36:10 main.query Обработка НTTP запроса
+2022/12/03 22:36:10 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:36:10 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:36:10 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:36:10 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:36:10 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:36:10 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:36:10 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:36:10 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:36:10 main.renderPage Ошибка выполнения шаблона страницы template: result.html:37:32: executing "result.html" at <$row>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00044ee90 0xc00044eea0 0xc00044eeb0 0xc00044eec0 0xc00044eed0 0xc00044eee0]}
+2022/12/03 22:36:10 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:36:38 main.query Обработка НTTP запроса
+2022/12/03 22:36:38 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:36:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:36:38 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:36:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:36:38 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:36:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:36:38 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:36:38 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:36:38 main.renderPage Ошибка выполнения шаблона страницы template: result.html:37:32: executing "result.html" at <$row>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0000a2a80 0xc0000a2a90 0xc0000a2aa0 0xc0000a2ab0 0xc0000a2ac0 0xc0000a2ad0]}
+2022/12/03 22:36:38 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:37:04 main.query Обработка НTTP запроса
+2022/12/03 22:37:04 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:37:04 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:37:04 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:37:04 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:37:04 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:37:04 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:37:04 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:37:04 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:37:04 main.renderPage Ошибка выполнения шаблона страницы template: result.html:37:32: executing "result.html" at <$row>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00034a190 0xc00034a1a0 0xc00034a1b0 0xc00034a1c0 0xc00034a1d0 0xc00034a1e0]}
+2022/12/03 22:37:04 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:38:27 main.query Обработка НTTP запроса
+2022/12/03 22:38:27 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:38:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:38:27 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:38:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:38:27 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:38:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:38:27 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:38:27 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:38:27 main.renderPage Ошибка выполнения шаблона страницы template: result.html:37:32: executing "result.html" at <$row>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00034aca0 0xc00034acb0 0xc00034acc0 0xc00034acd0 0xc00034ace0 0xc00034acf0]}
+2022/12/03 22:38:27 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:38:38 main.query Обработка НTTP запроса
+2022/12/03 22:38:38 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:38:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:38:38 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:38:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:38:38 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:38:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:38:38 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:38:38 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:38:38 main.renderPage Ошибка выполнения шаблона страницы template: result.html:37:32: executing "result.html" at <$row>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc0000a27e0 0xc0000a27f0 0xc0000a2800 0xc0000a2810 0xc0000a2820 0xc0000a2830]}
+2022/12/03 22:38:38 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:38:38 main.query Обработка НTTP запроса
+2022/12/03 22:38:38 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:38:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:38:38 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:38:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:38:38 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:38:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:38:38 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:38:38 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:38:38 main.renderPage Ошибка выполнения шаблона страницы template: result.html:37:32: executing "result.html" at <$row>: range can't iterate over {map[ID:1 ID_CONNECTION:1 ID_USER:NULL NAME:TEST QUERY:SELECT * FROM QUERY REM:Тестовый запрос] [0xc00044e730 0xc00044e740 0xc00044e750 0xc00044e760 0xc00044e770 0xc00044e780]}
+2022/12/03 22:38:38 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:128)
+2022/12/03 22:40:48 main.query Обработка НTTP запроса
+2022/12/03 22:40:48 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:40:48 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:40:48 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:40:48 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:40:48 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:40:48 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:40:48 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:40:48 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:40:48 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/03 22:41:07 main.query Обработка НTTP запроса
+2022/12/03 22:41:07 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:41:07 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:41:07 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:41:07 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:41:07 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:41:07 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:41:07 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:41:07 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:41:07 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/03 22:41:15 main.query Обработка НTTP запроса
+2022/12/03 22:41:15 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:41:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:41:15 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:41:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:41:15 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:41:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:41:15 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:41:15 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:41:15 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/03 22:44:23 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/03 22:44:24 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/03 22:44:24 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/03 22:44:24 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/12/03 22:44:27 main.query Обработка НTTP запроса
+2022/12/03 22:44:27 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:44:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:44:27 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:44:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:44:27 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:44:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:44:27 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:44:27 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:44:27 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/03 22:44:29 main.query Обработка НTTP запроса
+2022/12/03 22:44:29 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:44:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:44:29 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:44:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:44:29 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:44:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:44:29 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:44:29 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:44:29 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/03 22:45:13 main.queries Обработка НTTP запроса
+2022/12/03 22:45:13 main.(*QBEntity).ReadSQL Чтение данные чистым SQL для QUERY
+2022/12/03 22:45:13 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/03 22:45:13 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/03 22:45:13 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/03 22:45:14 main.query Обработка НTTP запроса
+2022/12/03 22:45:14 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:45:14 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:45:14 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:45:14 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:45:14 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:45:14 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:45:14 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:46:18 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/03 22:46:18 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/03 22:46:18 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/03 22:46:18 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/12/03 22:46:24 main.query Обработка НTTP запроса
+2022/12/03 22:46:24 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:46:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:46:24 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:46:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:46:24 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:46:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:46:24 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:47:30 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/03 22:47:30 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/03 22:47:30 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/03 22:47:30 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/12/03 22:47:34 main.query Обработка НTTP запроса
+2022/12/03 22:47:34 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:47:34 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:47:34 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:47:34 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:47:34 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:47:34 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:47:34 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:48:32 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:48:32 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/03 22:48:57 main.query Обработка НTTP запроса
+2022/12/03 22:48:57 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/03 22:48:57 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/03 22:48:57 main.(*QBEntity).ExecQuery Выполнение запроса
+2022/12/03 22:48:57 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/03 22:48:57 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)
+2022/12/03 22:48:57 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/03 22:48:57 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов) успешно закрыто
+2022/12/03 22:48:57 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/03 22:48:57 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/03 23:35:56 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/03 23:35:56 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/03 23:35:56 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QCDB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/03 23:35:56 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/12/03 23:36:07 main.queries Обработка НTTP запроса
+2022/12/03 23:36:07 main.(*QBEntity).ReadSQL Чтение данные чистым SQL для QUERY
+2022/12/03 23:36:07 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/03 23:36:07 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/03 23:36:07 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/03 23:36:09 main.connections Обработка НTTP запроса
+2022/12/03 23:36:09 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/12/03 23:36:09 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/12/03 23:36:09 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/03 23:36:09 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/03 23:36:11 main.connection Обработка НTTP запроса
+2022/12/03 23:36:11 main.(*QBEntity).Read Чтение CONNECTION для id = 1
+2022/12/03 23:36:11 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION WHERE ID=1
+2022/12/03 23:36:11 main.renderPage Парсинг шаблона страницы public\html\connection.html
+2022/12/03 23:36:11 main.renderPage Построение шаблона страницы public\html\connection.html
+2022/12/03 23:36:19 main.connection Обработка НTTP запроса
+2022/12/03 23:36:19 main.(*QBEntity).Update Изменение CONNECTION для id = 1
+2022/12/03 23:36:19 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1) UPDATE CONNECTION SET DRIVER = 'sqlite3', DSN = 'SQLite\base\base.db', NAME = 'QВ (Непосредственно база запросов)!' WHERE ID = 1
+2022/12/03 23:36:19 main.(*QBEntity).ReadAll Чтение всех CONNECTION
+2022/12/03 23:36:19 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/12/03 23:36:19 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/03 23:36:19 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/03 23:36:24 main.queries Обработка НTTP запроса
+2022/12/03 23:36:24 main.(*QBEntity).ReadSQL Чтение данные чистым SQL для QUERY
+2022/12/03 23:36:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/03 23:36:24 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/03 23:36:24 main.renderPage Построение шаблона страницы public\html\queries.html
