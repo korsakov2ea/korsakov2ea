@@ -15694,3 +15694,64 @@ created by net/http.(*Server).Serve
 2022/12/03 23:36:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
 2022/12/03 23:36:24 main.renderPage Парсинг шаблона страницы public\html\queries.html
 2022/12/03 23:36:24 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 15:03:16 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 15:03:16 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 15:03:16 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 15:03:16 korsakov2ea/x_func.(*TDatabase).DBOpen Ошибка открытия соединения с базой  sql: unknown driver "" (forgotten import?)
+2022/12/06 15:03:52 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 15:03:52 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 15:03:52 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 15:04:09 korsakov2ea/x_func.(*TDatabase).DBOpen Ошибка открытия соединения с базой  sql: unknown driver "" (forgotten import?)
+2022/12/06 15:04:40 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 15:04:40 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 15:04:42 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 15:05:33 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 15:05:33 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 15:30:19 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 15:30:19 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 15:30:26 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 15:30:26 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/12/06 15:30:26 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы  в базе Main QC base
+2022/12/06 15:30:26 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы  в базе Main QC base
+2022/12/06 15:30:38 main.queries Обработка НTTP запроса
+2022/12/06 15:30:38 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из QUERY SQL запросом SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 15:30:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 15:30:38 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 15:30:38 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 15:30:42 main.connections Обработка НTTP запроса
+2022/12/06 15:30:42 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 15:30:42 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/12/06 15:30:42 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/06 15:30:42 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/06 15:30:50 main.connection Обработка НTTP запроса
+2022/12/06 15:30:50 korsakov2ea/x_func.(*TTable).Read Чтение записи из CONNECTION с id = 133
+2022/12/06 15:30:50 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION WHERE ID=133
+2022/12/06 15:30:50 main.renderPage Парсинг шаблона страницы public\html\connection.html
+2022/12/06 15:30:50 main.renderPage Построение шаблона страницы public\html\connection.html
+2022/12/06 15:31:34 main.connection Обработка НTTP запроса
+2022/12/06 15:31:34 korsakov2ea/x_func.(*TTable).Update Изменение записи из CONNECTION с id = 133
+2022/12/06 15:31:34 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1) UPDATE CONNECTION SET NAME = 'WF (workflow)', DRIVER = 'go_ibm_db', DSN = 'HOSTNAME=10.39.0.227; DATABASE=WF; PORT=50000; UID=db2admin; PWD=lkuirwe7' WHERE ID = 133
+2022/12/06 15:31:34 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 15:31:34 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM CONNECTION
+2022/12/06 15:31:34 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/06 15:31:34 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/06 15:31:38 main.queries Обработка НTTP запроса
+2022/12/06 15:31:38 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из QUERY SQL запросом SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 15:31:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 15:31:38 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 15:31:38 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 15:31:39 main.query Обработка НTTP запроса
+2022/12/06 15:31:39 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/06 15:31:39 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/06 15:31:39 main.executeQuery Выполнение запроса из QB c id = 1
+2022/12/06 15:31:39 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/06 15:31:42 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой 
+2022/12/06 15:31:42 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT * FROM QUERY
+2022/12/06 15:31:42 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой  успешно закрыто
+2022/12/06 15:31:42 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/06 15:31:42 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/06 15:31:51 main.queries Обработка НTTP запроса
+2022/12/06 15:31:51 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из QUERY SQL запросом SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 15:31:51 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 15:31:51 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 15:31:51 main.renderPage Построение шаблона страницы public\html\queries.html

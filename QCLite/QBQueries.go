@@ -58,23 +58,23 @@ func query(w http.ResponseWriter, r *http.Request) {
 		case r.Method == "GET" && r.FormValue("mode") == "add":
 			QBQuery.Data = nil
 			QBConnection.ReadAll()
-			QBQuery.Directory = nil
-			QBQuery.Directory = append(QBQuery.Directory, QBConnection.Data)
+			QBQuery.Dict = nil
+			QBQuery.Dict = append(QBQuery.Dict, QBConnection.Data)
 			renderPage(w, "query.html", "common.html", QBQuery)
 
 		case r.Method == "GET" && r.FormValue("mode") == "view":
 			QBQuery.Read(id)
 			QBConnection.ReadAll()
-			QBQuery.Directory = nil
-			QBQuery.Directory = append(QBQuery.Directory, QBConnection.Data)
+			QBQuery.Dict = nil
+			QBQuery.Dict = append(QBQuery.Dict, QBConnection.Data)
 			renderPage(w, "query.html", "common.html", QBQuery)
 
 		case r.Method == "GET" && r.FormValue("mode") == "execute":
 			if needUploadData(id) {
-				QBQuery.tmpTableName = "QB.QB" + x_func.GenerateTimeStamp()
+				QBQuery.TmpTable = "QB.QB" + x_func.GenerateTimeStamp()
 				renderPage(w, "uploadfile.html", "common.html", QBQuery)
 			} else {
-				QBQuery.ExecQuery(id)
+				executeQuery(id)
 				renderPage(w, "result.html", "common.html", QBQuery)
 			}
 
@@ -84,9 +84,9 @@ func query(w http.ResponseWriter, r *http.Request) {
 			CSVData = x_func.DecodeStrMap1251toUTF8(CSVData)
 
 			idConn := GetIdConnFromQuery(id)
-			importTmpTable(CSVData, QBQuery.tmpTableName, idConn)
-			QBQuery.ExecQuery(id)
-			dropTmpTable(QBQuery.tmpTableName, idConn)
+			importTmpTable(CSVData, QBQuery.TmpTable, idConn)
+			executeQuery(id)
+			dropTmpTable(QBQuery.TmpTable, idConn)
 			renderPage(w, "result.html", "common.html", QBQuery)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "uploadDownload":
@@ -95,9 +95,9 @@ func query(w http.ResponseWriter, r *http.Request) {
 			CSVData = x_func.DecodeStrMap1251toUTF8(CSVData)
 
 			idConn := GetIdConnFromQuery(id)
-			importTmpTable(CSVData, QBQuery.tmpTableName, idConn)
-			QBQuery.ExecQuery(id)
-			dropTmpTable(QBQuery.tmpTableName, idConn)
+			importTmpTable(CSVData, QBQuery.TmpTable, idConn)
+			executeQuery(id)
+			dropTmpTable(QBQuery.TmpTable, idConn)
 
 			CSV := ""
 			for _, row := range QBQuery.Data {
@@ -127,13 +127,58 @@ func query(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// Выполняет запрос из базы запросов под номером id и возвращает возвращает результат в QBQuery.Data
+func executeQuery(id int) {
+	log.Printf("%v Выполнение запроса из QB c id = %v", x_func.FuncName(), id)
+	queryRows := QB.DBQuery("SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=" + strconv.Itoa(id))
+	queryRowsCount := len(queryRows)
+
+	var targetDB x_func.TDatabase //соединение для выполнения запроса из базы
+
+	if queryRowsCount != 0 {
+		targetDB.Driver = queryRows[0].ByName["DRIVER"]
+		targetDB.DSN = queryRows[0].ByName["DSN"]
+		targetQuery := queryRows[0].ByName["QUERY"]
+		targetDB.SetDecodeParam()
+
+		targetDB.DBOpen()
+		defer targetDB.DBClose()
+
+		if len(QBQuery.TmpTable) > 0 {
+			targetQuery = strings.Replace(targetQuery, "@TABLE", QBQuery.TmpTable, -1)
+		}
+		QBQuery.Data = targetDB.DBQuery(targetQuery)
+
+	} else {
+		log.Println(x_func.FuncName(), "Нет строки запроса с ID -", id)
+	}
+}
+
+// Возвращает true, если в запросе с id есть метка @TABLE, т.е. предполагается загрузка внешних данных
+func needUploadData(id int) bool {
+	log.Printf("%v Проверка необходимости загрузки данных перед выполнением запроса", x_func.FuncName())
+	queryRows := QB.DBQuery("SELECT QUERY FROM QUERY WHERE ID=" + strconv.Itoa(id))
+	queryRowsCount := len(queryRows)
+	result := false
+	if queryRowsCount != 0 {
+		if strings.Contains(queryRows[0].ByName["QUERY"], "@TABLE") {
+			log.Printf("%v Необходима загрузка данных из файла", x_func.FuncName())
+			result = true
+			return result
+		}
+	} else {
+		log.Println(x_func.FuncName(), "Нет строки запроса с ID -", id)
+	}
+	return result
+}
+
 // Создание временной таблицы tableName (схема.имя) в соединении idСonn с колонками типа COL1 VARCHAR(255) ... COLn VARCHAR(255) и загрузка в неё данных из strMap
 func importTmpTable(strMap [][]string, tableName string, idConn int) {
 
 	log.Printf("%v \n\tСоздание временной таблицы %v", x_func.FuncName(), tableName)
 	colNames, colNameTypes := x_func.GetCOLStrMap(strMap, "VARCHAR (255)")
 	sqlCode := "CREATE TABLE " + tableName + " (" + colNameTypes + ")"
-	ExecSQL(sqlCode, idConn)
+	executeSQLConn(sqlCode, idConn)
 
 	log.Printf("%v \n\tЗаполнение временной таблицы %v", x_func.FuncName(), tableName)
 	sqlCode = ""
@@ -143,50 +188,14 @@ func importTmpTable(strMap [][]string, tableName string, idConn int) {
 			colValues = colValues + ", '" + cell + "'"
 		}
 		colValues = colValues[2:]
-		sqlCode = sqlCode + "INSERT INTO " + QBQuery.tmpTableName + " (" + colNames + ") VALUES (" + colValues + ");\n"
+		sqlCode = sqlCode + "INSERT INTO " + QBQuery.TmpTable + " (" + colNames + ") VALUES (" + colValues + ");\n"
 	}
-	ExecSQL(sqlCode, idConn)
+	executeSQLConn(sqlCode, idConn)
 }
 
 // Удаление временной таблицы tableName (схема.имя) в соединении idСonn
 func dropTmpTable(tableName string, idConn int) {
 	log.Printf("%v \n\tУдаление временной таблицы %v", x_func.FuncName(), tableName)
-	ExecSQL("DROP TABLE "+tableName, idConn)
-	QBQuery.tmpTableName = ""
+	executeSQLConn("DROP TABLE "+tableName, idConn)
+	QBQuery.TmpTable = ""
 }
-
-/*
-func postFile(filename string, targetUrl string) error {
-	bodyBuf := &bytes.Buffer{}
-	bodyWriter := multipart.NewWriter(bodyBuf)
-
-	// this step is very important
-	fileWriter, err := bodyWriter.CreateFormFile("uploadfile", filename)
-	if err != nil {
-		fmt.Println("error writing to buffer")
-		return err
-	}
-
-	//iocopy
-	_, err = io.Copy(fileWriter, fh)
-	if err != nil {
-		return err
-	}
-
-	contentType := bodyWriter.FormDataContentType()
-	bodyWriter.Close()
-
-	resp, err := http.Post(targetUrl, contentType, bodyBuf)
-	if err != nil {
-		return err
-	}
-	defer resp.Body.Close()
-	resp_body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return err
-	}
-	fmt.Println(resp.Status)
-	fmt.Println(string(resp_body))
-	return nil
-}
-*/

@@ -9,54 +9,35 @@ import (
 	"text/template"
 )
 
-var QCDB x_func.TDatabase //Основная база программы
-var QCon x_func.TDatabase //
-var QBConnection QBEntity
-var QBQuery QBEntity
+var QB x_func.TDatabase        // QB - Query base - база с запросами
+var QBQuery x_func.TTable      // Представление таблицы запросов
+var QBConnection x_func.TTable //Представление таблицы соединений
 
 func main() {
 
-	//общие настройки
+	// общие настройки
 	defer mainDefer()
 	configFile := "config.ini"
 
-	//включение логгирования
+	// включение логгирования
 	logFile := x_func.GetExecFilePath() + x_func.GetIniValue(configFile, "Common", "LogFile")
 	x_func.StartLogging(logFile)
 
-	//соединение с основной базой
-	x_func.DBGetIniCfg(x_func.GetExecFilePath()+"\\"+configFile, "QCDB", &QCDB)
-	QCDB.DBOpen()
+	// соединение с основной базой
+	x_func.DBGetIniCfg(x_func.GetExecFilePath()+"\\"+configFile, "QB", &QB)
+	QB.DBOpen()
 
-	//сопоставление QBEntity с таблицами
-	QBConnection.name = "CONNECTION"
-	QBQuery.name = "QUERY"
+	// связываение объектов таблиц с реальными таблицами БД
+	QBQuery.BindTable("QUERY", &QB)
+	QBConnection.BindTable("CONNECTION", &QB)
 
-	/*
-		//создание пустой базы
-		createEmptyQC()
-
-		//создание тестового запроса
-		connectionNew := make(map[string]string)
-		connectionNew["DRIVER"] = "sqlite3"
-		connectionNew["DSN"] = "SQLite\\base\\testbase.db"
-		connectionNew["NAME"] = "QB"
-		QBConnection.Create(connectionNew)
-		QBConnection.Read(4)
-		QBConnection.Update(4, connectionNew)
-		QBConnection.Delete(5)
-
-		//выполнение тестового запроса
-		fmt.Println(execQuery(2))
-	*/
-
+	//Запуск сервера
 	startServer()
-
 }
 
 // mainDefer - вызывается после закрытия main программы (для закрытия основного соединия, логгирования, обработки ошибок)
 func mainDefer() {
-	QCDB.DBClose()
+	QB.DBClose()
 	log.Println(x_func.FuncName(), "Завершение работы")
 }
 
@@ -66,7 +47,7 @@ func createEmptyQC() {
 
 	sqlCommand := ` 
 	DROP TABLE IF EXISTS CONNECTION;`
-	QCDB.DBExec(sqlCommand)
+	QB.DBExec(sqlCommand)
 
 	sqlCommand = `
 	CREATE TABLE IF NOT EXISTS CONNECTION (
@@ -74,15 +55,15 @@ func createEmptyQC() {
 		NAME VARCHAR(255) NOT NULL,
 		DRIVER VARCHAR(255) NOT NULL,
 		DSN  VARCHAR(255) NOT NULL);`
-	QCDB.DBExec(sqlCommand)
+	QB.DBExec(sqlCommand)
 
 	sqlCommand = `
-	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', '` + QCDB.DSN + `');`
-	QCDB.DBExec(sqlCommand)
+	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', '` + QB.DSN + `');`
+	QB.DBExec(sqlCommand)
 
 	sqlCommand = `
 	DROP TABLE IF EXISTS QUERY;`
-	QCDB.DBExec(sqlCommand)
+	QB.DBExec(sqlCommand)
 
 	sqlCommand = `
 	CREATE TABLE IF NOT EXISTS QUERY (
@@ -91,11 +72,11 @@ func createEmptyQC() {
 		NAME VARCHAR(255) NOT NULL UNIQUE,
 		QUERY TEXT,
 		REM TEXT);`
-	QCDB.DBExec(sqlCommand)
+	QB.DBExec(sqlCommand)
 
 	sqlCommand = `
 	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос');`
-	QCDB.DBExec(sqlCommand)
+	QB.DBExec(sqlCommand)
 }
 
 func startServer() {

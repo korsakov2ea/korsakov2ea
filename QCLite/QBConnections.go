@@ -66,3 +66,45 @@ func connection(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
+
+// Получение id соединения по id запроса
+func GetIdConnFromQuery(id int) int {
+	log.Printf("%v Получение ID соединения для запроса с ID %v", x_func.FuncName(), id)
+	connectionResult := QB.DBQuery("SELECT ID_CONNECTION FROM QUERY WHERE ID=" + strconv.Itoa(id))
+	connectionResultCount := len(connectionResult)
+	idConn := -1
+	if connectionResultCount != 0 {
+		id, err := strconv.Atoi(connectionResult[0].ByName["ID_CONNECTION"])
+		if err != nil {
+			log.Println(x_func.FuncName(), "Ошибка преобразования qcStringMap[0][\"ID_CONNECTION\"] = %v в число", connectionResult[0].ByName["ID_CONNECTION"])
+		} else {
+			idConn = id
+		}
+	} else {
+		log.Println(x_func.FuncName(), "Нет строки запроса с ID -", id)
+	}
+	return idConn
+}
+
+// Выполняет SQL команду в базе, по соединению c указанным id
+func executeSQLConn(sqlCode string, id int) {
+	log.Printf("%v \n\tВыполнение SQL команды \n%v", x_func.FuncName(), sqlCode)
+	connectionRows := QB.DBQuery("SELECT DRIVER, DSN, NAME FROM CONNECTION WHERE ID=" + strconv.Itoa(id))
+	connectionRowsCount := len(connectionRows)
+
+	var targetConn x_func.TDatabase //соединение для выполнения запроса из базы
+
+	if connectionRowsCount != 0 {
+		targetConn.Driver = connectionRows[0].ByName["DRIVER"]
+		targetConn.DSN = connectionRows[0].ByName["DSN"]
+		targetConn.SetDecodeParam()
+
+		targetConn.DBOpen()
+		defer targetConn.DBClose()
+
+		targetConn.DBExec(sqlCode)
+
+	} else {
+		log.Printf("%v \n\tНет соединения с ID = %v", x_func.FuncName(), id)
+	}
+}

@@ -3,41 +3,66 @@ package x_func
 import (
 	"database/sql"
 	"log"
+	"strconv"
 
 	_ "github.com/ibmdb/go_ibm_db"
 	_ "github.com/mattn/go-sqlite3"
 )
 
+// ---------------------------------------------------------------------------------------------------------------------------- ОПИСАНИЕ ТИПОВ ДАННЫХ
 // Представление базы данных
 type TDatabase struct {
-	Driver string  // тип драйвера (go_ibm_db или go_ibm_db)
-	DSN    string  // источник данных (data source name)
-	Name   string  // имя БД для вывода в лог
-	DB     *sql.DB // ссылка на БД
+	Driver      string  // тип драйвера (go_ibm_db или go_ibm_db)
+	DSN         string  // источник данных (data source name)
+	Name        string  // имя БД для вывода в лог
+	DB          *sql.DB // ссылка на БД
+	DecodeParam bool    //необходимость перекодирования из UTF8 в Windows1251 (нужно для баз DB2)
 }
 
-// Представление одной строки результатов SQL выборки. Реализует доступ к данным (по имени, по индексу) и ключам (по индексу).
+// Представление таблицы базы данных
+type TTable struct {
+	db       *TDatabase    // ссылка на родительскую БД
+	name     string        // наименоение таблицы
+	Data     TResultRows   // срез с данными
+	Dict     []TResultRows // карта срезов со словарями
+	TmpTable string        // имя временной таблицы для загрузки данных из CSV
+}
+
+// Представление ОДНОЙ строки результатов SQL выборки. Реализует доступ к данным (по имени, по индексу) и ключам (по индексу).
 type TResultRow struct {
 	ByName map[string]string // карта вида "КЛЮЧ: ЗНАЧЕНИЕ", хранит данные (в алфавитном порядке ключей)
 	ByInd  []*string         // массив (в порядке как вернула СУБД) со ссылками на ЗНАЧЕНИЯ
 	Ind    []*string         // массив (в порядке как вернула СУБД) со ссылками на КЛЮЧИ
 }
 
-// Представление множества строй с результами SQL выборки. Реализует доступ к данным (по имени, по индексу) и ключам (по индексу).
+// Представление ВСЕХ строк с результами SQL выборки. Реализует доступ к данным (по имени, по индексу) и ключам (по индексу).
 // ByName - карта вида "КЛЮЧ: ЗНАЧЕНИЕ", хранит непосредственно данные (не сортируется, в алфавитном порядке ключей).
 // ByInd - массив (в порядке как вернула СУБД) со ссылками на ЗНАЧЕНИЯ.
 // Ind - массив (в порядке как вернула СУБД) со ссылками на КЛЮЧИ (заголовки столбцов).
 type TResultRows []TResultRow
 
-// DBGetIniCfg - считывает из конфигурационного INI файла настройки БД и устанавливает структуре db
+// ---------------------------------------------------------------------------------------------------------------------------- РАБОТА С БАЗОЙ ДАННЫХ (НИЗКИЙ УРОВЕНЬ)
+
+// Читает настройки БД из конфигурационного INI файла и устанавливает структуре db
 func DBGetIniCfg(configFile string, iniSection string, db *TDatabase) {
 	db.Driver = GetIniValue(configFile, iniSection, "Driver")
 	db.Name = GetIniValue(configFile, iniSection, "Name")
 	db.DSN = GetIniValue(configFile, iniSection, "DSN")
+	db.SetDecodeParam()
 	log.Printf("%v Считана конфигурация из секции %v файла %v", FuncName(), iniSection, configFile)
 }
 
-// DBOpen - метод TDatabase для открытия и проверки соединения с БД
+// Устанавливает значение database.DecodeParam в зависимости от database.Driver
+func (database *TDatabase) SetDecodeParam() {
+	if database.Driver == "go_ibm_db" {
+		database.DecodeParam = true
+	} else {
+		database.DecodeParam = false
+	}
+
+}
+
+// Открывает соедиенние с БД и пингует его
 func (database *TDatabase) DBOpen() {
 	var err error
 	database.DB, err = sql.Open(database.Driver, database.DSN)
@@ -53,7 +78,17 @@ func (database *TDatabase) DBOpen() {
 	}
 }
 
-// DBExec - метод TDatabase для выполения SQL инструкций, которые не возвращают результат (например INSERT)
+// Закрывает соединение с БД
+func (database *TDatabase) DBClose() {
+	err := database.DB.Close()
+	if err != nil {
+		log.Printf("%v Ошибка закрытия соединения с базой %v %v", FuncName(), database.Name, err)
+	} else {
+		log.Printf("%v Соединение с базой %v успешно закрыто", FuncName(), database.Name)
+	}
+}
+
+// Выполняет SQL инструкцию, которые не возвращают результат (например INSERT)
 func (database *TDatabase) DBExec(sqlCode string) {
 	result, err := database.DB.Exec(sqlCode)
 	if err != nil {
@@ -64,8 +99,8 @@ func (database *TDatabase) DBExec(sqlCode string) {
 	}
 }
 
-// DBQuery - метод TDatabase для выполения SQL инструкций, которые возвращают результат (например SELECT). Возвращает карту значение и кол-во строк
-func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (result TResultRows) {
+// Выполняет SQL инструкцию, которые возвращают результат (например SELECT)
+func (database *TDatabase) DBQuery(sqlCode string) (result TResultRows) {
 	rows, err := database.DB.Query(sqlCode)
 	if err != nil {
 		log.Printf("%v Ошибка выполнения SQL запроса %v %v", FuncName(), sqlCode, err)
@@ -73,26 +108,82 @@ func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (resul
 		log.Printf("%v Выполнение SQL запроса %v", FuncName(), sqlCode)
 	}
 	defer rows.Close()
-	return rowsToResult(rows, decode1251toUTF8)
+	return rowsToResult(rows, database.DecodeParam)
 }
 
-// DBClose - метод TDatabase для закрытия соединения с БД
-func (database *TDatabase) DBClose() {
-	err := database.DB.Close()
-	if err != nil {
-		log.Printf("%v Ошибка закрытия соединения с базой %v %v", FuncName(), database.Name, err)
-	} else {
-		log.Printf("%v Соединение с базой %v успешно закрыто", FuncName(), database.Name)
+// ---------------------------------------------------------------------------------------------------------------------------- РАБОТА С ДАННЫМИ (СРЕДНИЙ УРОВЕНЬ)
+
+// Ассоциирует объект TTable по наименованию реальной таблицы и БД
+func (tab *TTable) BindTable(tableName string, database *TDatabase) {
+	log.Printf("%v Ассоциация таблицы %v в базе %v", FuncName(), tab.name, database.Name)
+	tab.db = database
+	tab.name = tableName
+	tab.Data = nil
+	tab.Dict = nil
+}
+
+// Cчитывает запись из таблицы по id и сохраняет результат в Data
+func (tab *TTable) Read(id int) {
+	log.Printf("%v Чтение записи из %v с id = %v", FuncName(), tab.name, id)
+	sqlCode := "SELECT * FROM " + tab.name + " WHERE ID=" + strconv.Itoa(id)
+	tab.Data = tab.db.DBQuery(sqlCode)
+}
+
+// Считывает все записи из таблицы и сохраняет результат в Data
+func (tab *TTable) ReadAll() {
+	log.Printf("%v Чтение всех записей из %v", FuncName(), tab.name)
+	sqlCode := "SELECT * FROM " + tab.name
+	tab.Data = tab.db.DBQuery(sqlCode)
+}
+
+// Считывает записи из таблицы SQL запросом и сохраняет результат в Data
+func (tab *TTable) ReadSQL(sqlCode string) {
+	log.Printf("%v Чтение записей из %v SQL запросом %v", FuncName(), tab.name, sqlCode)
+	tab.Data = tab.db.DBQuery(sqlCode)
+}
+
+// Добавляет в таблицу новую запись из карты insertingData
+func (tab *TTable) Create(insertingData map[string]string) {
+	log.Printf("%v Создание записи в %v", FuncName(), tab.name)
+	tab.Data = nil
+	var cols string = ""
+	var vals string = ""
+	for name, val := range insertingData {
+		cols = cols + name + ", "
+		vals = vals + "'" + val + "', "
 	}
-
+	sqlCode := "INSERT INTO " + tab.name + " (" + cols[:len(cols)-2] + ") VALUES (" + vals[:len(vals)-2] + ")"
+	tab.db.DBExec(sqlCode)
 }
 
-// Возвращает ссылку на значение переменной типа string. Необходимо для обхода ограничений GO
+// Заменяет запись в таблице по id значениями из карты updatingData
+func (tab *TTable) Update(id int, updatingData map[string]string) {
+	log.Printf("%v Изменение записи из %v с id = %v", FuncName(), tab.name, id)
+	tab.Data = nil
+	var cols_vals string = ""
+	for col, val := range updatingData {
+		cols_vals = cols_vals + col + " = '" + val + "', "
+	}
+	sqlCode := "UPDATE " + tab.name + " SET " + cols_vals[:len(cols_vals)-2] + " WHERE ID = " + strconv.Itoa(id)
+	tab.db.DBExec(sqlCode)
+}
+
+// Удаляет запись из таблицы по id
+func (tab *TTable) Delete(id int) {
+	log.Printf("%v Удаление записи из %v с id = %v", FuncName(), tab.name, id)
+	tab.Data = nil
+	sqlCode := "DELETE FROM " + tab.name + " WHERE ID = " + strconv.Itoa(id)
+	tab.db.DBExec(sqlCode)
+}
+
+// ---------------------------------------------------------------------------------------------------------------------------- ОБРАБОТЧИКИ
+
+// Возвращает ссылку на значение переменной типа string. Необходимо для релизации rowsToResult (обхода ограничений GO)
 func strAdr(str string) *string {
 	return &str
 }
 
-// Преобразует *sql.Rows в TResultRows (массив карт со значениями и индексированными ссылками на значения и ключи).
+// Преобразует *sql.Rows в TResultRows (массив карт со значениями и индексированными ссылками на значения и ключи)
 // В случае decode1251toUTF8 = true изменяет кодировку
 func rowsToResult(rows *sql.Rows, decode1251toUTF8 bool) (resultRows TResultRows) {
 	cols, err := rows.Columns()
