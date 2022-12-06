@@ -21,6 +21,10 @@
       </div>
     </div>
 
+    <!--Если есть уведомления, то вывести-->
+    {{if .Alerts}}{{range .Alerts}}<div class="alert alert-{{.Class}}" role="alert">{{.Text}}</div>{{end}}{{end}}
+
+    <!--Если есть данные-->
     {{if .Data}}
     <div class="row">
       <div class="col-sm">

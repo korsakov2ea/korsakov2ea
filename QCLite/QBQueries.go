@@ -10,14 +10,16 @@ import (
 
 // queries - обработчик HTTP (список запросов)
 func queries(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v Вызов обработчика HTTP запроса", x_func.FuncName())
+	log.Printf("%v >>>>> Вызов обработчика HTTP запроса", x_func.FuncName())
 	QBQuery.ReadSQL("SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID")
+	QBQuery.Alerts = nil
+	QBQuery.Alerts = append(QBQuery.Alerts, x_func.TAlert{Text: "Всего запросов - " + strconv.Itoa(len(QBQuery.Data)), Class: "info"})
 	renderPage(w, "queries.html", "common.html", QBQuery)
 }
 
 // query - обработчик HTTP (одиночный запрос)
 func query(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v  Вызов обработчика HTTP запроса", x_func.FuncName())
+	log.Printf("%v >>>>> Вызов обработчика HTTP запроса", x_func.FuncName())
 
 	id, err := strconv.Atoi(r.FormValue("ID"))
 	if err != nil && r.Method == "POST" && (r.FormValue("submitBtn") == "Update" || r.FormValue("submitBtn") == "Delete") {
@@ -138,7 +140,9 @@ func executeQuery(id int) {
 	if queryRowsCount != 0 {
 		targetDB.Driver = queryRows[0].ByName["DRIVER"]
 		targetDB.DSN = queryRows[0].ByName["DSN"]
+		targetDB.Name = queryRows[0].ByName["NAME"]
 		targetQuery := queryRows[0].ByName["QUERY"]
+
 		targetDB.SetDecodeParam()
 
 		targetDB.DBOpen()
@@ -156,7 +160,7 @@ func executeQuery(id int) {
 
 // Возвращает true, если в запросе с id есть метка @TABLE, т.е. предполагается загрузка внешних данных
 func needUploadData(id int) bool {
-	log.Printf("%v Проверка необходимости загрузки данных перед выполнением запроса", x_func.FuncName())
+	log.Printf("%v Проверка необходимости загрузки данных перед выполнением запроса (см. ниже)", x_func.FuncName())
 	queryRows := QB.DBQuery("SELECT QUERY FROM QUERY WHERE ID=" + strconv.Itoa(id))
 	queryRowsCount := len(queryRows)
 	result := false
@@ -165,6 +169,8 @@ func needUploadData(id int) bool {
 			log.Printf("%v Необходима загрузка данных из файла", x_func.FuncName())
 			result = true
 			return result
+		} else {
+			log.Printf("%v Запрос выполняется без загрузки файла", x_func.FuncName())
 		}
 	} else {
 		log.Println(x_func.FuncName(), "Нет строки запроса с ID -", id)

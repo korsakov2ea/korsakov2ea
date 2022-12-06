@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"korsakov2ea/x_func"
 	"log"
 	"net/http"
@@ -11,37 +10,39 @@ import (
 
 var QB x_func.TDatabase        // QB - Query base - база с запросами
 var QBQuery x_func.TTable      // Представление таблицы запросов
-var QBConnection x_func.TTable //Представление таблицы соединений
+var QBConnection x_func.TTable // Представление таблицы соединений
 
 func main() {
 
-	// общие настройки
 	defer mainDefer()
-	configFile := "config.ini"
 
-	// включение логгирования
+	// Общие настройки
+	configFile := "config.ini"
 	logFile := x_func.GetExecFilePath() + x_func.GetIniValue(configFile, "Common", "LogFile")
+	serverPort := x_func.GetIniValue(configFile, "Common", "Port")
+
+	// Включение логгирования
 	x_func.StartLogging(logFile)
 
-	// соединение с основной базой
+	// Соединение с базой запросов
 	x_func.DBGetIniCfg(x_func.GetExecFilePath()+"\\"+configFile, "QB", &QB)
 	QB.DBOpen()
 
-	// связываение объектов таблиц с реальными таблицами БД
+	// Связываение объектов таблиц с реальными таблицами БД
 	QBQuery.BindTable("QUERY", &QB)
 	QBConnection.BindTable("CONNECTION", &QB)
 
-	//Запуск сервера
-	startServer()
+	// Запуск сервера
+	startServer(serverPort)
 }
 
-// mainDefer - вызывается после закрытия main программы (для закрытия основного соединия, логгирования, обработки ошибок)
+// Вызывается после закрытия main программы (для закрытия основного соединия, логгирования, обработки ошибок)
 func mainDefer() {
 	QB.DBClose()
 	log.Println(x_func.FuncName(), "Завершение работы")
 }
 
-// createEmptyQC - удаляет таблицы CONNECTION и QUERY основной базы QC, если были ранее, создает типовые с одним тестовым запросом
+// Создание пустой базы. Удаляет таблицы CONNECTION и QUERY базы запросов, если были ранее, создает типовые с одним тестовым запросом
 func createEmptyQC() {
 	log.Printf("%v Создание пустой базы", x_func.FuncName())
 
@@ -79,18 +80,19 @@ func createEmptyQC() {
 	QB.DBExec(sqlCommand)
 }
 
-func startServer() {
-	fmt.Println("Старт сервера")
+// Определяет парамерты сервера, роутинг и обработчики, запускает сервер на указанном порту
+func startServer(startOnPort string) {
+	log.Printf("%v Запуск сервера на порту %v", x_func.FuncName(), startOnPort)
 	FileServer := http.FileServer(http.Dir("public"))
 	http.Handle("/public/", http.StripPrefix("/public/", FileServer))
 	http.HandleFunc("/queries", queries)
 	http.HandleFunc("/query", query)
 	http.HandleFunc("/connections", connections)
 	http.HandleFunc("/connection", connection)
-	http.ListenAndServe(":4444", nil)
+	http.ListenAndServe(":"+startOnPort, nil)
 }
 
-// renderPage - Собирает страницу из макета страницы (templatePage), подстановочной страницы (commonPage), объекта данных (date) и выводит в поток (w)
+// Собирает страницу из макета страницы (templatePage), подстановочной страницы (commonPage), объекта данных (date) и выводит в поток (w)
 func renderPage(w http.ResponseWriter, templatePage string, commonPage string, date interface{}) {
 	templatePath := filepath.Join("public", "html", templatePage)
 	commonPath := filepath.Join("public", "html", commonPage)

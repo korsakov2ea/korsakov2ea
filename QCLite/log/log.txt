@@ -15943,3 +15943,2317 @@ DROP TABLE QB.QB20221206_171726940240
 	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
 2022/12/06 17:41:51 main.renderPage Парсинг шаблона страницы public\html\queries.html
 2022/12/06 17:41:51 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 21:17:48 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 21:17:48 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 21:17:48 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 21:17:48 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 21:17:48 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 21:17:48 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 21:17:48 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 21:17:51 main.queries Вызов обработчика HTTP запроса
+2022/12/06 21:17:51 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 21:17:51 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 21:17:51 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 21:17:51 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 21:23:33 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 21:23:33 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 21:23:33 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 21:23:33 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 21:23:33 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 21:23:33 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 21:23:33 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 21:23:33 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QueryBase успешно закрыто
+2022/12/06 21:23:33 main.mainDefer Завершение работы
+2022/12/06 21:28:32 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 21:28:32 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 21:28:32 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 21:28:32 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 21:28:32 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 21:28:32 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 21:28:32 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 21:29:18 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 21:29:18 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 21:29:18 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 21:29:18 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 21:29:18 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 21:29:18 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 21:29:18 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 21:30:35 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 21:30:36 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 21:30:36 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 21:30:36 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 21:30:36 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 21:30:36 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 21:30:36 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 21:30:38 main.startServer Запуск сервера на порту 4444
+2022/12/06 21:37:33 main.queries Вызов обработчика HTTP запроса
+2022/12/06 21:37:33 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 21:37:33 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 21:37:33 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 21:37:33 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 21:48:06 main.query  Вызов обработчика HTTP запроса
+2022/12/06 21:48:06 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/06 21:48:06 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/06 21:48:06 main.executeQuery Выполнение запроса из QB c id = 1
+2022/12/06 21:48:06 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/06 21:48:06 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД 
+2022/12/06 21:48:06 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой 
+2022/12/06 21:48:06 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM QUERY
+2022/12/06 21:48:06 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой  успешно закрыто
+2022/12/06 21:48:06 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/06 21:48:06 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/06 22:29:27 main.queries Вызов обработчика HTTP запроса
+2022/12/06 22:29:27 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 22:29:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 22:29:27 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 22:29:27 main.renderPage Ошибка выполнения шаблона страницы template: queries.html:24:9: executing "queries.html" at <.Alerts>: can't evaluate field Alerts in type x_func.TTable
+2022/12/06 22:29:27 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:110)
+2022/12/06 22:29:51 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/06 22:29:51 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 22:29:51 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 22:29:51 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 22:29:51 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 22:29:51 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 22:29:51 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 22:30:06 main.startServer Запуск сервера на порту 4444
+2022/12/06 22:30:06 main.queries Вызов обработчика HTTP запроса
+2022/12/06 22:30:06 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 22:30:06 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 22:30:06 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 22:30:06 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 22:31:14 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/06 22:31:14 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 22:31:14 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 22:31:14 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 22:31:14 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 22:31:14 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 22:31:14 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 22:31:14 main.startServer Запуск сервера на порту 4444
+2022/12/06 22:31:14 main.queries Вызов обработчика HTTP запроса
+2022/12/06 22:31:14 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 22:31:14 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 22:31:14 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 22:31:14 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 22:33:09 main.queries Вызов обработчика HTTP запроса
+2022/12/06 22:33:09 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 22:33:09 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 22:33:09 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 22:33:09 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 22:33:22 main.queries Вызов обработчика HTTP запроса
+2022/12/06 22:33:22 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 22:33:22 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 22:33:22 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 22:33:22 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 22:36:20 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/06 22:36:20 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 22:36:20 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 22:36:20 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 22:36:20 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 22:36:20 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 22:36:20 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 22:36:20 main.startServer Запуск сервера на порту 4444
+2022/12/06 22:36:20 main.queries Вызов обработчика HTTP запроса
+2022/12/06 22:36:20 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 22:36:20 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 22:36:20 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 22:36:20 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 22:36:41 main.query  Вызов обработчика HTTP запроса
+2022/12/06 22:36:41 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT QUERY FROM QUERY WHERE ID=2
+2022/12/06 22:36:41 main.executeQuery Выполнение запроса из QB c id = 2
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=2
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД 
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).DBOpen Ошибка открытия соединения с базой  sql: unknown driver "go_ibm_db" (forgotten import?)
+2022/12/06 22:36:41 http: panic serving [::1]:50154: runtime error: invalid memory address or nil pointer dereference
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fa90940, 0x13fa29fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*DB).conn(0x0, {0x13fb42670, 0xc000018030}, 0x1)
+	c:/go/src/database/sql/sql.go:1288 +0x63
+database/sql.(*DB).PingContext(0x0, {0x13fb42670, 0xc000018030})
+	c:/go/src/database/sql/sql.go:851 +0xa5
+database/sql.(*DB).Ping(0x0)
+	c:/go/src/database/sql/sql.go:873 +0x48
+korsakov2ea/x_func.(*TDatabase).DBOpen(0xc000096ef8)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:74 +0x2e5
+main.executeQuery(0x2)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:146 +0x312
+main.query({0x13fb421e8, 0xc0001dc000}, 0xc000138900)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b65
+net/http.HandlerFunc.ServeHTTP(0x13fb1a8e0, {0x13fb421e8, 0xc0001dc000}, 0xc000138900)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd1b820, {0x13fb421e8, 0xc0001dc000}, 0xc000138900)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000150000}, {0x13fb421e8, 0xc0001dc000}, 0xc000138900)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000001860, {0x13fb42638, 0xc00004c6c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:36:41 main.query  Вызов обработчика HTTP запроса
+2022/12/06 22:36:41 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT QUERY FROM QUERY WHERE ID=2
+2022/12/06 22:36:41 main.executeQuery Выполнение запроса из QB c id = 2
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=2
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД 
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).DBOpen Ошибка открытия соединения с базой  sql: unknown driver "go_ibm_db" (forgotten import?)
+2022/12/06 22:36:41 http: panic serving 127.0.0.1:50155: runtime error: invalid memory address or nil pointer dereference
+goroutine 34 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fa90940, 0x13fa29fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*DB).conn(0x0, {0x13fb42670, 0xc000018030}, 0x1)
+	c:/go/src/database/sql/sql.go:1288 +0x63
+database/sql.(*DB).PingContext(0x0, {0x13fb42670, 0xc000018030})
+	c:/go/src/database/sql/sql.go:851 +0xa5
+database/sql.(*DB).Ping(0x0)
+	c:/go/src/database/sql/sql.go:873 +0x48
+korsakov2ea/x_func.(*TDatabase).DBOpen(0xc000056ef8)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:74 +0x2e5
+main.executeQuery(0x2)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:146 +0x312
+main.query({0x13fb421e8, 0xc0001dc0e0}, 0xc000138a00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b65
+net/http.HandlerFunc.ServeHTTP(0x13fb1a8e0, {0x13fb421e8, 0xc0001dc0e0}, 0xc000138a00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd1b820, {0x13fb421e8, 0xc0001dc0e0}, 0xc000138a00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000150000}, {0x13fb421e8, 0xc0001dc0e0}, 0xc000138a00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000b2000, {0x13fb42638, 0xc00004cd80})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:36:41 main.query  Вызов обработчика HTTP запроса
+2022/12/06 22:36:41 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT QUERY FROM QUERY WHERE ID=2
+2022/12/06 22:36:41 main.executeQuery Выполнение запроса из QB c id = 2
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=2
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД 
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).DBOpen Ошибка открытия соединения с базой  sql: unknown driver "go_ibm_db" (forgotten import?)
+2022/12/06 22:36:41 http: panic serving 127.0.0.1:50156: runtime error: invalid memory address or nil pointer dereference
+goroutine 35 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fa90940, 0x13fa29fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*DB).conn(0x0, {0x13fb42670, 0xc000018030}, 0x1)
+	c:/go/src/database/sql/sql.go:1288 +0x63
+database/sql.(*DB).PingContext(0x0, {0x13fb42670, 0xc000018030})
+	c:/go/src/database/sql/sql.go:851 +0xa5
+database/sql.(*DB).Ping(0x0)
+	c:/go/src/database/sql/sql.go:873 +0x48
+korsakov2ea/x_func.(*TDatabase).DBOpen(0xc0001ceef8)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:74 +0x2e5
+main.executeQuery(0x2)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:146 +0x312
+main.query({0x13fb421e8, 0xc00015e1c0}, 0xc0001d0000)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b65
+net/http.HandlerFunc.ServeHTTP(0x13fb1a8e0, {0x13fb421e8, 0xc00015e1c0}, 0xc0001d0000)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd1b820, {0x13fb421e8, 0xc00015e1c0}, 0xc0001d0000)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000150000}, {0x13fb421e8, 0xc00015e1c0}, 0xc0001d0000)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000b20a0, {0x13fb42638, 0xc000198100})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:36:41 main.query  Вызов обработчика HTTP запроса
+2022/12/06 22:36:41 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT QUERY FROM QUERY WHERE ID=2
+2022/12/06 22:36:41 main.executeQuery Выполнение запроса из QB c id = 2
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=2
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД 
+2022/12/06 22:36:41 korsakov2ea/x_func.(*TDatabase).DBOpen Ошибка открытия соединения с базой  sql: unknown driver "go_ibm_db" (forgotten import?)
+2022/12/06 22:36:41 http: panic serving [::1]:50158: runtime error: invalid memory address or nil pointer dereference
+goroutine 11 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fa90940, 0x13fa29fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*DB).conn(0x0, {0x13fb42670, 0xc000018030}, 0x1)
+	c:/go/src/database/sql/sql.go:1288 +0x63
+database/sql.(*DB).PingContext(0x0, {0x13fb42670, 0xc000018030})
+	c:/go/src/database/sql/sql.go:851 +0xa5
+database/sql.(*DB).Ping(0x0)
+	c:/go/src/database/sql/sql.go:873 +0x48
+korsakov2ea/x_func.(*TDatabase).DBOpen(0xc00005aef8)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:74 +0x2e5
+main.executeQuery(0x2)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:146 +0x312
+main.query({0x13fb421e8, 0xc0000c2000}, 0xc0000b6000)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b65
+net/http.HandlerFunc.ServeHTTP(0x13fb1a8e0, {0x13fb421e8, 0xc0000c2000}, 0xc0000b6000)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd1b820, {0x13fb421e8, 0xc0000c2000}, 0xc0000b6000)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000150000}, {0x13fb421e8, 0xc0000c2000}, 0xc0000b6000)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000001900, {0x13fb42638, 0xc00009c2c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:36:42 main.query  Вызов обработчика HTTP запроса
+2022/12/06 22:36:42 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/06 22:36:42 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT QUERY FROM QUERY WHERE ID=2
+2022/12/06 22:36:42 main.executeQuery Выполнение запроса из QB c id = 2
+2022/12/06 22:36:42 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=2
+2022/12/06 22:36:42 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД 
+2022/12/06 22:36:42 korsakov2ea/x_func.(*TDatabase).DBOpen Ошибка открытия соединения с базой  sql: unknown driver "go_ibm_db" (forgotten import?)
+2022/12/06 22:36:42 http: panic serving [::1]:50159: runtime error: invalid memory address or nil pointer dereference
+goroutine 37 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fa90940, 0x13fa29fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+database/sql.(*DB).conn(0x0, {0x13fb42670, 0xc000018030}, 0x1)
+	c:/go/src/database/sql/sql.go:1288 +0x63
+database/sql.(*DB).PingContext(0x0, {0x13fb42670, 0xc000018030})
+	c:/go/src/database/sql/sql.go:851 +0xa5
+database/sql.(*DB).Ping(0x0)
+	c:/go/src/database/sql/sql.go:873 +0x48
+korsakov2ea/x_func.(*TDatabase).DBOpen(0xc00005aef8)
+	c:/Users/user/go/src/korsakov2ea/x_func/db.go:74 +0x2e5
+main.executeQuery(0x2)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:146 +0x312
+main.query({0x13fb421e8, 0xc0001dc1c0}, 0xc0000b6100)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:79 +0x1b65
+net/http.HandlerFunc.ServeHTTP(0x13fb1a8e0, {0x13fb421e8, 0xc0001dc1c0}, 0xc0000b6100)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd1b820, {0x13fb421e8, 0xc0001dc1c0}, 0xc0000b6100)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000150000}, {0x13fb421e8, 0xc0001dc1c0}, 0xc0000b6100)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000b2140, {0x13fb42638, 0xc00009c540})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:39:55 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/06 22:39:55 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 22:39:55 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 22:39:55 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 22:39:55 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 22:39:55 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 22:39:55 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 22:39:55 main.startServer Запуск сервера на порту 4444
+2022/12/06 22:39:56 main.queries Вызов обработчика HTTP запроса
+2022/12/06 22:39:56 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 22:39:56 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 22:39:56 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 22:39:56 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 22:40:17 main.query  Вызов обработчика HTTP запроса
+2022/12/06 22:40:17 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса (см. ниже)
+2022/12/06 22:40:17 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/06 22:40:17 main.needUploadData Запрос выполняется без загрузки файла
+2022/12/06 22:40:17 main.executeQuery Выполнение запроса из QB c id = 1
+2022/12/06 22:40:17 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/06 22:40:17 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД 
+2022/12/06 22:40:17 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой 
+2022/12/06 22:40:17 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM QUERY
+2022/12/06 22:40:17 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой  успешно закрыто
+2022/12/06 22:40:17 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/06 22:40:17 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/06 22:42:20 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/06 22:42:20 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 22:42:20 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 22:42:20 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 22:42:20 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 22:42:20 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 22:42:20 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 22:42:20 main.startServer Запуск сервера на порту 4444
+2022/12/06 22:42:20 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:42:20 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 22:42:20 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 22:42:20 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 22:42:20 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 22:42:24 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:42:24 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса (см. ниже)
+2022/12/06 22:42:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/06 22:42:24 main.needUploadData Запрос выполняется без загрузки файла
+2022/12/06 22:42:24 main.executeQuery Выполнение запроса из QB c id = 1
+2022/12/06 22:42:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/06 22:42:24 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД 
+2022/12/06 22:42:24 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой 
+2022/12/06 22:42:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM QUERY
+2022/12/06 22:42:24 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой  успешно закрыто
+2022/12/06 22:42:24 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/06 22:42:24 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/06 22:45:50 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:45:50 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:45:50 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:45:50 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/06 22:45:50 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/06 22:45:55 main.connection >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:45:55 korsakov2ea/x_func.(*TTable).Read Чтение записи из CONNECTION с id = 1
+2022/12/06 22:45:55 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION WHERE ID=1
+2022/12/06 22:45:55 main.renderPage Парсинг шаблона страницы public\html\connection.html
+2022/12/06 22:45:55 main.renderPage Построение шаблона страницы public\html\connection.html
+2022/12/06 22:48:09 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/06 22:48:09 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 22:48:09 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 22:48:09 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 22:48:09 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 22:48:09 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 22:48:09 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 22:48:09 main.startServer Запуск сервера на порту 4444
+2022/12/06 22:48:12 main.connection >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:48:12 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:48:12 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:48:12 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/06 22:48:12 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/06 22:48:14 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:48:14 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 22:48:14 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 22:48:14 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 22:48:14 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 22:48:16 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:48:16 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:48:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:48:16 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/06 22:48:16 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/06 22:48:19 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:48:19 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 22:48:19 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 22:48:19 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 22:48:19 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 22:48:21 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:48:21 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса (см. ниже)
+2022/12/06 22:48:21 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT QUERY FROM QUERY WHERE ID=1
+2022/12/06 22:48:21 main.needUploadData Запрос выполняется без загрузки файла
+2022/12/06 22:48:21 main.executeQuery Выполнение запроса из QB c id = 1
+2022/12/06 22:48:21 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=1
+2022/12/06 22:48:21 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QВ (Непосредственно база запросов)!
+2022/12/06 22:48:21 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QВ (Непосредственно база запросов)!
+2022/12/06 22:48:21 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM QUERY
+2022/12/06 22:48:21 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой QВ (Непосредственно база запросов)! успешно закрыто
+2022/12/06 22:48:21 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/06 22:48:21 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/06 22:50:20 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:50:20 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:50:20 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:50:20 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/06 22:50:20 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/06 22:50:22 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:50:22 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 22:50:22 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 22:50:22 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 22:50:22 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 22:50:24 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:50:24 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:50:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:50:24 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 22:50:24 main.renderPage Ошибка выполнения шаблона страницы template: query.html:81:45: executing "query.html" at <.Directory>: can't evaluate field Directory in type x_func.TTable
+2022/12/06 22:50:24 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:111)
+2022/12/06 22:50:38 main.connection >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:50:38 main.renderPage Парсинг шаблона страницы public\html\connection.html
+2022/12/06 22:50:38 main.renderPage Построение шаблона страницы public\html\connection.html
+2022/12/06 22:50:42 main.connection >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:50:42 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:50:42 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:50:42 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/06 22:50:42 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/06 22:50:43 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:50:43 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:50:43 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:50:43 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 22:50:43 main.renderPage Ошибка выполнения шаблона страницы template: query.html:81:45: executing "query.html" at <.Directory>: can't evaluate field Directory in type x_func.TTable
+2022/12/06 22:50:43 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:111)
+2022/12/06 22:52:35 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/06 22:52:36 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 22:52:36 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 22:52:36 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 22:52:36 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 22:52:36 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 22:52:36 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 22:52:36 main.startServer Запуск сервера на порту 4444
+2022/12/06 22:52:39 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:52:39 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:52:39 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:52:39 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 22:52:39 main.renderPage Ошибка выполнения шаблона страницы template: query.html:81:45: executing "query.html" at <.Directory>: can't evaluate field Directory in type x_func.TTable
+2022/12/06 22:52:39 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:111)
+2022/12/06 22:53:18 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:53:18 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:53:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:53:18 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 22:53:18 main.renderPage Ошибка выполнения шаблона страницы template: query.html:82:34: executing "query.html" at <$value.ID>: can't evaluate field ID in type x_func.TResultRow
+2022/12/06 22:53:18 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:111)
+2022/12/06 22:54:32 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:54:32 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:54:32 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:54:32 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 22:54:32 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 22:54:47 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:54:47 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из QUERY
+2022/12/06 22:54:47 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM QUERY
+2022/12/06 22:54:47 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 22:54:47 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 22:55:35 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:55:35 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:55:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:55:35 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:55:35 http: panic serving [::1]:50235: runtime error: invalid memory address or nil pointer dereference
+goroutine 5 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00013eb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc000136540}, {0x13fcf6180, 0xc0000ef2d0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc000136540}, {0x13fcf6180, 0xc0000ef2d0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc000136540}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000ef2d0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc000136540}, 0xc000120c00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc000136540}, 0xc000120c00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc000136540}, 0xc000120c00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc000136540}, 0xc000120c00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000006e0, {0x13fd72658, 0xc00004c380})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:55:35 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:55:35 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:55:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:55:35 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:55:35 http: panic serving [::1]:50240: runtime error: invalid memory address or nil pointer dereference
+goroutine 8 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00021cb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc000212000}, {0x13fcf6180, 0xc00004ebd0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc000212000}, {0x13fcf6180, 0xc00004ebd0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc000212000}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004ebd0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc000212000}, 0xc000120b00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc000212000}, 0xc000120b00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc000212000}, 0xc000120b00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc000212000}, 0xc000120b00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000960, {0x13fd72658, 0xc000170980})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:55:35 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:55:35 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:55:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:55:35 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:55:35 http: panic serving [::1]:50241: runtime error: invalid memory address or nil pointer dereference
+goroutine 50 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0002e6b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002d8000}, {0x13fcf6180, 0xc0002de070})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002d8000}, {0x13fcf6180, 0xc0002de070})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002d8000}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002de070})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002d8000}, 0xc000286200)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002d8000}, 0xc000286200)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002d8000}, 0xc000286200)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002d8000}, 0xc000286200)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0002be000, {0x13fd72658, 0xc00028c2c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:55:37 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:55:37 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:55:37 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:55:37 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:55:37 http: panic serving [::1]:50242: runtime error: invalid memory address or nil pointer dereference
+goroutine 11 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00033ab70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc000136700}, {0x13fcf6180, 0xc0000ef420})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc000136700}, {0x13fcf6180, 0xc0000ef420})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc000136700}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000ef420})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc000136700}, 0xc000054900)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc000136700}, 0xc000054900)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc000136700}, 0xc000054900)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc000136700}, 0xc000054900)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000a00, {0x13fd72658, 0xc00004da40})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:55:37 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:55:37 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:55:37 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:55:37 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:55:37 http: panic serving [::1]:50243: runtime error: invalid memory address or nil pointer dereference
+goroutine 32 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000246b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002121c0}, {0x13fcf6180, 0xc00004ed20})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002121c0}, {0x13fcf6180, 0xc00004ed20})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002121c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004ed20})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002121c0}, 0xc000286400)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002121c0}, 0xc000286400)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002121c0}, 0xc000286400)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002121c0}, 0xc000286400)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a3180, {0x13fd72658, 0xc00028c900})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:55:37 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:55:37 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:55:37 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:55:37 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:55:37 http: panic serving [::1]:50244: runtime error: invalid memory address or nil pointer dereference
+goroutine 12 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0002fab70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002d81c0}, {0x13fcf6180, 0xc0002de1c0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002d81c0}, {0x13fcf6180, 0xc0002de1c0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002d81c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002de1c0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002d81c0}, 0xc000054a00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002d81c0}, 0xc000054a00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002d81c0}, 0xc000054a00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002d81c0}, 0xc000054a00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000aa0, {0x13fd72658, 0xc00004dac0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:55:37 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:55:37 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:55:37 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:55:37 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:55:37 http: panic serving [::1]:50245: runtime error: invalid memory address or nil pointer dereference
+goroutine 33 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00021cb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002d8380}, {0x13fcf6180, 0xc0002de310})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002d8380}, {0x13fcf6180, 0xc0002de310})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002d8380}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002de310})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002d8380}, 0xc000121500)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002d8380}, 0xc000121500)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002d8380}, 0xc000121500)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002d8380}, 0xc000121500)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a3220, {0x13fd72658, 0xc00033cd40})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:55:38 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:55:38 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:55:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:55:38 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:55:38 http: panic serving [::1]:50246: runtime error: invalid memory address or nil pointer dereference
+goroutine 15 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00021cb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002d8540}, {0x13fcf6180, 0xc0002de460})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002d8540}, {0x13fcf6180, 0xc0002de460})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002d8540}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002de460})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002d8540}, 0xc000055000)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002d8540}, 0xc000055000)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002d8540}, 0xc000055000)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002d8540}, 0xc000055000)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000b40, {0x13fd72658, 0xc00024a2c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:55:38 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:55:38 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:55:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:55:38 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:55:38 http: panic serving [::1]:50247: runtime error: invalid memory address or nil pointer dereference
+goroutine 16 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00035eb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0001368c0}, {0x13fcf6180, 0xc0000ef570})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0001368c0}, {0x13fcf6180, 0xc0000ef570})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0001368c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000ef570})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0001368c0}, 0xc000055100)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0001368c0}, 0xc000055100)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0001368c0}, 0xc000055100)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0001368c0}, 0xc000055100)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000be0, {0x13fd72658, 0xc00024a340})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:55:38 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:55:38 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:55:38 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:55:38 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:55:38 http: panic serving [::1]:50248: runtime error: invalid memory address or nil pointer dereference
+goroutine 60 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00021cb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002d8700}, {0x13fcf6180, 0xc0002de620})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002d8700}, {0x13fcf6180, 0xc0002de620})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002d8700}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002de620})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002d8700}, 0xc000287300)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002d8700}, 0xc000287300)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002d8700}, 0xc000287300)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002d8700}, 0xc000287300)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0002be0a0, {0x13fd72658, 0xc000241780})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:55:43 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:55:43 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:55:43 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:55:43 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:55:43 http: panic serving [::1]:50249: runtime error: invalid memory address or nil pointer dereference
+goroutine 67 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00035eb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002d88c0}, {0x13fcf6180, 0xc0002de770})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002d88c0}, {0x13fcf6180, 0xc0002de770})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002d88c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002de770})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002d88c0}, 0xc000121700)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002d88c0}, 0xc000121700)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002d88c0}, 0xc000121700)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002d88c0}, 0xc000121700)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a32c0, {0x13fd72658, 0xc00033d0c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:56:13 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:56:13 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:56:13 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:56:13 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:56:13 http: panic serving [::1]:50250: runtime error: invalid memory address or nil pointer dereference
+goroutine 68 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0001f8b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0001be1c0}, {0x13fcf6180, 0xc0001a02a0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0001be1c0}, {0x13fcf6180, 0xc0001a02a0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0001be1c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0001a02a0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0001be1c0}, 0xc000121800)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0001be1c0}, 0xc000121800)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0001be1c0}, 0xc000121800)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0001be1c0}, 0xc000121800)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a3360, {0x13fd72658, 0xc00033d140})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:56:13 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:56:13 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:56:13 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:56:13 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:56:13 http: panic serving [::1]:50254: runtime error: invalid memory address or nil pointer dereference
+goroutine 69 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00021cb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002d8a80}, {0x13fcf6180, 0xc0002de8c0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002d8a80}, {0x13fcf6180, 0xc0002de8c0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002d8a80}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002de8c0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002d8a80}, 0xc000121900)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002d8a80}, 0xc000121900)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002d8a80}, 0xc000121900)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002d8a80}, 0xc000121900)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a3400, {0x13fd72658, 0xc00033d1c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:56:13 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:56:13 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:56:13 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:56:13 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:56:13 http: panic serving [::1]:50255: runtime error: invalid memory address or nil pointer dereference
+goroutine 83 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00021cb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002d8c40}, {0x13fcf6180, 0xc0002dea10})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002d8c40}, {0x13fcf6180, 0xc0002dea10})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002d8c40}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002dea10})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002d8c40}, 0xc000287f00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002d8c40}, 0xc000287f00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002d8c40}, 0xc000287f00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002d8c40}, 0xc000287f00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0002be140, {0x13fd72658, 0xc0002e7a40})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:57:10 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:57:10 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:57:10 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:57:10 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 22:57:10 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 22:57:37 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:57:37 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:57:37 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:57:37 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 22:57:37 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 22:57:46 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:57:46 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:57:46 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:57:46 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 22:57:46 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 22:58:15 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:58:15 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:58:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:58:15 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 22:58:15 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 22:58:18 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:58:18 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:58:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:58:18 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 22:58:18 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 22:58:43 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:58:43 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:58:43 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:58:43 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 22:58:43 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 22:58:59 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:58:59 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:58:59 http: panic serving [::1]:50259: runtime error: invalid memory address or nil pointer dereference
+goroutine 45 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000224b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc000136540}, {0x13fcf6180, 0xc00004e3f0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc000136540}, {0x13fcf6180, 0xc00004e3f0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc000136540}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004e3f0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc000136540}, 0xc00021cf00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc000136540}, 0xc00021cf00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc000136540}, 0xc00021cf00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc000136540}, 0xc00021cf00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001fc1e0, {0x13fd72658, 0xc0004160c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:58:59 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:58:59 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:58:59 http: panic serving [::1]:50257: runtime error: invalid memory address or nil pointer dereference
+goroutine 41 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000224b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0001be460}, {0x13fcf6180, 0xc0000ee3f0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0001be460}, {0x13fcf6180, 0xc0000ee3f0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0001be460}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000ee3f0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0001be460}, 0xc000190900)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0001be460}, 0xc000190900)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0001be460}, 0xc000190900)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0001be460}, 0xc000190900)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001fc0a0, {0x13fd72658, 0xc00018b8c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:58:59 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:58:59 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:58:59 http: panic serving [::1]:50256: runtime error: invalid memory address or nil pointer dereference
+goroutine 40 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000368b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002121c0}, {0x13fcf6180, 0xc000194230})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002121c0}, {0x13fcf6180, 0xc000194230})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002121c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc000194230})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002121c0}, 0xc00021cc00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002121c0}, 0xc00021cc00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002121c0}, 0xc00021cc00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002121c0}, 0xc00021cc00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001fc000, {0x13fd72658, 0xc00018b840})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:58:59 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:58:59 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:58:59 http: panic serving [::1]:50261: runtime error: invalid memory address or nil pointer dereference
+goroutine 101 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000224b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0001be620}, {0x13fcf6180, 0xc0000ee540})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0001be620}, {0x13fcf6180, 0xc0000ee540})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0001be620}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000ee540})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0001be620}, 0xc000190800)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0001be620}, 0xc000190800)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0001be620}, 0xc000190800)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0001be620}, 0xc000190800)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001fc280, {0x13fd72658, 0xc000416000})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:58:59 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:58:59 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:58:59 http: panic serving [::1]:50260: runtime error: invalid memory address or nil pointer dereference
+goroutine 89 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000224b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0001be7e0}, {0x13fcf6180, 0xc0000ee690})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0001be7e0}, {0x13fcf6180, 0xc0000ee690})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0001be7e0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000ee690})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0001be7e0}, 0xc00021cb00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0001be7e0}, 0xc00021cb00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0001be7e0}, 0xc00021cb00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0001be7e0}, 0xc00021cb00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0002be320, {0x13fd72658, 0xc0003f3340})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:58:59 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:58:59 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:58:59 http: panic serving [::1]:50258: runtime error: invalid memory address or nil pointer dereference
+goroutine 44 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0002f0b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc000212460}, {0x13fcf6180, 0xc000194380})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc000212460}, {0x13fcf6180, 0xc000194380})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc000212460}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc000194380})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc000212460}, 0xc00035ab00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc000212460}, 0xc00035ab00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc000212460}, 0xc00035ab00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc000212460}, 0xc00035ab00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001fc140, {0x13fd72658, 0xc000416040})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:58:59 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:58:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:58:59 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:58:59 http: panic serving [::1]:50262: runtime error: invalid memory address or nil pointer dereference
+goroutine 113 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00007eb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc000212000}, {0x13fcf6180, 0xc00004e070})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc000212000}, {0x13fcf6180, 0xc00004e070})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc000212000}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004e070})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc000212000}, 0xc000190000)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc000212000}, 0xc000190000)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc000212000}, 0xc000190000)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc000212000}, 0xc000190000)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a2140, {0x13fd72658, 0xc000090000})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:00 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:00 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:00 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:59:00 http: panic serving [::1]:50263: runtime error: invalid memory address or nil pointer dereference
+goroutine 146 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0001e6b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc000042000}, {0x13fcf6180, 0xc0000ee0e0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc000042000}, {0x13fcf6180, 0xc0000ee0e0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc000042000}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000ee0e0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc000042000}, 0xc000054200)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc000042000}, 0xc000054200)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc000042000}, 0xc000054200)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc000042000}, 0xc000054200)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a2280, {0x13fd72658, 0xc00004c700})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:05 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:05 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:05 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:05 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:59:05 http: panic serving [::1]:50264: runtime error: invalid memory address or nil pointer dereference
+goroutine 122 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0001e6b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0000ce000}, {0x13fcf6180, 0xc0000d4070})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0000ce000}, {0x13fcf6180, 0xc0000d4070})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0000ce000}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000d4070})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0000ce000}, 0xc000190200)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0000ce000}, 0xc000190200)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0000ce000}, 0xc000190200)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0000ce000}, 0xc000190200)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001fc000, {0x13fd72658, 0xc000090500})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:05 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:05 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:05 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:05 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:59:05 http: panic serving [::1]:50265: runtime error: invalid memory address or nil pointer dereference
+goroutine 132 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0001e6b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0000421c0}, {0x13fcf6180, 0xc0000ee2a0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0000421c0}, {0x13fcf6180, 0xc0000ee2a0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0000421c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000ee2a0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0000421c0}, 0xc000190800)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0000421c0}, 0xc000190800)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0000421c0}, 0xc000190800)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0000421c0}, 0xc000190800)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000000a0, {0x13fd72658, 0xc000090d40})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:05 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:05 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:05 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:05 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:59:05 http: panic serving [::1]:50266: runtime error: invalid memory address or nil pointer dereference
+goroutine 125 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0001e6b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc000042380}, {0x13fcf6180, 0xc0000ee3f0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc000042380}, {0x13fcf6180, 0xc0000ee3f0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc000042380}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000ee3f0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc000042380}, 0xc000190d00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc000042380}, 0xc000190d00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc000042380}, 0xc000190d00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc000042380}, 0xc000190d00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001fc0a0, {0x13fd72658, 0xc0000918c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:29 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:29 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:29 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:29 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:59:29 http: panic serving [::1]:50267: runtime error: invalid memory address or nil pointer dereference
+goroutine 126 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00023ab70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0000ce1c0}, {0x13fcf6180, 0xc0000d41c0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0000ce1c0}, {0x13fcf6180, 0xc0000d41c0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0000ce1c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000d41c0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0000ce1c0}, 0xc000190e00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0000ce1c0}, 0xc000190e00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0000ce1c0}, 0xc000190e00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0000ce1c0}, 0xc000190e00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001fc1e0, {0x13fd72658, 0xc000091c00})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:30 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:30 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:30 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:59:30 http: panic serving [::1]:50268: runtime error: invalid memory address or nil pointer dereference
+goroutine 153 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00023ab70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0000ce380}, {0x13fcf6180, 0xc0000d4310})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0000ce380}, {0x13fcf6180, 0xc0000d4310})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0000ce380}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000d4310})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0000ce380}, 0xc000054600)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0000ce380}, 0xc000054600)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0000ce380}, 0xc000054600)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0000ce380}, 0xc000054600)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a25a0, {0x13fd72658, 0xc00004d980})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:30 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:30 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:30 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:59:30 http: panic serving [::1]:50269: runtime error: invalid memory address or nil pointer dereference
+goroutine 129 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00029ab70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002121c0}, {0x13fcf6180, 0xc00004e1c0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002121c0}, {0x13fcf6180, 0xc00004e1c0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002121c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004e1c0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002121c0}, 0xc000191000)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002121c0}, 0xc000191000)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002121c0}, 0xc000191000)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002121c0}, 0xc000191000)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001fc280, {0x13fd72658, 0xc00024a140})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:30 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:30 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:30 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:59:30 http: panic serving [::1]:50270: runtime error: invalid memory address or nil pointer dereference
+goroutine 154 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00029ab70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc000212380}, {0x13fcf6180, 0xc00004e310})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc000212380}, {0x13fcf6180, 0xc00004e310})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc000212380}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004e310})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc000212380}, 0xc00035a600)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc000212380}, 0xc00035a600)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc000212380}, 0xc00035a600)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc000212380}, 0xc00035a600)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a2d20, {0x13fd72658, 0xc000171fc0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:45 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:45 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:45 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:45 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 22:59:45 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 22:59:53 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:53 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:53 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:59:53 http: panic serving [::1]:50271: runtime error: invalid memory address or nil pointer dereference
+goroutine 137 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00029ab70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0000427e0}, {0x13fcf6180, 0xc0000ee690})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0000427e0}, {0x13fcf6180, 0xc0000ee690})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0000427e0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000ee690})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0000427e0}, 0xc000191400)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0000427e0}, 0xc000191400)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0000427e0}, 0xc000191400)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0000427e0}, 0xc000191400)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000140, {0x13fd72658, 0xc0003f2240})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:53 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:53 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:53 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:59:53 http: panic serving [::1]:50272: runtime error: invalid memory address or nil pointer dereference
+goroutine 164 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00029ab70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0000429a0}, {0x13fcf6180, 0xc0000ee7e0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0000429a0}, {0x13fcf6180, 0xc0000ee7e0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0000429a0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0000ee7e0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0000429a0}, 0xc000191300)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0000429a0}, 0xc000191300)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0000429a0}, 0xc000191300)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0000429a0}, 0xc000191300)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001fc3c0, {0x13fd72658, 0xc00024ab00})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:53 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:53 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:53 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:59:53 http: panic serving [::1]:50273: runtime error: invalid memory address or nil pointer dereference
+goroutine 138 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00029ab70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc000212620}, {0x13fcf6180, 0xc00004e460})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc000212620}, {0x13fcf6180, 0xc00004e460})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc000212620}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004e460})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc000212620}, 0xc00035ae00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc000212620}, 0xc00035ae00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc000212620}, 0xc00035ae00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc000212620}, 0xc00035ae00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000001e0, {0x13fd72658, 0xc000417cc0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:54 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:54 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:54 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:54 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 22:59:54 http: panic serving [::1]:50274: runtime error: invalid memory address or nil pointer dereference
+goroutine 141 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00029ab70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002127e0}, {0x13fcf6180, 0xc00004e5b0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002127e0}, {0x13fcf6180, 0xc00004e5b0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002127e0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004e5b0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002127e0}, 0xc00035b100)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002127e0}, 0xc00035b100)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002127e0}, 0xc00035b100)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002127e0}, 0xc00035b100)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000280, {0x13fd72658, 0xc00036c300})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 22:59:59 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 22:59:59 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 22:59:59 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 22:59:59 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 23:00:00 http: panic serving [::1]:50275: runtime error: invalid memory address or nil pointer dereference
+goroutine 166 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0002e2b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0004fc000}, {0x13fcf6180, 0xc000210070})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0004fc000}, {0x13fcf6180, 0xc000210070})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0004fc000}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc000210070})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0004fc000}, 0xc000191a00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0004fc000}, 0xc000191a00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0004fc000}, 0xc000191a00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0004fc000}, 0xc000191a00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001fc460, {0x13fd72658, 0xc00024ba00})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:00:00 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:00:00 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:00:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:00:00 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 23:00:00 http: panic serving [::1]:50276: runtime error: invalid memory address or nil pointer dereference
+goroutine 144 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0000a0b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0004fc0e0}, {0x13fcf6180, 0xc0002100e0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0004fc0e0}, {0x13fcf6180, 0xc0002100e0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0004fc0e0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002100e0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0004fc0e0}, 0xc00035b200)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0004fc0e0}, 0xc00035b200)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0004fc0e0}, 0xc00035b200)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0004fc0e0}, 0xc00035b200)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000320, {0x13fd72658, 0xc00036c8c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:00:00 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:00:00 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:00:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:00:00 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 23:00:00 http: panic serving [::1]:50277: runtime error: invalid memory address or nil pointer dereference
+goroutine 145 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0000a0b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002d4000}, {0x13fcf6180, 0xc00004e070})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002d4000}, {0x13fcf6180, 0xc00004e070})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002d4000}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004e070})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002d4000}, 0xc00035a000)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002d4000}, 0xc00035a000)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002d4000}, 0xc00035a000)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002d4000}, 0xc00035a000)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a2000, {0x13fd72658, 0xc00036c000})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:00:30 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:00:30 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:00:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:00:30 main.renderPage Ошибка парсинга шаблона страницы template: query.html:82: bad character U+005B '['
+2022/12/06 23:00:30 http: panic serving [::1]:50278: runtime error: invalid memory address or nil pointer dereference
+goroutine 180 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0000a0b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0004fc2a0}, {0x13fcf6180, 0xc000210230})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0004fc2a0}, {0x13fcf6180, 0xc000210230})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0004fc2a0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc000210230})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0004fc2a0}, 0xc000054500)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0004fc2a0}, 0xc000054500)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0004fc2a0}, 0xc000054500)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0004fc2a0}, 0xc000054500)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000000, {0x13fd72658, 0xc0004cb6c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:00:53 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:00:53 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:00:53 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:00:53 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 23:00:53 main.renderPage Ошибка выполнения шаблона страницы template: query.html:81:51: executing "query.html" at <0>: can't evaluate field ByName in type x_func.TResultRows
+2022/12/06 23:00:53 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:111)
+2022/12/06 23:01:34 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:01:34 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:01:34 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:01:34 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 23:01:34 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 23:02:36 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:02:36 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:02:36 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:02:36 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 23:02:36 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 23:02:51 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:02:51 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:02:51 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:02:51 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:02:51 http: panic serving [::1]:50279: runtime error: invalid memory address or nil pointer dereference
+goroutine 167 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0000a0b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc00004a1c0}, {0x13fcf6180, 0xc00004e1c0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc00004a1c0}, {0x13fcf6180, 0xc00004e1c0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc00004a1c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004e1c0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc00004a1c0}, 0xc000248200)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc00004a1c0}, 0xc000248200)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc00004a1c0}, 0xc000248200)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc00004a1c0}, 0xc000248200)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001fc000, {0x13fd72658, 0xc0001b09c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:02:51 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:02:51 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:02:51 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:02:51 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:02:51 http: panic serving [::1]:50281: runtime error: invalid memory address or nil pointer dereference
+goroutine 186 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0001e2b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc00018e000}, {0x13fcf6180, 0xc0002fe0e0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc00018e000}, {0x13fcf6180, 0xc0002fe0e0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc00018e000}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002fe0e0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc00018e000}, 0xc000190000)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc00018e000}, 0xc000190000)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc00018e000}, 0xc000190000)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc00018e000}, 0xc000190000)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a2000, {0x13fd72658, 0xc0001b0000})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:02:51 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:02:51 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:02:51 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:02:51 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:02:51 http: panic serving [::1]:50282: runtime error: invalid memory address or nil pointer dereference
+goroutine 187 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000232b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc000226000}, {0x13fcf6180, 0xc00022a070})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc000226000}, {0x13fcf6180, 0xc00022a070})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc000226000}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00022a070})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc000226000}, 0xc000190200)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc000226000}, 0xc000190200)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc000226000}, 0xc000190200)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc000226000}, 0xc000190200)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a2140, {0x13fd72658, 0xc0001b0480})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:02:52 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:02:52 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:02:52 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:02:52 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:02:52 http: panic serving [::1]:50283: runtime error: invalid memory address or nil pointer dereference
+goroutine 174 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000270b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0002261c0}, {0x13fcf6180, 0xc00022a1c0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0002261c0}, {0x13fcf6180, 0xc00022a1c0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0002261c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00022a1c0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0002261c0}, 0xc00006a200)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0002261c0}, 0xc00006a200)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0002261c0}, 0xc00006a200)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0002261c0}, 0xc00006a200)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000000, {0x13fd72658, 0xc00024ac40})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:02:52 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:02:52 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:02:52 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:02:52 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:02:52 http: panic serving [::1]:50284: runtime error: invalid memory address or nil pointer dereference
+goroutine 175 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0001f8b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc00018e1c0}, {0x13fcf6180, 0xc0002fe230})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc00018e1c0}, {0x13fcf6180, 0xc0002fe230})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc00018e1c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002fe230})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc00018e1c0}, 0xc00006a300)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc00018e1c0}, 0xc00006a300)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc00018e1c0}, 0xc00006a300)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc00018e1c0}, 0xc00006a300)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000000a0, {0x13fd72658, 0xc00024acc0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:02:52 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:02:52 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:02:52 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:02:52 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:02:52 http: panic serving [::1]:50285: runtime error: invalid memory address or nil pointer dereference
+goroutine 192 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc000278b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc000226380}, {0x13fcf6180, 0xc00022a310})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc000226380}, {0x13fcf6180, 0xc00022a310})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc000226380}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00022a310})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc000226380}, 0xc000190a00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc000226380}, 0xc000190a00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc000226380}, 0xc000190a00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc000226380}, 0xc000190a00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a2280, {0x13fd72658, 0xc0001b1640})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:02:57 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:02:57 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:02:57 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:02:57 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:02:57 http: panic serving [::1]:50286: runtime error: invalid memory address or nil pointer dereference
+goroutine 211 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0001f8b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc00018e380}, {0x13fcf6180, 0xc0002fe380})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc00018e380}, {0x13fcf6180, 0xc0002fe380})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc00018e380}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002fe380})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc00018e380}, 0xc000190c00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc00018e380}, 0xc000190c00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc00018e380}, 0xc000190c00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc00018e380}, 0xc000190c00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a25a0, {0x13fd72658, 0xc0001b1c40})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:03:27 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:03:27 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:03:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:03:27 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:03:27 http: panic serving [::1]:50287: runtime error: invalid memory address or nil pointer dereference
+goroutine 202 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0001f8b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc00004a380}, {0x13fcf6180, 0xc00004e2a0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc00004a380}, {0x13fcf6180, 0xc00004e2a0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc00004a380}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004e2a0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc00004a380}, 0xc000128b00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc00004a380}, 0xc000128b00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc00004a380}, 0xc000128b00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc00004a380}, 0xc000128b00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc00019e000, {0x13fd72658, 0xc00004c900})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:03:27 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:03:27 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:03:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:03:27 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:03:27 http: panic serving [::1]:50288: runtime error: invalid memory address or nil pointer dereference
+goroutine 176 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0001f8b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc00018e540}, {0x13fcf6180, 0xc0002fe4d0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc00018e540}, {0x13fcf6180, 0xc0002fe4d0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc00018e540}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002fe4d0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc00018e540}, 0xc00006a700)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc00018e540}, 0xc00006a700)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc00018e540}, 0xc00006a700)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc00018e540}, 0xc00006a700)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000140, {0x13fd72658, 0xc00024b7c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:03:27 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:03:27 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:03:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:03:27 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:03:27 http: panic serving [::1]:50289: runtime error: invalid memory address or nil pointer dereference
+goroutine 227 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc0001f8b70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc00018e700}, {0x13fcf6180, 0xc0002fe620})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc00018e700}, {0x13fcf6180, 0xc0002fe620})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc00018e700}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc0002fe620})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc00018e700}, 0xc00006aa00)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc00018e700}, 0xc00006aa00)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc00018e700}, 0xc00006aa00)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc00018e700}, 0xc00006aa00)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000001e0, {0x13fd72658, 0xc0001702c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:04:27 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:04:27 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:04:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:04:27 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:04:27 http: panic serving [::1]:50290: runtime error: invalid memory address or nil pointer dereference
+goroutine 209 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00013cb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0000ce000}, {0x13fcf6180, 0xc00004e070})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0000ce000}, {0x13fcf6180, 0xc00004e070})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0000ce000}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004e070})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0000ce000}, 0xc000190000)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0000ce000}, 0xc000190000)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0000ce000}, 0xc000190000)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0000ce000}, 0xc000190000)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000000, {0x13fd72658, 0xc000416000})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:04:27 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:04:27 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:04:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:04:27 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:04:27 http: panic serving [::1]:50291: runtime error: invalid memory address or nil pointer dereference
+goroutine 212 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00016cb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0000ce1c0}, {0x13fcf6180, 0xc00004e1c0})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0000ce1c0}, {0x13fcf6180, 0xc00004e1c0})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0000ce1c0}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004e1c0})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0000ce1c0}, 0xc000002000)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0000ce1c0}, 0xc000002000)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0000ce1c0}, 0xc000002000)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0000ce1c0}, 0xc000002000)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000a2000, {0x13fd72658, 0xc000170000})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:04:27 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:04:27 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:04:27 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:04:27 main.renderPage Ошибка парсинга шаблона страницы template: query.html:83: bad character U+005B '['
+2022/12/06 23:04:27 http: panic serving [::1]:50292: runtime error: invalid memory address or nil pointer dereference
+goroutine 246 [running]:
+net/http.(*conn).serve.func1()
+	c:/go/src/net/http/server.go:1850 +0x148
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.errRecover(0xc00013cb70)
+	c:/go/src/text/template/exec.go:164 +0x26c
+panic({0x13fcc0940, 0x13fc59fd0})
+	c:/go/src/runtime/panic.go:890 +0x267
+text/template.(*Template).execute(0x0, {0x13fd6ff40, 0xc0000ce380}, {0x13fcf6180, 0xc00004e310})
+	c:/go/src/text/template/exec.go:215 +0x38c
+text/template.(*Template).Execute(0x0, {0x13fd6ff40, 0xc0000ce380}, {0x13fcf6180, 0xc00004e310})
+	c:/go/src/text/template/exec.go:201 +0x51
+main.renderPage({0x13fd72208, 0xc0000ce380}, {0x13fd1568e, 0xa}, {0x13fd15c8d, 0xb}, {0x13fcf6180, 0xc00004e310})
+	c:/Users/user/go/src/korsakov2ea/QCLite/QCLite.go:108 +0x6d0
+main.query({0x13fd72208, 0xc0000ce380}, 0xc00011c500)
+	c:/Users/user/go/src/korsakov2ea/QCLite/QBQueries.go:65 +0x163d
+net/http.HandlerFunc.ServeHTTP(0x13fd4a900, {0x13fd72208, 0xc0000ce380}, 0xc00011c500)
+	c:/go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13ff4b820, {0x13fd72208, 0xc0000ce380}, 0xc00011c500)
+	c:/go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000060000}, {0x13fd72208, 0xc0000ce380}, 0xc00011c500)
+	c:/go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000126000, {0x13fd72658, 0xc0001b14c0})
+	c:/go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	c:/go/src/net/http/server.go:3102 +0x9e5
+2022/12/06 23:05:35 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:05:35 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:05:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:05:35 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 23:05:35 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 23:06:15 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:06:15 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:06:15 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:06:15 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 23:06:15 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 23:06:51 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:06:51 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:06:51 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:06:51 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 23:06:51 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 23:06:57 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:06:57 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:06:57 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:06:57 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 23:06:57 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 23:07:16 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:07:16 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из QUERY
+2022/12/06 23:07:16 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM QUERY
+2022/12/06 23:07:16 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 23:07:16 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 23:07:19 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:07:19 korsakov2ea/x_func.(*TTable).Read Чтение записи из QUERY с id = 1
+2022/12/06 23:07:19 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM QUERY WHERE ID=1
+2022/12/06 23:07:19 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:07:19 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:07:19 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 23:07:19 main.renderPage Ошибка выполнения шаблона страницы template: query.html:61:45: executing "query.html" at <.Directory>: can't evaluate field Directory in type x_func.TTable
+2022/12/06 23:07:19 http: superfluous response.WriteHeader call from main.renderPage (QCLite.go:111)
+2022/12/06 23:08:01 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:08:01 korsakov2ea/x_func.(*TTable).Read Чтение записи из QUERY с id = 1
+2022/12/06 23:08:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM QUERY WHERE ID=1
+2022/12/06 23:08:01 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:08:01 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:08:01 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 23:08:01 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 23:08:18 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:08:18 korsakov2ea/x_func.(*TTable).Read Чтение записи из QUERY с id = 1
+2022/12/06 23:08:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM QUERY WHERE ID=1
+2022/12/06 23:08:18 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:08:18 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:08:18 main.renderPage Парсинг шаблона страницы public\html\query.html
+2022/12/06 23:08:18 main.renderPage Построение шаблона страницы public\html\query.html
+2022/12/06 23:08:21 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:08:21 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из QUERY
+2022/12/06 23:08:21 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM QUERY
+2022/12/06 23:08:21 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 23:08:21 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 23:08:24 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:08:24 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:08:24 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:08:24 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/06 23:08:24 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/06 23:08:28 main.connection >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:08:28 korsakov2ea/x_func.(*TTable).Read Чтение записи из CONNECTION с id = 1
+2022/12/06 23:08:28 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION WHERE ID=1
+2022/12/06 23:08:28 main.renderPage Парсинг шаблона страницы public\html\connection.html
+2022/12/06 23:08:28 main.renderPage Построение шаблона страницы public\html\connection.html
+2022/12/06 23:08:47 main.connection >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:08:47 korsakov2ea/x_func.(*TTable).Update Изменение записи из CONNECTION с id = 1
+2022/12/06 23:08:47 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1) UPDATE CONNECTION SET DSN = 'SQLite\base\base.db', NAME = 'QueryBase', DRIVER = 'sqlite3' WHERE ID = 1
+2022/12/06 23:08:47 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:08:47 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:08:47 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/06 23:08:47 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/06 23:12:41 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/06 23:12:41 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\user\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/06 23:12:41 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 23:12:41 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\user\go\src\korsakov2ea\QCLite\config.ini
+2022/12/06 23:12:41 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 23:12:41 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 23:12:41 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 23:12:41 main.startServer Запуск сервера на порту 4444
+2022/12/06 23:12:52 main.connection >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:12:52 korsakov2ea/x_func.(*TTable).Read Чтение записи из CONNECTION с id = 34
+2022/12/06 23:12:52 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION WHERE ID=34
+2022/12/06 23:12:52 main.renderPage Парсинг шаблона страницы public\html\connection.html
+2022/12/06 23:12:52 main.renderPage Построение шаблона страницы public\html\connection.html
+2022/12/06 23:13:00 main.connection >>>>> Вызов обработчика HTTP запроса
+2022/12/06 23:13:00 korsakov2ea/x_func.(*TTable).Update Изменение записи из CONNECTION с id = 34
+2022/12/06 23:13:00 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 1)
+	UPDATE CONNECTION SET DRIVER = 'go_ibm_db', DSN = 'HOSTNAME=10.39.0.71; DATABASE=ROS; PORT=50000; UID=db2admin; PWD=lkuirwe7', NAME = 'ROS (Пром НВП АРХ)' WHERE ID = 34
+2022/12/06 23:13:00 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/06 23:13:00 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/06 23:13:00 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/06 23:13:00 main.renderPage Построение шаблона страницы public\html\connections.html

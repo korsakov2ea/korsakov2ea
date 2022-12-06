@@ -9,14 +9,14 @@ import (
 
 // connections - обработчик HTTP (список соединений)
 func connections(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v  Вызов обработчика HTTP запроса", x_func.FuncName())
+	log.Printf("%v >>>>> Вызов обработчика HTTP запроса", x_func.FuncName())
 	QBConnection.ReadAll()
 	renderPage(w, "connections.html", "common.html", QBConnection)
 }
 
 // connection - обработчик HTTP (одиночное соединение)
 func connection(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v  Вызов обработчика HTTP запроса", x_func.FuncName())
+	log.Printf("%v >>>>> Вызов обработчика HTTP запроса", x_func.FuncName())
 
 	id, err := strconv.Atoi(r.FormValue("ID"))
 	if err != nil && r.Method == "POST" && (r.FormValue("submitBtn") == "Update" || r.FormValue("submitBtn") == "Delete") {

@@ -6,6 +6,12 @@ import (
 	"net/http"
 )
 
+// Уведомление для рендера страницы
+type TAlert struct {
+	Text  string // текст уведомления
+	Class string // класс уведомления (alert-primary, -secondary, -success, -danger, -warning, -info, -light, -dark)
+}
+
 // UploadFile - получение multipart.File файла с формы, где inputName - name соответствующего input-а с формы
 func UploadFile(r *http.Request, inputName string) multipart.File {
 	log.Printf("%v Загрузка файла с формы", FuncName())

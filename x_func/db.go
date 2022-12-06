@@ -26,6 +26,7 @@ type TTable struct {
 	Data     TResultRows   // срез с данными
 	Dict     []TResultRows // карта срезов со словарями
 	TmpTable string        // имя временной таблицы для загрузки данных из CSV
+	Alerts   []TAlert      // срез уведомлений для рендера
 }
 
 // Представление ОДНОЙ строки результатов SQL выборки. Реализует доступ к данным (по имени, по индексу) и ключам (по индексу).
@@ -95,7 +96,7 @@ func (database *TDatabase) DBExec(sqlCode string) {
 		log.Printf("%v Ошибка выполнения SQL команды %v %v", FuncName(), sqlCode, err)
 	} else {
 		rowsAffected, _ := result.RowsAffected()
-		log.Printf("%v Выполнена SQL команда. (Строк изменено - %d) %v", FuncName(), rowsAffected, sqlCode)
+		log.Printf("%v Выполнена SQL команда. (Строк изменено - %d)\n\t%v", FuncName(), rowsAffected, sqlCode)
 	}
 }
 
