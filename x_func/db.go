@@ -49,7 +49,7 @@ func DBGetIniCfg(configFile string, iniSection string, db *TDatabase) {
 	db.Name = GetIniValue(configFile, iniSection, "Name")
 	db.DSN = GetIniValue(configFile, iniSection, "DSN")
 	db.SetDecodeParam()
-	log.Printf("%v Считана конфигурация из секции %v файла %v", FuncName(), iniSection, configFile)
+	log.Printf("%v Считана конфигурация БД из секции %v файла %v", FuncName(), iniSection, configFile)
 }
 
 // Устанавливает значение database.DecodeParam в зависимости от database.Driver
@@ -59,7 +59,7 @@ func (database *TDatabase) SetDecodeParam() {
 	} else {
 		database.DecodeParam = false
 	}
-
+	log.Printf("%v Установлено значение DecodeParam = %v для БД %v", FuncName(), database.DecodeParam, database.Name)
 }
 
 // Открывает соедиенние с БД и пингует его
@@ -103,9 +103,9 @@ func (database *TDatabase) DBExec(sqlCode string) {
 func (database *TDatabase) DBQuery(sqlCode string) (result TResultRows) {
 	rows, err := database.DB.Query(sqlCode)
 	if err != nil {
-		log.Printf("%v Ошибка выполнения SQL запроса %v %v", FuncName(), sqlCode, err)
+		log.Printf("%v Ошибка выполнения SQL запроса:\n\t%v\n\t%v", FuncName(), sqlCode, err)
 	} else {
-		log.Printf("%v Выполнение SQL запроса %v", FuncName(), sqlCode)
+		log.Printf("%v Выполнение SQL запроса:\n\t%v", FuncName(), sqlCode)
 	}
 	defer rows.Close()
 	return rowsToResult(rows, database.DecodeParam)
@@ -115,7 +115,7 @@ func (database *TDatabase) DBQuery(sqlCode string) (result TResultRows) {
 
 // Ассоциирует объект TTable по наименованию реальной таблицы и БД
 func (tab *TTable) BindTable(tableName string, database *TDatabase) {
-	log.Printf("%v Ассоциация таблицы %v в базе %v", FuncName(), tab.name, database.Name)
+	log.Printf("%v Ассоциация таблицы %v в базе %v", FuncName(), tableName, database.Name)
 	tab.db = database
 	tab.name = tableName
 	tab.Data = nil
@@ -138,7 +138,7 @@ func (tab *TTable) ReadAll() {
 
 // Считывает записи из таблицы SQL запросом и сохраняет результат в Data
 func (tab *TTable) ReadSQL(sqlCode string) {
-	log.Printf("%v Чтение записей из %v SQL запросом %v", FuncName(), tab.name, sqlCode)
+	log.Printf("%v Чтение записей из таблицы %v запросом SQL (см. ниже)", FuncName(), tab.name)
 	tab.Data = tab.db.DBQuery(sqlCode)
 }
 

@@ -15755,3 +15755,191 @@ created by net/http.(*Server).Serve
 2022/12/06 15:31:51 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
 2022/12/06 15:31:51 main.renderPage Парсинг шаблона страницы public\html\queries.html
 2022/12/06 15:31:51 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 17:17:21 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 17:17:21 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 17:17:21 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 17:17:21 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/12/06 17:17:21 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы  в базе Main QC base
+2022/12/06 17:17:21 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы  в базе Main QC base
+2022/12/06 17:17:26 main.query Обработка НTTP запроса
+2022/12/06 17:17:26 main.needUploadData Проверка необходимости загрузки данных перед выполнением запроса
+2022/12/06 17:17:26 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT QUERY FROM QUERY WHERE ID=13
+2022/12/06 17:17:26 main.needUploadData Необходима загрузка данных из файла
+2022/12/06 17:17:26 main.renderPage Парсинг шаблона страницы public\html\uploadfile.html
+2022/12/06 17:17:26 main.renderPage Построение шаблона страницы public\html\uploadfile.html
+2022/12/06 17:17:34 main.query Обработка НTTP запроса
+2022/12/06 17:17:34 Загрузка файла с web формы 
+main.query
+2022/12/06 17:17:34 korsakov2ea/x_func.UploadFile Загрузка файла с формы
+2022/12/06 17:17:34 korsakov2ea/x_func.UploadFile Считан файл Книга1.csv
+2022/12/06 17:17:34 main.GetIdConnFromQuery Получение ID соединения для запроса с ID 13
+2022/12/06 17:17:34 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT ID_CONNECTION FROM QUERY WHERE ID=13
+2022/12/06 17:17:34 main.importTmpTable 
+	Создание временной таблицы QB.QB20221206_171726940240
+2022/12/06 17:17:34 main.executeSQLConn 
+	Выполнение SQL команды 
+CREATE TABLE QB.QB20221206_171726940240 (COL1 VARCHAR(255), COL2 VARCHAR(255), COL3 VARCHAR(255), COL4 VARCHAR(255), COL5 VARCHAR(255))
+2022/12/06 17:17:34 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT DRIVER, DSN, NAME FROM CONNECTION WHERE ID=132
+2022/12/06 17:17:34 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой 
+2022/12/06 17:17:35 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 4294967295) CREATE TABLE QB.QB20221206_171726940240 (COL1 VARCHAR(255), COL2 VARCHAR(255), COL3 VARCHAR(255), COL4 VARCHAR(255), COL5 VARCHAR(255))
+2022/12/06 17:17:35 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой  успешно закрыто
+2022/12/06 17:17:35 main.importTmpTable 
+	Заполнение временной таблицы QB.QB20221206_171726940240
+2022/12/06 17:17:35 main.executeSQLConn 
+	Выполнение SQL команды 
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '116-896-369 04', 'АБАКУМОВ', 'АЛЕКСАНДР', 'НИКОЛАЕВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '091-030-051 04', 'АБАТУРОВА', 'ВАЛЕНТИНА', 'ВАСИЛЬЕВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '116-181-253 27', 'АБРАМОВА', 'ТАТЬЯНА', 'ФИЛИППОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '091-937-268 00', 'АВЕРКОВА', 'ВАЛЕНТИНА', 'ФЕДОРОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '061-626-285 51', 'АВЕРЬЯНОВ', 'ВЛАДИМИР', 'ВИКТОРОВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '043-170-259 18', 'АВЕРЬЯНОВ', 'МИХАИЛ', 'КОНСТАНТИНОВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '043-168-510 37', 'АВЕРЬЯНОВА', 'ЕЛЕНА', 'АЛЕКСЕЕВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '139-538-166 93', 'АВРАМЕНКО', 'ВЛАДИСЛАВ', 'НИКОЛАЕВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '088-436-127 96', 'АКСЕНОВСКАЯ', 'ИРА', 'ПАВЛОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '091-937-270 95', 'АКУЛОВА', 'ВАЛЕНТИНА', 'НИКОЛАЕВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '088-436-232 96', 'АЛЕКСАНДРОВ', 'ЮРИЙ', 'АНАТОЛЬЕВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '096-383-824 14', 'АМОСОВА', 'ИРИНА', 'ВИКТОРОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '086-507-118 76', 'АНДРЕЕВА', 'НАДЕЖДА', 'ВИКТОРОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '172-136-508 46', 'АНДРЕЕВА', 'ОЛЬГА', 'ВИКТОРОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '116-711-606 33', 'АНДРЕЕВА', 'ЯНА', 'АЛЕКСАНДРОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '117-187-825 72', 'АНДРИЯНОВА', 'СВЕТЛАНА', 'МАКСИМОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '098-022-640 71', 'АНИКИЕВА', 'ТАМАРА', 'НИКОЛАЕВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '112-574-649 46', 'АНТАНОВСКИЙ', 'ЛЕОНИД', 'ИВАНОВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '091-937-265 98', 'АНТИПИНА', 'НЭЛЯ', 'СИВИРИЯНОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '105-766-482 69', 'АНТОНОВ', 'НИКОЛАЙ', 'ВАСИЛЬЕВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '088-517-438 07', 'АНТОНОВА', 'СВЕТЛАНА', 'ВЛАДИМИРОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '112-904-511 18', 'АНТОНОВА', 'СВЕТЛАНА', 'НИКОЛАЕВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '091-937-269 01', 'АНТРОПЬЕВА', 'ТАТЬЯНА', 'НИКОЛАЕВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '147-962-861 17', 'АНТУФЬЕВА', 'ОКСАНА', 'ЮРЬЕВНА');
+2022/12/06 17:17:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT DRIVER, DSN, NAME FROM CONNECTION WHERE ID=132
+2022/12/06 17:17:35 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой 
+2022/12/06 17:17:35 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 24) INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '116-896-369 04', 'АБАКУМОВ', 'АЛЕКСАНДР', 'НИКОЛАЕВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '091-030-051 04', 'АБАТУРОВА', 'ВАЛЕНТИНА', 'ВАСИЛЬЕВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '116-181-253 27', 'АБРАМОВА', 'ТАТЬЯНА', 'ФИЛИППОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '091-937-268 00', 'АВЕРКОВА', 'ВАЛЕНТИНА', 'ФЕДОРОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '061-626-285 51', 'АВЕРЬЯНОВ', 'ВЛАДИМИР', 'ВИКТОРОВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '043-170-259 18', 'АВЕРЬЯНОВ', 'МИХАИЛ', 'КОНСТАНТИНОВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '043-168-510 37', 'АВЕРЬЯНОВА', 'ЕЛЕНА', 'АЛЕКСЕЕВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '139-538-166 93', 'АВРАМЕНКО', 'ВЛАДИСЛАВ', 'НИКОЛАЕВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '088-436-127 96', 'АКСЕНОВСКАЯ', 'ИРА', 'ПАВЛОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '091-937-270 95', 'АКУЛОВА', 'ВАЛЕНТИНА', 'НИКОЛАЕВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '088-436-232 96', 'АЛЕКСАНДРОВ', 'ЮРИЙ', 'АНАТОЛЬЕВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '096-383-824 14', 'АМОСОВА', 'ИРИНА', 'ВИКТОРОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '086-507-118 76', 'АНДРЕЕВА', 'НАДЕЖДА', 'ВИКТОРОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '172-136-508 46', 'АНДРЕЕВА', 'ОЛЬГА', 'ВИКТОРОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '116-711-606 33', 'АНДРЕЕВА', 'ЯНА', 'АЛЕКСАНДРОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '117-187-825 72', 'АНДРИЯНОВА', 'СВЕТЛАНА', 'МАКСИМОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '098-022-640 71', 'АНИКИЕВА', 'ТАМАРА', 'НИКОЛАЕВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '112-574-649 46', 'АНТАНОВСКИЙ', 'ЛЕОНИД', 'ИВАНОВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '091-937-265 98', 'АНТИПИНА', 'НЭЛЯ', 'СИВИРИЯНОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '105-766-482 69', 'АНТОНОВ', 'НИКОЛАЙ', 'ВАСИЛЬЕВИЧ');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '088-517-438 07', 'АНТОНОВА', 'СВЕТЛАНА', 'ВЛАДИМИРОВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '112-904-511 18', 'АНТОНОВА', 'СВЕТЛАНА', 'НИКОЛАЕВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '091-937-269 01', 'АНТРОПЬЕВА', 'ТАТЬЯНА', 'НИКОЛАЕВНА');
+INSERT INTO QB.QB20221206_171726940240 (COL1, COL2, COL3, COL4, COL5) VALUES ('11', '147-962-861 17', 'АНТУФЬЕВА', 'ОКСАНА', 'ЮРЬЕВНА');
+2022/12/06 17:17:35 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой  успешно закрыто
+2022/12/06 17:17:35 main.executeQuery Выполнение запроса из QB c id = 13
+2022/12/06 17:17:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=13
+2022/12/06 17:17:35 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой 
+2022/12/06 17:17:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT T.*, M.REP_UP_FIO FROM QB.QB20221206_171726940240 AS T
+INNER JOIN PF.MAN AS M ON M.NPERS=T.COL2
+2022/12/06 17:17:35 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой  успешно закрыто
+2022/12/06 17:17:35 main.dropTmpTable 
+	Удаление временной таблицы QB.QB20221206_171726940240
+2022/12/06 17:17:35 main.executeSQLConn 
+	Выполнение SQL команды 
+DROP TABLE QB.QB20221206_171726940240
+2022/12/06 17:17:35 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT DRIVER, DSN, NAME FROM CONNECTION WHERE ID=132
+2022/12/06 17:17:35 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой 
+2022/12/06 17:17:37 korsakov2ea/x_func.(*TDatabase).DBExec Выполнена SQL команда. (Строк изменено - 4294967295) DROP TABLE QB.QB20221206_171726940240
+2022/12/06 17:17:37 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой  успешно закрыто
+2022/12/06 17:17:37 main.renderPage Парсинг шаблона страницы public\html\result.html
+2022/12/06 17:17:37 main.renderPage Построение шаблона страницы public\html\result.html
+2022/12/06 17:27:39 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 17:27:39 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 17:27:39 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для базы данных Main QC base
+2022/12/06 17:27:39 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 17:27:39 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой Main QC base
+2022/12/06 17:27:39 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы  в базе Main QC base
+2022/12/06 17:27:39 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы  в базе Main QC base
+2022/12/06 17:29:11 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 17:29:11 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 17:29:11 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 17:29:11 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 17:29:11 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 17:29:11 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы  в базе QueryBase
+2022/12/06 17:29:11 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы  в базе QueryBase
+2022/12/06 17:33:45 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 17:33:45 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 17:33:45 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 17:33:45 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 17:33:45 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 17:33:45 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 17:33:45 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 17:36:54 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 17:36:54 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 17:36:54 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 17:36:54 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 17:36:54 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 17:36:54 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 17:36:54 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 17:37:04 main.queries Вызов обработчика HTTP запроса
+2022/12/06 17:37:04 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из QUERY SQL запросом SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 17:37:04 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 17:37:04 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 17:37:04 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 17:38:45 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 17:38:45 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 17:38:45 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 17:38:45 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 17:38:45 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 17:38:45 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 17:38:45 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 17:38:45 main.queries Вызов обработчика HTTP запроса
+2022/12/06 17:38:45 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из QUERY SQL-запросом
+2022/12/06 17:38:45 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 17:38:45 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 17:38:45 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 17:39:29 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 17:39:29 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 17:39:29 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 17:39:29 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 17:39:29 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 17:39:29 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 17:39:29 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 17:39:30 main.queries Вызов обработчика HTTP запроса
+2022/12/06 17:39:30 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из QUERY SQL-запросом (см. ниже)
+2022/12/06 17:39:30 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 17:39:30 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 17:39:30 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 17:41:10 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 17:41:10 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 17:41:10 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 17:41:10 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 17:41:10 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 17:41:10 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 17:41:10 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 17:41:20 main.queries Вызов обработчика HTTP запроса
+2022/12/06 17:41:20 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 17:41:20 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса/n/tSELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 17:41:20 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 17:41:20 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 17:41:45 korsakov2ea/x_func.StartLogging -------------------------
+2022/12/06 17:41:45 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/06 17:41:45 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/06 17:41:45 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/06 17:41:45 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/06 17:41:45 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/06 17:41:45 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/06 17:41:47 main.queries Вызов обработчика HTTP запроса
+2022/12/06 17:41:47 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 17:41:47 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 17:41:47 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 17:41:47 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/06 17:41:51 main.queries Вызов обработчика HTTP запроса
+2022/12/06 17:41:51 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/06 17:41:51 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/06 17:41:51 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/06 17:41:51 main.renderPage Построение шаблона страницы public\html\queries.html
