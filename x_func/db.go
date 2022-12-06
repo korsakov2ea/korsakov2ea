@@ -2,7 +2,6 @@ package x_func
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 
 	_ "github.com/ibmdb/go_ibm_db"
@@ -65,19 +64,6 @@ func (database *TDatabase) DBExec(sqlCode string) {
 	}
 }
 
-// УСТАРЕЛО 2022-12-03
-// DBQuery - метод TDatabase для выполения SQL инструкций, которые возвращают результат (например SELECT). Возвращает карту значение и кол-во строк
-func (database *TDatabase) DBQueryMap(sqlCode string, decode1251toUTF8 bool) (SliceMap [][]string, RowCount int) {
-	rows, err := database.DB.Query(sqlCode)
-	if err != nil {
-		log.Printf("%v Ошибка выполнения SQL запроса %v %v", FuncName(), sqlCode, err)
-	} else {
-		log.Printf("%v Выполнение SQL запроса %v", FuncName(), sqlCode)
-	}
-	defer rows.Close()
-	return rowsToSlice(rows, decode1251toUTF8)
-}
-
 // DBQuery - метод TDatabase для выполения SQL инструкций, которые возвращают результат (например SELECT). Возвращает карту значение и кол-во строк
 func (database *TDatabase) DBQuery(sqlCode string, decode1251toUTF8 bool) (result TResultRows) {
 	rows, err := database.DB.Query(sqlCode)
@@ -99,90 +85,6 @@ func (database *TDatabase) DBClose() {
 		log.Printf("%v Соединение с базой %v успешно закрыто", FuncName(), database.Name)
 	}
 
-}
-
-// УСТАРЕЛО 2022-12-03
-// rowsToMap - преобразует sql.Rows в массив карт. В случае decode1251toUTF8 = true изменяет кодировку
-func rowsToMap(rows *sql.Rows, decode1251toUTF8 bool) (SliceMap []map[string]string, RowCount int) {
-	cols, err := rows.Columns()
-	if err != nil {
-		log.Println(FuncName(), "Ошибка получения списка столбцов из *sql.Rows.Columns", err)
-	}
-
-	columns := make([]sql.NullString, len(cols))
-	columnPointers := make([]interface{}, len(cols))
-	for i := range columns {
-		columnPointers[i] = &columns[i]
-	}
-
-	RowCount = 0
-	for rows.Next() {
-		err = rows.Scan(columnPointers...)
-		if err != nil {
-			log.Println(FuncName(), "Ошибка сканирования значений *sql.Rows", err)
-		}
-
-		currentMap := make(map[string]string)
-		for i, columnName := range cols {
-			val := columnPointers[i].(*sql.NullString)
-			if decode1251toUTF8 {
-				currentMap[columnName] = DecodeStr1251toUTF8(val.String)
-			} else {
-				currentMap[columnName] = val.String
-			}
-			if !val.Valid {
-				currentMap[columnName] = "NULL"
-			}
-		}
-
-		SliceMap = append(SliceMap, currentMap)
-		RowCount++
-	}
-
-	return SliceMap, RowCount
-}
-
-// УСТАРЕЛО 2022-12-03
-// rowsToSlice - преобразует sql.Rows в двумерныый срез (массив). В случае decode1251toUTF8 = true изменяет кодировку
-func rowsToSlice(rows *sql.Rows, decode1251toUTF8 bool) (Slice [][]string, RowCount int) {
-	cols, err := rows.Columns()
-	if err != nil {
-		log.Println(FuncName(), "Ошибка получения списка столбцов из *sql.Rows.Columns", err)
-	} else {
-		Slice = append(Slice, cols)
-	}
-
-	columns := make([]sql.NullString, len(cols))
-	columnPointers := make([]interface{}, len(cols))
-	for i := range columns {
-		columnPointers[i] = &columns[i]
-	}
-
-	RowCount = 0
-	for rows.Next() {
-		err = rows.Scan(columnPointers...)
-		if err != nil {
-			log.Println(FuncName(), "Ошибка сканирования значений *sql.Rows", err)
-		}
-
-		currentSlice := make([]string, len(cols))
-		for i := range cols {
-			val := columnPointers[i].(*sql.NullString)
-			if decode1251toUTF8 {
-				currentSlice[i] = DecodeStr1251toUTF8(val.String)
-			} else {
-				currentSlice[i] = val.String
-			}
-			if !val.Valid {
-				currentSlice[i] = "NULL"
-			}
-		}
-
-		Slice = append(Slice, currentSlice)
-		RowCount++
-	}
-	fmt.Print(Slice)
-	return Slice, RowCount
 }
 
 // Возвращает ссылку на значение переменной типа string. Необходимо для обхода ограничений GO
