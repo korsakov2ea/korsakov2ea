@@ -49,6 +49,19 @@ func DBGetIniCfg(configFile string, iniSection string, db *TDatabase) {
 	db.Driver = GetIniValue(configFile, iniSection, "Driver")
 	db.Name = GetIniValue(configFile, iniSection, "Name")
 	db.DSN = GetIniValue(configFile, iniSection, "DSN")
+
+	DATABASE := GetIniValue(configFile, iniSection, "DATABASE")
+	HOSTNAME := GetIniValue(configFile, iniSection, "HOSTNAME")
+	PORT := GetIniValue(configFile, iniSection, "PORT")
+	PROTOCOL := GetIniValue(configFile, iniSection, "PROTOCOL")
+	UID := GetIniValue(configFile, iniSection, "UID")
+	PWD := GetIniValue(configFile, iniSection, "PWD")
+
+	DSN := "DATABASE=" + DATABASE + "; HOSTNAME=" + HOSTNAME + "; PORT=" + PORT + "; PROTOCOL=" + PROTOCOL + "; UID=" + UID + "; PWD=" + PWD
+	if db.DSN == "" && DSN != "" {
+		db.DSN = DSN
+	}
+
 	db.SetDecodeParam()
 	log.Printf("%v Считана конфигурация БД из секции %v файла %v", FuncName(), iniSection, configFile)
 }

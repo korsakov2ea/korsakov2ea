@@ -11,13 +11,13 @@ import (
 var QB x_func.TDatabase        // QB - Query base - база с запросами
 var QBQuery x_func.TTable      // Представление таблицы запросов
 var QBConnection x_func.TTable // Представление таблицы соединений
+var configFile string = "config.ini"
 
 func main() {
 
 	defer mainDefer()
 
 	// Общие настройки
-	configFile := "config.ini"
 	logFile := x_func.GetExecFilePath() + x_func.GetIniValue(configFile, "Common", "LogFile")
 	serverPort := x_func.GetIniValue(configFile, "Common", "Port")
 
@@ -112,4 +112,27 @@ func renderPage(w http.ResponseWriter, templatePage string, commonPage string, d
 	} else {
 		log.Println(x_func.FuncName(), "Построение шаблона страницы", templatePath)
 	}
+}
+
+// Проверка введеного пароля по БИУД
+func checkBIUD(login, pass string) bool {
+	var BIUD x_func.TDatabase
+	x_func.DBGetIniCfg(x_func.GetExecFilePath()+"\\"+configFile, "BIUD", &BIUD)
+	BIUD.DBOpen()
+	defer BIUD.DBClose()
+
+	var BIUDOperator x_func.TTable
+	BIUDOperator.BindTable("OPERATOR", &BIUD)
+
+	sqlCode := "SELECT * FROM CS.OPERATOR WHERE LOGIN='" + login + "'"
+	BIUDOperator.ReadSQL(sqlCode)
+
+	buidHash := BIUDOperator.Data[0].ByName["PASS"]
+	passHash := x_func.BiudPassHash(pass)
+
+	result := false
+	if buidHash == passHash {
+		result = true
+	}
+	return result
 }

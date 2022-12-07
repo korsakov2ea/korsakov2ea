@@ -1,6 +1,8 @@
 package x_func
 
 import (
+	"crypto/sha1"
+	"encoding/base64"
 	"encoding/csv"
 	"log"
 	"mime/multipart"
@@ -76,4 +78,11 @@ func GetCOLStrMap(strMap [][]string, SQLType string) (COLs, COLTypes string) {
 	COLs = COLs[2:]
 	COLTypes = strings.Replace(COLs, ",", " VARCHAR(255),", -1) + " VARCHAR(255)"
 	return COLs, COLTypes
+}
+
+func BiudPassHash(password string) string {
+	hasher := sha1.New()
+	hasher.Write([]byte(password))
+	sha := base64.StdEncoding.EncodeToString(hasher.Sum(nil))
+	return sha
 }

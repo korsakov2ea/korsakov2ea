@@ -18257,3 +18257,43 @@ created by net/http.(*Server).Serve
 	SELECT * FROM CONNECTION
 2022/12/06 23:13:00 main.renderPage Парсинг шаблона страницы public\html\connections.html
 2022/12/06 23:13:00 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/07 10:13:11 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/07 10:13:11 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/07 10:13:11 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/07 10:13:11 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/07 10:13:11 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/07 10:13:11 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/07 10:13:11 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/07 10:13:11 main.startServer Запуск сервера на порту 4444
+2022/12/07 10:37:37 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/07 10:37:37 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/07 10:37:37 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/07 10:37:37 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/07 10:37:37 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/07 10:37:37 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/07 10:37:37 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/07 10:37:37 main.startServer Запуск сервера на порту 4444
+2022/12/07 10:43:53 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/07 10:43:53 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/07 10:43:53 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/07 10:43:53 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/07 10:43:53 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/07 10:43:53 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/07 10:43:53 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/07 10:43:53 main.startServer Запуск сервера на порту 4444
+2022/12/07 10:55:22 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/07 10:55:22 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/07 10:55:22 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/07 10:55:22 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/07 10:55:22 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/07 10:55:22 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/07 10:55:22 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/07 10:55:22 main.startServer Запуск сервера на порту 4444
+2022/12/07 10:56:03 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
+2022/12/07 10:56:03 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/07 10:56:03 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/07 10:56:03 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/07 10:56:03 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/07 10:56:03 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/07 10:56:03 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/07 10:56:03 main.startServer Запуск сервера на порту 4444
