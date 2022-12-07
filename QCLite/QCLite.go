@@ -183,6 +183,5 @@ func loginPage(nextFunc http.HandlerFunc) http.HandlerFunc {
 				renderPage(w, "login.html", "common.html", "")
 			}
 		}
-
 	}
 }
