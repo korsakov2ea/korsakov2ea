@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"path/filepath"
 	"text/template"
+	"time"
 )
 
 var QB x_func.TDatabase        // QB - Query base - база с запросами
@@ -85,7 +86,7 @@ func startServer(startOnPort string) {
 	log.Printf("%v Запуск сервера на порту %v", x_func.FuncName(), startOnPort)
 	FileServer := http.FileServer(http.Dir("public"))
 	http.Handle("/public/", http.StripPrefix("/public/", FileServer))
-	http.HandleFunc("/queries", queries)
+	http.HandleFunc("/queries", loginPage(queries))
 	http.HandleFunc("/query", query)
 	http.HandleFunc("/connections", connections)
 	http.HandleFunc("/connection", connection)
@@ -114,8 +115,8 @@ func renderPage(w http.ResponseWriter, templatePage string, commonPage string, d
 	}
 }
 
-// Проверка введеного пароля по БИУД
-func checkBIUD(login, pass string) bool {
+// Аутентификация по БИУД (проверка введеного пароля)
+func authnBIUD(login, pass string) bool {
 	var BIUD x_func.TDatabase
 	x_func.DBGetIniCfg(x_func.GetExecFilePath()+"\\"+configFile, "BIUD", &BIUD)
 	BIUD.DBOpen()
@@ -135,4 +136,53 @@ func checkBIUD(login, pass string) bool {
 		result = true
 	}
 	return result
+}
+
+// Авторизация по БИУД (проверка полномочий)
+func authzBIUD(login, pass string) bool {
+	var BIUD x_func.TDatabase
+	x_func.DBGetIniCfg(x_func.GetExecFilePath()+"\\"+configFile, "BIUD", &BIUD)
+	BIUD.DBOpen()
+	defer BIUD.DBClose()
+
+	var BIUDOperator x_func.TTable
+	BIUDOperator.BindTable("OPERATOR", &BIUD)
+
+	sqlCode := "SELECT * FROM CS.OPERATOR WHERE LOGIN='" + login + "'"
+	BIUDOperator.ReadSQL(sqlCode)
+
+	buidHash := BIUDOperator.Data[0].ByName["PASS"]
+	passHash := x_func.BiudPassHash(pass)
+
+	result := false
+	if buidHash == passHash {
+		result = true
+	}
+	return result
+}
+
+// loginPage - при наличии куки передает управление вложенной функции, иначе запускает вызывает форму авторизации
+func loginPage(nextFunc http.HandlerFunc) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if x_func.CheckCookies(r, "login", "success") {
+			// ДОБАВИЛЬ ИМЯ ПОЛЬЗОВАТЕЛЯ В COOKIE ДЛЯ ВЫВОДА
+			log.Printf("%v Аутентификация пользователя %v по cookie", x_func.FuncName(), r.FormValue("login"))
+			nextFunc(w, r)
+		} else {
+			r.ParseMultipartForm(0)
+			if r.Method == "POST" && r.FormValue("formType") == "login" {
+				if authnBIUD(r.FormValue("login"), r.FormValue("password")) {
+					log.Printf("%v Аутентификация пользователя %v по паролю", x_func.FuncName(), r.FormValue("login"))
+					x_func.SetCookies(w, "login", "success", 15*time.Minute)
+					nextFunc(w, r)
+				} else {
+					log.Printf("%v Аутентификация пользователя %v не выполнена", x_func.FuncName(), r.FormValue("login"))
+					renderPage(w, "login.html", "common.html", "")
+				}
+			} else {
+				renderPage(w, "login.html", "common.html", "")
+			}
+		}
+
+	}
 }

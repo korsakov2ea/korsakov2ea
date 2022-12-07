@@ -4,6 +4,7 @@ import (
 	"log"
 	"mime/multipart"
 	"net/http"
+	"time"
 )
 
 // Уведомление для рендера страницы
@@ -24,4 +25,22 @@ func UploadFile(r *http.Request, inputName string) multipart.File {
 	}
 	defer source.Close()
 	return nil
+}
+
+// Проверка наличия куки с заданным именем и значением
+func CheckCookies(r *http.Request, name string, value string) bool {
+	result := false
+	for _, cookie := range r.Cookies() {
+		if cookie.Name == name && cookie.Value == value {
+			result = true
+		}
+	}
+	return result
+}
+
+// Установка куки с заданным именем, значением и продолжительностью
+func SetCookies(w http.ResponseWriter, name string, value string, duration time.Duration) {
+	expiration := time.Now().Add(duration)
+	cookie := http.Cookie{Name: name, Value: value, Expires: expiration}
+	http.SetCookie(w, &cookie)
 }
