@@ -62,8 +62,8 @@ func DBGetIniCfg(configFile string, iniSection string, db *TDatabase) {
 		db.DSN = DSN
 	}
 
-	db.SetDecodeParam()
 	log.Printf("%v Считана конфигурация БД из секции %v файла %v", FuncName(), iniSection, configFile)
+	db.SetDecodeParam()
 }
 
 // Устанавливает значение database.DecodeParam в зависимости от database.Driver

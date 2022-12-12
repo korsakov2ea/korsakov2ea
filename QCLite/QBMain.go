@@ -86,10 +86,10 @@ func startServer(startOnPort string) {
 	log.Printf("%v Запуск сервера на порту %v", x_func.FuncName(), startOnPort)
 	FileServer := http.FileServer(http.Dir("public"))
 	http.Handle("/public/", http.StripPrefix("/public/", FileServer))
-	http.HandleFunc("/queries", loginPage(queries))
-	http.HandleFunc("/query", query)
-	http.HandleFunc("/connections", connections)
-	http.HandleFunc("/connection", connection)
+	http.HandleFunc("/queries", auth(queries))
+	http.HandleFunc("/query", auth(query))
+	http.HandleFunc("/connections", auth(connections))
+	http.HandleFunc("/connection", auth(connection))
 	http.ListenAndServe(":"+startOnPort, nil)
 }
 
@@ -115,71 +115,83 @@ func renderPage(w http.ResponseWriter, templatePage string, commonPage string, d
 	}
 }
 
-// Аутентификация по БИУД (проверка введеного пароля)
-func authnBIUD(login, pass string) bool {
+// Аутентификация / авторизация по БИУД (проверка введеного пароля и ролей). Может возвращать значения (в порядке проверки):
+// 0 - аутентификация не пройдена (нет пользователя или не один),
+// 1 - авторизация не пройдена (нет нужной роли для пользователя),
+// 2 - обе проверки пройдены
+func authBIUD(login, pass string) int {
+	result := 0
+
 	var BIUD x_func.TDatabase
 	x_func.DBGetIniCfg(x_func.GetExecFilePath()+"\\"+configFile, "BIUD", &BIUD)
 	BIUD.DBOpen()
 	defer BIUD.DBClose()
 
-	var BIUDOperator x_func.TTable
-	BIUDOperator.BindTable("OPERATOR", &BIUD)
-
+	// искать оперетора в БИУД
 	sqlCode := "SELECT * FROM CS.OPERATOR WHERE LOGIN='" + login + "'"
-	BIUDOperator.ReadSQL(sqlCode)
-
-	buidHash := BIUDOperator.Data[0].ByName["PASS"]
-	passHash := x_func.BiudPassHash(pass)
-
-	result := false
-	if buidHash == passHash {
-		result = true
+	operator := BIUD.DBQuery(sqlCode)
+	// если есть такой логин
+	if len(operator) == 1 {
+		buidHash := operator[0].ByName["PASS"]
+		passHash := x_func.BiudPassHash(pass)
+		// если совпали хэши паролей
+		if buidHash == passHash {
+			result++
+			//искать роль пользователя
+			sqlCode := "SELECT * FROM CS.OPERATORROLE WHERE LOGIN='" + login + "' AND ROLE='Администратор отделения'"
+			// если есть роль
+			if len(BIUD.DBQuery(sqlCode)) > 0 {
+				result++
+			}
+		}
 	}
+
 	return result
 }
 
-// Авторизация по БИУД (проверка полномочий)
-func authzBIUD(login, pass string) bool {
-	var BIUD x_func.TDatabase
-	x_func.DBGetIniCfg(x_func.GetExecFilePath()+"\\"+configFile, "BIUD", &BIUD)
-	BIUD.DBOpen()
-	defer BIUD.DBClose()
-
-	var BIUDOperator x_func.TTable
-	BIUDOperator.BindTable("OPERATOR", &BIUD)
-
-	sqlCode := "SELECT * FROM CS.OPERATOR WHERE LOGIN='" + login + "'"
-	BIUDOperator.ReadSQL(sqlCode)
-
-	buidHash := BIUDOperator.Data[0].ByName["PASS"]
-	passHash := x_func.BiudPassHash(pass)
-
-	result := false
-	if buidHash == passHash {
-		result = true
-	}
-	return result
-}
-
-// loginPage - при наличии куки передает управление вложенной функции, иначе запускает вызывает форму авторизации
-func loginPage(nextFunc http.HandlerFunc) http.HandlerFunc {
+// Аутентификация / авторизация по куки или паролю. Если успешно, то передает управление вложенной функции
+func auth(nextFunc http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if x_func.CheckCookies(r, "login", "success") {
-			// ДОБАВИЛЬ ИМЯ ПОЛЬЗОВАТЕЛЯ В COOKIE ДЛЯ ВЫВОДА
-			log.Printf("%v Аутентификация пользователя %v по cookie", x_func.FuncName(), r.FormValue("login"))
-			nextFunc(w, r)
+		cookieLogin := x_func.GetCookie(r, "QBLogin")
+		cookiePass := x_func.GetCookie(r, "QBPass")
+
+		// если есть логин и пароль в куки
+		if len(cookieLogin+cookiePass) > 1 {
+			if authBIUD(cookieLogin, cookiePass) == 2 {
+				// аутентификация и авторизация проходит
+				log.Printf("%v Аутентификация/авторизация пользователя %v по cookie", x_func.FuncName(), cookieLogin)
+				nextFunc(w, r)
+			} else {
+				// если аутентификация не прошли, то сбросить куки и отправить на ввод пароля
+				x_func.SetCookie(w, "QBLogin", "", 1*time.Millisecond)
+				x_func.SetCookie(w, "QBPass", "", 1*time.Millisecond)
+				renderPage(w, "login.html", "common.html", "")
+			}
 		} else {
+			// иначе (если не через куки)
 			r.ParseMultipartForm(0)
 			if r.Method == "POST" && r.FormValue("formType") == "login" {
-				if authnBIUD(r.FormValue("login"), r.FormValue("password")) {
-					log.Printf("%v Аутентификация пользователя %v по паролю", x_func.FuncName(), r.FormValue("login"))
-					x_func.SetCookies(w, "login", "success", 15*time.Minute)
-					nextFunc(w, r)
-				} else {
-					log.Printf("%v Аутентификация пользователя %v не выполнена", x_func.FuncName(), r.FormValue("login"))
+				// если получаем данные с формы то пытаемся войти с этими данными
+				formLogin := r.FormValue("login")
+				formPass := r.FormValue("password")
+				log.Printf("%v Аутентификация пользователя %v по паролю", x_func.FuncName(), formLogin)
+
+				authResult := authBIUD(formLogin, formPass)
+				switch {
+				case authResult == 0:
+					log.Printf("%v Аутентификация пользователя %v не выполнена", x_func.FuncName(), formLogin)
 					renderPage(w, "login.html", "common.html", "")
+				case authResult == 1:
+					log.Printf("%v Авторизация пользователя %v не пройдена (нет ролей)", x_func.FuncName(), formLogin)
+					renderPage(w, "login.html", "common.html", "")
+				case authResult == 2:
+					log.Printf("%v Авторизация пользователя %v пройдена", x_func.FuncName(), formLogin)
+					x_func.SetCookie(w, "QBLogin", formLogin, 15*time.Minute)
+					x_func.SetCookie(w, "QBPass", x_func.BiudPassHash(formPass), 15*time.Minute)
+					nextFunc(w, r)
 				}
 			} else {
+				// если данные были не с формы (а просто обратились к странице)
 				renderPage(w, "login.html", "common.html", "")
 			}
 		}

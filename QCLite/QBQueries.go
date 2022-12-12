@@ -74,7 +74,7 @@ func query(w http.ResponseWriter, r *http.Request) {
 		case r.Method == "GET" && r.FormValue("mode") == "execute":
 			if needUploadData(id) {
 				QBQuery.TmpTable = "QB.QB" + x_func.GenerateTimeStamp()
-				renderPage(w, "uploadfile.html", "common.html", QBQuery)
+				renderPage(w, "query_uploadfile.html", "common.html", QBQuery)
 			} else {
 				executeQuery(id)
 				renderPage(w, "result.html", "common.html", QBQuery)

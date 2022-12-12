@@ -27,19 +27,19 @@ func UploadFile(r *http.Request, inputName string) multipart.File {
 	return nil
 }
 
-// Проверка наличия куки с заданным именем и значением
-func CheckCookies(r *http.Request, name string, value string) bool {
-	result := false
+// Чтение куки с заданным именем
+func GetCookie(r *http.Request, name string) string {
+	result := ""
 	for _, cookie := range r.Cookies() {
-		if cookie.Name == name && cookie.Value == value {
-			result = true
+		if cookie.Name == name {
 		}
+		result = cookie.Value
 	}
 	return result
 }
 
 // Установка куки с заданным именем, значением и продолжительностью
-func SetCookies(w http.ResponseWriter, name string, value string, duration time.Duration) {
+func SetCookie(w http.ResponseWriter, name string, value string, duration time.Duration) {
 	expiration := time.Now().Add(duration)
 	cookie := http.Cookie{Name: name, Value: value, Expires: expiration}
 	http.SetCookie(w, &cookie)
