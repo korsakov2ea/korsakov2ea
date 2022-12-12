@@ -1,0 +1,793 @@
+2022/12/12 17:00:03 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 17:00:03 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\log\log.txt
+2022/12/12 17:00:03 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции REESTR файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:00:03 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД REESTR
+2022/12/12 17:00:04 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой REESTR
+2022/12/12 17:00:04 korsakov2ea/xfunc.(*TTable).Bind Ассоциация таблицы EMPLOYMENT_CENTER в базе REESTR
+2022/12/12 17:00:04 main.startServer Запуск сервера на порту 4444
+2022/12/12 17:00:20 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:00:20 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:00:20 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:00:20 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 17:00:20 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 17:00:20 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:00:22 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:00:22 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:00:22 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 17:00:22 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из EMPLOYMENT_CENTER
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM EMPLOYMENT_CENTER
+	SQLExecDirectW: {42S02} [IBM][CLI Driver][DB2/NT64] SQL0204N  "DB2ADMIN.EMPLOYMENT_CENTER" is an undefined name.  SQLSTATE=42704
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:00:22 http: panic serving [::1]:60195: runtime error: invalid memory address or nil pointer dereference
+goroutine 34 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0x14088c940, {0xc0000ab540, 0x1f})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.(*TTable).ReadAll(0x14088cb40)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:150 +0x19a
+main.empCenter({0x140697d70, 0xc00016c1c0}, 0xc0001d0000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFEmpCenter.go:12 +0xf2
+main.auth.func1({0x140697d70, 0xc00016c1c0}, 0xc0001d0000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFMain.go:95 +0xbf8
+net/http.HandlerFunc.ServeHTTP(0xc000089250, {0x140697d70, 0xc00016c1c0}, 0xc0001d0000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14088c9c0, {0x140697d70, 0xc00016c1c0}, 0xc0001d0000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000164000}, {0x140697d70, 0xc00016c1c0}, 0xc0001d0000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001a2000, {0x1406981f8, 0xc000092840})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 17:00:22 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:00:22 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:00:22 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 17:00:22 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из EMPLOYMENT_CENTER
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM EMPLOYMENT_CENTER
+	SQLExecDirectW: {42S02} [IBM][CLI Driver][DB2/NT64] SQL0204N  "DB2ADMIN.EMPLOYMENT_CENTER" is an undefined name.  SQLSTATE=42704
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:00:22 http: panic serving [::1]:60196: runtime error: invalid memory address or nil pointer dereference
+goroutine 23 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0x14088c940, {0xc0001b62a0, 0x1f})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.(*TTable).ReadAll(0x14088cb40)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:150 +0x19a
+main.empCenter({0x140697d70, 0xc0001da000}, 0xc000122d00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFEmpCenter.go:12 +0xf2
+main.auth.func1({0x140697d70, 0xc0001da000}, 0xc000122d00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFMain.go:95 +0xbf8
+net/http.HandlerFunc.ServeHTTP(0xc000089250, {0x140697d70, 0xc0001da000}, 0xc000122d00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14088c9c0, {0x140697d70, 0xc0001da000}, 0xc000122d00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000164000}, {0x140697d70, 0xc0001da000}, 0xc000122d00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc00014ef00, {0x1406981f8, 0xc0000929c0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 17:00:22 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:00:22 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:00:22 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 17:00:22 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из EMPLOYMENT_CENTER
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM EMPLOYMENT_CENTER
+	SQLExecDirectW: {42S02} [IBM][CLI Driver][DB2/NT64] SQL0204N  "DB2ADMIN.EMPLOYMENT_CENTER" is an undefined name.  SQLSTATE=42704
+2022/12/12 17:00:22 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:00:22 http: panic serving [::1]:60206: runtime error: invalid memory address or nil pointer dereference
+goroutine 27 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0x14088c940, {0xc0000ab7c0, 0x1f})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.(*TTable).ReadAll(0x14088cb40)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:150 +0x19a
+main.empCenter({0x140697d70, 0xc00016c2a0}, 0xc000123800)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFEmpCenter.go:12 +0xf2
+main.auth.func1({0x140697d70, 0xc00016c2a0}, 0xc000123800)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFMain.go:95 +0xbf8
+net/http.HandlerFunc.ServeHTTP(0xc000089250, {0x140697d70, 0xc00016c2a0}, 0xc000123800)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14088c9c0, {0x140697d70, 0xc00016c2a0}, 0xc000123800)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000164000}, {0x140697d70, 0xc00016c2a0}, 0xc000123800)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc00028a6e0, {0x1406981f8, 0xc0000934c0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 17:00:30 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:00:30 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:00:30 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:00:30 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 17:00:30 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 17:00:30 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:00:31 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:00:31 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:00:31 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 17:00:31 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из EMPLOYMENT_CENTER
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM EMPLOYMENT_CENTER
+	SQLExecDirectW: {42S02} [IBM][CLI Driver][DB2/NT64] SQL0204N  "DB2ADMIN.EMPLOYMENT_CENTER" is an undefined name.  SQLSTATE=42704
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:00:31 http: panic serving [::1]:60217: runtime error: invalid memory address or nil pointer dereference
+goroutine 30 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0x14088c940, {0xc0001b6540, 0x1f})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.(*TTable).ReadAll(0x14088cb40)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:150 +0x19a
+main.empCenter({0x140697d70, 0xc0001da0e0}, 0xc000047400)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFEmpCenter.go:12 +0xf2
+main.auth.func1({0x140697d70, 0xc0001da0e0}, 0xc000047400)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFMain.go:95 +0xbf8
+net/http.HandlerFunc.ServeHTTP(0xc000089250, {0x140697d70, 0xc0001da0e0}, 0xc000047400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14088c9c0, {0x140697d70, 0xc0001da0e0}, 0xc000047400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000164000}, {0x140697d70, 0xc0001da0e0}, 0xc000047400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc00028bea0, {0x1406981f8, 0xc000093f80})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 17:00:31 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:00:31 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:00:31 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 17:00:31 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из EMPLOYMENT_CENTER
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM EMPLOYMENT_CENTER
+	SQLExecDirectW: {42S02} [IBM][CLI Driver][DB2/NT64] SQL0204N  "DB2ADMIN.EMPLOYMENT_CENTER" is an undefined name.  SQLSTATE=42704
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:00:31 http: panic serving [::1]:60219: runtime error: invalid memory address or nil pointer dereference
+goroutine 31 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0x14088c940, {0xc0000166c0, 0x1f})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.(*TTable).ReadAll(0x14088cb40)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:150 +0x19a
+main.empCenter({0x140697d70, 0xc0000541c0}, 0xc0002da300)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFEmpCenter.go:12 +0xf2
+main.auth.func1({0x140697d70, 0xc0000541c0}, 0xc0002da300)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFMain.go:95 +0xbf8
+net/http.HandlerFunc.ServeHTTP(0xc000089250, {0x140697d70, 0xc0000541c0}, 0xc0002da300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14088c9c0, {0x140697d70, 0xc0000541c0}, 0xc0002da300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000164000}, {0x140697d70, 0xc0000541c0}, 0xc0002da300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc00028bf40, {0x1406981f8, 0xc0002f2000})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 17:00:31 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:00:31 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:00:31 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 17:00:31 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из EMPLOYMENT_CENTER
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM EMPLOYMENT_CENTER
+	SQLExecDirectW: {42S02} [IBM][CLI Driver][DB2/NT64] SQL0204N  "DB2ADMIN.EMPLOYMENT_CENTER" is an undefined name.  SQLSTATE=42704
+2022/12/12 17:00:31 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:00:31 http: panic serving [::1]:60224: runtime error: invalid memory address or nil pointer dereference
+goroutine 12 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0x14088c940, {0xc000016940, 0x1f})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.(*TTable).ReadAll(0x14088cb40)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:150 +0x19a
+main.empCenter({0x140697d70, 0xc0000542a0}, 0xc000047e00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFEmpCenter.go:12 +0xf2
+main.auth.func1({0x140697d70, 0xc0000542a0}, 0xc000047e00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFMain.go:95 +0xbf8
+net/http.HandlerFunc.ServeHTTP(0xc000089250, {0x140697d70, 0xc0000542a0}, 0xc000047e00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14088c9c0, {0x140697d70, 0xc0000542a0}, 0xc000047e00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000164000}, {0x140697d70, 0xc0000542a0}, 0xc000047e00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000236640, {0x1406981f8, 0xc0000537c0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 17:00:46 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:00:46 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:00:46 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:00:56 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 17:00:56 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:00:56 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:00:56 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 17:00:56 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:00:56 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из EMPLOYMENT_CENTER
+2022/12/12 17:00:56 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM EMPLOYMENT_CENTER
+	SQLExecDirectW: {42S02} [IBM][CLI Driver][DB2/NT64] SQL0204N  "DB2ADMIN.EMPLOYMENT_CENTER" is an undefined name.  SQLSTATE=42704
+2022/12/12 17:00:56 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:00:56 http: panic serving [::1]:60236: runtime error: invalid memory address or nil pointer dereference
+goroutine 50 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0x14088c940, {0xc0000aba40, 0x1f})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.(*TTable).ReadAll(0x14088cb40)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:150 +0x19a
+main.empCenter({0x140697d70, 0xc00016c380}, 0xc00039e000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFEmpCenter.go:12 +0xf2
+main.auth.func1({0x140697d70, 0xc00016c380}, 0xc00039e000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFMain.go:95 +0xbf8
+net/http.HandlerFunc.ServeHTTP(0xc000089250, {0x140697d70, 0xc00016c380}, 0xc00039e000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14088c9c0, {0x140697d70, 0xc00016c380}, 0xc00039e000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000164000}, {0x140697d70, 0xc00016c380}, 0xc00039e000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000380000, {0x1406981f8, 0xc00039a000})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 17:00:58 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:00:58 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:00:58 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:01:00 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 17:01:00 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:01:00 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:01:00 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 17:01:00 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:01:00 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из EMPLOYMENT_CENTER
+2022/12/12 17:01:00 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM EMPLOYMENT_CENTER
+	SQLExecDirectW: {42S02} [IBM][CLI Driver][DB2/NT64] SQL0204N  "DB2ADMIN.EMPLOYMENT_CENTER" is an undefined name.  SQLSTATE=42704
+2022/12/12 17:01:00 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:01:00 http: panic serving [::1]:60237: runtime error: invalid memory address or nil pointer dereference
+goroutine 51 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0x14088c940, {0xc0000abcc0, 0x1f})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.(*TTable).ReadAll(0x14088cb40)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:150 +0x19a
+main.empCenter({0x140697d70, 0xc00016c460}, 0xc0001d1300)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFEmpCenter.go:12 +0xf2
+main.auth.func1({0x140697d70, 0xc00016c460}, 0xc0001d1300)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFMain.go:95 +0xbf8
+net/http.HandlerFunc.ServeHTTP(0xc000089250, {0x140697d70, 0xc00016c460}, 0xc0001d1300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14088c9c0, {0x140697d70, 0xc00016c460}, 0xc0001d1300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000164000}, {0x140697d70, 0xc00016c460}, 0xc0001d1300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0003800a0, {0x1406981f8, 0xc000193e40})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 17:01:00 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:01:00 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:01:00 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:01:00 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 17:01:00 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:01:00 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:01:00 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 17:01:00 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:01:00 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из EMPLOYMENT_CENTER
+2022/12/12 17:01:00 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM EMPLOYMENT_CENTER
+	SQLExecDirectW: {42S02} [IBM][CLI Driver][DB2/NT64] SQL0204N  "DB2ADMIN.EMPLOYMENT_CENTER" is an undefined name.  SQLSTATE=42704
+2022/12/12 17:01:00 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:01:00 http: panic serving [::1]:60249: runtime error: invalid memory address or nil pointer dereference
+goroutine 52 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0x14088c940, {0xc0000abda0, 0x1f})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.(*TTable).ReadAll(0x14088cb40)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:150 +0x19a
+main.empCenter({0x140697d70, 0xc0001da1c0}, 0xc0001d1400)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFEmpCenter.go:12 +0xf2
+main.auth.func1({0x140697d70, 0xc0001da1c0}, 0xc0001d1400)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFMain.go:95 +0xbf8
+net/http.HandlerFunc.ServeHTTP(0xc000089250, {0x140697d70, 0xc0001da1c0}, 0xc0001d1400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14088c9c0, {0x140697d70, 0xc0001da1c0}, 0xc0001d1400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000164000}, {0x140697d70, 0xc0001da1c0}, 0xc0001d1400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000380140, {0x1406981f8, 0xc000193ec0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 17:01:14 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:01:14 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:01:14 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:01:14 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 17:01:14 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:01:14 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 17:01:14 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:01:14 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:01:14 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 17:01:14 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из EMPLOYMENT_CENTER
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM EMPLOYMENT_CENTER
+	SQLExecDirectW: {42S02} [IBM][CLI Driver][DB2/NT64] SQL0204N  "DB2ADMIN.EMPLOYMENT_CENTER" is an undefined name.  SQLSTATE=42704
+2022/12/12 17:01:14 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:01:14 http: panic serving [::1]:60256: runtime error: invalid memory address or nil pointer dereference
+goroutine 41 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1405de1e0, 0x1405723b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0x14088c940, {0xc0000aa360, 0x1f})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.(*TTable).ReadAll(0x14088cb40)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:150 +0x19a
+main.empCenter({0x140697d70, 0xc0003c2000}, 0xc00039e200)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFEmpCenter.go:12 +0xf2
+main.auth.func1({0x140697d70, 0xc0003c2000}, 0xc00039e200)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFMain.go:95 +0xbf8
+net/http.HandlerFunc.ServeHTTP(0xc000089250, {0x140697d70, 0xc0003c2000}, 0xc00039e200)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14088c9c0, {0x140697d70, 0xc0003c2000}, 0xc00039e200)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000164000}, {0x140697d70, 0xc0003c2000}, 0xc00039e200)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0003688c0, {0x1406981f8, 0xc00039a080})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 17:01:19 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:01:19 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:01:20 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:01:30 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 17:01:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:01:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:01:34 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 17:01:42 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:01:43 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из EMPLOYMENT_CENTER
+2022/12/12 17:01:43 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM EMPLOYMENT_CENTER
+	SQLExecDirectW: {42S02} [IBM][CLI Driver][DB2/NT64] SQL0204N  "DB2ADMIN.EMPLOYMENT_CENTER" is an undefined name.  SQLSTATE=42704
+2022/12/12 17:01:53 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:10:01 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 17:10:01 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\log\log.txt
+2022/12/12 17:10:01 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции REESTR файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:10:01 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД REESTR
+2022/12/12 17:10:01 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой REESTR
+2022/12/12 17:10:01 korsakov2ea/xfunc.(*TTable).Bind Ассоциация таблицы ADDFUNC.EMPLOYMENT_CENTER в базе REESTR
+2022/12/12 17:10:01 main.startServer Запуск сервера на порту 4444
+2022/12/12 17:10:06 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:10:06 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:10:06 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:10:06 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 17:10:06 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 17:10:06 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:10:08 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:10:08 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:10:08 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:10:08 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 17:10:08 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:10:08 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:10:08 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 17:10:08 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:10:08 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:10:08 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:10:26 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 17:10:26 korsakov2ea/xfunc.RenderPage Ошибка постооения шаблона страницы template: connections.html:24:9: executing "connections.html" at <.Data>: can't evaluate field Data in type func(http.ResponseWriter, *http.Request)
+2022/12/12 17:10:26 http: superfluous response.WriteHeader call from korsakov2ea/xfunc.RenderPage (web.go:101)
+2022/12/12 17:10:26 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:13:15 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:13:15 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:13:15 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:13:15 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:13:15 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:13:15 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 17:13:15 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:13:15 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:13:15 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:13:33 korsakov2ea/xfunc.RenderPage Ошибка парсинга шаблона страницы open public\html\connections.html: The system cannot find the file specified.
+2022/12/12 17:13:33 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:13:33 http: panic serving [::1]:60542: runtime error: invalid memory address or nil pointer dereference
+goroutine 21 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x14038e1e0, 0x1403223b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+html/template.(*Template).escape(0x0)
+	C:/Program Files (x86)/Go/src/html/template/template.go:97 +0x42
+html/template.(*Template).Execute(0x0, {0x140445a60, 0xc04a634000}, {0x14037b420, 0x14041f370})
+	C:/Program Files (x86)/Go/src/html/template/template.go:121 +0x4a
+korsakov2ea/xfunc.RenderPage({0x140447d70, 0xc04a634000}, {0x1403eb837, 0x10}, {0x1403e8bca, 0xb}, {0x14037b420, 0x14041f370})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:98 +0x65d
+main.empCenter({0x140447d70, 0xc04a634000}, 0xc0000fc000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFEmpCenter.go:13 +0x133
+main.auth.func1({0x140447d70, 0xc04a634000}, 0xc0000fc000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFMain.go:67 +0x363
+net/http.HandlerFunc.ServeHTTP(0xc000088f40, {0x140447d70, 0xc04a634000}, 0xc0000fc000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14063c9c0, {0x140447d70, 0xc04a634000}, 0xc0000fc000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000140000}, {0x140447d70, 0xc04a634000}, 0xc0000fc000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000126e60, {0x1404481f8, 0xc000092880})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 17:13:33 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:13:33 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:13:33 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:13:33 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:13:33 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:13:33 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 17:13:33 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:13:33 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:13:33 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:13:52 korsakov2ea/xfunc.RenderPage Ошибка парсинга шаблона страницы open public\html\connections.html: The system cannot find the file specified.
+2022/12/12 17:13:52 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:13:52 http: panic serving [::1]:60655: runtime error: invalid memory address or nil pointer dereference
+goroutine 26 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x14038e1e0, 0x1403223b0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+html/template.(*Template).escape(0x0)
+	C:/Program Files (x86)/Go/src/html/template/template.go:97 +0x42
+html/template.(*Template).Execute(0x0, {0x140445a60, 0xc04a6340e0}, {0x14037b420, 0x14041f370})
+	C:/Program Files (x86)/Go/src/html/template/template.go:121 +0x4a
+korsakov2ea/xfunc.RenderPage({0x140447d70, 0xc04a6340e0}, {0x1403eb837, 0x10}, {0x1403e8bca, 0xb}, {0x14037b420, 0x14041f370})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:98 +0x65d
+main.empCenter({0x140447d70, 0xc04a6340e0}, 0xc04b058000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFEmpCenter.go:13 +0x133
+main.auth.func1({0x140447d70, 0xc04a6340e0}, 0xc04b058000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/AFunc/AFMain.go:67 +0x363
+net/http.HandlerFunc.ServeHTTP(0xc000088f40, {0x140447d70, 0xc04a6340e0}, 0xc04b058000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14063c9c0, {0x140447d70, 0xc04a6340e0}, 0xc04b058000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc000140000}, {0x140447d70, 0xc04a6340e0}, 0xc04b058000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000000000, {0x1404481f8, 0xc00019e000})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 17:13:52 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:13:52 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:13:52 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:13:52 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:13:52 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:13:52 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 17:13:52 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:13:52 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:13:52 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:13:58 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 17:13:58 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\log\log.txt
+2022/12/12 17:13:58 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции REESTR файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:13:58 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД REESTR
+2022/12/12 17:13:58 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой REESTR
+2022/12/12 17:13:58 korsakov2ea/xfunc.(*TTable).Bind Ассоциация таблицы ADDFUNC.EMPLOYMENT_CENTER в базе REESTR
+2022/12/12 17:13:58 main.startServer Запуск сервера на порту 4444
+2022/12/12 17:14:01 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:14:01 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:14:02 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:14:02 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:14:02 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:14:02 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 17:14:02 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:14:02 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:14:02 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:14:12 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 17:14:12 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\log\log.txt
+2022/12/12 17:14:12 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции REESTR файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:14:12 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД REESTR
+2022/12/12 17:14:12 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой REESTR
+2022/12/12 17:14:12 korsakov2ea/xfunc.(*TTable).Bind Ассоциация таблицы ADDFUNC.EMPLOYMENT_CENTER в базе REESTR
+2022/12/12 17:14:12 main.startServer Запуск сервера на порту 4444
+2022/12/12 17:14:16 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:14:16 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:14:16 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:14:16 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:14:16 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:14:16 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 17:14:16 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:14:16 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:14:16 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:14:33 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\empCenter.html
+2022/12/12 17:21:30 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 17:21:30 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\log\log.txt
+2022/12/12 17:21:30 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции REESTR файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:21:30 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД REESTR
+2022/12/12 17:21:31 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой REESTR
+2022/12/12 17:21:31 korsakov2ea/xfunc.(*TTable).Bind Ассоциация таблицы ADDFUNC.EMPLOYMENT_CENTER в базе REESTR
+2022/12/12 17:21:31 main.startServer Запуск сервера на порту 4444
+2022/12/12 17:21:32 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:21:32 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:21:32 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:21:32 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:21:32 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:21:32 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 17:21:32 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:21:32 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:21:32 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM ADDFUNC.EMPLOYMENT_CENTER FETCH FIRST 100 ROWS ONLY
+2022/12/12 17:21:32 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\empCenter.html
+2022/12/12 17:21:32 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\empCenter.html
+2022/12/12 17:21:33 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:21:47 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 17:21:47 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\log\log.txt
+2022/12/12 17:21:47 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции REESTR файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:21:47 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД REESTR
+2022/12/12 17:21:47 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой REESTR
+2022/12/12 17:21:47 korsakov2ea/xfunc.(*TTable).Bind Ассоциация таблицы ADDFUNC.EMPLOYMENT_CENTER в базе REESTR
+2022/12/12 17:21:47 main.startServer Запуск сервера на порту 4444
+2022/12/12 17:21:48 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:21:48 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:21:48 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:21:48 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:21:48 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:21:48 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 17:21:48 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:21:48 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:21:48 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM ADDFUNC.EMPLOYMENT_CENTER FETCH FIRST 1 ROWS ONLY
+2022/12/12 17:21:48 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\empCenter.html
+2022/12/12 17:21:48 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\empCenter.html
+2022/12/12 17:21:48 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:24:04 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:24:04 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:24:04 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:24:04 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:24:04 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:24:04 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 17:24:04 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:24:04 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:24:04 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM ADDFUNC.EMPLOYMENT_CENTER FETCH FIRST 1 ROWS ONLY
+2022/12/12 17:24:04 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\empCenter.html
+2022/12/12 17:24:04 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\empCenter.html
+2022/12/12 17:24:04 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:24:07 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:24:07 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:24:07 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:24:07 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:24:07 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:24:07 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 17:24:07 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:24:07 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:24:07 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM ADDFUNC.EMPLOYMENT_CENTER FETCH FIRST 1 ROWS ONLY
+2022/12/12 17:24:07 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\empCenter.html
+2022/12/12 17:24:07 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\empCenter.html
+2022/12/12 17:24:07 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 17:24:14 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 17:24:14 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\log\log.txt
+2022/12/12 17:24:14 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции REESTR файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:24:14 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД REESTR
+2022/12/12 17:24:14 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой REESTR
+2022/12/12 17:24:14 korsakov2ea/xfunc.(*TTable).Bind Ассоциация таблицы ADDFUNC.EMPLOYMENT_CENTER в базе REESTR
+2022/12/12 17:24:14 main.startServer Запуск сервера на порту 4444
+2022/12/12 17:24:15 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\AFunc\config.ini
+2022/12/12 17:24:15 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 17:24:15 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 17:24:15 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 17:24:15 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 17:24:15 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 17:24:15 main.empCenter >>>>> Вызов обработчика HTTP запроса
+2022/12/12 17:24:15 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из ADDFUNC.EMPLOYMENT_CENTER
+2022/12/12 17:24:15 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM ADDFUNC.EMPLOYMENT_CENTER FETCH FIRST 10 ROWS ONLY
+2022/12/12 17:24:15 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\empCenter.html
+2022/12/12 17:24:15 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\empCenter.html
+2022/12/12 17:24:15 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто

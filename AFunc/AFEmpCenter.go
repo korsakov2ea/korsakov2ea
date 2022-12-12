@@ -4,16 +4,16 @@ import (
 	"korsakov2ea/xfunc"
 	"log"
 	"net/http"
-	"strconv"
 )
 
-// connections - обработчик HTTP (список соединений)
-func connections(w http.ResponseWriter, r *http.Request) {
+// empCenter - обработчик HTTP (список соединений)
+func empCenter(w http.ResponseWriter, r *http.Request) {
 	log.Printf("%v >>>>> Вызов обработчика HTTP запроса", xfunc.FuncName())
-	QBConnection.ReadAll(0)
-	xfunc.RenderPage(w, "connections.html", "common.html", QBConnection)
+	EmpCenter.ReadAll(10)
+	xfunc.RenderPage(w, "empCenter.html", "common.html", EmpCenter)
 }
 
+/*
 // connection - обработчик HTTP (одиночное соединение)
 func connection(w http.ResponseWriter, r *http.Request) {
 	log.Printf("%v >>>>> Вызов обработчика HTTP запроса", xfunc.FuncName())
@@ -26,7 +26,7 @@ func connection(w http.ResponseWriter, r *http.Request) {
 		switch {
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Cancel":
-			QBConnection.ReadAll(0)
+			QBConnection.ReadAll()
 			xfunc.RenderPage(w, "connections.html", "common.html", QBConnection)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Create":
@@ -35,7 +35,7 @@ func connection(w http.ResponseWriter, r *http.Request) {
 			newConnection["DRIVER"] = r.FormValue("Driver")
 			newConnection["DSN"] = r.FormValue("DSN")
 			QBConnection.Create(newConnection)
-			QBConnection.ReadAll(0)
+			QBConnection.ReadAll()
 			xfunc.RenderPage(w, "connections.html", "common.html", QBConnection)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Update":
@@ -44,12 +44,12 @@ func connection(w http.ResponseWriter, r *http.Request) {
 			newConnection["DRIVER"] = r.FormValue("Driver")
 			newConnection["DSN"] = r.FormValue("DSN")
 			QBConnection.Update(id, newConnection)
-			QBConnection.ReadAll(0)
+			QBConnection.ReadAll()
 			xfunc.RenderPage(w, "connections.html", "common.html", QBConnection)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Delete":
 			QBConnection.Delete(id)
-			QBConnection.ReadAll(0)
+			QBConnection.ReadAll()
 			xfunc.RenderPage(w, "connections.html", "common.html", QBConnection)
 
 		case r.Method == "GET" && r.FormValue("mode") == "add":
@@ -107,3 +107,4 @@ func executeSQLConn(sqlCode string, id int) {
 		log.Printf("%v \n\tНет соединения с ID = %v", xfunc.FuncName(), id)
 	}
 }
+*/

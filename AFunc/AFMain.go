@@ -8,9 +8,8 @@ import (
 )
 
 var configFile string = "config.ini"
-var QB xfunc.TDatabase        // QB - Query base - база с запросами
-var QBQuery xfunc.TTable      // Представление таблицы запросов
-var QBConnection xfunc.TTable // Представление таблицы соединений
+var R xfunc.TDatabase      // R - REESTR
+var EmpCenter xfunc.TTable //центр занятости
 
 func main() {
 
@@ -24,12 +23,11 @@ func main() {
 	xfunc.StartLogging(logFile)
 
 	// Соединение с базой запросов
-	xfunc.DBGetIniCfg(xfunc.GetExecFilePath()+"\\"+configFile, "QB", &QB)
-	QB.DBOpen()
+	xfunc.DBGetIniCfg(xfunc.GetExecFilePath()+"\\"+configFile, "REESTR", &R)
+	R.DBOpen()
 
 	// Связываение объектов таблиц с реальными таблицами БД
-	QBQuery.Bind("QUERY", &QB)
-	QBConnection.Bind("CONNECTION", &QB)
+	EmpCenter.Bind("ADDFUNC.EMPLOYMENT_CENTER", &R)
 
 	// Запуск сервера
 	startServer(serverPort)
@@ -37,46 +35,8 @@ func main() {
 
 // Вызывается после закрытия main программы (для закрытия основного соединия, логгирования, обработки ошибок)
 func mainDefer() {
-	QB.DBClose()
+	R.DBClose()
 	log.Println(xfunc.FuncName(), "Завершение работы")
-}
-
-// Создание пустой базы. Удаляет таблицы CONNECTION и QUERY базы запросов, если были ранее, создает типовые с одним тестовым запросом
-func createEmptyQC() {
-	log.Printf("%v Создание пустой базы", xfunc.FuncName())
-
-	sqlCommand := ` 
-	DROP TABLE IF EXISTS CONNECTION;`
-	QB.DBExec(sqlCommand)
-
-	sqlCommand = `
-	CREATE TABLE IF NOT EXISTS CONNECTION (
-		ID INTEGER PRIMARY KEY AUTOINCREMENT,
-		NAME VARCHAR(255) NOT NULL,
-		DRIVER VARCHAR(255) NOT NULL,
-		DSN  VARCHAR(255) NOT NULL);`
-	QB.DBExec(sqlCommand)
-
-	sqlCommand = `
-	INSERT INTO CONNECTION (NAME, DRIVER, DSN) VALUES ('QC', 'sqlite3', '` + QB.DSN + `');`
-	QB.DBExec(sqlCommand)
-
-	sqlCommand = `
-	DROP TABLE IF EXISTS QUERY;`
-	QB.DBExec(sqlCommand)
-
-	sqlCommand = `
-	CREATE TABLE IF NOT EXISTS QUERY (
-		ID INTEGER PRIMARY KEY AUTOINCREMENT,
-		ID_CONNECTION INTEGER,
-		NAME VARCHAR(255) NOT NULL UNIQUE,
-		QUERY TEXT,
-		REM TEXT);`
-	QB.DBExec(sqlCommand)
-
-	sqlCommand = `
-	INSERT INTO QUERY (ID_CONNECTION, NAME, QUERY, REM) VALUES (1, 'TEST', 'SELECT * FROM QUERY', 'Тестовый запрос');`
-	QB.DBExec(sqlCommand)
 }
 
 // Определяет парамерты сервера, роутинг и обработчики, запускает сервер на указанном порту
@@ -84,10 +44,7 @@ func startServer(startOnPort string) {
 	log.Printf("%v Запуск сервера на порту %v", xfunc.FuncName(), startOnPort)
 	FileServer := http.FileServer(http.Dir("public"))
 	http.Handle("/public/", http.StripPrefix("/public/", FileServer))
-	http.HandleFunc("/queries", auth(queries))
-	http.HandleFunc("/query", auth(query))
-	http.HandleFunc("/connections", auth(connections))
-	http.HandleFunc("/connection", auth(connection))
+	http.HandleFunc("/empcenter", auth(empCenter))
 	http.ListenAndServe(":"+startOnPort, nil)
 }
 

@@ -22,7 +22,7 @@ type TDatabase struct {
 // Представление таблицы базы данных
 type TTable struct {
 	db       *TDatabase    // ссылка на родительскую БД
-	name     string        // наименоение таблицы
+	name     string        // наименоение таблицы, при необходимости Схема.Таблица
 	Data     TResultRows   // срез с данными
 	Dict     []TResultRows // карта срезов со словарями
 	TmpTable string        // имя временной таблицы для загрузки данных из CSV
@@ -128,7 +128,7 @@ func (database *TDatabase) DBQuery(sqlCode string) (result TResultRows) {
 // ---------------------------------------------------------------------------------------------------------------------------- РАБОТА С ДАННЫМИ (СРЕДНИЙ УРОВЕНЬ)
 
 // Ассоциирует объект TTable по наименованию реальной таблицы и БД
-func (tab *TTable) BindTable(tableName string, database *TDatabase) {
+func (tab *TTable) Bind(tableName string, database *TDatabase) {
 	log.Printf("%v Ассоциация таблицы %v в базе %v", FuncName(), tableName, database.Name)
 	tab.db = database
 	tab.name = tableName
@@ -143,10 +143,14 @@ func (tab *TTable) Read(id int) {
 	tab.Data = tab.db.DBQuery(sqlCode)
 }
 
-// Считывает все записи из таблицы и сохраняет результат в Data
-func (tab *TTable) ReadAll() {
+// Считывает все записи из таблицы и сохраняет результат в Data, если fetchRowsCount <= 0. Иначе считывает первые fetchRowsCount строк
+func (tab *TTable) ReadAll(fetchRowsCount int) {
+	fetchStatement := ""
+	if fetchRowsCount > 0 {
+		fetchStatement = " FETCH FIRST " + strconv.Itoa(fetchRowsCount) + " ROWS ONLY"
+	}
 	log.Printf("%v Чтение всех записей из %v", FuncName(), tab.name)
-	sqlCode := "SELECT * FROM " + tab.name
+	sqlCode := "SELECT * FROM " + tab.name + fetchStatement
 	tab.Data = tab.db.DBQuery(sqlCode)
 }
 

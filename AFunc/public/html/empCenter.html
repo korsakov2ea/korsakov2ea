@@ -1,0 +1,60 @@
+<!doctype html>
+{{template "html"}}
+
+<head>
+  <!-- Required meta tags -->
+  {{template "meta"}}
+  <!-- Bootstrap CSS -->
+  {{template "styles"}}
+
+  {{template "title"}}
+</head>
+
+<body>
+  {{template "navbar"}}
+  <div class="container-fluid">
+
+    <!--ЗАГОЛОВОК-->
+    <div class="row mt-3">
+      <div class="col">
+        <p class="text-center font-weight-bold">СОЕДИНЕНИЯ</p>
+      </div>
+    </div>
+    
+    {{if .Data }}
+    <div class="row">
+      <div class="col-sm">
+        <table class="table table-sm">
+          <thead class="thead-light ">
+            <tr>
+              <th scope="col">REP_UP_FIO</th>
+              <th scope="col">NPERS</th>
+              <th scope="col">D_PRIZN</th>
+              <th scope="col">D_RESH_OUT</th>
+              <th scope="col">D_LD</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{range .Data }}
+            <tr>
+              <td>{{index .ByName "REP_UP_FIO"}}</a></td>
+              <td>{{index .ByName "NPERS"}}</td>
+              <td>{{index .ByName "D_PRIZN"}}</td>
+              <td>{{index .ByName "D_RESH_OUT"}}</td>
+              <td>{{index .ByName "D_LD"}}</td>
+            </tr>
+            {{end}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {{end}}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {{template "scripts"}}
+  </div>
+</body>
+
+</html>

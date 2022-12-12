@@ -1888,3 +1888,56 @@ created by net/http.(*Server).Serve
 2022/12/12 16:37:32 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\queries.html
 2022/12/12 16:37:32 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\queries.html
 2022/12/12 16:37:32 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:46:20 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 16:46:20 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 16:46:20 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:46:20 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 16:46:20 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 16:46:20 korsakov2ea/xfunc.(*TTable).Bind Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 16:46:20 korsakov2ea/xfunc.(*TTable).Bind Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 16:46:20 main.startServer Запуск сервера на порту 4444
+2022/12/12 16:46:37 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:46:37 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:46:37 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:46:37 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 16:46:37 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 16:46:37 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 16:46:37 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 16:46:37 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 16:46:37 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 16:46:37 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 16:46:37 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 16:46:37 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:46:39 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:46:39 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:46:39 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:46:39 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 16:46:39 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 16:46:39 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 16:46:39 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 16:46:39 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 16:46:39 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 16:46:39 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 16:46:39 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 16:46:39 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:46:40 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:46:40 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:46:40 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:46:40 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 16:46:40 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 16:46:40 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 16:46:40 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 16:46:40 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 16:46:40 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 16:46:40 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 16:46:40 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 16:46:40 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто

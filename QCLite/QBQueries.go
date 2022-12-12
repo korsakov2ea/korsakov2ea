@@ -29,7 +29,7 @@ func query(w http.ResponseWriter, r *http.Request) {
 		switch {
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "cancel":
-			QBQuery.ReadAll()
+			QBQuery.ReadAll(0)
 			xfunc.RenderPage(w, "queries.html", "common.html", QBQuery)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "create":
@@ -39,7 +39,7 @@ func query(w http.ResponseWriter, r *http.Request) {
 			newQuery["REM"] = strings.Replace(r.FormValue("Rem"), "'", "''", -1)
 			newQuery["ID_CONNECTION"] = r.FormValue("Id_connection")
 			QBQuery.Create(newQuery)
-			QBQuery.ReadAll()
+			QBQuery.ReadAll(0)
 			xfunc.RenderPage(w, "queries.html", "common.html", QBQuery)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "update":
@@ -49,24 +49,24 @@ func query(w http.ResponseWriter, r *http.Request) {
 			newQuery["REM"] = strings.Replace(r.FormValue("Rem"), "'", "''", -1)
 			newQuery["ID_CONNECTION"] = r.FormValue("Id_connection")
 			QBQuery.Update(id, newQuery)
-			QBQuery.ReadAll()
+			QBQuery.ReadAll(0)
 			xfunc.RenderPage(w, "queries.html", "common.html", QBQuery)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "delete":
 			QBQuery.Delete(id)
-			QBQuery.ReadAll()
+			QBQuery.ReadAll(0)
 			xfunc.RenderPage(w, "queries.html", "common.html", QBQuery)
 
 		case r.Method == "GET" && r.FormValue("mode") == "add":
 			QBQuery.Data = nil
-			QBConnection.ReadAll()
+			QBConnection.ReadAll(0)
 			QBQuery.Dict = nil
 			QBQuery.Dict = append(QBQuery.Dict, QBConnection.Data)
 			xfunc.RenderPage(w, "query.html", "common.html", QBQuery)
 
 		case r.Method == "GET" && r.FormValue("mode") == "view":
 			QBQuery.Read(id)
-			QBConnection.ReadAll()
+			QBConnection.ReadAll(0)
 			QBQuery.Dict = nil
 			QBQuery.Dict = append(QBQuery.Dict, QBConnection.Data)
 			xfunc.RenderPage(w, "query.html", "common.html", QBQuery)
