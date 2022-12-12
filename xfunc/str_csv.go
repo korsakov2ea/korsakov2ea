@@ -1,4 +1,4 @@
-package x_func
+package xfunc
 
 import (
 	"crypto/sha1"

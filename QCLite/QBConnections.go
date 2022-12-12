@@ -1,7 +1,7 @@
 package main
 
 import (
-	"korsakov2ea/x_func"
+	"korsakov2ea/xfunc"
 	"log"
 	"net/http"
 	"strconv"
@@ -9,25 +9,25 @@ import (
 
 // connections - обработчик HTTP (список соединений)
 func connections(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v >>>>> Вызов обработчика HTTP запроса", x_func.FuncName())
+	log.Printf("%v >>>>> Вызов обработчика HTTP запроса", xfunc.FuncName())
 	QBConnection.ReadAll()
-	renderPage(w, "connections.html", "common.html", QBConnection)
+	xfunc.RenderPage(w, "connections.html", "common.html", QBConnection)
 }
 
 // connection - обработчик HTTP (одиночное соединение)
 func connection(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v >>>>> Вызов обработчика HTTP запроса", x_func.FuncName())
+	log.Printf("%v >>>>> Вызов обработчика HTTP запроса", xfunc.FuncName())
 
 	id, err := strconv.Atoi(r.FormValue("ID"))
 	if err != nil && r.Method == "POST" && (r.FormValue("submitBtn") == "Update" || r.FormValue("submitBtn") == "Delete") {
-		log.Printf("%v Ошибка преобразования ID = %v из GET запроса в число", x_func.FuncName(), r.FormValue("ID"))
+		log.Printf("%v Ошибка преобразования ID = %v из GET запроса в число", xfunc.FuncName(), r.FormValue("ID"))
 	} else {
 
 		switch {
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Cancel":
 			QBConnection.ReadAll()
-			renderPage(w, "connections.html", "common.html", QBConnection)
+			xfunc.RenderPage(w, "connections.html", "common.html", QBConnection)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Create":
 			newConnection := make(map[string]string)
@@ -36,7 +36,7 @@ func connection(w http.ResponseWriter, r *http.Request) {
 			newConnection["DSN"] = r.FormValue("DSN")
 			QBConnection.Create(newConnection)
 			QBConnection.ReadAll()
-			renderPage(w, "connections.html", "common.html", QBConnection)
+			xfunc.RenderPage(w, "connections.html", "common.html", QBConnection)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Update":
 			newConnection := make(map[string]string)
@@ -45,20 +45,20 @@ func connection(w http.ResponseWriter, r *http.Request) {
 			newConnection["DSN"] = r.FormValue("DSN")
 			QBConnection.Update(id, newConnection)
 			QBConnection.ReadAll()
-			renderPage(w, "connections.html", "common.html", QBConnection)
+			xfunc.RenderPage(w, "connections.html", "common.html", QBConnection)
 
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Delete":
 			QBConnection.Delete(id)
 			QBConnection.ReadAll()
-			renderPage(w, "connections.html", "common.html", QBConnection)
+			xfunc.RenderPage(w, "connections.html", "common.html", QBConnection)
 
 		case r.Method == "GET" && r.FormValue("mode") == "add":
 			QBConnection.Data = nil
-			renderPage(w, "connection.html", "common.html", QBConnection)
+			xfunc.RenderPage(w, "connection.html", "common.html", QBConnection)
 
 		case r.Method == "GET" && r.FormValue("mode") == "view":
 			QBConnection.Read(id)
-			renderPage(w, "connection.html", "common.html", QBConnection)
+			xfunc.RenderPage(w, "connection.html", "common.html", QBConnection)
 
 		default:
 
@@ -68,30 +68,30 @@ func connection(w http.ResponseWriter, r *http.Request) {
 
 // Получение id соединения по id запроса
 func GetIdConnFromQuery(id int) int {
-	log.Printf("%v Получение ID соединения для запроса с ID %v", x_func.FuncName(), id)
+	log.Printf("%v Получение ID соединения для запроса с ID %v", xfunc.FuncName(), id)
 	connectionResult := QB.DBQuery("SELECT ID_CONNECTION FROM QUERY WHERE ID=" + strconv.Itoa(id))
 	connectionResultCount := len(connectionResult)
 	idConn := -1
 	if connectionResultCount != 0 {
 		id, err := strconv.Atoi(connectionResult[0].ByName["ID_CONNECTION"])
 		if err != nil {
-			log.Println(x_func.FuncName(), "Ошибка преобразования qcStringMap[0][\"ID_CONNECTION\"] = %v в число", connectionResult[0].ByName["ID_CONNECTION"])
+			log.Println(xfunc.FuncName(), "Ошибка преобразования qcStringMap[0][\"ID_CONNECTION\"] = %v в число", connectionResult[0].ByName["ID_CONNECTION"])
 		} else {
 			idConn = id
 		}
 	} else {
-		log.Println(x_func.FuncName(), "Нет строки запроса с ID -", id)
+		log.Println(xfunc.FuncName(), "Нет строки запроса с ID -", id)
 	}
 	return idConn
 }
 
 // Выполняет SQL команду в базе, по соединению c указанным id
 func executeSQLConn(sqlCode string, id int) {
-	log.Printf("%v \n\tВыполнение SQL команды \n%v", x_func.FuncName(), sqlCode)
+	log.Printf("%v \n\tВыполнение SQL команды \n%v", xfunc.FuncName(), sqlCode)
 	connectionRows := QB.DBQuery("SELECT DRIVER, DSN, NAME FROM CONNECTION WHERE ID=" + strconv.Itoa(id))
 	connectionRowsCount := len(connectionRows)
 
-	var targetConn x_func.TDatabase //соединение для выполнения запроса из базы
+	var targetConn xfunc.TDatabase //соединение для выполнения запроса из базы
 
 	if connectionRowsCount != 0 {
 		targetConn.Driver = connectionRows[0].ByName["DRIVER"]
@@ -104,6 +104,6 @@ func executeSQLConn(sqlCode string, id int) {
 		targetConn.DBExec(sqlCode)
 
 	} else {
-		log.Printf("%v \n\tНет соединения с ID = %v", x_func.FuncName(), id)
+		log.Printf("%v \n\tНет соединения с ID = %v", xfunc.FuncName(), id)
 	}
 }

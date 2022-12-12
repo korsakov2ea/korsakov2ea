@@ -1,94 +1,1890 @@
 
-2022/12/08 11:42:30 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
-2022/12/08 11:42:30 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
-2022/12/08 11:42:30 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
-2022/12/08 11:42:30 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
-2022/12/08 11:42:30 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
-2022/12/08 11:42:30 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
-2022/12/08 11:42:30 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/08 11:42:30 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/08 11:42:30 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/08 11:42:30 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/08 11:42:30 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/08 11:42:30 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/08 11:42:30 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/08 11:42:30 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
 2022/12/08 11:42:30 main.startServer Запуск сервера на порту 4444
 2022/12/08 11:42:38 main.loginPage.func1 Аутентификация/авторизация пользователя  по cookie не удалась
 2022/12/08 11:42:38 main.renderPage Парсинг шаблона страницы public\html\login.html
 2022/12/08 11:42:38 main.renderPage Построение шаблона страницы public\html\login.html
-2022/12/08 12:02:50 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
-2022/12/08 12:02:50 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
-2022/12/08 12:02:50 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
-2022/12/08 12:02:50 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
-2022/12/08 12:02:50 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
-2022/12/08 12:02:50 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
-2022/12/08 12:02:50 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/08 12:02:50 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/08 12:02:50 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/08 12:02:50 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/08 12:02:50 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/08 12:02:50 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/08 12:02:50 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/08 12:02:50 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
 2022/12/08 12:02:50 main.startServer Запуск сервера на порту 4444
 2022/12/08 12:03:09 main.renderPage Парсинг шаблона страницы public\html\login.html
 2022/12/08 12:03:09 main.renderPage Построение шаблона страницы public\html\login.html
 2022/12/08 12:03:27 main.loginPage.func1 Аутентификация пользователя db2admin по паролю
-2022/12/08 12:03:28 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
-2022/12/08 12:03:28 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
-2022/12/08 12:03:28 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
-2022/12/08 12:03:28 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+2022/12/08 12:03:28 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/08 12:03:28 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/08 12:03:28 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/08 12:03:28 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
 	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
-2022/12/08 12:03:28 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+2022/12/08 12:03:28 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
 	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
-2022/12/08 12:03:28 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/08 12:03:28 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
 2022/12/08 12:03:30 main.loginPage.func1 Авторизация пользователя db2admin пройдена
 2022/12/08 12:03:32 main.queries >>>>> Вызов обработчика HTTP запроса
-2022/12/08 12:03:32 korsakov2ea/x_func.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
-2022/12/08 12:03:32 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+2022/12/08 12:03:32 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/08 12:03:32 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
 	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
 2022/12/08 12:03:32 main.renderPage Парсинг шаблона страницы public\html\queries.html
 2022/12/08 12:03:32 main.renderPage Построение шаблона страницы public\html\queries.html
 2022/12/08 12:04:15 main.renderPage Парсинг шаблона страницы public\html\login.html
 2022/12/08 12:04:15 main.renderPage Построение шаблона страницы public\html\login.html
 2022/12/08 12:04:20 main.loginPage.func1 Аутентификация пользователя db2admin по паролю
-2022/12/08 12:04:20 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
-2022/12/08 12:04:20 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
-2022/12/08 12:04:20 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
-2022/12/08 12:04:20 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+2022/12/08 12:04:20 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/08 12:04:20 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/08 12:04:20 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/08 12:04:20 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
 	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
-2022/12/08 12:04:20 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/08 12:04:20 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
 2022/12/08 12:04:20 main.loginPage.func1 Аутентификация пользователя db2admin не выполнена
 2022/12/08 12:04:20 main.renderPage Парсинг шаблона страницы public\html\login.html
 2022/12/08 12:04:20 main.renderPage Построение шаблона страницы public\html\login.html
 2022/12/08 12:04:34 main.loginPage.func1 Аутентификация пользователя dsf по паролю
-2022/12/08 12:04:34 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
-2022/12/08 12:04:34 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
-2022/12/08 12:04:34 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
-2022/12/08 12:04:34 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+2022/12/08 12:04:34 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/08 12:04:34 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/08 12:04:34 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/08 12:04:34 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
 	SELECT * FROM CS.OPERATOR WHERE LOGIN='dsf'
-2022/12/08 12:04:34 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/08 12:04:34 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
 2022/12/08 12:04:34 main.loginPage.func1 Аутентификация пользователя dsf не выполнена
 2022/12/08 12:04:34 main.renderPage Парсинг шаблона страницы public\html\login.html
 2022/12/08 12:04:34 main.renderPage Построение шаблона страницы public\html\login.html
-2022/12/08 12:10:58 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
-2022/12/08 12:10:58 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
-2022/12/08 12:10:58 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
-2022/12/08 12:10:58 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
-2022/12/08 12:10:58 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
-2022/12/08 12:10:58 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
-2022/12/08 12:10:58 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/08 12:10:58 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/08 12:10:58 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/08 12:10:58 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/08 12:10:58 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/08 12:10:58 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/08 12:10:58 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/08 12:10:58 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
 2022/12/08 12:10:58 main.startServer Запуск сервера на порту 4444
-2022/12/08 13:30:43 korsakov2ea/x_func.StartLogging -------------------------------------------------------------------------------------------
-2022/12/08 13:30:43 korsakov2ea/x_func.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
-2022/12/08 13:30:43 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
-2022/12/08 13:30:43 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
-2022/12/08 13:30:43 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
-2022/12/08 13:30:43 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
-2022/12/08 13:30:43 korsakov2ea/x_func.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/08 13:30:43 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/08 13:30:43 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\log\log.txt
+2022/12/08 13:30:43 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/08 13:30:43 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/08 13:30:43 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/08 13:30:43 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/08 13:30:43 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
 2022/12/08 13:30:43 main.startServer Запуск сервера на порту 4444
 2022/12/08 13:31:10 main.renderPage Парсинг шаблона страницы public\html\login.html
 2022/12/08 13:31:10 main.renderPage Построение шаблона страницы public\html\login.html
 2022/12/08 13:31:13 main.auth.func1 Аутентификация пользователя db2admin по паролю
-2022/12/08 13:31:13 korsakov2ea/x_func.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
-2022/12/08 13:31:13 korsakov2ea/x_func.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
-2022/12/08 13:31:14 korsakov2ea/x_func.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
-2022/12/08 13:31:14 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+2022/12/08 13:31:13 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea-1\QCLite\config.ini
+2022/12/08 13:31:13 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/08 13:31:14 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/08 13:31:14 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
 	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
-2022/12/08 13:31:14 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+2022/12/08 13:31:14 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
 	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
-2022/12/08 13:31:14 korsakov2ea/x_func.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/08 13:31:14 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
 2022/12/08 13:31:14 main.auth.func1 Авторизация пользователя db2admin пройдена
 2022/12/08 13:31:14 main.connections >>>>> Вызов обработчика HTTP запроса
-2022/12/08 13:31:14 korsakov2ea/x_func.(*TTable).ReadAll Чтение всех записей из CONNECTION
-2022/12/08 13:31:14 korsakov2ea/x_func.(*TDatabase).DBQuery Выполнение SQL запроса:
+2022/12/08 13:31:14 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/08 13:31:14 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
 	SELECT * FROM CONNECTION
 2022/12/08 13:31:14 main.renderPage Парсинг шаблона страницы public\html\connections.html
 2022/12/08 13:31:14 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 14:05:12 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 14:05:12 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 14:05:12 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:05:12 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 14:05:12 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 14:05:12 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 14:05:12 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 14:05:12 main.startServer Запуск сервера на порту 4444
+2022/12/12 14:05:21 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:05:21 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:05:23 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 14:05:23 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:05:23 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:05:23 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:05:23 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 14:05:23 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 14:05:23 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:05:23 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 14:05:23 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 14:05:23 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 14:05:23 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 14:05:23 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 14:05:23 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 14:05:25 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:05:25 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:05:25 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:05:25 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='R8P8nM+uAwPorR9N9dsbLXlgpkg='
+2022/12/12 14:05:25 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:05:25 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:05:25 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:05:27 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 14:05:27 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:05:27 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:05:27 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:05:27 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 14:05:27 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 14:05:27 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:05:27 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 14:05:27 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 14:05:27 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 14:05:27 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 14:05:27 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 14:05:27 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 14:05:29 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:05:29 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:05:29 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:05:29 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='R8P8nM+uAwPorR9N9dsbLXlgpkg='
+2022/12/12 14:05:29 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:05:29 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:05:29 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:05:30 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 14:05:30 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:05:30 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:05:30 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:05:30 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 14:05:30 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 14:05:30 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:05:30 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 14:05:30 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 14:05:30 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 14:05:30 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 14:05:30 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 14:05:30 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 14:05:33 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:05:33 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:05:33 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:05:33 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='R8P8nM+uAwPorR9N9dsbLXlgpkg='
+2022/12/12 14:05:33 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:05:33 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:05:33 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:05:34 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 14:05:34 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:05:34 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:05:34 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:05:34 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 14:05:34 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 14:05:34 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:05:34 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 14:05:34 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 14:05:34 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 14:05:34 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 14:05:34 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 14:05:34 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 14:05:39 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:05:39 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:05:39 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:05:39 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='R8P8nM+uAwPorR9N9dsbLXlgpkg='
+2022/12/12 14:05:39 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:05:39 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:05:39 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:05:58 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:05:58 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:06:01 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 14:06:01 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:06:01 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:06:01 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:06:01 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 14:06:01 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 14:06:01 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:06:01 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 14:06:01 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 14:06:01 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 14:06:01 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 14:06:01 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 14:06:01 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 14:06:08 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:06:08 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:06:08 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:06:08 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='R8P8nM+uAwPorR9N9dsbLXlgpkg='
+2022/12/12 14:06:08 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:06:08 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:06:08 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:06:58 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 14:06:58 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:06:58 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:06:58 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:06:58 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 14:06:58 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 14:06:58 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:06:58 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 14:06:58 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 14:06:58 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 14:06:58 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 14:06:58 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 14:06:58 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 14:08:57 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 14:08:57 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 14:08:57 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:08:57 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 14:08:57 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 14:08:57 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 14:08:57 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 14:08:57 main.startServer Запуск сервера на порту 4444
+2022/12/12 14:10:10 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:10:10 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:10:10 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:10:10 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='R8P8nM+uAwPorR9N9dsbLXlgpkg='
+2022/12/12 14:10:10 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:10:10 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:10:10 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:10:41 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 14:10:43 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:10:43 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:10:43 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:10:43 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 14:10:43 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 14:10:43 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:10:48 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 14:10:55 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 14:10:55 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 14:10:55 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 14:10:55 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 14:10:55 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 14:32:23 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:32:23 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:32:23 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:32:23 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='R8P8nM+uAwPorR9N9dsbLXlgpkg='
+2022/12/12 14:32:23 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:32:23 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:32:23 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:32:58 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 14:32:59 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:32:59 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:32:59 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:32:59 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 14:32:59 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 14:32:59 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:33:07 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 14:33:58 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 14:33:58 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 14:33:58 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 14:33:58 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 14:33:58 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 14:36:57 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 14:36:57 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 14:36:57 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:36:57 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 14:36:57 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 14:36:57 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 14:36:57 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 14:36:57 main.startServer Запуск сервера на порту 4444
+2022/12/12 14:37:31 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:37:31 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:37:31 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:37:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='R8P8nM+uAwPorR9N9dsbLXlgpkg='
+2022/12/12 14:37:31 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:37:31 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:37:31 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:37:40 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:37:40 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:37:40 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:37:40 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:37:40 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:37:40 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:37:40 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='R8P8nM+uAwPorR9N9dsbLXlgpkg='
+2022/12/12 14:37:40 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='R8P8nM+uAwPorR9N9dsbLXlgpkg='
+2022/12/12 14:37:40 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:37:40 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:37:40 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:37:40 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:37:40 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:37:40 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:39:07 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:39:07 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:39:07 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:39:07 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='R8P8nM+uAwPorR9N9dsbLXlgpkg='
+2022/12/12 14:39:07 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:39:12 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:39:12 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:39:37 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 14:39:37 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 14:39:37 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:39:37 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 14:39:37 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 14:39:37 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 14:39:37 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 14:39:37 main.startServer Запуск сервера на порту 4444
+2022/12/12 14:41:10 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:41:10 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 14:41:10 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 14:41:10 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='R8P8nM+uAwPorR9N9dsbLXlgpkg='
+2022/12/12 14:41:10 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 14:41:10 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 14:41:10 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 14:42:25 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 14:42:25 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 14:42:25 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 14:42:25 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 14:42:25 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 14:42:25 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 14:42:25 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 14:42:25 main.startServer Запуск сервера на порту 4444
+2022/12/12 15:28:37 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 15:28:38 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 15:28:38 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:28:38 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 15:28:38 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 15:28:38 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 15:28:38 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 15:28:38 main.startServer Запуск сервера на порту 4444
+2022/12/12 15:28:42 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:28:42 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:28:43 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 15:28:43 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:28:43 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:28:43 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:28:43 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:28:43 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 15:28:43 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:28:43 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 15:28:43 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 15:28:43 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 15:28:43 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 15:28:43 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 15:28:43 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 15:28:45 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:28:45 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:28:45 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:28:45 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:28:45 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:28:45 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:28:45 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:28:47 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:28:47 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:28:47 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:28:47 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:28:47 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:28:47 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:28:47 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:30:23 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 15:30:23 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 15:30:23 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:30:23 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 15:30:23 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 15:30:23 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 15:30:23 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 15:30:23 main.startServer Запуск сервера на порту 4444
+2022/12/12 15:30:23 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:30:23 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:30:23 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:30:23 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:30:23 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:30:23 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:30:23 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:30:25 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:30:25 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:30:25 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:30:25 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:30:25 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:30:25 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:30:25 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:30:27 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:30:27 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:30:27 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:30:27 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:30:27 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:30:27 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:30:27 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:30:28 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:30:28 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:30:28 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:30:28 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:30:28 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:30:28 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:30:28 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:30:29 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:30:29 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:30:29 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:30:29 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:30:29 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:30:29 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:30:29 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:30:31 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:30:31 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:30:31 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:30:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:30:31 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:30:31 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:30:31 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:30:42 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:30:42 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:30:42 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:30:42 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:30:42 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:32:05 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 15:32:05 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 15:32:05 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:32:05 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 15:32:05 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 15:32:05 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 15:32:05 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 15:32:05 main.startServer Запуск сервера на порту 4444
+2022/12/12 15:32:09 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:32:09 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:32:09 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:32:09 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:32:09 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:32:09 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:32:09 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:32:10 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 15:32:10 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:32:10 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:32:10 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:32:10 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:32:10 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 15:32:10 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:32:10 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 15:32:10 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 15:32:10 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 15:32:10 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 15:32:10 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 15:32:10 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 15:32:12 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:32:12 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:32:12 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:32:12 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:32:12 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:32:12 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:32:12 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:32:13 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 15:32:13 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:32:13 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:32:13 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:32:13 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:32:13 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 15:32:13 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:32:13 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 15:32:13 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 15:32:13 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 15:32:13 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 15:32:13 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 15:32:13 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 15:32:15 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:32:15 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:32:15 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:32:15 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:32:15 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:32:15 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:32:15 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:32:33 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 15:32:35 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:32:35 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:32:35 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:32:36 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:32:36 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 15:32:36 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:32:39 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 15:32:48 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 15:32:48 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 15:32:48 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 15:32:48 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 15:32:48 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 15:33:49 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:33:49 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:33:49 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:33:49 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:33:49 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:34:17 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:34:17 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:34:17 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:34:17 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:34:17 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:34:17 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:34:17 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:34:17 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:34:17 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:34:30 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 15:34:30 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:34:30 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:34:30 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:34:30 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:34:30 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 15:34:30 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:34:30 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 15:34:30 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 15:34:30 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 15:34:30 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 15:34:30 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 15:34:30 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 15:34:37 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:34:37 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:34:37 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:34:37 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:34:37 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:34:37 main.renderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 15:34:37 main.renderPage Построение шаблона страницы public\html\login.html
+2022/12/12 15:35:21 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 15:35:22 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:35:22 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:35:22 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:35:22 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:35:22 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 15:35:22 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:35:29 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 15:35:34 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 15:35:34 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 15:35:34 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 15:35:34 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 15:35:34 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 15:36:08 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:36:08 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:36:08 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:36:14 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:36:58 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:43:05 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 15:43:05 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 15:43:05 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:43:05 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 15:43:05 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 15:43:05 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 15:43:05 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 15:43:05 main.startServer Запуск сервера на порту 4444
+2022/12/12 15:43:10 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:43:10 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:43:10 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 15:43:10 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 15:43:10 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 15:43:10 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:43:10 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 15:43:10 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 15:43:10 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 15:43:10 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 15:43:10 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 15:43:12 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:43:12 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:43:12 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:43:12 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:43:12 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 15:43:12 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:43:12 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 15:43:12 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 15:43:12 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 15:43:12 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 15:43:12 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 15:43:12 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 15:43:14 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:43:14 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:43:14 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:43:14 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:43:14 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 15:43:14 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:43:14 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 15:43:14 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 15:43:14 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 15:43:14 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 15:43:14 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 15:43:14 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 15:43:15 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:43:15 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:43:15 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:43:15 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:43:15 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 15:43:15 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:43:15 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 15:43:15 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 15:43:15 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 15:43:15 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 15:43:15 main.renderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 15:43:15 main.renderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 15:43:16 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 15:43:16 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 15:43:16 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 15:43:16 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 15:43:16 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 15:43:16 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 15:43:16 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 15:43:16 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 15:43:16 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 15:43:16 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 15:43:16 main.renderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 15:43:16 main.renderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 16:27:09 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 16:27:09 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 16:27:09 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 16:27:09 main.startServer Запуск сервера на порту 4444
+2022/12/12 16:27:09 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:27:09 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:27:09 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:27:09 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:27:09 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:27:18 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 16:27:18 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 16:27:19 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:27:19 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:27:19 http: panic serving [::1]:58787: runtime error: invalid memory address or nil pointer dereference
+goroutine 37 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00019e500, {0xc00014d650, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00014d635, 0x8}, {0xc00014d647, 0x8}, 0x0, 0xc00019e500)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc000152000}, 0xc00013c300)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c060, {0x13fb86090, 0xc000152000}, 0xc00013c300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc000152000}, 0xc00013c300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc000152000}, 0xc00013c300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000204640, {0x13fb86518, 0xc0000b6b40})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:27:19 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:27:19 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:27:19 http: panic serving [::1]:58788: runtime error: invalid memory address or nil pointer dereference
+goroutine 23 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00019e500, {0xc0000877a0, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc000087785, 0x8}, {0xc000087797, 0x8}, 0x0, 0xc00019e500)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc0000fa0e0}, 0xc00013c400)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c060, {0x13fb86090, 0xc0000fa0e0}, 0xc00013c400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc0000fa0e0}, 0xc00013c400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc0000fa0e0}, 0xc00013c400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000dcf00, {0x13fb86518, 0xc00004c380})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:27:19 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:27:19 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:27:19 http: panic serving [::1]:58793: runtime error: invalid memory address or nil pointer dereference
+goroutine 38 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00019e500, {0xc000198150, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc000198135, 0x8}, {0xc000198147, 0x8}, 0x0, 0xc00019e500)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc000222000}, 0xc0001a9b00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c060, {0x13fb86090, 0xc000222000}, 0xc0001a9b00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc000222000}, 0xc0001a9b00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc000222000}, 0xc0001a9b00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0002046e0, {0x13fb86518, 0xc00019ef40})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:27:19 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:27:19 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:27:19 http: panic serving [::1]:58794: runtime error: invalid memory address or nil pointer dereference
+goroutine 40 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00019e500, {0xc000198210, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc0001981f5, 0x8}, {0xc000198207, 0x8}, 0x0, 0xc00019e500)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc0002220e0}, 0xc0001a9c00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c060, {0x13fb86090, 0xc0002220e0}, 0xc0001a9c00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc0002220e0}, 0xc0001a9c00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc0002220e0}, 0xc0001a9c00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000204780, {0x13fb86518, 0xc00019f080})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:27:24 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 16:27:24 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 16:27:25 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:27:25 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:27:25 http: panic serving [::1]:58796: runtime error: invalid memory address or nil pointer dereference
+goroutine 42 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00019e500, {0xc000087890, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc000087875, 0x8}, {0xc000087887, 0x8}, 0x0, 0xc00019e500)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc0000fa2a0}, 0xc0001a9e00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c060, {0x13fb86090, 0xc0000fa2a0}, 0xc0001a9e00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc0000fa2a0}, 0xc0001a9e00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc0000fa2a0}, 0xc0001a9e00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000204820, {0x13fb86518, 0xc0000b7440})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:27:25 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:27:25 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:27:25 http: panic serving [::1]:58797: runtime error: invalid memory address or nil pointer dereference
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00019e500, {0xc000087950, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc000087935, 0x8}, {0xc000087947, 0x8}, 0x0, 0xc00019e500)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc0000fa380}, 0xc0001a9f00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c060, {0x13fb86090, 0xc0000fa380}, 0xc0001a9f00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc0000fa380}, 0xc0001a9f00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc0000fa380}, 0xc0001a9f00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000017c0, {0x13fb86518, 0xc00019f880})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:27:25 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:27:25 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:27:25 http: panic serving [::1]:58798: runtime error: invalid memory address or nil pointer dereference
+goroutine 29 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00019e500, {0xc000087a10, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc0000879f5, 0x8}, {0xc000087a07, 0x8}, 0x0, 0xc00019e500)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc0000fa460}, 0xc0000ab600)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c060, {0x13fb86090, 0xc0000fa460}, 0xc0000ab600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc0000fa460}, 0xc0000ab600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc0000fa460}, 0xc0000ab600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000dcfa0, {0x13fb86518, 0xc0000b7700})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:27:36 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 16:27:36 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 16:27:48 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:27:48 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:27:48 http: panic serving [::1]:58806: runtime error: invalid memory address or nil pointer dereference
+goroutine 31 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b6640, {0xc000087aa0, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc000087a85, 0x8}, {0xc000087a97, 0x8}, 0x0, 0xc0000b6640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc0000fa540}, 0xc00013c600)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c000, {0x13fb86090, 0xc0000fa540}, 0xc00013c600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc0000fa540}, 0xc00013c600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc0000fa540}, 0xc00013c600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000dd040, {0x13fb86518, 0xc00004c500})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:27:48 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:27:48 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:27:48 http: panic serving [::1]:58807: runtime error: invalid memory address or nil pointer dereference
+goroutine 10 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b6640, {0xc000087b30, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc000087b15, 0x8}, {0xc000087b27, 0x8}, 0x0, 0xc0000b6640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc0000fa620}, 0xc000266100)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c000, {0x13fb86090, 0xc0000fa620}, 0xc000266100)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc0000fa620}, 0xc000266100)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc0000fa620}, 0xc000266100)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000019a0, {0x13fb86518, 0xc00019fa80})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:27:48 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:27:48 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:27:48 http: panic serving [::1]:58813: runtime error: invalid memory address or nil pointer dereference
+goroutine 11 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b6640, {0xc00014d710, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00014d6f5, 0x8}, {0xc00014d707, 0x8}, 0x0, 0xc0000b6640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc0001521c0}, 0xc00013c700)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c000, {0x13fb86090, 0xc0001521c0}, 0xc00013c700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc0001521c0}, 0xc00013c700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc0001521c0}, 0xc00013c700)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000001a40, {0x13fb86518, 0xc00004cb40})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:28:21 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 16:28:21 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 16:28:30 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:28:30 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:28:30 http: panic serving [::1]:58814: runtime error: invalid memory address or nil pointer dereference
+goroutine 50 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b6640, {0xc00014d7d0, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00014d7b5, 0x8}, {0xc00014d7c7, 0x8}, 0x0, 0xc0000b6640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc0001522a0}, 0xc0000ab800)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c000, {0x13fb86090, 0xc0001522a0}, 0xc0000ab800)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc0001522a0}, 0xc0000ab800)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc0001522a0}, 0xc0000ab800)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000dd0e0, {0x13fb86518, 0xc00004cbc0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:28:30 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:28:30 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:28:30 http: panic serving [::1]:58834: runtime error: invalid memory address or nil pointer dereference
+goroutine 51 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b6640, {0xc00014d860, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00014d845, 0x8}, {0xc00014d857, 0x8}, 0x0, 0xc0000b6640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc000152380}, 0xc00013ca00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c000, {0x13fb86090, 0xc000152380}, 0xc00013ca00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc000152380}, 0xc00013ca00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc000152380}, 0xc00013ca00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000dd2c0, {0x13fb86518, 0xc00004cdc0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:28:30 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:28:30 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:28:30 http: panic serving [::1]:58843: runtime error: invalid memory address or nil pointer dereference
+goroutine 47 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b6640, {0xc00014d8f0, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00014d8d5, 0x8}, {0xc00014d8e7, 0x8}, 0x0, 0xc0000b6640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc000152460}, 0xc000266200)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c000, {0x13fb86090, 0xc000152460}, 0xc000266200)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc000152460}, 0xc000266200)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc000152460}, 0xc000266200)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000204a00, {0x13fb86518, 0xc00019fbc0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:28:30 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:28:30 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:28:30 http: panic serving [::1]:58844: runtime error: invalid memory address or nil pointer dereference
+goroutine 48 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b6640, {0xc00014d980, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00014d965, 0x8}, {0xc00014d977, 0x8}, 0x0, 0xc0000b6640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc000152540}, 0xc000266300)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c000, {0x13fb86090, 0xc000152540}, 0xc000266300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc000152540}, 0xc000266300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc000152540}, 0xc000266300)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000204aa0, {0x13fb86518, 0xc00019fc40})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:28:32 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 16:28:32 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 16:28:34 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:28:34 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:28:34 http: panic serving [::1]:58846: runtime error: invalid memory address or nil pointer dereference
+goroutine 67 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b6640, {0xc000087bf0, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc000087bd5, 0x8}, {0xc000087be7, 0x8}, 0x0, 0xc0000b6640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc0000fa700}, 0xc0000ab900)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c000, {0x13fb86090, 0xc0000fa700}, 0xc0000ab900)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc0000fa700}, 0xc0000ab900)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc0000fa700}, 0xc0000ab900)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000001ae0, {0x13fb86518, 0xc00004d180})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:28:34 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:28:34 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:28:34 http: panic serving [::1]:58847: runtime error: invalid memory address or nil pointer dereference
+goroutine 71 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b6640, {0xc00014daa0, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00014da85, 0x8}, {0xc00014da97, 0x8}, 0x0, 0xc0000b6640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc000152700}, 0xc0000aba00)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c000, {0x13fb86090, 0xc000152700}, 0xc0000aba00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc000152700}, 0xc0000aba00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc000152700}, 0xc0000aba00)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000001cc0, {0x13fb86518, 0xc0000b7fc0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:28:34 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:28:34 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:28:34 http: panic serving [::1]:58849: runtime error: invalid memory address or nil pointer dereference
+goroutine 53 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b6640, {0xc00014db30, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00014db15, 0x8}, {0xc00014db27, 0x8}, 0x0, 0xc0000b6640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc0001527e0}, 0xc000266400)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c000, {0x13fb86090, 0xc0001527e0}, 0xc000266400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc0001527e0}, 0xc000266400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc0001527e0}, 0xc000266400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000dd360, {0x13fb86518, 0xc00019fd00})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:28:34 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:28:34 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:28:34 http: panic serving [::1]:58850: runtime error: invalid memory address or nil pointer dereference
+goroutine 49 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13faca7e0, 0x13fa5e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b6640, {0xc000198390, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc000198375, 0x8}, {0xc000198387, 0x8}, 0x0, 0xc0000b6640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fb86090, 0xc0002222a0}, 0xc000266500)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc00019c000, {0x13fb86090, 0xc0002222a0}, 0xc000266500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fd7c9c0, {0x13fb86090, 0xc0002222a0}, 0xc000266500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00020a000}, {0x13fb86090, 0xc0002222a0}, 0xc000266500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000204b40, {0x13fb86518, 0xc00019fd80})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:28:42 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 16:28:42 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 16:28:42 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 16:28:42 main.startServer Запуск сервера на порту 4444
+2022/12/12 16:28:42 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:28:42 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:28:42 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:28:42 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:28:42 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:28:46 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 16:28:46 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 16:28:48 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:28:48 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:28:48 http: panic serving [::1]:58867: runtime error: invalid memory address or nil pointer dereference
+goroutine 22 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1400da7e0, 0x14006e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1400da7e0, 0x14006e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b8640, {0xc000098750, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc000098735, 0x8}, {0xc000098747, 0x8}, 0x0, 0xc0000b8640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x140196090, 0xc000246000}, 0xc00021e400)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc0000ee000, {0x140196090, 0xc000246000}, 0xc00021e400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14038c9c0, {0x140196090, 0xc000246000}, 0xc00021e400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00022c000}, {0x140196090, 0xc000246000}, 0xc00021e400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000203cc0, {0x140196518, 0xc000188000})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:28:48 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:28:48 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:28:48 http: panic serving [::1]:58868: runtime error: invalid memory address or nil pointer dereference
+goroutine 23 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1400da7e0, 0x14006e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1400da7e0, 0x14006e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b8640, {0xc0000987e0, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc0000987c5, 0x8}, {0xc0000987d7, 0x8}, 0x0, 0xc0000b8640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x140196090, 0xc0002460e0}, 0xc00021e500)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc0000ee000, {0x140196090, 0xc0002460e0}, 0xc00021e500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14038c9c0, {0x140196090, 0xc0002460e0}, 0xc00021e500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00022c000}, {0x140196090, 0xc0002460e0}, 0xc00021e500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000203d60, {0x140196518, 0xc0000b9580})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:28:48 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:28:48 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:28:48 http: panic serving [::1]:58869: runtime error: invalid memory address or nil pointer dereference
+goroutine 26 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x1400da7e0, 0x14006e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x1400da7e0, 0x14006e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc0000b8640, {0xc00014c660, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00014c645, 0x8}, {0xc00014c657, 0x8}, 0x0, 0xc0000b8640)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x140196090, 0xc00016e000}, 0xc00021e600)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc0000ee000, {0x140196090, 0xc00016e000}, 0xc00021e600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x14038c9c0, {0x140196090, 0xc00016e000}, 0xc00021e600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc00022c000}, {0x140196090, 0xc00016e000}, 0xc00021e600)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc000203e00, {0x140196518, 0xc0000b97c0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:30:55 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 16:30:55 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 16:30:55 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 16:30:55 main.startServer Запуск сервера на порту 4444
+2022/12/12 16:30:55 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:30:55 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:30:55 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:30:55 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:30:55 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:31:15 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 16:31:15 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 16:31:31 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:31:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:31:37 http: panic serving [::1]:58980: runtime error: invalid memory address or nil pointer dereference
+goroutine 11 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f98a7e0, 0x13f91e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f98a7e0, 0x13f91e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00004c9c0, {0xc00022c090, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00022c075, 0x8}, {0xc00022c087, 0x8}, 0x0, 0xc00004c9c0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fa46090, 0xc0002300e0}, 0xc000212200)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc0000081f8, {0x13fa46090, 0xc0002300e0}, 0xc000212200)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fc3c9c0, {0x13fa46090, 0xc0002300e0}, 0xc000212200)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001ee000}, {0x13fa46090, 0xc0002300e0}, 0xc000212200)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001e2c80, {0x13fa46518, 0xc000208000})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:31:43 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:31:43 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:31:43 http: panic serving [::1]:58981: runtime error: invalid memory address or nil pointer dereference
+goroutine 12 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f98a7e0, 0x13f91e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f98a7e0, 0x13f91e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00004c9c0, {0xc000152d50, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc000152d35, 0x8}, {0xc000152d47, 0x8}, 0x0, 0xc00004c9c0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fa46090, 0xc0001f4000}, 0xc00029a000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc0000081f8, {0x13fa46090, 0xc0001f4000}, 0xc00029a000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fc3c9c0, {0x13fa46090, 0xc0001f4000}, 0xc00029a000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001ee000}, {0x13fa46090, 0xc0001f4000}, 0xc00029a000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001e2d20, {0x13fa46518, 0xc000292000})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:32:43 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:32:43 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:32:43 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 16:32:43 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:32:43 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:32:43 http: panic serving [::1]:59002: runtime error: invalid memory address or nil pointer dereference
+goroutine 14 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f98a7e0, 0x13f91e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f98a7e0, 0x13f91e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00004c9c0, {0xc00029e030, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc000152dc5, 0x8}, {0xc000152dd7, 0x8}, 0x0, 0xc00004c9c0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fa46090, 0xc0001f40e0}, 0xc0001b7000)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc0000081f8, {0x13fa46090, 0xc0001f40e0}, 0xc0001b7000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fc3c9c0, {0x13fa46090, 0xc0001f40e0}, 0xc0001b7000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001ee000}, {0x13fa46090, 0xc0001f40e0}, 0xc0001b7000)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001e2dc0, {0x13fa46518, 0xc00004dec0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:32:43 http: panic serving [::1]:58998: runtime error: invalid memory address or nil pointer dereference
+goroutine 36 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f98a7e0, 0x13f91e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f98a7e0, 0x13f91e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00004c9c0, {0xc00008e0f0, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00008e0d5, 0x8}, {0xc00008e0e7, 0x8}, 0x0, 0xc00004c9c0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fa46090, 0xc0000e6000}, 0xc0000b4100)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc0000081f8, {0x13fa46090, 0xc0000e6000}, 0xc0000b4100)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fc3c9c0, {0x13fa46090, 0xc0000e6000}, 0xc0000b4100)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001ee000}, {0x13fa46090, 0xc0000e6000}, 0xc0000b4100)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0000c8140, {0x13fa46518, 0xc00009e700})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:32:43 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 16:32:46 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:32:46 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:32:46 http: panic serving [::1]:59039: runtime error: invalid memory address or nil pointer dereference
+goroutine 22 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f98a7e0, 0x13f91e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f98a7e0, 0x13f91e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00004c9c0, {0xc00022c150, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00022c135, 0x8}, {0xc00022c147, 0x8}, 0x0, 0xc00004c9c0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fa46090, 0xc0002302a0}, 0xc000212400)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc0000081f8, {0x13fa46090, 0xc0002302a0}, 0xc000212400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fc3c9c0, {0x13fa46090, 0xc0002302a0}, 0xc000212400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001ee000}, {0x13fa46090, 0xc0002302a0}, 0xc000212400)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc00026c0a0, {0x13fa46518, 0xc000208380})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:32:46 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:32:46 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:32:46 http: panic serving [::1]:59054: runtime error: invalid memory address or nil pointer dereference
+goroutine 66 [running]:
+net/http.(*conn).serve.func1()
+	C:/Program Files (x86)/Go/src/net/http/server.go:1850 +0x148
+panic({0x13f98a7e0, 0x13f91e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).close(0x0, {0x0, 0x0})
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3308 +0x94
+database/sql.(*Rows).Close(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3304 +0x2d
+panic({0x13f98a7e0, 0x13f91e3d0})
+	C:/Program Files (x86)/Go/src/runtime/panic.go:890 +0x267
+database/sql.(*Rows).Columns(0x0)
+	C:/Program Files (x86)/Go/src/database/sql/sql.go:3085 +0x57
+korsakov2ea/xfunc.rowsToResult(0x0, 0x1)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:203 +0x78
+korsakov2ea/xfunc.(*TDatabase).DBQuery(0xc00004c9c0, {0xc00022c1e0, 0x30})
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/db.go:125 +0x44a
+korsakov2ea/xfunc.AuthBIUD({0xc00022c1c5, 0x8}, {0xc00022c1d7, 0x8}, 0x0, 0xc00004c9c0)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/xfunc/web.go:66 +0x107
+main.auth.func1({0x13fa46090, 0xc000230380}, 0xc000212500)
+	c:/Users/039KorsakovEA/go/src/korsakov2ea/QCLite/QBMain.go:126 +0x62e
+net/http.HandlerFunc.ServeHTTP(0xc0000081f8, {0x13fa46090, 0xc000230380}, 0xc000212500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2109 +0x43
+net/http.(*ServeMux).ServeHTTP(0x13fc3c9c0, {0x13fa46090, 0xc000230380}, 0xc000212500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2487 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001ee000}, {0x13fa46090, 0xc000230380}, 0xc000212500)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2947 +0x474
+net/http.(*conn).serve(0xc0001e2fa0, {0x13fa46518, 0xc000208500})
+	C:/Program Files (x86)/Go/src/net/http/server.go:1991 +0x195c
+created by net/http.(*Server).Serve
+	C:/Program Files (x86)/Go/src/net/http/server.go:3102 +0x9e5
+2022/12/12 16:32:49 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 16:32:49 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 16:33:17 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:33:19 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:33:49 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 16:33:49 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 16:33:49 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:33:49 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 16:33:49 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 16:33:49 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 16:33:49 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 16:33:49 main.startServer Запуск сервера на порту 4444
+2022/12/12 16:33:49 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:33:49 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:33:49 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:33:49 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:33:49 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:33:49 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:33:49 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:33:49 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:33:49 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:33:49 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:33:50 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:33:50 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:33:50 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:33:50 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:33:50 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:33:50 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:34:11 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:34:59 korsakov2ea/xfunc.(*TDatabase).DBQuery Ошибка выполнения SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+	sql: database is closed
+2022/12/12 16:36:16 korsakov2ea/xfunc.StartLogging -------------------------------------------------------------------------------------------
+2022/12/12 16:36:16 korsakov2ea/xfunc.StartLogging Включено логгирование в файл c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\log\log.txt
+2022/12/12 16:36:16 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции QB файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:36:16 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = false для БД QueryBase
+2022/12/12 16:36:16 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой QueryBase
+2022/12/12 16:36:16 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы QUERY в базе QueryBase
+2022/12/12 16:36:16 korsakov2ea/xfunc.(*TTable).BindTable Ассоциация таблицы CONNECTION в базе QueryBase
+2022/12/12 16:36:16 main.startServer Запуск сервера на порту 4444
+2022/12/12 16:37:22 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:37:22 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:37:22 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:37:25 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\login.html
+2022/12/12 16:37:25 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\login.html
+2022/12/12 16:37:25 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:37:27 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:37:27 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:37:27 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:37:27 main.auth.func1 Аутентификация пользователя db2admin по паролю
+2022/12/12 16:37:27 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 16:37:27 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 16:37:27 main.auth.func1 Авторизация пользователя db2admin пройдена
+2022/12/12 16:37:27 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 16:37:27 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 16:37:27 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 16:37:27 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 16:37:27 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 16:37:27 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:37:28 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:37:28 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:37:28 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:37:28 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 16:37:28 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 16:37:28 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 16:37:28 main.queries >>>>> Вызов обработчика HTTP запроса
+2022/12/12 16:37:28 korsakov2ea/xfunc.(*TTable).ReadSQL Чтение записей из таблицы QUERY запросом SQL (см. ниже)
+2022/12/12 16:37:28 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT Q.ID, Q.REM, Q.QUERY, C.NAME FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID
+2022/12/12 16:37:28 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 16:37:28 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 16:37:28 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:37:29 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:37:29 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:37:29 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:37:29 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 16:37:29 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 16:37:29 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 16:37:29 main.connections >>>>> Вызов обработчика HTTP запроса
+2022/12/12 16:37:29 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 16:37:29 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 16:37:29 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\connections.html
+2022/12/12 16:37:29 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\connections.html
+2022/12/12 16:37:29 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:37:31 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:37:31 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:37:31 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:37:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 16:37:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 16:37:31 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 16:37:31 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/12 16:37:31 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из CONNECTION
+2022/12/12 16:37:31 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CONNECTION
+2022/12/12 16:37:31 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\query.html
+2022/12/12 16:37:31 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\query.html
+2022/12/12 16:37:31 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
+2022/12/12 16:37:32 korsakov2ea/xfunc.DBGetIniCfg Считана конфигурация БД из секции BIUD файла c:\Users\039KorsakovEA\go\src\korsakov2ea\QCLite\config.ini
+2022/12/12 16:37:32 korsakov2ea/xfunc.(*TDatabase).SetDecodeParam Установлено значение DecodeParam = true для БД BIUD
+2022/12/12 16:37:32 korsakov2ea/xfunc.(*TDatabase).DBOpen Подтверждено соединение (ping) с базой BIUD
+2022/12/12 16:37:32 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATOR WHERE LOGIN='db2admin'
+2022/12/12 16:37:32 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM CS.OPERATORROLE WHERE LOGIN='db2admin' AND ROLE='Администратор отделения'
+2022/12/12 16:37:32 main.auth.func1 Аутентификация/авторизация пользователя db2admin по cookie
+2022/12/12 16:37:32 main.query >>>>> Вызов обработчика HTTP запроса
+2022/12/12 16:37:32 korsakov2ea/xfunc.(*TTable).ReadAll Чтение всех записей из QUERY
+2022/12/12 16:37:32 korsakov2ea/xfunc.(*TDatabase).DBQuery Выполнение SQL запроса:
+	SELECT * FROM QUERY
+2022/12/12 16:37:32 korsakov2ea/xfunc.RenderPage Парсинг шаблона страницы public\html\queries.html
+2022/12/12 16:37:32 korsakov2ea/xfunc.RenderPage Построение шаблона страницы public\html\queries.html
+2022/12/12 16:37:32 korsakov2ea/xfunc.(*TDatabase).DBClose Соединение с базой BIUD успешно закрыто
