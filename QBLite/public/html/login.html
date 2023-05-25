@@ -1,0 +1,37 @@
+<!doctype html>
+{{template "html"}}
+  <head>
+    <!-- Required meta tags -->
+    {{template "meta"}}
+    <!-- Bootstrap CSS -->
+    {{template "styles"}}
+
+    {{template "title"}}
+    
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row mt-3">
+        <div class="col-sm-3">
+          <h4>Дополнительные функции ОСВ</h4>
+          <form method="POST" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="formType" value="login">
+            <div class="form-group ">
+              <label for="login">Логин пользователя</label>
+              <input type="text" class="form-control" id="login" placeholder="Введить логин" name="login">
+            </div>
+            <div class="form-group">
+              <label for="pass">Пароль пользователя</label>
+              <input type="password" class="form-control" id="pass" placeholder="Введите пароль" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Вход</button>
+          </form>
+        </div>
+      </div>      
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {{template "scripts"}}
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+{{template "html"}}
+
+<head>
+  <!-- Required meta tags -->
+  {{template "meta"}}
+  <!-- Bootstrap CSS -->
+  {{template "styles"}}
+
+  {{template "title"}}
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <!--ЗАГОЛОВОК-->
+    <div class="row mt-3">
+      <div class="col">
+        <p class="text-center font-weight-bold">СОЗДАНИЕ, ИЗМЕНЕНИЕ, УДАЛЕНИЯ ЗАПРОСА</p>
+      </div>
+    </div>
+
+    <!--Если есть уведомления, то вывести-->
+    {{if .Alerts}}{{range .Alerts}}<div class="alert alert-{{.Class}}" role="alert">{{.Text}}</div>{{end}}{{end}}
+
+    <!-- Modal delete confinm-->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="addModalLabel">Удаление запроса</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            Запрос будет навсегда удален из базы данных. Подтвердите удаление?
+          </div>
+
+          <div class="modal-footer">
+            <form method="POST" enctype="application/x-www-form-urlencoded">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+              <button type="submit" class="btn btn-primary" name="submitBtn" value="delete">Удалить</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    {{if .Data }}
+    <!-- Если передан массив с данными, значит работаем с имеющимся (смотрим, правим, удаляем)-->
+    <div class="row">
+      <div class="col-sm">
+        <form method="POST" enctype="application/x-www-form-urlencoded">
+          <input type="text" class="form-control mb-3" name="Name" placeholder="Название" value='{{index (index .Data 0).ByName "NAME"}}'>
+          <textarea class="form-control mb-3" name="Query" placeholder="Запрос" rows="20">{{index (index .Data 0).ByName "QUERY"}}</textarea>
+          <textarea class="form-control mb-3" name="Rem" placeholder="Описание" rows="10">{{index (index .Data 0).ByName "REM"}}</textarea>
+          {{$ID_CONN:=(index (index .Data 0).ByName "ID_CONNECTION")}}
+          <select class="form-control mb-3" name="Id_connection">
+            {{range $index, $value := (index .Dict "CONNECTIONS") }}
+            <option value={{index $value.ByName "ID"}} {{if eq $ID_CONN (index $value.ByName "ID")}}selected{{end}}>{{index $value.ByName "NAME"}}</option>
+            {{end}}
+          </select>
+          <button type="submit" class="btn btn-primary" name="submitBtn" value="update">Изменить</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Удалить</button>
+          <button type="submit" class="btn btn-secondary" name="submitBtn" value="cancel">Отмена</button>
+        </form>
+      </div>
+    </div>
+    {{else}}
+
+    <!-- Если массив с данными был пуст, значит создаем новый-->
+    <div class="row">
+      <div class="col-sm">
+        <form method="POST" enctype="application/x-www-form-urlencoded">
+          <input type="text" class="form-control mb-3" name="Name" placeholder="Название">
+          <textarea class="form-control mb-3" name="Query" placeholder="Запрос" rows="20"></textarea>
+          <textarea class="form-control mb-3" name="Rem" placeholder="Описание" rows="10"></textarea>
+          <select class="form-control mb-3" name="Id_connection">
+            <option disabled selected>Соединение</option>
+            {{range $index, $value := (index .Dict "CONNECTIONS") }}
+            <option value={{index $value.ByName "ID"}}>{{index $value.ByName "NAME"}}</option>
+            {{end}}
+          </select>
+          <button type="submit" class="btn btn-secondary" name="submitBtn" value="cancel">Отмена</button>
+          <button type="submit" class="btn btn-primary" name="submitBtn" value="create">Создать</button>
+        </form>
+      </div>
+    </div>
+    {{end}}
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {{template "scripts"}}
+  </div>
+</body>
+
+</html>

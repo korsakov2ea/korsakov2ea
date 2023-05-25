@@ -1,0 +1,63 @@
+<!doctype html>
+{{template "html"}}
+
+<head>
+  <!-- Required meta tags -->
+  {{template "meta"}}
+  <!-- Bootstrap CSS -->
+  {{template "styles"}}
+
+  {{template "title"}}
+</head>
+
+<body>
+  {{template "navbar"}}
+  <div class="container-fluid">
+
+    <!--ЗАГОЛОВОК-->
+    <div class="row mt-3">
+      <div class="col">
+        <p class="text-center font-weight-bold">СОЕДИНЕНИЯ</p>
+      </div>
+    </div>
+
+    <!--Если есть уведомления, то вывести-->
+    {{if .Alerts}}{{range .Alerts}}<div class="alert alert-{{.Class}}" role="alert">{{.Text}}</div>{{end}}{{end}}
+    
+    {{if .Data }}
+    <div class="row">
+      <div class="col-sm">
+        <table class="table table-sm">
+          <thead class="thead-light ">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Наименовение</th>
+              <th scope="col">Драйвер</th>
+              <th scope="col">DSN</th>
+              <th scope="col">Изменить</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{range .Data }}
+            <tr>
+              <td>{{index .ByName "ID"}}</a></td>
+              <td>{{index .ByName "NAME"}}</td>
+              <td>{{index .ByName "DRIVER"}}</td>
+              <td>{{index .ByName "DSN"}}</td>
+              <td><a href="/connection?mode=edit&ID={{index .ByName "ID"}}" target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a></td>
+            </tr>
+            {{end}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {{end}}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {{template "scripts"}}
+  </div>
+</body>
+
+</html>

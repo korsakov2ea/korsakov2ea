@@ -1,0 +1,60 @@
+<!doctype html>
+{{template "html"}}
+
+<head>
+  <!-- Required meta tags -->
+  {{template "meta"}}
+  <!-- Bootstrap CSS -->
+  {{template "styles"}}
+
+  {{template "title"}}
+</head>
+
+<body>
+  {{template "navbar"}}
+  <div class="container-fluid">
+
+    <!--ЗАГОЛОВОК-->
+    <div class="row mt-3">
+      <div class="col">
+        <p class="text-center font-weight-bold">РЕЗУЛЬТАТ ВЫПОЛНЕНИЯ ЗАПРОСА</p>
+      </div>
+    </div>
+    {{if .Data}}
+      <div class="row">
+      <div class="col-sm">
+        <table class="table table-sm">
+          <thead class="thead-light ">
+            <tr>
+            {{range $ind, $val := (index .Data 0).Ind}}
+              <th scope="col">{{$val}}</th>
+            {{end}}
+            </tr>
+          </thead>
+          <tbody>
+            {{range $i, $row := .Data}}
+            <tr>
+            {{range $j, $col := $row.ByInd}}
+              <td>{{ $col}}</td>
+            {{end}}
+            </tr>
+          {{end}}
+        </tbody>
+        </table>
+      </div>
+    </div>
+    {{end}}
+
+    
+  
+  
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {{template "scripts"}}
+  </div>
+</body>
+
+</html>
