@@ -67,7 +67,8 @@ func SetCookie(w http.ResponseWriter, name string, value string, duration time.D
 // Может возвращать значения (в порядке проверки):
 // 0 - аутентификация не пройдена (нет пользователя или не один),
 // 1 - авторизация не пройдена (нет нужной роли для пользователя),
-// 2 - обе проверки пройдены
+// 2 - есть роль Администратора Отделения
+// 3 - нет роли Администратора Отделения, но есть одна из: 'контроль', 'архив', 'назначение и перерасчёт', 'приём'
 func AuthBIUD(login, pass string, hashed bool, biud *TDatabase) int {
 	result := 0
 
@@ -76,7 +77,7 @@ func AuthBIUD(login, pass string, hashed bool, biud *TDatabase) int {
 		passHash = BiudPassHash(pass)
 	}
 
-	// искать оперетора в БИУД
+	// искать оператора в БИУД
 	sqlCode := "SELECT * FROM CS.OPERATOR WHERE LOGIN='" + login + "'"
 	operator, _ := biud.DBQuery(sqlCode)
 	// если есть такой логин
@@ -85,14 +86,24 @@ func AuthBIUD(login, pass string, hashed bool, biud *TDatabase) int {
 
 		// если совпали хэши паролей
 		if buidHash == passHash {
-			result++
-			//искать роль пользователя
+			result = 1
+
 			sqlCode := "SELECT * FROM CS.OPERATORROLE WHERE LOGIN='" + login + "' AND ROLE='Администратор отделения'"
-			// если есть роль
 			role, _ := biud.DBQuery(sqlCode)
 			if len(role) > 0 {
-				result++
+				result = 2
 			}
+
+			/*
+				sqlCode = `SELECT * FROM CS.OPERATORROLE WHERE LOGIN='` + login + `'
+				AND NOT EXISTS (SELECT 1 FROM CS.OPERATORROLE WHERE LOGIN='` + login + `' AND ROLE = 'Администратор отделения')
+				AND EXISTS (SELECT 1 FROM CS.OPERATORROLE WHERE LOGIN='` + login + `' AND ROLE ('контроль', 'архив', 'назначение и перерасчёт', 'приём'))`
+				role, _ = biud.DBQuery(sqlCode)
+				if len(role) > 0 {
+					result = 3
+				}
+			*/
+
 		}
 	}
 	return result
@@ -100,7 +111,6 @@ func AuthBIUD(login, pass string, hashed bool, biud *TDatabase) int {
 
 // Собирает страницу из макета страницы (templatePage), подстановочной страницы (commonPage), объекта данных (date) и выводит в поток (w)
 func RenderPage(w http.ResponseWriter, templatePage string, commonPage string, data TRenderData) {
-	//func RenderPage(w http.ResponseWriter, templatePage string, commonPage string, date interface{}) {
 	templatePath := filepath.Join("public", "html", templatePage)
 	commonPath := filepath.Join("public", "html", commonPage)
 

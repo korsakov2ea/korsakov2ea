@@ -10,7 +10,8 @@ import (
 
 // queries - обработчик HTTP (список запросов)
 func queries(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v ------------------------------------------ Вызов обработчика HTTP запроса ------------------------------------------", xfunc.FuncName())
+	log.Printf("%v Переход к списку запросов ────────────────────────────────────────┐", xfunc.FuncName())
+	defer log.Printf("%v Переход к списку запросов ────────────────────────────────────────┘", xfunc.FuncName())
 
 	sqlErr = QBQuery.ReadSQL("SELECT Q.ID, Q.REM, Q.QUERY, Q.NAME, C.NAME AS C_NAME FROM QUERY AS Q LEFT JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID")
 	if sqlErr != nil {
@@ -24,23 +25,25 @@ func queries(w http.ResponseWriter, r *http.Request) {
 
 // query - обработчик HTTP (одиночный запрос)
 func query(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v ------------------------------------------ Вызов обработчика HTTP запроса ------------------------------------------", xfunc.FuncName())
-
 	id, err := strconv.Atoi(r.FormValue("ID"))
 	if err != nil && r.Method == "POST" && (r.FormValue("submitBtn") == "Update" || r.FormValue("submitBtn") == "Delete") {
 		log.Printf("%v Ошибка преобразования ID = %v из GET запроса в число", xfunc.FuncName(), r.FormValue("ID"))
 	} else {
+		log.Printf("%v HTTP запрос с параметрами %v", xfunc.FuncName(), r.URL.RawQuery)
 
 		switch {
 
-		// нажата кнопка ОТМЕНА на странице редактирования/создания запроса
+		// Отмена изменения запроса
 		case r.Method == "POST" && r.FormValue("submitBtn") == "cancel":
+			log.Printf("%v Отмена изменения запроса ────────────────────────────────────────┐", xfunc.FuncName())
 			RenderData.Alerts = nil
 			RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Нажата кнопка [Отмена]", Class: "info"})
 			http.Redirect(w, r, "queries", http.StatusFound)
+			log.Printf("%v Отмена изменения запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// нажата кнопка СОЗДАТЬ на странице создания запроса
+		// Создание запроса
 		case r.Method == "POST" && r.FormValue("submitBtn") == "create":
+			log.Printf("%v Создание запроса ────────────────────────────────────────┐", xfunc.FuncName())
 			RenderData.Alerts = nil
 			newQuery := make(map[string]string)
 			newQuery["NAME"] = r.FormValue("Name")
@@ -77,9 +80,11 @@ func query(w http.ResponseWriter, r *http.Request) {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Запрос создан", Class: "success"})
 			}
 			http.Redirect(w, r, "queries", http.StatusFound)
+			log.Printf("%v Создание запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// нажата кнопка ИЗМЕНИТЬ на странице редактирования запроса
+		// Изменение запроса
 		case r.Method == "POST" && r.FormValue("submitBtn") == "update":
+			log.Printf("%v Нажата кнопка СОЗДАТЬ на странице создания запроса ────────────────────────────────────────┐", xfunc.FuncName())
 			RenderData.Alerts = nil
 			newQuery := make(map[string]string)
 			newQuery["NAME"] = r.FormValue("Name")
@@ -122,9 +127,11 @@ func query(w http.ResponseWriter, r *http.Request) {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Запрос изменён", Class: "success"})
 			}
 			http.Redirect(w, r, "queries", http.StatusFound)
+			log.Printf("%v Изменение запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// нажата кнопка УДАЛИТЬ на странице редактирования запроса
+		// Удаление запроса
 		case r.Method == "POST" && r.FormValue("submitBtn") == "delete":
+			log.Printf("%v Нажата кнопка УДАЛИТЬ на странице редактирования запроса ────────────────────────────────────────┐", xfunc.FuncName())
 			RenderData.Alerts = nil
 			sqlErr = QBQuery.Delete(id)
 			if sqlErr != nil {
@@ -150,9 +157,11 @@ func query(w http.ResponseWriter, r *http.Request) {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Запрос" + andParam + " удалён", Class: "success"})
 			}
 			http.Redirect(w, r, "queries", http.StatusFound)
+			log.Printf("%v Удаление запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// переход по ссылке ДОБАВИТЬ из меню
+		// Переход к добавлению запроса
 		case r.Method == "GET" && r.FormValue("mode") == "add":
+			log.Printf("%v Переход к добавлению запроса ────────────────────────────────────────┐", xfunc.FuncName())
 			RenderData.Alerts = nil
 			RenderData.Data = nil
 			sqlErr = QBConnection.ReadAll(0)
@@ -162,9 +171,11 @@ func query(w http.ResponseWriter, r *http.Request) {
 			RenderData.Dict = make(map[string]interface{})
 			RenderData.Dict["CONNECTIONS"] = QBConnection.Data
 			xfunc.RenderPage(w, "query.html", "common.html", RenderData)
+			log.Printf("%v Переход к добавлению запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// переход по ссылке ИЗМЕНИТЬ в общем списке запросов
+		// Переход к изменению запроса
 		case r.Method == "GET" && r.FormValue("mode") == "edit":
+			log.Printf("%v Переход к изменению запроса ────────────────────────────────────────┐", xfunc.FuncName())
 			RenderData.Alerts = nil
 
 			sqlErr = QBQuery.Read(id)
@@ -181,9 +192,11 @@ func query(w http.ResponseWriter, r *http.Request) {
 			RenderData.Dict = make(map[string]interface{})
 			RenderData.Dict["CONNECTIONS"] = QBConnection.Data
 			xfunc.RenderPage(w, "query.html", "common.html", RenderData)
+			log.Printf("%v ППереход к изменению запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// переход по ссылке ВЫПОЛНИТЬ в общем списке запросов
+		// Переход к выполнению запроса
 		case r.Method == "GET" && r.FormValue("mode") == "open":
+			log.Printf("%v Переход к выполнению запроса ────────────────────────────────────────┐", xfunc.FuncName())
 			RenderData.Alerts = nil
 			RenderData.Data = nil
 			RenderData.Dict = make(map[string]interface{})
@@ -216,9 +229,13 @@ func query(w http.ResponseWriter, r *http.Request) {
 			}
 
 			xfunc.RenderPage(w, "query_open.html", "common.html", RenderData)
+			log.Printf("%v Переход к выполнению запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// нажата кнопка ПОКАЗАТЬ РЕЗУЛЬТАТ или ВЫГРУЗИТЬ РЕЗУЛЬТАТ на странице подготовки запроса
+		// Выполнение запроса
 		case r.Method == "POST" && (r.FormValue("submitBtn") == "viewResult" || r.FormValue("submitBtn") == "downloadResult"):
+			log.Printf("%v Выполнение запроса ────────────────────────────────────────┐", xfunc.FuncName())
+			RenderData.Alerts = nil
+			RenderData.Data = nil
 
 			// получение параметров со страницы для использования в запросе
 			for formKey := range r.Form {
@@ -233,6 +250,7 @@ func query(w http.ResponseWriter, r *http.Request) {
 			idConn, _ := GetIdConnFromQuery(id)
 
 			if needUpload {
+				RenderData.Dict["SubTableName"] = "QB.QB" + xfunc.GenerateTimeStamp()
 				log.Printf("Загрузка файла с web формы \n%v", xfunc.FuncName())
 				if len(r.MultipartForm.File) > 0 {
 					CSVData := xfunc.GetStrMapFromCSVWebFile(xfunc.UploadFile(r, "uploadFile"))
@@ -251,10 +269,24 @@ func query(w http.ResponseWriter, r *http.Request) {
 
 			// если не требудется загрузка или файл был успешно загружен в базу
 			if !needUpload || dataUploaded {
-				RenderData.Data, err = executeQuery(id)
+				RenderData.Data, sqlErr = executeQuery(id)
 				if sqlErr != nil {
 					RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 				}
+				switch {
+				case r.FormValue("submitBtn") == "viewResult":
+					xfunc.RenderPage(w, "query_open.html", "common.html", RenderData)
+				case r.FormValue("submitBtn") == "downloadResult":
+					CSV := getCSVfromData(RenderData.Data)
+					CSV = xfunc.DecodeStrUTF8to1251(CSV)
+					fileName := "QUERY_" + strconv.Itoa(id) + "_RESULT" + xfunc.GenerateTimeStamp() + ".csv"
+					w.Header().Set("Content-Type", "application/octet-stream")
+					w.Header().Set("Content-Disposition", "attachment; filename="+fileName)
+					w.WriteHeader(http.StatusOK)
+					w.Write([]byte(CSV))
+				}
+			} else if !dataUploaded {
+				xfunc.RenderPage(w, "query_open.html", "common.html", RenderData)
 			}
 
 			// если файл был загружен в базу то удалить
@@ -262,24 +294,14 @@ func query(w http.ResponseWriter, r *http.Request) {
 				dropTmpTable(RenderData.Dict["SubTableName"].(string), idConn)
 			}
 
-			switch {
-			case r.FormValue("submitBtn") == "viewResult":
-				xfunc.RenderPage(w, "query_open.html", "common.html", RenderData)
-			case r.FormValue("submitBtn") == "downloadResult":
-				CSV := getCSVfromData(RenderData.Data)
-				CSV = xfunc.DecodeStrUTF8to1251(CSV)
-				w.Header().Set("Content-Type", "application/octet-stream")
-				w.Header().Set("Content-Disposition", "attachment; filename=result.csv")
-				w.WriteHeader(http.StatusOK)
-				w.Write([]byte(CSV))
-			}
+			log.Printf("%v Выполнение запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
 		default:
 		}
 	}
 }
 
-// Выполняет запрос из базы запросов под номером id и возвращает возвращает результат в QBQuery.Data
+// Выполняет запрос из базы запросов под номером id и возвращает возвращает результат
 func executeQuery(id int) (result xfunc.TResultRows, err error) {
 
 	log.Printf("%v Выполнение запроса из QB c id = %v", xfunc.FuncName(), id)
@@ -297,7 +319,7 @@ func executeQuery(id int) (result xfunc.TResultRows, err error) {
 		targetDB.SetDecodeParam()
 
 		targetDB.DBOpen()
-		defer targetDB.DB.Close()
+		defer targetDB.DBClose()
 
 		for param_key, param_data := range RenderData.Param {
 			paramStr := "{" + param_key + ":" + param_data.Rem + ":" + param_data.DefaultValue + "}"
@@ -354,8 +376,7 @@ func importTmpTable(strMap [][]string, tableName string, idConn int) error {
 		}
 		colValues = colValues[2:]
 
-		//sqlCode = sqlCode + "INSERT INTO " + QBResult.SubTableName + " (" + colNames + ") VALUES (" + colValues + ");\n"
-		sqlCode = sqlCode + "INSERT INTO  (" + colNames + ") VALUES (" + colValues + ");\n"
+		sqlCode = sqlCode + "INSERT INTO " + RenderData.Dict["SubTableName"].(string) + " (" + colNames + ") VALUES (" + colValues + ");\n"
 
 	}
 	return executeSQLConn(sqlCode, idConn)

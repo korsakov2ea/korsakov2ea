@@ -40,7 +40,7 @@
           <div class="modal-footer">
             <form method="POST" enctype="application/x-www-form-urlencoded">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-              <button type="submit" class="btn btn-primary" name="submitBtn" value="Delete">Удалить</button>
+              <button type="submit" class="btn btn-danger" name="submitBtn" value="Delete">Удалить</button>
             </form>
           </div>
 
@@ -59,7 +59,7 @@
           <input type="text" class="form-control mb-3" name="DSN" placeholder="DSN" value='{{index (index .Data 0).ByName "DSN"}}'>
           <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
           <button type="submit" class="btn btn-primary" name="submitBtn" value="Update">Изменить</button>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Удалить</button>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addModal">Удалить</button>
         </form>
       </div>
     </div>

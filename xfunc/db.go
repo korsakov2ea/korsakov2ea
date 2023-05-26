@@ -85,7 +85,7 @@ func (database *TDatabase) DBOpen() {
 	if err != nil {
 		log.Printf("%v Отсутствует пинг с базой %v %v", FuncName(), database.Name, err)
 	} else {
-		log.Printf("%v Подтверждено соединение (ping) с базой %v", FuncName(), database.Name)
+		log.Printf("%v Соединение с базой %v успешно открыто. Есть PING", FuncName(), database.Name)
 	}
 }
 
@@ -102,11 +102,15 @@ func (database *TDatabase) DBClose() {
 // Выполняет SQL инструкцию, которые не возвращают результат (например INSERT)
 func (database *TDatabase) DBExec(sqlCode string) error {
 	result, err := database.DB.Exec(sqlCode)
+	shortSqlCode := sqlCode
+	if len(shortSqlCode) > 1000 {
+		shortSqlCode = shortSqlCode[:1000] + "... "
+	}
 	if err != nil {
-		log.Printf("%v Ошибка выполнения SQL команды %v %v", FuncName(), sqlCode, err)
+		log.Printf("%v Ошибка выполнения SQL команды %v %v", FuncName(), shortSqlCode, err)
 	} else {
 		rowsAffected, _ := result.RowsAffected()
-		log.Printf("%v Выполнена SQL команда. (Строк изменено - %d)\n\t%v", FuncName(), rowsAffected, sqlCode)
+		log.Printf("%v Выполнена SQL команда. (Строк изменено - %d)\n\t%v", FuncName(), rowsAffected, shortSqlCode)
 	}
 	return err
 }
@@ -115,10 +119,14 @@ func (database *TDatabase) DBExec(sqlCode string) error {
 func (database *TDatabase) DBQuery(sqlCode string) (TResultRows, error) {
 	var result TResultRows
 	rows, err := database.DB.Query(sqlCode)
+	shortSqlCode := sqlCode
+	if len(shortSqlCode) > 1000 {
+		shortSqlCode = shortSqlCode[:1000] + "... "
+	}
 	if err != nil {
-		log.Printf("%v Ошибка выполнения SQL запроса:\n\t%v\n\t%v", FuncName(), sqlCode, err)
+		log.Printf("%v Ошибка выполнения SQL запроса:\n\t%v\n\t%v", FuncName(), shortSqlCode, err)
 	} else {
-		log.Printf("%v Выполнение SQL запроса:\n\t%v", FuncName(), sqlCode)
+		log.Printf("%v Выполнение SQL запроса:\n\t%v", FuncName(), shortSqlCode)
 		result = rowsToResult(rows, database.DecodeParam)
 		rows.Close()
 	}
