@@ -1,0 +1,83 @@
+<!doctype html>
+{{template "html"}}
+
+<head>
+  <!-- Required meta tags -->
+  {{template "meta"}}
+  <!-- Bootstrap CSS -->
+  {{template "styles"}}
+
+  {{template "title"}}
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <!--ЗАГОЛОВОК-->
+    <div class="row mt-3">
+      <div class="col">
+        <p class="text-center font-weight-bold">СОЗДАНИЕ, ИЗМЕНЕНИЕ, УДАЛЕНИЯ ГРУППЫ ЗАПРОСОВ</p>
+      </div>
+    </div>
+
+    <!-- Modal delete confinm-->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="addModalLabel">Удаление группы запросов</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+             Группа запросов будет навсегда удалена из базы данных. Подтвердите удаление?
+          </div>
+
+          <div class="modal-footer">
+            <form method="POST" enctype="application/x-www-form-urlencoded">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+              <button type="submit" class="btn btn-danger" name="submitBtn" value="Delete">Удалить</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    {{if .Data }}
+    <!-- Передан массив с данными, значит работаем с имеющимся (изменить/удалить)-->
+    <div class="row">
+      <div class="col-sm">
+        <form method="POST" enctype="application/x-www-form-urlencoded">
+          <input type="text" class="form-control mb-3" name="Name" placeholder="Наименование" value='{{index (index .Data 0).ByName "NAME"}}'>
+          <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
+          <button type="submit" class="btn btn-primary" name="submitBtn" value="Update">Изменить</button>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addModal">Удалить</button>
+        </form>
+      </div>
+    </div>
+    {{else}}
+    <!-- Не передан массив с данными, значит создаем новый-->
+    <div class="row">
+      <div class="col-sm">
+        <form method="POST" enctype="application/x-www-form-urlencoded">
+          <input type="text" class="form-control mb-3" name="Name" placeholder="Наименование" >
+          <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
+          <button type="submit" class="btn btn-primary" name="submitBtn" value="Create">Создать</button>
+        </form>
+      </div>
+    </div>
+    {{end}}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {{template "scripts"}}
+  </div>
+</body>
+
+</html>

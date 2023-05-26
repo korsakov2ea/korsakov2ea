@@ -17,45 +17,37 @@
     <!--ЗАГОЛОВОК-->
     <div class="row mt-3">
       <div class="col">
-        <p class="text-center font-weight-bold">ЗАПРОСЫ</p>
+        <p class="text-center font-weight-bold">ГРУППЫ ЗАПРОСОВ</p>
       </div>
     </div>
-    
+
     <!--Если есть уведомления, то вывести-->
     {{if .Alerts}}{{range .Alerts}}<div class="alert alert-{{.Class}}" role="alert">{{.Text}}</div>{{end}}{{end}}
-
-    <!--Если есть данные-->
-    {{if .Data}}
+    
+    {{if .Data }}
     <div class="row">
       <div class="col-sm">
         <table class="table table-sm">
           <thead class="thead-light ">
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Группа</th>
-              <th scope="col">Описание</th>
-              <th scope="col">База данных</th>
+              <th scope="col">Наименовение</th>
               <th scope="col">Изменить</th>
-              <th scope="col">Выполнить</th>
             </tr>
           </thead>
+
           <tbody>
             {{range .Data }}
             <tr>
-              <td>{{index .ByName "ID"}}</td>
-              <td>{{index .ByName "G_NAME"}}</td>
-              <td><img src="public/img/bootstrap-icons/info.svg" data-toggle="tooltip" data-placement="bottom" title="{{index .ByName "REM"}}"> {{index .ByName "NAME"}}</td>
-              <td>{{index .ByName "C_NAME"}}</td>
-              <td><a href='/query?mode=edit&ID={{index .ByName "ID"}}' target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a></td>
-              <td><a href='/query?mode=open&ID={{index .ByName "ID"}}' target="_self"><img src="public/img/bootstrap-icons/arrow-right-circle.svg"></a></td>
+              <td>{{index .ByName "ID"}}</a></td>
+              <td>{{index .ByName "NAME"}}</td>
+              <td><a href="/group?mode=edit&ID={{index .ByName "ID"}}" target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a></td>
             </tr>
             {{end}}
           </tbody>
         </table>
       </div>
     </div>
-    {{else}}
-    <p>Пустой массив данных</p>
     {{end}}
 
     <!-- Optional JavaScript -->

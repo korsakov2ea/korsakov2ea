@@ -13,6 +13,7 @@ var QB xfunc.TDatabase           // Query base - база с запросами
 var QBQuery xfunc.TTable         // Представление таблицы запросов
 var QBConnection xfunc.TTable    // Представление таблицы соединений
 var QBParam xfunc.TTable         // Представление таблицы параметров запросов
+var QBGroup xfunc.TTable         // Представление таблицы групп запросов
 var RenderData xfunc.TRenderData // Данные для передачи в предсталение (рендера)
 var sqlErr error = nil           // Ошибка при работе с базой
 var userName string
@@ -36,6 +37,7 @@ func main() {
 	QBQuery.Bind("QUERY", &QB)
 	QBConnection.Bind("CONNECTION", &QB)
 	QBParam.Bind("PARAM", &QB)
+	QBGroup.Bind("QUERY_GROUP", &QB)
 
 	// Запуск сервера
 	startServer(serverPort)
@@ -94,6 +96,8 @@ func startServer(startOnPort string) {
 	http.HandleFunc("/query", auth(query))
 	http.HandleFunc("/connections", auth(connections))
 	http.HandleFunc("/connection", auth(connection))
+	http.HandleFunc("/groups", auth(groups))
+	http.HandleFunc("/group", auth(group))
 	fmt.Printf("Сервер БАЗЫ ЗАПРОСОВ запущен на порту %v", startOnPort)
 	http.ListenAndServe(":"+startOnPort, nil)
 }

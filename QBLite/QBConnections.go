@@ -52,18 +52,10 @@ func connection(w http.ResponseWriter, r *http.Request) {
 			sqlErr = QBConnection.Create(newConnection)
 			if sqlErr != nil {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-
-			sqlErr = QBConnection.ReadAll(0)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-
-			if sqlErr == nil {
+			} else {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Соединение создано", Class: "success"})
 			}
 
-			RenderData.Data = QBConnection.Data
 			http.Redirect(w, r, "connections", http.StatusFound)
 			log.Printf("%v Создание соединения ────────────────────────────────────────┘", xfunc.FuncName())
 
@@ -79,15 +71,7 @@ func connection(w http.ResponseWriter, r *http.Request) {
 			sqlErr = QBConnection.Update(id, newConnection)
 			if sqlErr != nil {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-
-			sqlErr = QBConnection.ReadAll(0)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-			RenderData.Data = QBConnection.Data
-
-			if sqlErr == nil {
+			} else {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Соединение изменено", Class: "success"})
 			}
 
@@ -102,15 +86,7 @@ func connection(w http.ResponseWriter, r *http.Request) {
 			sqlErr = QBConnection.Delete(id)
 			if sqlErr != nil {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-
-			sqlErr = QBConnection.ReadAll(0)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-			RenderData.Data = QBConnection.Data
-
-			if sqlErr == nil {
+			} else {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Соединение удалено", Class: "success"})
 			}
 

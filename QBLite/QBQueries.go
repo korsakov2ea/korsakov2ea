@@ -13,7 +13,7 @@ func queries(w http.ResponseWriter, r *http.Request) {
 	log.Printf("%v Переход к списку запросов ────────────────────────────────────────┐", xfunc.FuncName())
 	defer log.Printf("%v Переход к списку запросов ────────────────────────────────────────┘", xfunc.FuncName())
 
-	sqlErr = QBQuery.ReadSQL("SELECT Q.ID, Q.REM, Q.QUERY, Q.NAME, C.NAME AS C_NAME FROM QUERY AS Q LEFT JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID")
+	sqlErr = QBQuery.ReadSQL("SELECT Q.ID, Q.REM, Q.QUERY, Q.NAME, C.NAME AS C_NAME, G.NAME AS G_NAME FROM QUERY AS Q LEFT JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID LEFT JOIN QUERY_GROUP AS G ON G.ID=Q.ID_GROUP")
 	if sqlErr != nil {
 		RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 	}
@@ -50,6 +50,7 @@ func query(w http.ResponseWriter, r *http.Request) {
 			newQuery["QUERY"] = strings.Replace(r.FormValue("Query"), "'", "''", -1)
 			newQuery["REM"] = strings.Replace(r.FormValue("Rem"), "'", "''", -1)
 			newQuery["ID_CONNECTION"] = r.FormValue("Id_connection")
+			newQuery["ID_GROUP"] = r.FormValue("Id_group")
 
 			sqlErr = QBQuery.Create(newQuery)
 			if sqlErr != nil {
@@ -91,6 +92,7 @@ func query(w http.ResponseWriter, r *http.Request) {
 			newQuery["QUERY"] = strings.Replace(r.FormValue("Query"), "'", "''", -1)
 			newQuery["REM"] = strings.Replace(r.FormValue("Rem"), "'", "''", -1)
 			newQuery["ID_CONNECTION"] = r.FormValue("Id_connection")
+			newQuery["ID_GROUP"] = r.FormValue("Id_group")
 			sqlErr = QBQuery.Update(id, newQuery)
 			if sqlErr != nil {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
@@ -168,8 +170,13 @@ func query(w http.ResponseWriter, r *http.Request) {
 			if sqlErr != nil {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 			}
+			sqlErr = QBGroup.ReadAll(0)
+			if sqlErr != nil {
+				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+			}
 			RenderData.Dict = make(map[string]interface{})
 			RenderData.Dict["CONNECTIONS"] = QBConnection.Data
+			RenderData.Dict["GROUPS"] = QBGroup.Data
 			xfunc.RenderPage(w, "query.html", "common.html", RenderData)
 			log.Printf("%v Переход к добавлению запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
@@ -188,9 +195,14 @@ func query(w http.ResponseWriter, r *http.Request) {
 			if sqlErr != nil {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 			}
+			sqlErr = QBGroup.ReadAll(0)
+			if sqlErr != nil {
+				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+			}
 
 			RenderData.Dict = make(map[string]interface{})
 			RenderData.Dict["CONNECTIONS"] = QBConnection.Data
+			RenderData.Dict["GROUPS"] = QBGroup.Data
 			xfunc.RenderPage(w, "query.html", "common.html", RenderData)
 			log.Printf("%v ППереход к изменению запроса ────────────────────────────────────────┘", xfunc.FuncName())
 

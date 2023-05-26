@@ -65,6 +65,12 @@
             <option value={{index $value.ByName "ID"}} {{if eq $ID_CONN (index $value.ByName "ID")}}selected{{end}}>{{index $value.ByName "NAME"}}</option>
             {{end}}
           </select>
+          {{$ID_GROUP:=(index (index .Data 0).ByName "ID_GROUP")}}
+          <select class="form-control mb-3" name="Id_group">
+            {{range $index, $value := (index .Dict "GROUPS") }}
+            <option value={{index $value.ByName "ID"}} {{if eq $ID_GROUP (index $value.ByName "ID")}}selected{{end}}>{{index $value.ByName "NAME"}}</option>
+            {{end}}
+          </select>
           <button type="submit" class="btn btn-primary" name="submitBtn" value="update">Изменить</button>
           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addModal">Удалить</button>
           <button type="submit" class="btn btn-secondary" name="submitBtn" value="cancel">Отмена</button>
@@ -83,6 +89,12 @@
           <select class="form-control mb-3" name="Id_connection">
             <option disabled selected>Соединение</option>
             {{range $index, $value := (index .Dict "CONNECTIONS") }}
+            <option value={{index $value.ByName "ID"}}>{{index $value.ByName "NAME"}}</option>
+            {{end}}
+          </select>
+          <select class="form-control mb-3" name="Id_group">
+            <option disabled selected>Группа запросов</option>
+            {{range $index, $value := (index .Dict "GROUPS") }}
             <option value={{index $value.ByName "ID"}}>{{index $value.ByName "NAME"}}</option>
             {{end}}
           </select>
