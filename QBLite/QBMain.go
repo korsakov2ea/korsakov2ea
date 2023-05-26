@@ -94,7 +94,7 @@ func startServer(startOnPort string) {
 	http.HandleFunc("/query", auth(query))
 	http.HandleFunc("/connections", auth(connections))
 	http.HandleFunc("/connection", auth(connection))
-	fmt.Printf("Запуск сервера на порту %v", startOnPort)
+	fmt.Printf("Сервер БАЗЫ ЗАПРОСОВ запущен на порту %v", startOnPort)
 	http.ListenAndServe(":"+startOnPort, nil)
 }
 
