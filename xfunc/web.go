@@ -94,15 +94,13 @@ func AuthBIUD(login, pass string, hashed bool, biud *TDatabase) int {
 				result = 2
 			}
 
-			/*
-				sqlCode = `SELECT * FROM CS.OPERATORROLE WHERE LOGIN='` + login + `'
+			sqlCode = `SELECT * FROM CS.OPERATORROLE WHERE LOGIN='` + login + `'
 				AND NOT EXISTS (SELECT 1 FROM CS.OPERATORROLE WHERE LOGIN='` + login + `' AND ROLE = 'Администратор отделения')
-				AND EXISTS (SELECT 1 FROM CS.OPERATORROLE WHERE LOGIN='` + login + `' AND ROLE ('контроль', 'архив', 'назначение и перерасчёт', 'приём'))`
-				role, _ = biud.DBQuery(sqlCode)
-				if len(role) > 0 {
-					result = 3
-				}
-			*/
+				AND EXISTS (SELECT 1 FROM CS.OPERATORROLE WHERE LOGIN='` + login + `' AND ROLE IN ('контроль', 'архив', 'назначение и перерасчёт', 'приём'))`
+			role, _ = biud.DBQuery(sqlCode)
+			if len(role) > 0 {
+				result = 3
+			}
 
 		}
 	}

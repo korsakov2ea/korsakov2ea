@@ -16,7 +16,9 @@ var QBParam xfunc.TTable         // Представление таблицы п
 var QBGroup xfunc.TTable         // Представление таблицы групп запросов
 var RenderData xfunc.TRenderData // Данные для передачи в предсталение (рендера)
 var sqlErr error = nil           // Ошибка при работе с базой
-var userName string
+var user struct {
+	name, access string
+}
 
 func main() {
 
@@ -120,10 +122,19 @@ func auth(nextFunc http.HandlerFunc) http.HandlerFunc {
 		if len(cookieLogin+cookiePass) > 1 {
 			if xfunc.AuthBIUD(cookieLogin, cookiePass, true, &BIUD) == 2 {
 				// аутентификация и авторизация проходит
-				log.Printf("%v Аутентификация/авторизация пользователя %v по cookie", xfunc.FuncName(), cookieLogin)
+				log.Printf("%v Аутентификация/авторизация пользователя %v по cookie (ADMIN)", xfunc.FuncName(), cookieLogin)
 				xfunc.SetCookie(w, "QBLogin", cookieLogin, 15*time.Minute)
 				xfunc.SetCookie(w, "QBPass", cookiePass, 15*time.Minute)
-				userName = cookieLogin
+				user.name = cookieLogin
+				user.access = "admin"
+				BIUD.DBClose()
+				nextFunc(w, r)
+			} else if xfunc.AuthBIUD(cookieLogin, cookiePass, true, &BIUD) == 3 {
+				log.Printf("%v Аутентификация/авторизация пользователя %v по cookie (USER)", xfunc.FuncName(), cookieLogin)
+				xfunc.SetCookie(w, "QBLogin", cookieLogin, 15*time.Minute)
+				xfunc.SetCookie(w, "QBPass", cookiePass, 15*time.Minute)
+				user.name = cookieLogin
+				user.access = "user"
 				BIUD.DBClose()
 				nextFunc(w, r)
 			} else {
@@ -150,10 +161,19 @@ func auth(nextFunc http.HandlerFunc) http.HandlerFunc {
 					log.Printf("%v Авторизация пользователя %v не пройдена (нет ролей)", xfunc.FuncName(), formLogin)
 					xfunc.RenderPage(w, "login.html", "common.html", RenderData)
 				case authResult == 2:
-					log.Printf("%v Авторизация пользователя %v пройдена", xfunc.FuncName(), formLogin)
+					log.Printf("%v Авторизация пользователя %v пройдена (ADMIN)", xfunc.FuncName(), formLogin)
 					xfunc.SetCookie(w, "QBLogin", formLogin, 15*time.Minute)
 					xfunc.SetCookie(w, "QBPass", xfunc.BiudPassHash(formPass), 15*time.Minute)
-					userName = cookieLogin
+					user.name = cookieLogin
+					user.access = "admin"
+					BIUD.DBClose()
+					nextFunc(w, r)
+				case authResult == 3:
+					log.Printf("%v Авторизация пользователя %v пройдена (USER)", xfunc.FuncName(), formLogin)
+					xfunc.SetCookie(w, "QBLogin", formLogin, 15*time.Minute)
+					xfunc.SetCookie(w, "QBPass", xfunc.BiudPassHash(formPass), 15*time.Minute)
+					user.name = cookieLogin
+					user.access = "user"
 					BIUD.DBClose()
 					nextFunc(w, r)
 				}
