@@ -13,7 +13,7 @@ func queries(w http.ResponseWriter, r *http.Request) {
 	log.Printf("%v Переход к списку запросов ────────────────────────────────────────┐", xfunc.FuncName())
 	defer log.Printf("%v Переход к списку запросов ────────────────────────────────────────┘", xfunc.FuncName())
 
-	sqlErr = QBQuery.ReadSQL("SELECT Q.ID, Q.REM, Q.QUERY, Q.NAME, C.NAME AS C_NAME, G.NAME AS G_NAME FROM QUERY AS Q LEFT JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID LEFT JOIN QUERY_GROUP AS G ON G.ID=Q.ID_GROUP")
+	sqlErr = QBQuery.ReadSQL("SELECT Q.ID, Q.REM, Q.QUERY, Q.NAME, Q.ID_GROUP, C.NAME AS C_NAME, G.NAME AS G_NAME FROM QUERY AS Q LEFT JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID LEFT JOIN QUERY_GROUP AS G ON G.ID=Q.ID_GROUP ORDER BY G_NAME, Q.ID")
 	if sqlErr != nil {
 		RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 	}
