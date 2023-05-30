@@ -16,9 +16,7 @@ var QBParam xfunc.TTable         // Представление таблицы п
 var QBGroup xfunc.TTable         // Представление таблицы групп запросов
 var RenderData xfunc.TRenderData // Данные для передачи в предсталение (рендера)
 var sqlErr error = nil           // Ошибка при работе с базой
-var user struct {
-	name, access string
-}
+var user xfunc.TUser             // Инфомармаци о пользователе, вызвавшем метод
 
 func main() {
 
@@ -40,6 +38,8 @@ func main() {
 	QBConnection.Bind("CONNECTION", &QB)
 	QBParam.Bind("PARAM", &QB)
 	QBGroup.Bind("QUERY_GROUP", &QB)
+
+	RenderData.User = &user
 
 	// Запуск сервера
 	startServer(serverPort)
@@ -100,14 +100,22 @@ func startServer(startOnPort string) {
 	http.HandleFunc("/connection", auth(connection))
 	http.HandleFunc("/groups", auth(groups))
 	http.HandleFunc("/group", auth(group))
+	http.HandleFunc("/logout", logout)
 	fmt.Printf("Сервер БАЗЫ ЗАПРОСОВ запущен на порту %v", startOnPort)
 	http.ListenAndServe(":"+startOnPort, nil)
+}
+
+func logout(w http.ResponseWriter, r *http.Request) {
+	// сбросить куки и отправить на ввод пароля
+	xfunc.SetCookie(w, "QBLogin", "", 0*time.Minute)
+	xfunc.SetCookie(w, "QBPass", "", 0*time.Minute)
+	http.Redirect(w, r, "queries", http.StatusFound)
 }
 
 // Аутентификация / авторизация по куки или паролю. Если успешно, то передает управление вложенной функции
 func auth(nextFunc http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		log.Printf("%v Аутентификация / авторизация по куки или паролю ════════════════════════════════════════ ════════════════════════════════════════╗", xfunc.FuncName())
+		log.Printf("%v Аутентификация / авторизация по куки или паролю ════════════════════════════════════════ ════════════════════════════════════════╗ %v", xfunc.FuncName(), user.Name)
 		defer log.Printf("%v Аутентификация / авторизация по куки или паролю ════════════════════════════════════════ ════════════════════════════════════════╝", xfunc.FuncName())
 		var BIUD xfunc.TDatabase
 		xfunc.DBGetIniCfg(xfunc.GetExecFilePath()+"\\"+configFile, "BIUD", &BIUD)
@@ -125,23 +133,21 @@ func auth(nextFunc http.HandlerFunc) http.HandlerFunc {
 				log.Printf("%v Аутентификация/авторизация пользователя %v по cookie (ADMIN)", xfunc.FuncName(), cookieLogin)
 				xfunc.SetCookie(w, "QBLogin", cookieLogin, 15*time.Minute)
 				xfunc.SetCookie(w, "QBPass", cookiePass, 15*time.Minute)
-				user.name = cookieLogin
-				user.access = "admin"
+				user.Name = cookieLogin
+				user.Access = "admin"
 				BIUD.DBClose()
 				nextFunc(w, r)
 			} else if xfunc.AuthBIUD(cookieLogin, cookiePass, true, &BIUD) == 3 {
 				log.Printf("%v Аутентификация/авторизация пользователя %v по cookie (USER)", xfunc.FuncName(), cookieLogin)
 				xfunc.SetCookie(w, "QBLogin", cookieLogin, 15*time.Minute)
 				xfunc.SetCookie(w, "QBPass", cookiePass, 15*time.Minute)
-				user.name = cookieLogin
-				user.access = "user"
+				user.Name = cookieLogin
+				user.Access = "user"
 				BIUD.DBClose()
 				nextFunc(w, r)
 			} else {
 				// если аутентификацию не прошли, то сбросить куки и отправить на ввод пароля
-				xfunc.SetCookie(w, "QBLogin", "", 0*time.Minute)
-				xfunc.SetCookie(w, "QBPass", "", 0*time.Minute)
-				xfunc.RenderPage(w, "login.html", "common.html", RenderData)
+				logout(w, r)
 			}
 		} else {
 			// иначе (если не через куки)
@@ -164,16 +170,16 @@ func auth(nextFunc http.HandlerFunc) http.HandlerFunc {
 					log.Printf("%v Авторизация пользователя %v пройдена (ADMIN)", xfunc.FuncName(), formLogin)
 					xfunc.SetCookie(w, "QBLogin", formLogin, 15*time.Minute)
 					xfunc.SetCookie(w, "QBPass", xfunc.BiudPassHash(formPass), 15*time.Minute)
-					user.name = cookieLogin
-					user.access = "admin"
+					user.Name = formLogin
+					user.Access = "admin"
 					BIUD.DBClose()
 					nextFunc(w, r)
 				case authResult == 3:
 					log.Printf("%v Авторизация пользователя %v пройдена (USER)", xfunc.FuncName(), formLogin)
 					xfunc.SetCookie(w, "QBLogin", formLogin, 15*time.Minute)
 					xfunc.SetCookie(w, "QBPass", xfunc.BiudPassHash(formPass), 15*time.Minute)
-					user.name = cookieLogin
-					user.access = "user"
+					user.Name = formLogin
+					user.Access = "user"
 					BIUD.DBClose()
 					nextFunc(w, r)
 				}

@@ -11,8 +11,6 @@ import (
 // queries - обработчик HTTP (список запросов)
 func queries(w http.ResponseWriter, r *http.Request) {
 	log.Printf("%v Переход к списку запросов ────────────────────────────────────────┐", xfunc.FuncName())
-	defer log.Printf("%v Переход к списку запросов ────────────────────────────────────────┘", xfunc.FuncName())
-
 	sqlErr = QBQuery.ReadSQL("SELECT Q.ID, Q.REM, Q.QUERY, Q.NAME, Q.ID_GROUP, C.NAME AS C_NAME, G.NAME AS G_NAME FROM QUERY AS Q LEFT JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID LEFT JOIN QUERY_GROUP AS G ON G.ID=Q.ID_GROUP ORDER BY G_NAME, Q.ID")
 	if sqlErr != nil {
 		RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
@@ -21,6 +19,7 @@ func queries(w http.ResponseWriter, r *http.Request) {
 	RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Всего запросов - " + strconv.Itoa(len(RenderData.Data)), Class: "info"})
 	xfunc.RenderPage(w, "queries.html", "common.html", RenderData)
 	RenderData.Alerts = nil
+	log.Printf("%v Переход к списку запросов ────────────────────────────────────────┘", xfunc.FuncName())
 }
 
 // query - обработчик HTTP (одиночный запрос)
@@ -163,62 +162,48 @@ func query(w http.ResponseWriter, r *http.Request) {
 
 		// Переход к добавлению запроса
 		case r.Method == "GET" && r.FormValue("mode") == "add":
-			if user.access == "admin" {
-				log.Printf("%v Переход к добавлению запроса ────────────────────────────────────────┐", xfunc.FuncName())
-				RenderData.Alerts = nil
-				RenderData.Data = nil
-				sqlErr = QBConnection.ReadAll(0)
-				if sqlErr != nil {
-					RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-				}
-				sqlErr = QBGroup.ReadAll(0)
-				if sqlErr != nil {
-					RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-				}
-				RenderData.Dict = make(map[string]interface{})
-				RenderData.Dict["CONNECTIONS"] = QBConnection.Data
-				RenderData.Dict["GROUPS"] = QBGroup.Data
-				xfunc.RenderPage(w, "query.html", "common.html", RenderData)
-				log.Printf("%v Переход к добавлению запроса ────────────────────────────────────────┘", xfunc.FuncName())
-			} else {
-				RenderData.Alerts = nil
-				RenderData.Data = nil
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Данный функционал доступен только для администраторов отделения", Class: "danger"})
-				http.Redirect(w, r, "queries", http.StatusFound)
+			log.Printf("%v Переход к добавлению запроса ────────────────────────────────────────┐", xfunc.FuncName())
+			RenderData.Alerts = nil
+			RenderData.Data = nil
+			sqlErr = QBConnection.ReadAll(0)
+			if sqlErr != nil {
+				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 			}
+			sqlErr = QBGroup.ReadAll(0)
+			if sqlErr != nil {
+				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+			}
+			RenderData.Dict = make(map[string]interface{})
+			RenderData.Dict["CONNECTIONS"] = QBConnection.Data
+			RenderData.Dict["GROUPS"] = QBGroup.Data
+			xfunc.RenderPage(w, "query.html", "common.html", RenderData)
+			log.Printf("%v Переход к добавлению запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
 		// Переход к изменению запроса
 		case r.Method == "GET" && r.FormValue("mode") == "edit":
-			if user.access == "admin" {
-				log.Printf("%v Переход к изменению запроса ────────────────────────────────────────┐", xfunc.FuncName())
-				RenderData.Alerts = nil
+			log.Printf("%v Переход к изменению запроса ────────────────────────────────────────┐", xfunc.FuncName())
+			RenderData.Alerts = nil
 
-				sqlErr = QBQuery.Read(id)
-				if sqlErr != nil {
-					RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-				}
-				RenderData.Data = QBQuery.Data
-
-				sqlErr = QBConnection.ReadAll(0)
-				if sqlErr != nil {
-					RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-				}
-				sqlErr = QBGroup.ReadAll(0)
-				if sqlErr != nil {
-					RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-				}
-
-				RenderData.Dict = make(map[string]interface{})
-				RenderData.Dict["CONNECTIONS"] = QBConnection.Data
-				RenderData.Dict["GROUPS"] = QBGroup.Data
-				xfunc.RenderPage(w, "query.html", "common.html", RenderData)
-				log.Printf("%v ППереход к изменению запроса ────────────────────────────────────────┘", xfunc.FuncName())
-			} else {
-				RenderData.Alerts = nil
-				RenderData.Data = nil
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Данный функционал доступен только для администраторов отделения", Class: "danger"})
-				http.Redirect(w, r, "queries", http.StatusFound)
+			sqlErr = QBQuery.Read(id)
+			if sqlErr != nil {
+				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 			}
+			RenderData.Data = QBQuery.Data
+
+			sqlErr = QBConnection.ReadAll(0)
+			if sqlErr != nil {
+				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+			}
+			sqlErr = QBGroup.ReadAll(0)
+			if sqlErr != nil {
+				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+			}
+
+			RenderData.Dict = make(map[string]interface{})
+			RenderData.Dict["CONNECTIONS"] = QBConnection.Data
+			RenderData.Dict["GROUPS"] = QBGroup.Data
+			xfunc.RenderPage(w, "query.html", "common.html", RenderData)
+			log.Printf("%v ППереход к изменению запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
 		// Переход к выполнению запроса
 		case r.Method == "GET" && r.FormValue("mode") == "open":

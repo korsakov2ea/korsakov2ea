@@ -14,7 +14,6 @@
       <div class="row mt-3">
         <div class="col-sm-3">
           <h4>База запросов</h4>
-          <h6>Для авторизации необходима роль БИУД - Администратор отделения</h6>
           <form method="POST" enctype="application/x-www-form-urlencoded">
             <input type="hidden" name="formType" value="login">
             <div class="form-group ">
@@ -27,7 +26,11 @@
             </div>
             <button type="submit" class="btn btn-primary">Вход</button>
           </form>
-          
+          <div class="alert alert-info mt-3" role="alert">
+            Для авторизации в качестве <b>администратора</b> необходима роль Администратор отделения, 
+            в качестве <b>пользователя</b> необходима роль - Контроль, Архив, Назначение и перерасчёт или Приём
+          </div>
+          </div>          
         </div>
       </div>      
     </div>

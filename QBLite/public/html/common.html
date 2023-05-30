@@ -30,30 +30,33 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
      
-      
+      {{if eq .Access "admin"}} 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Соединения</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="/connections">Список всех</a>
+          <a class="dropdown-item" href="/connections">Список</a>
           <a class="dropdown-item" href="/connection?mode=add">Добавить</a>
         </div>
       </li>
+      {{end}}
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Запросы</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="/queries">Список всех</a>
-          <a class="dropdown-item" href="/query?mode=add">Добавить</a>
+          <a class="dropdown-item" href="/queries">Список</a>
+          {{if eq .Access "admin"}}<a class="dropdown-item" href="/query?mode=add">Добавить</a>{{end}}
         </div>
       </li>
       
+      {{if eq .Access "admin"}} 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Группы запросов</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="/groups">Список всех</a>
+          <a class="dropdown-item" href="/groups">Список</a>
           <a class="dropdown-item" href="/group?mode=add">Добавить</a>
         </div>
       </li>
+      {{end}}
 
       <!--
       <li class="nav-item dropdown">
@@ -88,6 +91,15 @@
       -->
 
     </ul>
+    
+    <ul class="navbar-nav justify-content-end">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{.Access}} {{.Name}}</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="/logout">Выход</a>
+        </div>
+      </li>
+    </ul>
 
     <!--     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -95,5 +107,6 @@
     </form> -->
 
   </div>
+
 </nav>
   {{end}}
