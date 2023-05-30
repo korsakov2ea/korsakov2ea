@@ -115,7 +115,7 @@ func logout(w http.ResponseWriter, r *http.Request) {
 // Аутентификация / авторизация по куки или паролю. Если успешно, то передает управление вложенной функции
 func auth(nextFunc http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		log.Printf("%v Аутентификация / авторизация по куки или паролю ════════════════════════════════════════ ════════════════════════════════════════╗ %v", xfunc.FuncName(), user.Name)
+		log.Printf("%v Аутентификация / авторизация по куки или паролю ════════════════════════════════════════ ════════════════════════════════════════╗ [ %v ]", xfunc.FuncName(), user.Name)
 		defer log.Printf("%v Аутентификация / авторизация по куки или паролю ════════════════════════════════════════ ════════════════════════════════════════╝", xfunc.FuncName())
 		var BIUD xfunc.TDatabase
 		xfunc.DBGetIniCfg(xfunc.GetExecFilePath()+"\\"+configFile, "BIUD", &BIUD)
