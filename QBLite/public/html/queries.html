@@ -52,7 +52,7 @@
           </tr>
           <tr class="collapse" id="collapse{{$CUR_GROUP}}">
             <td>{{index .ByName "ID"}}</td>
-            <td><img src="public/img/bootstrap-icons/info.svg" data-toggle="tooltip" data-placement="bottom" title="{{index .ByName "REM"}}"> {{index .ByName "NAME"}}</td>
+            <td><img src="public/img/bootstrap-icons/exclamation-circle.svg" data-toggle="tooltip" data-placement="bottom" title="{{index .ByName "REM"}}"> {{index .ByName "NAME"}}</td>
             <td>{{index .ByName "C_NAME"}}</td>
             <td>{{if eq $userAccess "admin"}}<a href='/query?mode=edit&ID={{index .ByName "ID"}}' target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a>{{end}}</td>
             <td><a href='/query?mode=open&ID={{index .ByName "ID"}}' target="_self"><img src="public/img/bootstrap-icons/arrow-right-circle.svg"></a></td>
@@ -60,7 +60,7 @@
           {{else}}
           <tr class="collapse" id="collapse{{$CUR_GROUP}}">
             <td>{{index .ByName "ID"}}</td>
-            <td><img src="public/img/bootstrap-icons/info.svg" data-toggle="tooltip" data-placement="bottom" title="{{index .ByName "REM"}}"> {{index .ByName "NAME"}}</td>
+            <td><img src="public/img/bootstrap-icons/exclamation-circle.svg" data-toggle="tooltip" data-placement="bottom" title="{{index .ByName "REM"}}"> {{index .ByName "NAME"}}</td>
             <td>{{index .ByName "C_NAME"}}</td>
             <td>{{if eq $userAccess "admin"}}<a href='/query?mode=edit&ID={{index .ByName "ID"}}' target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a>{{end}}</td>
             <td><a href='/query?mode=open&ID={{index .ByName "ID"}}' target="_self"><img src="public/img/bootstrap-icons/arrow-right-circle.svg"></a></td>
