@@ -383,7 +383,7 @@ func importTmpTable(strMap [][]string, tableName string, idConn int) error {
 	for _, row := range strMap {
 		colValues := ""
 		for _, cell := range row {
-			colValues = colValues + ", '" + cell + "'"
+			colValues = colValues + ", '" + strings.ReplaceAll(cell, "'", "''") + "'"
 		}
 		colValues = colValues[2:]
 
