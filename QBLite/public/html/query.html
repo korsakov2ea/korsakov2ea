@@ -51,24 +51,24 @@
       </div>
     </div>
 
-    {{if .Data }}
+    {{if .DataMap }}
     <!-- Если передан массив с данными, значит работаем с имеющимся (смотрим, правим, удаляем)-->
     <div class="row">
       <div class="col-sm">
         <form method="POST" enctype="application/x-www-form-urlencoded">
-          <input type="text" class="form-control mb-3" name="Name" placeholder="Название" value='{{index (index .Data 0).ByName "NAME"}}'>
-          <textarea class="form-control mb-3" name="Query" placeholder="Запрос" rows="20">{{index (index .Data 0).ByName "QUERY"}}</textarea>
-          <textarea class="form-control mb-3" name="Rem" placeholder="Описание" rows="10">{{index (index .Data 0).ByName "REM"}}</textarea>
-          {{$ID_CONN:=(index (index .Data 0).ByName "ID_CONNECTION")}}
+          <input type="text" class="form-control mb-3" name="Name" placeholder="Название" value='{{index (index .DataMap 0).NAME}}'>
+          <textarea class="form-control mb-3" name="Query" placeholder="Запрос" rows="20">{{index (index .DataMap 0).QUERY}}</textarea>
+          <textarea class="form-control mb-3" name="Rem" placeholder="Описание" rows="10">{{index (index .DataMap 0).REM}}</textarea>
+          {{$ID_CONN:=(index (index .DataMap 0).ID_CONNECTION)}}
           <select class="form-control mb-3" name="Id_connection">
             {{range $index, $value := (index .Dict "CONNECTIONS") }}
-            <option value={{index $value.ByName "ID"}} {{if eq $ID_CONN (index $value.ByName "ID")}}selected{{end}}>{{index $value.ByName "NAME"}}</option>
+            <option value={{index $value.ID}} {{if eq $ID_CONN (index $value.ID)}}selected{{end}}>{{index $value.NAME}}</option>
             {{end}}
           </select>
-          {{$ID_GROUP:=(index (index .Data 0).ByName "ID_GROUP")}}
+          {{$ID_GROUP:=(index (index .DataMap 0).ID_GROUP)}}
           <select class="form-control mb-3" name="Id_group">
             {{range $index, $value := (index .Dict "GROUPS") }}
-            <option value={{index $value.ByName "ID"}} {{if eq $ID_GROUP (index $value.ByName "ID")}}selected{{end}}>{{index $value.ByName "NAME"}}</option>
+            <option value={{index $value.ID}} {{if eq $ID_GROUP (index $value.ID)}}selected{{end}}>{{index $value.NAME}}</option>
             {{end}}
           </select>
           <button type="submit" class="btn btn-primary" name="submitBtn" value="update">Изменить</button>
@@ -89,13 +89,13 @@
           <select class="form-control mb-3" name="Id_connection">
             <option disabled selected>Соединение</option>
             {{range $index, $value := (index .Dict "CONNECTIONS") }}
-            <option value={{index $value.ByName "ID"}}>{{index $value.ByName "NAME"}}</option>
+            <option value={{index $value.ID}}>{{index $value.NAME}}</option>
             {{end}}
           </select>
           <select class="form-control mb-3" name="Id_group">
             <option disabled selected>Группа запросов</option>
             {{range $index, $value := (index .Dict "GROUPS") }}
-            <option value={{index $value.ByName "ID"}}>{{index $value.ByName "NAME"}}</option>
+            <option value={{index $value.ID}}>{{index $value.NAME}}</option>
             {{end}}
           </select>
           <button type="submit" class="btn btn-secondary" name="submitBtn" value="cancel">Отмена</button>

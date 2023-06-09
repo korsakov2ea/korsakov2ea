@@ -26,7 +26,7 @@
     {{$userAccess := .User.Access}}
 
     <!--  -------------------------------------------------------->
-    {{if .Data}}
+    {{if .DataMap}}
     <table class="table table-sm table-striped">
       <thead class="thead-light ">
         <tr>
@@ -38,32 +38,32 @@
         </tr>
       </thead>
       <tbody>
-      {{$CUR_GROUP:="null"}}
-      {{$ROW_GROUP:="null"}}
+      {{$CUR_GROUP:=0}}
+      {{$ROW_GROUP:=0}}
       {{$TAG_OPENED:=false}}
-      {{range $ind, $dat := .Data }}
-        {{$ROW_GROUP = index $dat.ByName "ID_GROUP"}}
+      {{range $ind, $dat := .DataMap }}
+        {{$ROW_GROUP = $dat.ID_GROUP}}
         {{if ne $CUR_GROUP $ROW_GROUP}}
           {{if eq $TAG_OPENED true}} {{end}}
           {{$TAG_OPENED = true}}
           {{$CUR_GROUP = $ROW_GROUP}}
           <tr data-toggle="collapse" data-target="#collapse{{$CUR_GROUP}}">
-            <td colspan="6" class="table-info"><b>{{index .ByName "G_NAME"}}</b></td>
+            <td colspan="6" class="table-info"><b>{{.G_NAME}}</b></td>
           </tr>
           <tr class="collapse" id="collapse{{$CUR_GROUP}}">
-            <td>{{index .ByName "ID"}}</td>
-            <td><img src="public/img/bootstrap-icons/exclamation-circle.svg" data-toggle="tooltip" data-placement="bottom" title="{{index .ByName "REM"}}"> {{index .ByName "NAME"}}</td>
-            <td>{{index .ByName "C_NAME"}}</td>
-            <td>{{if eq $userAccess "admin"}}<a href='/query?mode=edit&ID={{index .ByName "ID"}}' target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a>{{end}}</td>
-            <td><a href='/query?mode=open&ID={{index .ByName "ID"}}' target="_self"><img src="public/img/bootstrap-icons/arrow-right-circle.svg"></a></td>
+            <td>{{.ID}}</td>
+            <td><img src="public/img/bootstrap-icons/exclamation-circle.svg" data-toggle="tooltip" data-placement="bottom" title="{{.REM}}"> {{.NAME}}</td>
+            <td>{{.C_NAME}}</td>
+            <td>{{if eq $userAccess "admin"}}<a href='/query?mode=edit&ID={{.ID}}' target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a>{{end}}</td>
+            <td><a href='/query?mode=open&ID={{.ID}}' target="_self"><img src="public/img/bootstrap-icons/arrow-right-circle.svg"></a></td>
           </tr>
           {{else}}
           <tr class="collapse" id="collapse{{$CUR_GROUP}}">
-            <td>{{index .ByName "ID"}}</td>
-            <td><img src="public/img/bootstrap-icons/exclamation-circle.svg" data-toggle="tooltip" data-placement="bottom" title="{{index .ByName "REM"}}"> {{index .ByName "NAME"}}</td>
-            <td>{{index .ByName "C_NAME"}}</td>
-            <td>{{if eq $userAccess "admin"}}<a href='/query?mode=edit&ID={{index .ByName "ID"}}' target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a>{{end}}</td>
-            <td><a href='/query?mode=open&ID={{index .ByName "ID"}}' target="_self"><img src="public/img/bootstrap-icons/arrow-right-circle.svg"></a></td>
+            <td>{{.ID}}</td>
+            <td><img src="public/img/bootstrap-icons/exclamation-circle.svg" data-toggle="tooltip" data-placement="bottom" title="{{.REM}}"> {{.NAME}}</td>
+            <td>{{.C_NAME}}</td>
+            <td>{{if eq $userAccess "admin"}}<a href='/query?mode=edit&ID={{.ID}}' target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a>{{end}}</td>
+            <td><a href='/query?mode=open&ID={{.ID}}' target="_self"><img src="public/img/bootstrap-icons/arrow-right-circle.svg"></a></td>
           </tr>
         {{end}}
       {{end}}
@@ -71,31 +71,31 @@
     </table>
     {{end}}
     <!--  -------------------------------------------------------->
-
-    <!--
-    {{if .Data}}
+<!--
+    
+    {{if .DataMap}}
     <div class="row">
       <div class="col-sm">
         <table class="table table-sm">
           <thead class="thead-light ">
             <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Группа</th>
-              <th scope="col">Описание</th>
-              <th scope="col">База данных</th>
-              <th scope="col">Изменить</th>
-              <th scope="col">Выполнить</th>
+              <th scope="col" class="col-1">ID</th>
+              <th scope="col" class="col-1">Группа</th>
+              <th scope="col" class="col-6">Описание</th>
+              <th scope="col" class="col-2">База данных</th>
+              <th scope="col" class="col-1">Изменить</th>
+              <th scope="col" class="col-1">Выполнить</th>
             </tr>
           </thead>
           <tbody>
-            {{range .Data }}
+            {{range .DataMap }}
             <tr>
-              <td>{{index .ByName "ID"}}</td>
-              <td>{{index .ByName "G_NAME"}}</td>
-              <td><img src="public/img/bootstrap-icons/info.svg" data-toggle="tooltip" data-placement="bottom" title="{{index .ByName "REM"}}"> {{index .ByName "NAME"}}</td>
-              <td>{{index .ByName "C_NAME"}}</td>
-              <td><a href='/query?mode=edit&ID={{index .ByName "ID"}}' target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a></td>
-              <td><a href='/query?mode=open&ID={{index .ByName "ID"}}' target="_self"><img src="public/img/bootstrap-icons/arrow-right-circle.svg"></a></td>
+              <td>{{.ID}}</td>
+              <td>{{.G_NAME}}</td>
+              <td>{{.NAME}}</td>
+              <td>{{.C_NAME}}</td>
+              <td><a href='/query?mode=edit&ID={{.ID}}' target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a></td>
+              <td><a href='/query?mode=open&ID={{.ID}}' target="_self"><img src="public/img/bootstrap-icons/arrow-right-circle.svg"></a></td>
             </tr>
             {{end}}
           </tbody>
@@ -105,8 +105,8 @@
     {{else}}
     <p>Пустой массив данных</p>
     {{end}}
-    -->
-    
+-->
+
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     {{template "scripts"}}

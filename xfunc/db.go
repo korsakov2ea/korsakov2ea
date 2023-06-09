@@ -5,6 +5,7 @@ import (
 	"log"
 	"strconv"
 
+	"github.com/go-gota/gota/dataframe"
 	_ "github.com/ibmdb/go_ibm_db"
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -21,9 +22,10 @@ type TDatabase struct {
 
 // Представление таблицы базы данных
 type TTable struct {
-	db   *TDatabase  // ссылка на родительскую БД
-	name string      // наименоение таблицы, при необходимости Схема.Таблица
-	Data TResultRows // + срез с данными
+	db        *TDatabase          // ссылка на родительскую БД
+	name      string              // наименоение таблицы, при необходимости Схема.Таблица
+	Data      TResultRows         // срез с данными
+	DataFrame dataframe.DataFrame // датафрейм с данными
 }
 
 // Представление ОДНОЙ строки результатов SQL выборки. Реализует доступ к данным (по имени, по индексу) и ключам (по индексу).
@@ -115,7 +117,7 @@ func (database *TDatabase) DBExec(sqlCode string) error {
 	return err
 }
 
-// Выполняет SQL инструкцию, которые возвращают результат (например SELECT)
+// Выполняет SQL инструкцию и возвращает результат (например SELECT) в TResultRows
 func (database *TDatabase) DBQuery(sqlCode string) (TResultRows, error) {
 	var result TResultRows
 	rows, err := database.DB.Query(sqlCode)
@@ -128,6 +130,24 @@ func (database *TDatabase) DBQuery(sqlCode string) (TResultRows, error) {
 	} else {
 		log.Printf("%v Выполнение SQL запроса:\n\t%v", FuncName(), shortSqlCode)
 		result = rowsToResult(rows, database.DecodeParam)
+		rows.Close()
+	}
+	return result, err
+}
+
+// Выполняет SQL инструкцию и возвращает результат (например SELECT) в DataFrame
+func (database *TDatabase) DBDFQuery(sqlCode string) (dataframe.DataFrame, error) {
+	var result dataframe.DataFrame
+	rows, err := database.DB.Query(sqlCode)
+	shortSqlCode := sqlCode
+	if len(shortSqlCode) > 1000 {
+		shortSqlCode = shortSqlCode[:1000] + "... "
+	}
+	if err != nil {
+		log.Printf("%v Ошибка выполнения SQL запроса:\n\t%v\n\t%v", FuncName(), shortSqlCode, err)
+	} else {
+		log.Printf("%v Выполнение SQL запроса:\n\t%v", FuncName(), shortSqlCode)
+		result = rowsToDF(rows, database.DecodeParam)
 		rows.Close()
 	}
 	return result, err
@@ -151,6 +171,14 @@ func (tab *TTable) Read(id int) (err error) {
 	return err
 }
 
+// Cчитывает запись из таблицы по id и сохраняет результат в Data
+func (tab *TTable) DFRead(id int) (err error) {
+	log.Printf("%v Чтение записи из %v с id = %v", FuncName(), tab.name, id)
+	sqlCode := "SELECT * FROM " + tab.name + " WHERE ID=" + strconv.Itoa(id)
+	tab.DataFrame, err = tab.db.DBDFQuery(sqlCode)
+	return err
+}
+
 // Считывает все записи из таблицы и сохраняет результат в Data, если fetchRowsCount <= 0. Иначе считывает первые fetchRowsCount строк
 func (tab *TTable) ReadAll(fetchRowsCount int) (err error) {
 	fetchStatement := ""
@@ -163,10 +191,29 @@ func (tab *TTable) ReadAll(fetchRowsCount int) (err error) {
 	return err
 }
 
+// Считывает все записи из таблицы и сохраняет результат в Data, если fetchRowsCount <= 0. Иначе считывает первые fetchRowsCount строк
+func (tab *TTable) DFReadAll(fetchRowsCount int) (err error) {
+	fetchStatement := ""
+	if fetchRowsCount > 0 {
+		fetchStatement = " FETCH FIRST " + strconv.Itoa(fetchRowsCount) + " ROWS ONLY"
+	}
+	log.Printf("%v Чтение всех записей из %v", FuncName(), tab.name)
+	sqlCode := "SELECT * FROM " + tab.name + fetchStatement
+	tab.DataFrame, err = tab.db.DBDFQuery(sqlCode)
+	return err
+}
+
 // Считывает записи из таблицы SQL запросом и сохраняет результат в Data
 func (tab *TTable) ReadSQL(sqlCode string) (err error) {
 	log.Printf("%v Чтение записей из таблицы %v запросом SQL (см. ниже)", FuncName(), tab.name)
 	tab.Data, err = tab.db.DBQuery(sqlCode)
+	return err
+}
+
+// Считывает записи из таблицы SQL запросом и сохраняет результат в Data
+func (tab *TTable) DFReadSQL(sqlCode string) (err error) {
+	log.Printf("%v Чтение записей из таблицы %v запросом SQL (см. ниже)", FuncName(), tab.name)
+	tab.DataFrame, err = tab.db.DBDFQuery(sqlCode)
 	return err
 }
 
@@ -268,4 +315,46 @@ func rowsToResult(rows *sql.Rows, decode1251toUTF8 bool) (resultRows TResultRows
 	}
 
 	return resultRows
+}
+
+// Преобразует *sql.Rows в dataframe.DataFrame
+// В случае decode1251toUTF8 = true изменяет кодировку
+func rowsToDF(rows *sql.Rows, decode1251toUTF8 bool) dataframe.DataFrame {
+	cols, err := rows.Columns()
+	if err != nil {
+		log.Println(FuncName(), "Ошибка получения списка столбцов из *sql.Rows.Columns", err)
+	}
+
+	columns := make([]sql.NullString, len(cols))
+	columnPointers := make([]interface{}, len(cols))
+	for i := range columns {
+		columnPointers[i] = &columns[i]
+	}
+
+	var resultRows []map[string]interface{}
+
+	for rows.Next() {
+		err = rows.Scan(columnPointers...)
+		if err != nil {
+			log.Println("Ошибка сканирования значений *sql.Rows", err)
+		}
+
+		rowMap := make(map[string]interface{})
+		for i, columnName := range cols {
+			val := columnPointers[i].(*sql.NullString)
+			if decode1251toUTF8 {
+				rowMap[columnName] = DecodeStr1251toUTF8(val.String)
+			} else {
+				rowMap[columnName] = val.String
+			}
+			if !val.Valid {
+				rowMap[columnName] = "NULL"
+			}
+		}
+
+		resultRows = append(resultRows, rowMap)
+	}
+
+	return dataframe.LoadMaps(resultRows)
+
 }
