@@ -49,14 +49,14 @@
     </div>
 
 
-    {{if .Data }}
+    {{if .DataMap }}
     <!-- Передан массив с данными, значит работаем с имеющимся (изменить/удалить)-->
     <div class="row">
       <div class="col-sm">
         <form method="POST" enctype="application/x-www-form-urlencoded">
-          <input type="text" class="form-control mb-3" name="Name" placeholder="Наименование" value='{{index (index .Data 0).ByName "NAME"}}'>
-          <input type="text" class="form-control mb-3" name="Driver" placeholder="Драйвер" value='{{index (index .Data 0).ByName "DRIVER"}}'>
-          <input type="text" class="form-control mb-3" name="DSN" placeholder="DSN" value='{{index (index .Data 0).ByName "DSN"}}'>
+          <input type="text" class="form-control mb-3" name="Name" placeholder="Наименование" value='{{(index .DataMap 0).NAME}}'>
+          <input type="text" class="form-control mb-3" name="Driver" placeholder="Драйвер" value='{{(index .DataMap 0).DRIVER}}'>
+          <input type="text" class="form-control mb-3" name="DSN" placeholder="DSN" value='{{(index .DataMap 0).DSN}}'>
           <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
           <button type="submit" class="btn btn-primary" name="submitBtn" value="Update">Изменить</button>
           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addModal">Удалить</button>

@@ -17,35 +17,31 @@
     <!--ЗАГОЛОВОК-->
     <div class="row mt-3">
       <div class="col">
-        <p class="text-center font-weight-bold">СОЕДИНЕНИЯ (всего - {{len .DataMap}})</p>
+        <p class="text-center font-weight-bold">ГРУППЫ ЗАПРОСОВ !!!!</p>
       </div>
     </div>
 
     <!--Если есть уведомления, то вывести-->
     {{if .Alerts}}{{range .Alerts}}<div class="alert alert-{{.Class}}" role="alert">{{.Text}}</div>{{end}}{{end}}
-    
-    {{if .DataMap }}
+
+    {{if .DataFrame }}
     <div class="row">
       <div class="col-sm">
         <table class="table table-sm table-striped">
           <thead class="thead-light ">
             <tr>
               <th scope="col" class="col-1">ID</th>
-              <th scope="col" class="col-3">Наименовение</th>
-              <th scope="col" class="col-1">Драйвер</th>
-              <th scope="col" class="col-6">DSN</th>
+              <th scope="col" class="col-10">Наименовение</th>
               <th scope="col" class="col-1">Изменить</th>
             </tr>
           </thead>
 
           <tbody>
-            {{range .DataMap }}
+            {{range .DataFrame }}
             <tr>
               <td>{{.ID}}</a></td>
               <td>{{.NAME}}</td>
-              <td>{{.DRIVER}}</td>
-              <td>{{.DSN}}</td>
-              <td><a href="/connection?mode=edit&ID={{.ID}}" target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a></td>
+              <td><a href="/group?mode=edit&ID={{.ID}}" target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a></td>
             </tr>
             {{end}}
           </tbody>

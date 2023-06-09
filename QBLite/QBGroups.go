@@ -12,11 +12,11 @@ func groups(w http.ResponseWriter, r *http.Request) {
 	log.Printf("%v Переход к списку групп ────────────────────────────────────────┐", xfunc.FuncName())
 	defer log.Printf("%v Переход к списку групп ────────────────────────────────────────┘", xfunc.FuncName())
 
-	sqlErr = QBGroup.ReadAll(0)
+	sqlErr = QBGroup.DFReadAll(0)
 	if sqlErr != nil {
 		RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 	}
-	RenderData.Data = QBGroup.Data
+	RenderData.DataMap = QBGroup.DataFrame.Maps()
 	RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Всего групп - " + strconv.Itoa(len(RenderData.Data)), Class: "info"})
 	xfunc.RenderPage(w, "groups.html", "common.html", RenderData)
 	RenderData.Alerts = nil
@@ -94,6 +94,7 @@ func group(w http.ResponseWriter, r *http.Request) {
 			log.Printf("%v Переход к добавления группы ────────────────────────────────────────┐", xfunc.FuncName())
 			RenderData.Alerts = nil
 			RenderData.Data = nil
+			RenderData.DataMap = nil
 			xfunc.RenderPage(w, "group.html", "common.html", RenderData)
 			log.Printf("%v Переход к добавления группы ────────────────────────────────────────┘", xfunc.FuncName())
 
@@ -102,11 +103,11 @@ func group(w http.ResponseWriter, r *http.Request) {
 			log.Printf("%v Переход к изменению группы ────────────────────────────────────────┐", xfunc.FuncName())
 			RenderData.Alerts = nil
 
-			sqlErr = QBGroup.Read(id)
+			sqlErr = QBGroup.DFRead(id)
 			if sqlErr != nil {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 			}
-			RenderData.Data = QBGroup.Data
+			RenderData.DataMap = QBGroup.DataFrame.Maps()
 
 			xfunc.RenderPage(w, "group.html", "common.html", RenderData)
 			log.Printf("%v Переход к изменению группы ────────────────────────────────────────┘", xfunc.FuncName())

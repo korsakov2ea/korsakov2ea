@@ -11,11 +11,12 @@ import (
 
 // Структура для передачи данных в предствление (рендер)
 type TRenderData struct {
-	Alerts []TAlert                 // срез уведомлений
-	Data   TResultRows              // основные данные для рендера (например: результаты выборки)
-	Dict   map[string]interface{}   // карта вспомогательных данных - словарь (например: название, пояснение, результаты подзапросов и т.д.)
-	Param  map[string]TParamOptions // карта параметров для выполнения запроса
-	User   *TUser                   // пользователь вызвавший метод (для рендера в зависимоти от прав)
+	Alerts  []TAlert                 // срез уведомлений
+	Data    TResultRows              // основные данные для рендера (например: результаты выборки) в виде структуры
+	DataMap []map[string]interface{} // основные данные для рендера (например: результаты выборки) в виде карты
+	Dict    map[string]interface{}   // карта вспомогательных данных - словарь (например: название, пояснение, результаты подзапросов и т.д.)
+	Param   map[string]TParamOptions // карта параметров для выполнения запроса
+	User    *TUser                   // пользователь вызвавший метод (для рендера в зависимоти от прав)
 }
 
 // Информация о пользователе
@@ -132,5 +133,39 @@ func RenderPage(w http.ResponseWriter, templatePage string, commonPage string, d
 		http.Error(w, err.Error(), 400)
 	} else {
 		log.Printf("%v Построение шаблона страницы %v", FuncName(), templatePath)
+	}
+}
+
+// Удаляет все уведомления из среза
+func (RenderData *TRenderData) Clear() {
+	RenderData.Alerts = nil
+	RenderData.Data = nil
+	RenderData.DataMap = nil
+}
+
+// Добавляет уведомление в срез
+func (RenderData *TRenderData) AddAlert(text, class string) {
+	RenderData.Alerts = append(RenderData.Alerts, TAlert{Text: text, Class: class})
+}
+
+// Получение всех данных (см. fetch) из таблицы в карту данных для рендера
+func (RenderData *TRenderData) GetAllFromTable(table *TTable, fetch int) {
+	err := table.DFReadAll(fetch)
+	if err != nil {
+		RenderData.DataMap = nil
+		RenderData.AddAlert(err.Error(), "danger")
+	} else {
+		RenderData.DataMap = table.DataFrame.Maps()
+	}
+}
+
+// Получение одной строки по ID из таблицы в карту данных для рендера
+func (RenderData *TRenderData) GetIdFromIdTable(table *TTable, id int) {
+	err := table.DFRead(id)
+	if err != nil {
+		RenderData.DataMap = nil
+		RenderData.AddAlert(err.Error(), "danger")
+	} else {
+		RenderData.DataMap = table.DataFrame.Maps()
 	}
 }

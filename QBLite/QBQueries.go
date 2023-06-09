@@ -11,11 +11,13 @@ import (
 // queries - обработчик HTTP (список запросов)
 func queries(w http.ResponseWriter, r *http.Request) {
 	log.Printf("%v Переход к списку запросов ────────────────────────────────────────┐", xfunc.FuncName())
-	sqlErr = QBQuery.ReadSQL("SELECT Q.ID, Q.REM, Q.QUERY, Q.NAME, Q.ID_GROUP, C.NAME AS C_NAME, G.NAME AS G_NAME FROM QUERY AS Q LEFT JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID LEFT JOIN QUERY_GROUP AS G ON G.ID=Q.ID_GROUP ORDER BY G_NAME, Q.ID")
+
+	sqlErr = QBQuery.DFReadSQL("SELECT Q.ID, Q.REM, Q.QUERY, Q.NAME, Q.ID_GROUP, C.NAME AS C_NAME, G.NAME AS G_NAME FROM QUERY AS Q LEFT JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID LEFT JOIN QUERY_GROUP AS G ON G.ID=Q.ID_GROUP ORDER BY ID_GROUP, Q.ID")
 	if sqlErr != nil {
 		RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 	}
-	RenderData.Data = QBQuery.Data
+
+	RenderData.DataMap = QBQuery.DataFrame.Maps()
 	RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Всего запросов - " + strconv.Itoa(len(RenderData.Data)), Class: "info"})
 	xfunc.RenderPage(w, "queries.html", "common.html", RenderData)
 	RenderData.Alerts = nil
@@ -165,17 +167,18 @@ func query(w http.ResponseWriter, r *http.Request) {
 			log.Printf("%v Переход к добавлению запроса ────────────────────────────────────────┐", xfunc.FuncName())
 			RenderData.Alerts = nil
 			RenderData.Data = nil
-			sqlErr = QBConnection.ReadAll(0)
+			RenderData.DataMap = nil
+			sqlErr = QBConnection.DFReadAll(0)
 			if sqlErr != nil {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 			}
-			sqlErr = QBGroup.ReadAll(0)
+			sqlErr = QBGroup.DFReadAll(0)
 			if sqlErr != nil {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 			}
 			RenderData.Dict = make(map[string]interface{})
-			RenderData.Dict["CONNECTIONS"] = QBConnection.Data
-			RenderData.Dict["GROUPS"] = QBGroup.Data
+			RenderData.Dict["CONNECTIONS"] = QBConnection.DataFrame.Maps()
+			RenderData.Dict["GROUPS"] = QBGroup.DataFrame.Maps()
 			xfunc.RenderPage(w, "query.html", "common.html", RenderData)
 			log.Printf("%v Переход к добавлению запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
@@ -184,24 +187,24 @@ func query(w http.ResponseWriter, r *http.Request) {
 			log.Printf("%v Переход к изменению запроса ────────────────────────────────────────┐", xfunc.FuncName())
 			RenderData.Alerts = nil
 
-			sqlErr = QBQuery.Read(id)
+			sqlErr = QBQuery.DFRead(id)
 			if sqlErr != nil {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 			}
-			RenderData.Data = QBQuery.Data
+			RenderData.DataMap = QBQuery.DataFrame.Maps()
 
-			sqlErr = QBConnection.ReadAll(0)
+			sqlErr = QBConnection.DFReadAll(0)
 			if sqlErr != nil {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 			}
-			sqlErr = QBGroup.ReadAll(0)
+			sqlErr = QBGroup.DFReadAll(0)
 			if sqlErr != nil {
 				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
 			}
 
 			RenderData.Dict = make(map[string]interface{})
-			RenderData.Dict["CONNECTIONS"] = QBConnection.Data
-			RenderData.Dict["GROUPS"] = QBGroup.Data
+			RenderData.Dict["CONNECTIONS"] = QBConnection.DataFrame.Maps()
+			RenderData.Dict["GROUPS"] = QBGroup.DataFrame.Maps()
 			xfunc.RenderPage(w, "query.html", "common.html", RenderData)
 			log.Printf("%v ППереход к изменению запроса ────────────────────────────────────────┘", xfunc.FuncName())
 

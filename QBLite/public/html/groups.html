@@ -24,7 +24,7 @@
     <!--Если есть уведомления, то вывести-->
     {{if .Alerts}}{{range .Alerts}}<div class="alert alert-{{.Class}}" role="alert">{{.Text}}</div>{{end}}{{end}}
     
-    {{if .Data }}
+    {{if .DataMap }}
     <div class="row">
       <div class="col-sm">
         <table class="table table-sm table-striped">
@@ -37,11 +37,11 @@
           </thead>
 
           <tbody>
-            {{range .Data }}
+            {{range .DataMap }}
             <tr>
-              <td>{{index .ByName "ID"}}</a></td>
-              <td>{{index .ByName "NAME"}}</td>
-              <td><a href="/group?mode=edit&ID={{index .ByName "ID"}}" target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a></td>
+              <td>{{.ID}}</a></td>
+              <td>{{.NAME}}</td>
+              <td><a href="/group?mode=edit&ID={{.ID}}" target="_self"><img src="public/img/bootstrap-icons/pencil.svg"></a></td>
             </tr>
             {{end}}
           </tbody>

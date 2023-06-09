@@ -9,114 +9,70 @@ import (
 
 // connections - обработчик HTTP (список соединений)
 func connections(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v Переход к списку соединений ────────────────────────────────────────┐", xfunc.FuncName())
-	defer log.Printf("%v Переход к списку соединений ────────────────────────────────────────┘", xfunc.FuncName())
-
-	sqlErr = QBConnection.ReadAll(0)
-	if sqlErr != nil {
-		RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-	}
-	RenderData.Data = QBConnection.Data
-	RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Всего соединений - " + strconv.Itoa(len(RenderData.Data)), Class: "info"})
+	log.Printf("%v --------- HTTP METHOD: %v, PARAM: %v", xfunc.FuncName(), r.Method, r.URL.RawQuery)
+	RenderData.GetAllFromTable(&QBConnection, 0)
 	xfunc.RenderPage(w, "connections.html", "common.html", RenderData)
-	RenderData.Alerts = nil
+	RenderData.Clear()
 }
 
 // connection - обработчик HTTP (одиночное соединение)
 func connection(w http.ResponseWriter, r *http.Request) {
+	log.Printf("%v --------- HTTP METHOD: %v, PARAM: %v", xfunc.FuncName(), r.Method, r.URL.RawQuery)
 	id, err := strconv.Atoi(r.FormValue("ID"))
 	if err != nil && r.Method == "POST" && (r.FormValue("submitBtn") == "Update" || r.FormValue("submitBtn") == "Delete") {
 		log.Printf("%v Ошибка преобразования ID = %v из GET запроса в число", xfunc.FuncName(), r.FormValue("ID"))
 	} else {
-		log.Printf("%v HTTP запрос с параметрами %v", xfunc.FuncName(), r.URL.RawQuery)
-
+		RenderData.Clear()
 		switch {
 
 		// Отмена изменений соединения
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Cancel":
-			log.Printf("%v Отмена изменений соединения ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-			RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Нажата кнопка [Отмена]", Class: "info"})
+			RenderData.AddAlert("Нажата кнопка [Отмена]", "info")
 			http.Redirect(w, r, "connections", http.StatusFound)
-			log.Printf("%v Отмена изменений соединения ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// Создание соединения
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Create":
-			log.Printf("%v Создание соединения ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
+		// Создание / изменение соединения
+		case r.Method == "POST" && (r.FormValue("submitBtn") == "Create" || r.FormValue("submitBtn") == "Update"):
 			newConnection := make(map[string]string)
 			newConnection["NAME"] = r.FormValue("Name")
 			newConnection["DRIVER"] = r.FormValue("Driver")
 			newConnection["DSN"] = r.FormValue("DSN")
-
-			sqlErr = QBConnection.Create(newConnection)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			} else {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Соединение создано", Class: "success"})
+			action := ""
+			switch r.FormValue("submitBtn") {
+			case "Create":
+				sqlErr = QBConnection.Create(newConnection)
+				action = "создано"
+			case "Update":
+				sqlErr = QBConnection.Update(id, newConnection)
+				action = "изменено"
 			}
-
-			http.Redirect(w, r, "connections", http.StatusFound)
-			log.Printf("%v Создание соединения ────────────────────────────────────────┘", xfunc.FuncName())
-
-		// Изменение соединения
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Update":
-			log.Printf("%v Изменение соединения ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-			newConnection := make(map[string]string)
-			newConnection["NAME"] = r.FormValue("Name")
-			newConnection["DRIVER"] = r.FormValue("Driver")
-			newConnection["DSN"] = r.FormValue("DSN")
-
-			sqlErr = QBConnection.Update(id, newConnection)
 			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+				RenderData.AddAlert(sqlErr.Error(), "danger")
 			} else {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Соединение изменено", Class: "success"})
+				RenderData.AddAlert("Соединение "+action, "success")
 			}
-
 			http.Redirect(w, r, "connections", http.StatusFound)
-			log.Printf("%v Изменение соединения ────────────────────────────────────────┘", xfunc.FuncName())
 
 		// Удаление соединения
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Delete":
-			log.Printf("%v Удаление соединения ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-
 			sqlErr = QBConnection.Delete(id)
 			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+				RenderData.AddAlert(sqlErr.Error(), "danger")
 			} else {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Соединение удалено", Class: "success"})
+				RenderData.AddAlert("Соединение удалено", "success")
 			}
-
 			http.Redirect(w, r, "connections", http.StatusFound)
-			log.Printf("%v Удаление соединения ────────────────────────────────────────┘", xfunc.FuncName())
 
 		// Переход к добавления соединения
 		case r.Method == "GET" && r.FormValue("mode") == "add":
-			log.Printf("%v Переход к добавления соединения ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-			RenderData.Data = nil
 			xfunc.RenderPage(w, "connection.html", "common.html", RenderData)
-			log.Printf("%v Переход к добавления соединения ────────────────────────────────────────┘", xfunc.FuncName())
 
 		// Переход к изменению соединения
 		case r.Method == "GET" && r.FormValue("mode") == "edit":
-			log.Printf("%v Переход к изменению соединения ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-
-			sqlErr = QBConnection.Read(id)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-			RenderData.Data = QBConnection.Data
-
+			RenderData.GetIdFromIdTable(&QBConnection, id)
 			xfunc.RenderPage(w, "connection.html", "common.html", RenderData)
-			log.Printf("%v Переход к изменению соединения ────────────────────────────────────────┘", xfunc.FuncName())
 
 		default:
-			// сделать заглушку если неизветный путь
+			w.Write([]byte("Неожиданный запрос!"))
 		}
 	}
 }
