@@ -67,7 +67,7 @@ func query(w http.ResponseWriter, r *http.Request) {
 				if strings.Contains(formKey, "val@") {
 					newParam["ID_QUERY"] = newQueryID
 					newParam["NAME"] = strings.Replace(formKey, "val@", "", 1)
-					newParam["REM"] = r.Form[strings.Replace(formKey, "val@", "rem@", 1)][0]
+					newParam["REM"] = r.Form[strings.Replace(formKey, "val@", "rem", 1)][0]
 					newParam["VALUE"] = r.Form[formKey][0]
 					RenderData.AddAlertIfErr(QBParam.Create(newParam))
 				}
@@ -152,9 +152,20 @@ func query(w http.ResponseWriter, r *http.Request) {
 			// если не требуется загрузка или файл был успешно загружен в базу
 			if !needUpload || dataUploaded {
 				resultDataFrame, sqlErr := executeQuery(id, params, tmpTableName)
+
+				newLogRecord := make(map[string]string)
+				newLogRecord["ID_QUERY"] = strconv.Itoa(id)
+				newLogRecord["ID_USER"] = user.Name
+				newLogRecord["TIME"] = xfunc.GenerateTimeStamp()
+				newLogRecord["RESULT"] = "Получено строк: " + strconv.Itoa(resultDataFrame.Nrow())
+
 				if sqlErr != nil {
 					RenderData.AddAlert(sqlErr.Error(), "danger")
+					newLogRecord["RESULT"] = sqlErr.Error()
 				}
+
+				QBLog.Create(newLogRecord)
+
 				switch {
 				case r.FormValue("submitBtn") == "viewResult":
 					RenderData.DataMap = resultDataFrame.Maps()

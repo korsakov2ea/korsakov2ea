@@ -14,6 +14,7 @@ var QBQuery xfunc.TTable         // Представление таблицы з
 var QBConnection xfunc.TTable    // Представление таблицы соединений
 var QBParam xfunc.TTable         // Представление таблицы параметров запросов
 var QBGroup xfunc.TTable         // Представление таблицы групп запросов
+var QBLog xfunc.TTable           // Представление таблицы с логом выполенения запросов
 var RenderData xfunc.TRenderData // Данные для передачи в предсталение (рендера)
 var sqlErr error = nil           // Ошибка при работе с базой
 var user xfunc.TUser             // Инфомармаци о пользователе, вызвавшем метод
@@ -38,6 +39,7 @@ func main() {
 	QBConnection.Bind("CONNECTION", &QB)
 	QBParam.Bind("PARAM", &QB)
 	QBGroup.Bind("QUERY_GROUP", &QB)
+	QBLog.Bind("QUERY_LOG", &QB)
 
 	RenderData.User = &user
 
