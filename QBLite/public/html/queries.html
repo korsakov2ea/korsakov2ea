@@ -24,7 +24,7 @@
     <!--Если есть уведомления, то вывести-->
     {{if .Alerts}}{{range .Alerts}}<div class="alert alert-{{.Class}}" role="alert">{{.Text}}</div>{{end}}{{end}}
     {{$userAccess := .User.Access}}
-
+    
     <!--  -------------------------------------------------------->
     {{if .DataMap}}
     <table class="table table-sm table-striped">

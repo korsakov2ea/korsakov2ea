@@ -114,8 +114,8 @@ func AuthBIUD(login, pass string, hashed bool, biud *TDatabase) int {
 	return result
 }
 
-// Собирает страницу из макета страницы (templatePage), подстановочной страницы (commonPage), объекта данных (date) и выводит в поток (w)
-func RenderPage(w http.ResponseWriter, templatePage string, commonPage string, data TRenderData) {
+// Собирает страницу из макета страницы (templatePage), подстановочной страницы (commonPage) и выводит в поток (w)
+func (RenderData *TRenderData) RenderMap(w http.ResponseWriter, templatePage string, commonPage string) {
 	templatePath := filepath.Join("public", "html", templatePage)
 	commonPath := filepath.Join("public", "html", commonPage)
 
@@ -127,7 +127,7 @@ func RenderPage(w http.ResponseWriter, templatePage string, commonPage string, d
 		log.Printf("%v Парсинг шаблона страницы %v", FuncName(), templatePath)
 	}
 
-	err = tmpl.Execute(w, data)
+	err = tmpl.Execute(w, RenderData)
 	if err != nil {
 		log.Printf("%v Ошибка постооения шаблона страницы %v", FuncName(), err)
 		http.Error(w, err.Error(), 400)
@@ -141,11 +141,27 @@ func (RenderData *TRenderData) Clear() {
 	RenderData.Alerts = nil
 	RenderData.Data = nil
 	RenderData.DataMap = nil
+	RenderData.Dict = nil
 }
 
 // Добавляет уведомление в срез
 func (RenderData *TRenderData) AddAlert(text, class string) {
 	RenderData.Alerts = append(RenderData.Alerts, TAlert{Text: text, Class: class})
+}
+
+// Добавляет уведомление типа "danger" в срез, если есть err не nil и возвращает ту же ошибку для пост обработки
+func (RenderData *TRenderData) AddAlertIfErr(err error) error {
+	if err != nil {
+		RenderData.AddAlert(err.Error(), "dander")
+	}
+	return err
+}
+
+// Добавляет уведомление типа "success" в срез, если срез пустой
+func (RenderData *TRenderData) AddAlertIfOk(text string) {
+	if len(RenderData.Alerts) == 0 {
+		RenderData.AddAlert(text, "success")
+	}
 }
 
 // Получение всех данных (см. fetch) из таблицы в карту данных для рендера
@@ -160,7 +176,7 @@ func (RenderData *TRenderData) GetAllFromTable(table *TTable, fetch int) {
 }
 
 // Получение одной строки по ID из таблицы в карту данных для рендера
-func (RenderData *TRenderData) GetIdFromIdTable(table *TTable, id int) {
+func (RenderData *TRenderData) GetOneFromTable(table *TTable, id int) {
 	err := table.DFRead(id)
 	if err != nil {
 		RenderData.DataMap = nil
@@ -168,4 +184,36 @@ func (RenderData *TRenderData) GetIdFromIdTable(table *TTable, id int) {
 	} else {
 		RenderData.DataMap = table.DataFrame.Maps()
 	}
+}
+
+// Заполняет словарь dictName значениями таблицы table
+func (RenderData *TRenderData) AddDictFromTable(dictName string, table *TTable) {
+	if RenderData.Dict == nil {
+		RenderData.Dict = make(map[string]interface{})
+	}
+	err := table.DFReadAll(0)
+	if err != nil {
+		RenderData.Dict[dictName] = nil
+		RenderData.AddAlert(err.Error(), "danger")
+	} else {
+		RenderData.Dict[dictName] = table.DataFrame.Maps()
+	}
+}
+
+// Заполняет словарь dictName значениями типа table.DataFrame.Maps
+func (RenderData *TRenderData) AddDictFromMaps(dictName string, maps []map[string]interface{}) {
+	if RenderData.Dict == nil {
+		RenderData.Dict = make(map[string]interface{})
+	}
+	RenderData.Dict[dictName] = maps
+
+}
+
+// Заполняет словарь dictName значениями типа table.DataFrame.Maps
+func (RenderData *TRenderData) AddDictFromArr(dictName string, strArr []string) {
+	if RenderData.Dict == nil {
+		RenderData.Dict = make(map[string]interface{})
+	}
+	RenderData.Dict[dictName] = strArr
+
 }

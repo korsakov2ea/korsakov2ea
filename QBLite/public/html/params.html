@@ -1,0 +1,35 @@
+<!doctype html>
+{{template "html"}}
+
+<head>
+  <!-- Required meta tags -->
+  {{template "meta"}}
+  <!-- Bootstrap CSS -->
+  {{template "styles"}}
+
+  {{template "title"}}
+</head>
+
+<body>
+  {{template "navbar" .User}}
+  <div class="container-fluid">
+
+    <!--ЗАГОЛОВОК-->
+    <div class="row mt-3">
+      <div class="col">
+        <p class="text-center font-weight-bold">ОПРЕДЕЛЕНИЕ ПАРАМЕТРОВ</p>
+      </div>
+    </div>
+
+    <!--Если есть уведомления, то вывести-->
+    {{if .Alerts}}{{range .Alerts}}<div class="alert alert-{{.Class}}" role="alert">{{.Text}}</div>{{end}}{{end}}
+    
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {{template "scripts"}}
+  </div>
+</body>
+
+</html>

@@ -28,4 +28,5 @@ func GetExecFilePath() (execFilePath string) {
 func GenerateTimeStamp() string {
 	dateTime := time.Now()
 	return dateTime.Format("20060102_150405.000000")[:15] + dateTime.Format("20060201T150405.000000")[16:]
+
 }

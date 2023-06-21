@@ -7,113 +7,61 @@ import (
 	"strconv"
 )
 
-// список групп запросов
+// Возвращает все группы запросов +
 func groups(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v Переход к списку групп ────────────────────────────────────────┐", xfunc.FuncName())
-	defer log.Printf("%v Переход к списку групп ────────────────────────────────────────┘", xfunc.FuncName())
-
-	sqlErr = QBGroup.DFReadAll(0)
-	if sqlErr != nil {
-		RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-	}
-	RenderData.DataMap = QBGroup.DataFrame.Maps()
-	RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Всего групп - " + strconv.Itoa(len(RenderData.Data)), Class: "info"})
-	xfunc.RenderPage(w, "groups.html", "common.html", RenderData)
-	RenderData.Alerts = nil
+	log.Printf("%v --------- HTTP METHOD: %v, PARAM: %v", xfunc.FuncName(), r.Method, r.URL.RawQuery)
+	RenderData.GetAllFromTable(&QBGroup, 0)
+	RenderData.RenderMap(w, "groups.html", "common.html")
+	RenderData.Clear()
 }
 
-// группа запроса
+// Обработка событий при работе с группой +
 func group(w http.ResponseWriter, r *http.Request) {
+	log.Printf("%v --------- HTTP METHOD: %v, PARAM: %v", xfunc.FuncName(), r.Method, r.URL.RawQuery)
 	id, err := strconv.Atoi(r.FormValue("ID"))
 	if err != nil && r.Method == "POST" && (r.FormValue("submitBtn") == "Update" || r.FormValue("submitBtn") == "Delete") {
 		log.Printf("%v Ошибка преобразования ID = %v из GET запроса в число", xfunc.FuncName(), r.FormValue("ID"))
 	} else {
 		log.Printf("%v HTTP запрос с параметрами %v", xfunc.FuncName(), r.URL.RawQuery)
-
+		RenderData.Clear()
 		switch {
 
-		// Отмена изменений группы
+		// Отмена изменений группы +
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Cancel":
-			log.Printf("%v Отмена изменений группы ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-			RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Нажата кнопка [Отмена]", Class: "info"})
+			RenderData.AddAlert("Нажата кнопка [Отмена]", "info")
 			http.Redirect(w, r, "groups", http.StatusFound)
-			log.Printf("%v Отмена изменений группы ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// Создание группы
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Create":
-			log.Printf("%v Создание группы ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
+		// Создание / изменение группы +
+		case r.Method == "POST" && (r.FormValue("submitBtn") == "Create" || r.FormValue("submitBtn") == "Update"):
 			newGroup := make(map[string]string)
 			newGroup["NAME"] = r.FormValue("Name")
-
-			sqlErr = QBGroup.Create(newGroup)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			} else {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Группа создана", Class: "success"})
+			action := ""
+			switch r.FormValue("submitBtn") {
+			case "Create":
+				RenderData.AddAlertIfErr(QBGroup.Create(newGroup))
+				action = "создана"
+			case "Update":
+				RenderData.AddAlertIfErr(QBGroup.Update(id, newGroup))
+				action = "изменена"
 			}
-
+			RenderData.AddAlertIfOk("Группа " + action)
 			http.Redirect(w, r, "groups", http.StatusFound)
-			log.Printf("%v Создание группы ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// Изменение группы
-		case r.Method == "POST" && r.FormValue("submitBtn") == "Update":
-			log.Printf("%v Изменение группы ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-			newGroup := make(map[string]string)
-			newGroup["NAME"] = r.FormValue("Name")
-
-			sqlErr = QBGroup.Update(id, newGroup)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			} else {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Группа изменена", Class: "success"})
-			}
-
-			http.Redirect(w, r, "groups", http.StatusFound)
-			log.Printf("%v Изменение группы ────────────────────────────────────────┘", xfunc.FuncName())
-
-		// Удаление группы
+		// Удаление группы +
 		case r.Method == "POST" && r.FormValue("submitBtn") == "Delete":
-			log.Printf("%v Удаление группы ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-
-			sqlErr = QBGroup.Delete(id)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			} else {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Группа удалена", Class: "success"})
-			}
-
+			RenderData.AddAlertIfErr(QBGroup.Delete(id))
+			RenderData.AddAlertIfOk("Группа удалена")
 			http.Redirect(w, r, "groups", http.StatusFound)
-			log.Printf("%v Удаление группы ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// Переход к добавления группы
-		case r.Method == "GET" && r.FormValue("mode") == "add":
-			log.Printf("%v Переход к добавления группы ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-			RenderData.Data = nil
-			RenderData.DataMap = nil
-			xfunc.RenderPage(w, "group.html", "common.html", RenderData)
-			log.Printf("%v Переход к добавления группы ────────────────────────────────────────┘", xfunc.FuncName())
-
-		// Переход к изменению группы
-		case r.Method == "GET" && r.FormValue("mode") == "edit":
-			log.Printf("%v Переход к изменению группы ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-
-			sqlErr = QBGroup.DFRead(id)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+		// Переход к добавлению / изменению группы +
+		case r.Method == "GET" && (r.FormValue("mode") == "add" || r.FormValue("mode") == "edit"):
+			if r.FormValue("mode") == "edit" {
+				RenderData.GetOneFromTable(&QBGroup, id)
 			}
-			RenderData.DataMap = QBGroup.DataFrame.Maps()
-
-			xfunc.RenderPage(w, "group.html", "common.html", RenderData)
-			log.Printf("%v Переход к изменению группы ────────────────────────────────────────┘", xfunc.FuncName())
+			RenderData.RenderMap(w, "group.html", "common.html")
 
 		default:
-			// сделать заглушку если неизветный путь
+			w.Write([]byte("Неожиданный запрос!"))
 		}
 	}
 }

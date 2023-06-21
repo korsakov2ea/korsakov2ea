@@ -47,6 +47,25 @@ func DecodeStrMap1251toUTF8(records1251 [][]string) (recordsUTF [][]string) {
 	return
 }
 
+// DecodeStrMapUTF8to1251 - возвращает двумерный массив string перекодированый из UTF-8 в 1251
+func DecodeStrMapUTF8to1251(recordsUTF8 [][]string) (records1251 [][]string) {
+	records1251 = recordsUTF8
+	maxRow := len(recordsUTF8)
+	maxCol := len(recordsUTF8[0])
+	decoder := charmap.Windows1251.NewEncoder()
+	for i := 0; i < maxRow; i++ {
+		for j := 0; j < maxCol; j++ {
+			Record1251, err := decoder.String(recordsUTF8[i][j])
+			if err != nil {
+				log.Printf("%v Ошибка перекодирования значения UTF-8 > 1251 %v", FuncName(), err)
+			} else {
+				records1251[i][j] = Record1251
+			}
+		}
+	}
+	return
+}
+
 // DecodeStr1251toUTF8 - возвращает строку перекодированую из 1251 в UTF-8
 func DecodeStr1251toUTF8(W1251 string) string {
 	decoder := charmap.Windows1251.NewDecoder()
@@ -121,4 +140,36 @@ func GetParamsFromStr(str string) map[string]TParamOptions {
 	}
 
 	return params
+}
+
+func GetParam(str string) (result []string) {
+	// правило разбивки строки на части
+	f := func(c rune) bool {
+		result := false
+		s := string(c)
+		if s == "{" || s == "}" {
+			result = true
+		}
+		return result
+	}
+
+	// разбить на части по правилу ({ или })
+	fields := strings.FieldsFunc(str, f)
+
+	contains := func(slice []string, find_element string) bool {
+		for _, cur_element := range slice {
+			if cur_element == find_element {
+				return true
+			}
+		}
+		return false
+	}
+
+	// для элементов среза, в которых есть два двоеточия (т.е. параметры), разбить строку на части по : и перенести в params
+	for _, field := range fields {
+		if strings.Count(field, "@") > 0 && !contains(result, field[1:]) {
+			result = append(result, field[1:])
+		}
+	}
+	return result
 }

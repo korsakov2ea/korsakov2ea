@@ -20,6 +20,9 @@
       </div>
     </div>
 
+
+    <div class="alert alert-info" role="alert"> Для добавления временной таблицы указать <b>#ТABLE#</b>, для добавления параметров указать <b>{@PARAM_NAME}</b> и инициализировать кнопкой "Параметры"</div>
+
     <!--Если есть уведомления, то вывести-->
     {{if .Alerts}}{{range .Alerts}}<div class="alert alert-{{.Class}}" role="alert">{{.Text}}</div>{{end}}{{end}}
 
@@ -58,7 +61,18 @@
         <form method="POST" enctype="application/x-www-form-urlencoded">
           <input type="text" class="form-control mb-3" name="Name" placeholder="Название" value='{{index (index .DataMap 0).NAME}}'>
           <textarea class="form-control mb-3" name="Query" placeholder="Запрос" rows="20">{{index (index .DataMap 0).QUERY}}</textarea>
-          <textarea class="form-control mb-3" name="Rem" placeholder="Описание" rows="10">{{index (index .DataMap 0).REM}}</textarea>
+          {{range $param := (index .Dict "PARAMS") }}
+          <div class="form-group row mb-0">
+            <label for="{{$param.NAME}}" class="col-sm-1 col-form-label">{{$param.NAME}}</label>
+            <div class="col-sm-1">
+              <input type="text" class="form-control mb-3" id="{{$param.NAME}}" name="val@{{$param.NAME}}" placeholder="значение" value="{{$param.VALUE}}">
+            </div>
+            <div class="col-sm-10">
+              <input type="text" class="form-control mb-3" id="{{$param.NAME}}" name="rem@{{$param.NAME}}" placeholder="описание" value="{{$param.REM}}">
+            </div>
+          </div>
+          {{end}}
+          <textarea class="form-control mb-3" name="Rem" placeholder="Описание" rows="3">{{index (index .DataMap 0).REM}}</textarea>
           {{$ID_CONN:=(index (index .DataMap 0).ID_CONNECTION)}}
           <select class="form-control mb-3" name="Id_connection">
             {{range $index, $value := (index .Dict "CONNECTIONS") }}
@@ -71,9 +85,11 @@
             <option value={{index $value.ID}} {{if eq $ID_GROUP (index $value.ID)}}selected{{end}}>{{index $value.NAME}}</option>
             {{end}}
           </select>
-          <button type="submit" class="btn btn-primary" name="submitBtn" value="update">Изменить</button>
+          <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
+          <button type="submit" class="btn btn-primary" name="submitBtn" value="InitParam">Параметры</button>
+          <button type="submit" class="btn btn-success" name="submitBtn" value="Update">Изменить</button>
           <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addModal">Удалить</button>
-          <button type="submit" class="btn btn-secondary" name="submitBtn" value="cancel">Отмена</button>
+          
         </form>
       </div>
     </div>
@@ -85,7 +101,18 @@
         <form method="POST" enctype="application/x-www-form-urlencoded">
           <input type="text" class="form-control mb-3" name="Name" placeholder="Название">
           <textarea class="form-control mb-3" name="Query" placeholder="Запрос" rows="20"></textarea>
-          <textarea class="form-control mb-3" name="Rem" placeholder="Описание" rows="10"></textarea>
+          {{range $param := (index .Dict "PARAMS") }}
+          <div class="form-group row">
+            <label for="{{$param.NAME}}" class="col-sm-1 col-form-label">{{$param.NAME}}</label>
+            <div class="col-sm-1">
+              <input type="text" class="form-control mb-3" id="{{$param.NAME}}" name="val@{{$param.NAME}}" placeholder="значение" value="{{$param.VALUE}}">
+            </div>
+            <div class="col-sm-10">
+              <input type="text" class="form-control mb-3" id="{{$param.NAME}}" name="rem@{{$param.NAME}}" placeholder="описание" value="{{$param.REM}}">
+            </div>
+          </div>
+          {{end}}
+          <textarea class="form-control mb-3" name="Rem" placeholder="Описание" rows="3"></textarea>
           <select class="form-control mb-3" name="Id_connection">
             <option disabled selected>Соединение</option>
             {{range $index, $value := (index .Dict "CONNECTIONS") }}
@@ -98,8 +125,9 @@
             <option value={{index $value.ID}}>{{index $value.NAME}}</option>
             {{end}}
           </select>
-          <button type="submit" class="btn btn-secondary" name="submitBtn" value="cancel">Отмена</button>
-          <button type="submit" class="btn btn-primary" name="submitBtn" value="create">Создать</button>
+          <button type="submit" class="btn btn-primary" name="submitBtn" value="InitParam">Параметры</button>
+          <button type="submit" class="btn btn-secondary" name="submitBtn" value="Cancel">Отмена</button>
+          <button type="submit" class="btn btn-success" name="submitBtn" value="Create">Создать</button>
         </form>
       </div>
     </div>

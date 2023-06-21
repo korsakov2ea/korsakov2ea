@@ -1,381 +1,246 @@
 package main
 
 import (
+	"encoding/csv"
 	"korsakov2ea/xfunc"
 	"log"
 	"net/http"
 	"strconv"
 	"strings"
+
+	"github.com/go-gota/gota/dataframe"
+	"github.com/go-gota/gota/series"
 )
 
-// queries - обработчик HTTP (список запросов)
+// Возвращает все запросы +
 func queries(w http.ResponseWriter, r *http.Request) {
-	log.Printf("%v Переход к списку запросов ────────────────────────────────────────┐", xfunc.FuncName())
-
-	sqlErr = QBQuery.DFReadSQL("SELECT Q.ID, Q.REM, Q.QUERY, Q.NAME, Q.ID_GROUP, C.NAME AS C_NAME, G.NAME AS G_NAME FROM QUERY AS Q LEFT JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID LEFT JOIN QUERY_GROUP AS G ON G.ID=Q.ID_GROUP ORDER BY ID_GROUP, Q.ID")
+	log.Printf("%v --------- HTTP METHOD: %v, PARAM: %v", xfunc.FuncName(), r.Method, r.URL.RawQuery)
+	sqlErr = QBQuery.DFReadSQL("SELECT Q.ID, Q.REM, Q.QUERY, Q.NAME, Q.ID_GROUP, C.NAME AS C_NAME, G.NAME AS G_NAME FROM QUERY AS Q LEFT JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID LEFT JOIN QUERY_GROUP AS G ON G.ID=Q.ID_GROUP ORDER BY G_NAME, Q.ID")
 	if sqlErr != nil {
-		RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+		RenderData.AddAlert(sqlErr.Error(), "danger")
 	}
-
 	RenderData.DataMap = QBQuery.DataFrame.Maps()
-	RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Всего запросов - " + strconv.Itoa(len(RenderData.Data)), Class: "info"})
-	xfunc.RenderPage(w, "queries.html", "common.html", RenderData)
-	RenderData.Alerts = nil
-	log.Printf("%v Переход к списку запросов ────────────────────────────────────────┘", xfunc.FuncName())
+	RenderData.RenderMap(w, "queries.html", "common.html")
+	RenderData.Clear()
 }
 
-// query - обработчик HTTP (одиночный запрос)
+// Обработчик событий при работе с запросом
 func query(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(r.FormValue("ID"))
 	if err != nil && r.Method == "POST" && (r.FormValue("submitBtn") == "Update" || r.FormValue("submitBtn") == "Delete") {
 		log.Printf("%v Ошибка преобразования ID = %v из GET запроса в число", xfunc.FuncName(), r.FormValue("ID"))
 	} else {
 		log.Printf("%v HTTP запрос с параметрами %v", xfunc.FuncName(), r.URL.RawQuery)
-
+		RenderData.Clear()
 		switch {
 
-		// Отмена изменения запроса
-		case r.Method == "POST" && r.FormValue("submitBtn") == "cancel":
-			log.Printf("%v Отмена изменения запроса ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-			RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Нажата кнопка [Отмена]", Class: "info"})
+		// Отмена изменения запроса +
+		case r.Method == "POST" && r.FormValue("submitBtn") == "Cancel":
+			RenderData.AddAlert("Нажата кнопка [Отмена]", "info")
 			http.Redirect(w, r, "queries", http.StatusFound)
-			log.Printf("%v Отмена изменения запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// Создание запроса
-		case r.Method == "POST" && r.FormValue("submitBtn") == "create":
-			log.Printf("%v Создание запроса ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
+		// Создание / изменение запроса +
+		case r.Method == "POST" && (r.FormValue("submitBtn") == "Create" || r.FormValue("submitBtn") == "Update"):
 			newQuery := make(map[string]string)
 			newQuery["NAME"] = r.FormValue("Name")
 			newQuery["QUERY"] = strings.Replace(r.FormValue("Query"), "'", "''", -1)
 			newQuery["REM"] = strings.Replace(r.FormValue("Rem"), "'", "''", -1)
 			newQuery["ID_CONNECTION"] = r.FormValue("Id_connection")
 			newQuery["ID_GROUP"] = r.FormValue("Id_group")
-
-			sqlErr = QBQuery.Create(newQuery)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+			action := ""
+			switch r.FormValue("submitBtn") {
+			case "Create":
+				RenderData.AddAlertIfErr(QBQuery.Create(newQuery))
+				action = "создан"
+			case "Update":
+				RenderData.AddAlertIfErr(QBQuery.Update(id, newQuery))
+				// удаление параметров...
+				RenderData.AddAlertIfErr(QB.DBExec("DELETE FROM PARAM WHERE ID_QUERY=" + strconv.Itoa(id)))
+				action = "изменен"
 			}
 
-			// добавление параметров из запроса в базу
-			params := xfunc.GetParamsFromStr(newQuery["QUERY"])
-			if len(params) > 0 {
-				sqlErr = QBQuery.ReadSQL("SELECT ID FROM QUERY WHERE NAME='" + newQuery["NAME"] + "'")
-				if sqlErr != nil {
-					RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+			// добавление параметров в базу
+			RenderData.AddAlertIfErr(QBQuery.DFReadSQL("SELECT ID FROM QUERY WHERE NAME='" + newQuery["NAME"] + "'"))
+			newQueryID := QBQuery.DataFrame.Elem(0, 0).String()
+			newParam := make(map[string]string)
+			for formKey := range r.Form {
+				if strings.Contains(formKey, "val@") {
+					newParam["ID_QUERY"] = newQueryID
+					newParam["NAME"] = strings.Replace(formKey, "val@", "", 1)
+					newParam["REM"] = r.Form[strings.Replace(formKey, "val@", "rem@", 1)][0]
+					newParam["VALUE"] = r.Form[formKey][0]
+					RenderData.AddAlertIfErr(QBParam.Create(newParam))
 				}
-				newParam := make(map[string]string)
-				for param_key, param := range params {
-					newParam["ID_QUERY"] = QBQuery.Data[0].ByName["ID"]
-					newParam["NAME"] = param_key
-					newParam["REM"] = param.Rem
-					newParam["VALUE"] = param.DefaultValue
-					sqlErr = QBParam.Create(newParam)
-					if sqlErr != nil {
-						RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-					}
-				}
 			}
 
-			if sqlErr == nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Запрос создан", Class: "success"})
-			}
+			RenderData.AddAlertIfOk("Запрос " + action)
 			http.Redirect(w, r, "queries", http.StatusFound)
-			log.Printf("%v Создание запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
-		// Изменение запроса
-		case r.Method == "POST" && r.FormValue("submitBtn") == "update":
-			log.Printf("%v Нажата кнопка СОЗДАТЬ на странице создания запроса ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-			newQuery := make(map[string]string)
-			newQuery["NAME"] = r.FormValue("Name")
-			newQuery["QUERY"] = strings.Replace(r.FormValue("Query"), "'", "''", -1)
-			newQuery["REM"] = strings.Replace(r.FormValue("Rem"), "'", "''", -1)
-			newQuery["ID_CONNECTION"] = r.FormValue("Id_connection")
-			newQuery["ID_GROUP"] = r.FormValue("Id_group")
-			sqlErr = QBQuery.Update(id, newQuery)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+		// Переход к добавлению / изменению запроса +
+		case (r.Method == "GET" && (r.FormValue("mode") == "add" || r.FormValue("mode") == "edit")) || (r.Method == "POST" && r.FormValue("submitBtn") == "InitParam"):
+			if r.FormValue("mode") == "edit" {
+				RenderData.GetOneFromTable(&QBQuery, id)
+				RenderData.AddAlertIfErr(QBParam.DFReadSQL("SELECT * FROM PARAM WHERE ID_QUERY=" + strconv.Itoa(id)))
+				RenderData.AddDictFromMaps("PARAMS", QBParam.DataFrame.Maps())
 			}
-
-			// удаление...
-			sqlErr = QBQuery.ReadSQL("SELECT ID FROM PARAM WHERE ID_QUERY=" + strconv.Itoa(id))
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-			if len(QBQuery.Data) > 0 {
-				sqlErr = QB.DBExec("DELETE FROM PARAM WHERE ID_QUERY=" + strconv.Itoa(id))
-				if sqlErr != nil {
-					RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+			if r.FormValue("submitBtn") == "InitParam" {
+				query := strings.Replace(r.FormValue("Query"), "'", "''", -1)
+				params := xfunc.GetParam(query)
+				if len(params) > 0 {
+					RenderData.AddDictFromMaps("PARAMS", dataframe.New(series.New(params, series.String, "NAME")).Maps())
 				}
+				RenderData.DataMap[0]["QUERY"] = r.FormValue("Query")
 			}
-
-			// ...и повторное добавление параметров из запроса в базу
-			params := xfunc.GetParamsFromStr(newQuery["QUERY"])
-			if len(params) > 0 {
-				newParam := make(map[string]string)
-				for param_key, param_data := range params {
-					newParam["ID_QUERY"] = strconv.Itoa(id)
-					newParam["NAME"] = param_key
-					newParam["REM"] = param_data.Rem
-					newParam["VALUE"] = param_data.DefaultValue
-					sqlErr = QBParam.Create(newParam)
-					if sqlErr != nil {
-						RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-					}
-				}
-			}
-			if sqlErr == nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Запрос изменён", Class: "success"})
-			}
-			http.Redirect(w, r, "queries", http.StatusFound)
-			log.Printf("%v Изменение запроса ────────────────────────────────────────┘", xfunc.FuncName())
-
-		// Удаление запроса
-		case r.Method == "POST" && r.FormValue("submitBtn") == "delete":
-			log.Printf("%v Нажата кнопка УДАЛИТЬ на странице редактирования запроса ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-			sqlErr = QBQuery.Delete(id)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-
-			andParam := ""
-			// удаление параметров
-			sqlErr = QBQuery.ReadSQL("SELECT ID FROM PARAM WHERE ID_QUERY=" + strconv.Itoa(id))
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-			if len(QBQuery.Data) > 0 {
-				sqlErr = QB.DBExec("DELETE FROM PARAM WHERE ID_QUERY=" + strconv.Itoa(id))
-				if sqlErr != nil {
-					RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-				} else {
-					andParam = " с параметрами"
-				}
-			}
-
-			if sqlErr == nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Запрос" + andParam + " удалён", Class: "success"})
-			}
-			http.Redirect(w, r, "queries", http.StatusFound)
-			log.Printf("%v Удаление запроса ────────────────────────────────────────┘", xfunc.FuncName())
-
-		// Переход к добавлению запроса
-		case r.Method == "GET" && r.FormValue("mode") == "add":
-			log.Printf("%v Переход к добавлению запроса ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-			RenderData.Data = nil
-			RenderData.DataMap = nil
-			sqlErr = QBConnection.DFReadAll(0)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-			sqlErr = QBGroup.DFReadAll(0)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-			RenderData.Dict = make(map[string]interface{})
-			RenderData.Dict["CONNECTIONS"] = QBConnection.DataFrame.Maps()
-			RenderData.Dict["GROUPS"] = QBGroup.DataFrame.Maps()
-			xfunc.RenderPage(w, "query.html", "common.html", RenderData)
-			log.Printf("%v Переход к добавлению запроса ────────────────────────────────────────┘", xfunc.FuncName())
-
-		// Переход к изменению запроса
-		case r.Method == "GET" && r.FormValue("mode") == "edit":
-			log.Printf("%v Переход к изменению запроса ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-
-			sqlErr = QBQuery.DFRead(id)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-			RenderData.DataMap = QBQuery.DataFrame.Maps()
-
-			sqlErr = QBConnection.DFReadAll(0)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-			sqlErr = QBGroup.DFReadAll(0)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-
-			RenderData.Dict = make(map[string]interface{})
-			RenderData.Dict["CONNECTIONS"] = QBConnection.DataFrame.Maps()
-			RenderData.Dict["GROUPS"] = QBGroup.DataFrame.Maps()
-			xfunc.RenderPage(w, "query.html", "common.html", RenderData)
-			log.Printf("%v ППереход к изменению запроса ────────────────────────────────────────┘", xfunc.FuncName())
+			RenderData.AddDictFromTable("CONNECTIONS", &QBConnection)
+			RenderData.AddDictFromTable("GROUPS", &QBGroup)
+			RenderData.RenderMap(w, "query.html", "common.html")
 
 		// Переход к выполнению запроса
 		case r.Method == "GET" && r.FormValue("mode") == "open":
-			log.Printf("%v Переход к выполнению запроса ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-			RenderData.Data = nil
-			RenderData.Dict = make(map[string]interface{})
-			RenderData.Param = make(map[string]xfunc.TParamOptions)
-
 			// получение параметров из базы для верстки страницы
-			sqlErr = QBParam.ReadSQL("SELECT * FROM PARAM WHERE ID_QUERY=" + strconv.Itoa(id))
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-			if len(QBParam.Data) > 0 {
-				for _, param_key := range QBParam.Data {
-					RenderData.Param[param_key.ByName["NAME"]] = xfunc.TParamOptions{Rem: param_key.ByName["REM"], DefaultValue: param_key.ByName["VALUE"]}
-				}
-			}
-
-			sqlErr = QBQuery.Read(id)
-			if sqlErr != nil {
-				RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-			}
-			RenderData.Dict["QUERY_NAME"] = QBQuery.Data[0].ByName["NAME"]
-			RenderData.Dict["QUERY_REM"] = QBQuery.Data[0].ByName["REM"]
-			RenderData.Dict["QUERY_SQL"] = QBQuery.Data[0].ByName["QUERY"]
-
+			RenderData.AddAlertIfErr(QBParam.DFReadSQL("SELECT * FROM PARAM WHERE ID_QUERY=" + strconv.Itoa(id)))
+			RenderData.AddDictFromMaps("PARAMS", QBParam.DataFrame.Maps())
+			// получение запроса из базы для верстки страницы (название и описание)
+			RenderData.AddAlertIfErr(QBQuery.DFRead(id))
+			RenderData.AddDictFromMaps("QUERY", QBQuery.DataFrame.Maps())
 			// проверка необходимости загрузки файла
 			if needUploadData(id) {
-				RenderData.Dict["SubTableName"] = "QB.QB" + xfunc.GenerateTimeStamp()
-			} else {
-				RenderData.Dict["SubTableName"] = ""
+				RenderData.Dict["NEED_CSV"] = true
 			}
-
-			xfunc.RenderPage(w, "query_open.html", "common.html", RenderData)
-			log.Printf("%v Переход к выполнению запроса ────────────────────────────────────────┘", xfunc.FuncName())
+			RenderData.RenderMap(w, "query_open.html", "common.html")
 
 		// Выполнение запроса
 		case r.Method == "POST" && (r.FormValue("submitBtn") == "viewResult" || r.FormValue("submitBtn") == "downloadResult"):
-			log.Printf("%v Выполнение запроса ────────────────────────────────────────┐", xfunc.FuncName())
-			RenderData.Alerts = nil
-			RenderData.Data = nil
-
-			// получение параметров со страницы для использования в запросе
+			// получение параметров со страницы
+			params := make(map[string]string)
 			for formKey := range r.Form {
-				if strings.Contains(formKey, "param_") {
-					paramOption := xfunc.TParamOptions{Rem: RenderData.Param[formKey[6:]].Rem, CurrentValue: r.Form[formKey][0], DefaultValue: RenderData.Param[formKey[6:]].DefaultValue}
-					RenderData.Param[formKey[6:]] = paramOption
+				if strings.Contains(formKey, "val@") {
+					NAME := strings.Replace(formKey, "val@", "", 1)
+					VALUE := r.Form[formKey][0]
+					params[NAME] = VALUE
 				}
 			}
 
+			// получение запроса из базы для верстки страницы (название и описание)
+			RenderData.AddAlertIfErr(QBQuery.DFRead(id))
+			RenderData.AddDictFromMaps("QUERY", QBQuery.DataFrame.Maps())
+
+			idConn, _ := GetIdConnFromQuery(id)
 			needUpload := needUploadData(id)
 			dataUploaded := false
-			idConn, _ := GetIdConnFromQuery(id)
+			tmpTableName := ""
 
 			if needUpload {
-				RenderData.Dict["SubTableName"] = "QB.QB" + xfunc.GenerateTimeStamp()
-				log.Printf("Загрузка файла с web формы \n%v", xfunc.FuncName())
+				log.Printf("%v Загрузка файла с web формы", xfunc.FuncName())
 				if len(r.MultipartForm.File) > 0 {
-					CSVData := xfunc.GetStrMapFromCSVWebFile(xfunc.UploadFile(r, "uploadFile"))
-					CSVData = xfunc.DecodeStrMap1251toUTF8(CSVData)
-					sqlErr = importTmpTable(CSVData, RenderData.Dict["SubTableName"].(string), idConn)
-					if sqlErr != nil {
-						RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
-					} else {
+					multiPartFile := xfunc.UploadFile(r, "uploadFile")
+					csvDataFrame := dataframe.ReadCSV(multiPartFile, dataframe.WithDelimiter(';'), dataframe.WithLazyQuotes(false), dataframe.HasHeader(true))
+					log.Printf("%v Получен массив размерностью [%v : %v]", xfunc.FuncName(), csvDataFrame.Ncol(), csvDataFrame.Nrow())
+
+					recordsWithoutHeaders := csvDataFrame.Records()[1:]
+					strMapForImport := xfunc.DecodeStrMap1251toUTF8(recordsWithoutHeaders)
+					tmpTableName = "QB.QB" + xfunc.GenerateTimeStamp()
+					if RenderData.AddAlertIfErr(importTmpTable(strMapForImport, tmpTableName, idConn)) == nil {
 						dataUploaded = true
 					}
 				} else {
-					log.Printf("Не выбран файл для загрузки. Запрос не выполнен \n%v", xfunc.FuncName())
-					RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: "Не выбран файл для загрузки. Запрос не выполнен", Class: "danger"})
+					log.Printf("%v Не выбран файл для загрузки. Запрос не выполнен", xfunc.FuncName())
+					RenderData.AddAlert("Не выбран файл для загрузки. Запрос не выполнен", "danger")
 				}
 			}
 
-			// если не требудется загрузка или файл был успешно загружен в базу
+			// если не требуется загрузка или файл был успешно загружен в базу
 			if !needUpload || dataUploaded {
-				RenderData.Data, sqlErr = executeQuery(id)
+				resultDataFrame, sqlErr := executeQuery(id, params, tmpTableName)
 				if sqlErr != nil {
-					RenderData.Alerts = append(RenderData.Alerts, xfunc.TAlert{Text: sqlErr.Error(), Class: "danger"})
+					RenderData.AddAlert(sqlErr.Error(), "danger")
 				}
 				switch {
 				case r.FormValue("submitBtn") == "viewResult":
-					xfunc.RenderPage(w, "query_open.html", "common.html", RenderData)
+					RenderData.DataMap = resultDataFrame.Maps()
+					RenderData.RenderMap(w, "query_open.html", "common.html")
 				case r.FormValue("submitBtn") == "downloadResult":
-					CSV := getCSVfromData(RenderData.Data)
-					CSV = xfunc.DecodeStrUTF8to1251(CSV)
 					fileName := "QUERY_" + strconv.Itoa(id) + "_RESULT" + xfunc.GenerateTimeStamp() + ".csv"
 					w.Header().Set("Content-Type", "application/octet-stream")
 					w.Header().Set("Content-Disposition", "attachment; filename="+fileName)
 					w.WriteHeader(http.StatusOK)
-					w.Write([]byte(CSV))
+					csv := csv.NewWriter(w)
+					csv.Comma = ';'
+					csv.UseCRLF = true
+					csv.WriteAll(xfunc.DecodeStrMapUTF8to1251(resultDataFrame.Records()))
 				}
 			} else if !dataUploaded {
-				xfunc.RenderPage(w, "query_open.html", "common.html", RenderData)
+				RenderData.RenderMap(w, "query_open.html", "common.html")
 			}
 
-			// если файл был загружен в базу то удалить
+			// если файл был загружен в базу, то удалить
 			if dataUploaded {
-				dropTmpTable(RenderData.Dict["SubTableName"].(string), idConn)
+				dropTmpTable(tmpTableName, idConn)
 			}
-
-			log.Printf("%v Выполнение запроса ────────────────────────────────────────┘", xfunc.FuncName())
 
 		default:
+			w.Write([]byte("Неожиданный запрос! " + r.URL.RawPath + " " + r.URL.RawQuery))
 		}
 	}
 }
 
 // Выполняет запрос из базы запросов под номером id и возвращает возвращает результат
-func executeQuery(id int) (result xfunc.TResultRows, err error) {
-
+func executeQuery(id int, paramMap map[string]string, tmpTableName string) (result dataframe.DataFrame, err error) {
 	log.Printf("%v Выполнение запроса из QB c id = %v", xfunc.FuncName(), id)
-	queryRows, _ := QB.DBQuery("SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=" + strconv.Itoa(id))
-	queryRowsCount := len(queryRows)
+	queryRows, _ := QB.DBDFQuery("SELECT C.DRIVER, C.DSN, C.NAME, Q.QUERY FROM QUERY AS Q INNER JOIN CONNECTION AS C ON Q.ID_CONNECTION=C.ID AND Q.ID=" + strconv.Itoa(id))
 
 	var targetDB xfunc.TDatabase //соединение для выполнения запроса из базы
 
-	if queryRowsCount != 0 {
-		targetDB.Driver = queryRows[0].ByName["DRIVER"]
-		targetDB.DSN = queryRows[0].ByName["DSN"]
-		targetDB.Name = queryRows[0].ByName["NAME"]
-		targetQuery := queryRows[0].ByName["QUERY"]
+	if queryRows.Nrow() != 0 {
+		targetDB.Driver = queryRows.Maps()[0]["DRIVER"].(string)
+		targetDB.DSN = queryRows.Maps()[0]["DSN"].(string)
+		targetDB.Name = queryRows.Maps()[0]["NAME"].(string)
+		targetQuery := queryRows.Maps()[0]["QUERY"].(string)
 
 		targetDB.SetDecodeParam()
-
 		targetDB.DBOpen()
 		defer targetDB.DBClose()
 
-		for param_key, param_data := range RenderData.Param {
-			paramStr := "{" + param_key + ":" + param_data.Rem + ":" + param_data.DefaultValue + "}"
-			targetQuery = strings.Replace(targetQuery, paramStr, param_data.CurrentValue, -1)
+		for param_name, param_val := range paramMap {
+			targetQuery = strings.Replace(targetQuery, "{@"+param_name+"}", param_val, -1)
 		}
-
-		if len(RenderData.Dict["SubTableName"].(string)) > 0 {
-			targetQuery = strings.Replace(targetQuery, "#TABLE#", RenderData.Dict["SubTableName"].(string), -1)
+		if tmpTableName != "" {
+			targetQuery = strings.Replace(targetQuery, "#TABLE#", tmpTableName, -1)
 		}
-
-		result, err = targetDB.DBQuery(targetQuery)
-
+		result, err = targetDB.DBDFQuery(targetQuery)
 	} else {
 		log.Println(xfunc.FuncName(), "Нет строки запроса с ID -", id)
 	}
 	return result, err
-
 }
 
 // Возвращает true, если в запросе с id есть метка #TABLE#, т.е. предполагается загрузка внешних данных
 func needUploadData(id int) bool {
 	log.Printf("%v Проверка необходимости загрузки данных перед выполнением запроса (см. ниже)", xfunc.FuncName())
-	queryRows, _ := QB.DBQuery("SELECT QUERY FROM QUERY WHERE ID=" + strconv.Itoa(id))
-	queryRowsCount := len(queryRows)
-	result := false
-	if queryRowsCount != 0 {
-		if strings.Contains(queryRows[0].ByName["QUERY"], "#TABLE#") {
-			log.Printf("%v Необходима загрузка данных из файла", xfunc.FuncName())
-			result = true
-			return result
-		} else {
-			log.Printf("%v Запрос выполняется без загрузки файла", xfunc.FuncName())
-		}
+	queryRows, err := QB.DBDFQuery("SELECT QUERY FROM QUERY WHERE ID=" + strconv.Itoa(id))
+	if err != nil {
+		log.Printf("%v Ошибка получения запроса по id", xfunc.FuncName())
+		return false
 	} else {
-		log.Println(xfunc.FuncName(), "Нет строки запроса с ID -", id)
+		queryRowsCount := queryRows.Nrow()
+		result := false
+		if queryRowsCount != 0 {
+			if strings.Contains(queryRows.Elem(0, 0).String(), "#TABLE#") {
+				log.Printf("%v Необходима загрузка данных из файла", xfunc.FuncName())
+				result = true
+				return result
+			} else {
+				log.Printf("%v Запрос выполняется без загрузки файла", xfunc.FuncName())
+			}
+		} else {
+			log.Println(xfunc.FuncName(), "Нет строки запроса с ID -", id)
+		}
+		return result
 	}
-	return result
 }
 
 // Создание временной таблицы tableName (схема.имя) в соединении idСonn с колонками типа COL1 VARCHAR(255) ... COLn VARCHAR(255) и загрузка в неё данных из strMap
 func importTmpTable(strMap [][]string, tableName string, idConn int) error {
-
 	log.Printf("%v \n\tСоздание временной таблицы %v", xfunc.FuncName(), tableName)
 	colNames, colNameTypes := xfunc.GetCOLStrMap(strMap, "VARCHAR (255)")
 	sqlCode := "CREATE TABLE " + tableName + " (" + colNameTypes + ")"
@@ -390,7 +255,7 @@ func importTmpTable(strMap [][]string, tableName string, idConn int) error {
 		}
 		colValues = colValues[2:]
 
-		sqlCode = sqlCode + "INSERT INTO " + RenderData.Dict["SubTableName"].(string) + " (" + colNames + ") VALUES (" + colValues + ");\n"
+		sqlCode = sqlCode + "INSERT INTO " + tableName + " (" + colNames + ") VALUES (" + colValues + ");\n"
 
 	}
 	return executeSQLConn(sqlCode, idConn)

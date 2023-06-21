@@ -162,10 +162,10 @@ func auth(nextFunc http.HandlerFunc) http.HandlerFunc {
 				switch {
 				case authResult == 0:
 					log.Printf("%v Аутентификация пользователя %v не выполнена", xfunc.FuncName(), formLogin)
-					xfunc.RenderPage(w, "login.html", "common.html", RenderData)
+					RenderData.RenderMap(w, "login.html", "common.html")
 				case authResult == 1:
 					log.Printf("%v Авторизация пользователя %v не пройдена (нет ролей)", xfunc.FuncName(), formLogin)
-					xfunc.RenderPage(w, "login.html", "common.html", RenderData)
+					RenderData.RenderMap(w, "login.html", "common.html")
 				case authResult == 2:
 					log.Printf("%v Авторизация пользователя %v пройдена (ADMIN)", xfunc.FuncName(), formLogin)
 					xfunc.SetCookie(w, "QBLogin", formLogin, 15*time.Minute)
@@ -185,7 +185,7 @@ func auth(nextFunc http.HandlerFunc) http.HandlerFunc {
 				}
 			} else {
 				// если данные были не с формы (а просто обратились к странице)
-				xfunc.RenderPage(w, "login.html", "common.html", RenderData)
+				RenderData.RenderMap(w, "login.html", "common.html")
 			}
 		}
 	}
